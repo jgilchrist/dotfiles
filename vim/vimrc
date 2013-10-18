@@ -1,0 +1,12 @@
+" Jonny Gilchrist's .vimrc file
+
+execute pathogen#infect()
+
+" Extended matching for latex, HTML, etc.
+runtime macros/matchit.vim
+
+source $HOME/.vim/rc/settings.vim
+source $HOME/.vim/rc/statusline.vim
+source $HOME/.vim/rc/filetype.vim
+source $HOME/.vim/rc/map.vim
+source $HOME/.vim/rc/plugin.vim

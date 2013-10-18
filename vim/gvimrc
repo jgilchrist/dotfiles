@@ -1,0 +1,13 @@
+set guifont=Ubuntu\ Mono\ 12
+set background=dark
+
+" Remove scrollbars and menus from the GUI
+set guioptions-=M
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=l
+set guioptions-=L
+
+" Disable the mouse
+set mouse=c
