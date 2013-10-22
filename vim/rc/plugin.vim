@@ -6,4 +6,4 @@ let g:ctrlp_custom_ignore = {
 
 nnoremap <leader>nt :NERDTreeToggle<CR>
 
-nnoremap <leader>ta :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+let g:NERDSpaceDelims=1
