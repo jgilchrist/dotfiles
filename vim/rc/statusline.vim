@@ -39,6 +39,4 @@ set statusline+=%1*%=
 " Column
 set statusline+=%1*col:%2*%c\ \ 
 " Line
-set statusline+=%1*lin:%2*%l\ \ 
-" Total lines
-set statusline+=%1*total:%2*%L\ 
+set statusline+=%1*lin:%2*%l/%L\ 
