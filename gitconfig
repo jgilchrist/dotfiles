@@ -1,0 +1,44 @@
+[user]
+    name = Jonny Gilchrist
+    email = jonnygilchrist@gmail.com
+[diff]
+[color]
+    ui = auto
+[merge]
+    tool = vimdiff
+[core]
+    editor = vim
+    pager = less -FXRS
+    excludesfile = ~/.gitignore
+    autocrlf = input
+    whitespace = trailing-space,space-before-tab
+[diff]
+    renames = copies
+    mnemonicprefix = true
+[push]
+    default = simple
+[alias]
+    create = "!f(){ git init \"$@\" && git commit -m \"Created Repository\" --allow-empty;};f\n"
+
+    aa = add --all
+    au = add -u
+    s = status -s
+    st = status
+    ci = commit
+    cm = commit -m
+
+    co = checkout
+    b = branch
+
+    di = diff
+    dc = diff --cached
+
+    ff = merge --ff-only
+    pullff = pull --ff-only
+
+    head = !git l -1
+    h = !git head
+
+    lb = !git log --oneline --abbrev-commit --graph --decorate --color
+    l = !git lb -10
+    la = !git lb --all
