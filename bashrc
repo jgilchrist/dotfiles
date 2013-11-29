@@ -5,12 +5,12 @@
 . /etc/environment
 
 # Machine-specific modifications to the path
-if [ -f "$HOME/.path" ]; then
-    . "$HOME/.path"
+if [ -f "${HOME}/.path" ]; then
+    . "${HOME}/.path"
 fi
 
-if [ -d "$HOME/bin" ]; then
-    export PATH="$HOME/bin:$PATH"
+if [ -d "${HOME}/bin" ]; then
+    export PATH="${HOME}/bin:$PATH"
 fi
 
 # Always use a 256 color terminal

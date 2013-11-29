@@ -7,7 +7,7 @@ usage() {
 display_notes() {
     input_file=$1
     file_basename="`basename $1`"
-    output_file="$file_basename.html"
+    output_file="${file_basename}.html"
     markdown $input_file > $output_file
     google-chrome $output_file
 }

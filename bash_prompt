@@ -2,6 +2,4 @@
 
 . ~/bin/bash_colors
 
-BOLD=$(tput bold)
-
-PS1="\n$YELLOW \W$CYAN ) $RESET"
+PS1="\n${YELLOW} \W${CYAN} ) ${RESET}"
