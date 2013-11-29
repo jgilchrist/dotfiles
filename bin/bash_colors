@@ -36,8 +36,6 @@ bright_color() {
     echo "${BEGIN}${BRIGHT};${1}${END}"
 }
 
-CYAN=$(dull_color $FG_BLACK)
-
 BLACK=$(dull_color $FG_BLACK)
 RED=$(dull_color $FG_RED)
 GREEN=$(dull_color $FG_GREEN)
