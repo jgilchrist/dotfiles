@@ -1,7 +1,7 @@
 DOTFILES = $(PWD)
 BACKUP = $(HOME)/.dotfiles.backup
 
-all: make-backup-folder ack bash tmux git
+all: make-backup-folder ack bash tmux git bin-folder
 
 make-backup-folder:
 	rm -rf --interactive $(BACKUP)
@@ -29,3 +29,9 @@ tmux:
 	mv $(HOME)/.tmux.conf $(BACKUP)
 	ln -s $(DOTFILES)/tmux.conf $(HOME)/.tmux.conf
 
+DOTBIN=$(DOTFILES)/bin
+HOMEBIN=$(HOME)/bin
+bin-folder:
+	mkdir -p $(HOME)/bin
+	ln -s $(DOTBIN)/bash_colors $(HOMEBIN)/bash_colors
+	ln -s $(DOTBIN)/notes $(HOMEBIN)/notes

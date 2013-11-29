@@ -1,0 +1,20 @@
+#!/bin/bash
+
+usage() {
+    echo "Usage: `basename $0` filename.md"
+}
+
+display_notes() {
+    input_file=$1
+    file_basename="`basename $1`"
+    output_file="$file_basename.html"
+    markdown $input_file > $output_file
+    google-chrome $output_file
+}
+
+if [ "$#" -ne 1 ]; then
+    usage
+    exit 1
+fi
+
+display_notes $1
