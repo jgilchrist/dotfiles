@@ -22,6 +22,8 @@ set showmatch
 set cursorline
 " Don't redraw during macros
 set lazyredraw
+" Improve redrawing
+set ttyfast
 
 " Expand tabs into spaces
 set expandtab
@@ -68,8 +70,4 @@ set wildmode=list:longest,full
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
 
 set t_Co=256
-if has("gui_running")
-    colorscheme Tomorrow-Night
-else
-    colorscheme sol-term
-endif
+colorscheme Tomorrow-Night
