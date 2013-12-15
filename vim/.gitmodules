@@ -19,3 +19,9 @@
 [submodule "bundle/vim-airline"]
 	path = bundle/vim-airline
 	url = https://github.com/bling/vim-airline.git
+[submodule "bundle/opengl.vim"]
+	path = bundle/opengl.vim
+	url = https://github.com/beyondmarc/opengl.vim
+[submodule "bundle/switch.vim"]
+	path = bundle/switch.vim
+	url = https://github.com/AndrewRadev/switch.vim.git
