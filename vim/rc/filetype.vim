@@ -5,9 +5,9 @@ augroup rubyfiletype
 augroup end
 
 augroup markdownfiletype
-    au BufRead,BufNewFile *.markdown setfiletype mkd
-    au BufRead,BufNewFile *.mkd setfiletype mkd
-    au BufRead,BufNewFile *.md setfiletype mkd
+    au BufRead,BufNewFile *.markdown setfiletype markdown
+    au BufRead,BufNewFile *.mkd setfiletype markdown
+    au BufRead,BufNewFile *.md setfiletype markdown
 augroup end
 
 augroup sconsfiletype
