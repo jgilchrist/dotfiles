@@ -40,12 +40,6 @@ nnoremap Y y$
 " ------------------------------------------------------------------------------
 nnoremap <CR> :nohlsearch<CR>
 
-" Close the current buffer with <leader>c
+" Close the current buffer with <leader>q
 " ------------------------------------------------------------------------------
-nnoremap <leader>c :bd<CR>
-
-" Colorscheme switching
-" ------------------------------------------------------------------------------
-nnoremap <leader>tb :color Tomorrow-Night-Bright<CR>
-nnoremap <leader>ts :color sol<CR>
-nnoremap <leader>td :color default<CR>
+nnoremap <leader>q :bd<CR>
