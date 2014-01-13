@@ -2,4 +2,9 @@
 
 . ~/bin/bash_colors
 
-PS1="\n${YELLOW} \W${CYAN} ) ${RESET}"
+if [ -f "${HOME}/bin/git-prompt.sh" ]; then
+    . "${HOME}/bin/git-prompt.sh"
+fi
+
+# PS1="\n${CYAN}\w ${RESET}\$(__git_ps1 'on ${YELLOW}%s')${RESET}\n% "
+PS1="\n${CYAN}\w ${RESET}\$(__git_ps1 'on ${YELLOW}%s')${RESET}\n% "
