@@ -22,11 +22,6 @@ nnoremap <c-l> <c-w>l
 command! W write
 command! Q quit
 
-" Underline with a mapping
-" ------------------------------------------------------------------------------
-nnoremap <leader>- yypVr-A--<esc>
-inoremap <leader>- <esc>yypVr-A--
-
 " Delete and paste without overwriting the paste register
 " ------------------------------------------------------------------------------
 nnoremap x "_x
@@ -40,6 +35,15 @@ nnoremap Y y$
 " ------------------------------------------------------------------------------
 nnoremap <CR> :nohlsearch<CR>
 
+" Space repeats last macro
+" ------------------------------------------------------------------------------
+nnoremap <space> @@
+
 " Close the current buffer with <leader>q
 " ------------------------------------------------------------------------------
 nnoremap <leader>q :bd<CR>
+
+" Underline with a mapping
+" ------------------------------------------------------------------------------
+nnoremap <leader>- yypVr-A--<esc>
+inoremap <leader>- <esc>yypVr-A--
