@@ -25,4 +25,4 @@ endif
 
 " switch.vim
 " ------------------------------------------------------------------------------
-nnoremap <space> :Switch<cr>
+nnoremap s :Switch<cr>
