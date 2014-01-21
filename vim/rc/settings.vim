@@ -69,5 +69,10 @@ set wildmode=list:longest,full
 " Ignore the following types of files:
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
 
+highlight TrailingWhitespace ctermbg=red guibg=darkred
+autocmd InsertEnter * match
+autocmd InsertLeave * match TrailingWhitespace /\s\+$/
+autocmd ColorScheme * highlight TrailingWhitespace ctermbg=red guibg=darkred
+
 set t_Co=256
 colorscheme Tomorrow-Night
