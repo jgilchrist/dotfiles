@@ -14,7 +14,6 @@ alias :q="exit"
 alias todo="ack 'todo:'"
 
 # helper programs
-alias vim="gvim"
 alias pdf="google-chrome"
 alias ccat="pygmentize -g"
 
