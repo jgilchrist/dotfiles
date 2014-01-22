@@ -4,7 +4,7 @@
 
 if [ -f "${HOME}/bin/git-prompt.sh" ]; then
     . "${HOME}/bin/git-prompt.sh"
+    PS1="\n${CYAN}\w ${RESET}\$(__git_ps1 'on ${YELLOW}%s')${RESET}\n% "
+else
+    PS1="\n${CYAN}\w : \h{RESET}\n% "
 fi
-
-# PS1="\n${CYAN}\w ${RESET}\$(__git_ps1 'on ${YELLOW}%s')${RESET}\n% "
-PS1="\n${CYAN}\w ${RESET}\$(__git_ps1 'on ${YELLOW}%s')${RESET}\n% "
