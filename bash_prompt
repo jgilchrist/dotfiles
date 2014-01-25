@@ -2,8 +2,7 @@
 
 . ~/bin/bash_colors
 
-if [ -f "${HOME}/bin/git-prompt.sh" ]; then
-    . "${HOME}/bin/git-prompt.sh"
+if [ -f /etc/bash_completion ]; then
     PS1="\n${CYAN}\w ${RESET}\$(__git_ps1 'on ${YELLOW}%s')${RESET}\n% "
 else
     PS1="\n${CYAN}\w : \h${RESET}\n% "
