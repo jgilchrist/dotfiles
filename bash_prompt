@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ~/bin/bash_colors
+. ${HOME}/.bash_colors
 
 if [ -f /etc/bash_completion ]; then
     PS1="\n${CYAN}\w ${RESET}\$(__git_ps1 'on ${YELLOW}%s')${RESET}\n% "

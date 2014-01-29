@@ -1,0 +1,89 @@
+#!/bin/bash
+
+# Gets the path of the script, wherever it's called from.
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd)"
+BACKUP=${DOTFILES}/.backup
+
+RED=1
+GREEN=2
+CYAN=3
+
+log() {
+    printf "["
+    tput setaf $3
+    printf "$1"
+    tput sgr0
+    printf "] "
+    printf "$2"
+    printf "\n"
+}
+
+success() {
+    log "Success" "$1" ${GREEN}
+}
+
+failure() {
+    log "Failure" "$1" ${RED}
+}
+
+notice() {
+    log " Notice" "$1" ${CYAN}
+}
+
+make_backup_folder() {
+    if [ -d ${BACKUP} ]; then
+        rm -rf ${BACKUP}
+        success "Removed old backups"
+    fi
+
+    mkdir -p ${BACKUP}
+}
+
+install() {
+    if [ $# -ne 1 ]; then
+        printf "Function install takes one argument only, not $#"
+        exit
+    fi
+
+    # Check actual dotfile exists to link to
+    if [ ! -f ${DOTFILES}/$1 ]; then
+        failure "File $1 does not exist."
+        exit
+    fi
+
+    # Move existing non-symlink file to backup
+    if [ -f ${HOME}/.$1 ] && [ ! -h ${HOME}/.$1 ]; then
+        mv ${HOME}/.$1 ${BACKUP}
+        notice "Backed up existing $1"
+    fi
+
+    # Remove existing symlinks
+    if [ -f ${HOME}/.$1 ] && [ -h ${HOME}/.$1 ]; then
+        rm ${HOME}/.$1
+    fi
+
+    ln -s ${DOTFILES}/$1 ${HOME}/.$1
+    success "$1"
+}
+
+main() {
+    make_backup_folder
+
+    # Bash
+    install bashrc
+    install bash_aliases
+    install bash_prompt
+    install bash_colors
+
+    # Git
+    install gitconfig
+    install gitignore
+
+    # Ack
+    install ackrc
+
+    # Tmux
+    install tmux.conf
+}
+
+main
