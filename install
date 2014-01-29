@@ -57,11 +57,15 @@ install() {
         notice "Backed up existing $1"
     fi
 
-    # Remove existing symlinks
+    # If the symlink already exists, return
     if [ -f ${HOME}/.$1 ] && [ -h ${HOME}/.$1 ]; then
-        rm ${HOME}/.$1
+        if [ "$(readlink -f ${HOME}/.$1)" == "${DOTFILES}/$1" ]; then
+            notice "$1 already installed"
+            return
+        fi
     fi
 
+    rm ${HOME}/.$1
     ln -s ${DOTFILES}/$1 ${HOME}/.$1
     success "$1"
 }
