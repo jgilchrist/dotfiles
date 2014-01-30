@@ -58,22 +58,24 @@ install() {
         exit
     fi
 
-    # Move existing non-symlink file to backup
+    # If there is already a real dotfile with this name
     if [ -f ${DOTFILE} ] && [ ! -h ${DOTFILE} ]; then
+        # Back it up
         mv ${DOTFILE} ${BACKUP}
-        notice "Backed up existing $1"
+        notice "Backed up existing file $1"
     fi
 
-    # If the symlink already exists, return
-    if [ -f ${DOTFILE} ] && [ -h ${DOTFILE} ]; then
+    # If the dotfile exists but is a symlink
+    if [ -h ${DOTFILE} ]; then
+        # If it is already correct
         if [ "$(readlink -f ${DOTFILE})" == "${ACTUALFILE}" ]; then
-            notice "$1 already installed"
+            # Skip
+            skipped "$1"
             return
+        else
+            mv ${DOTFILE} ${BACKUP}
+            notice "Backed up existing symlink $1"
         fi
-    fi
-    
-    if [ -f ${DOTFILE} ]; then
-        rm ${DOTFILE}
     fi
 
     ln -s ${ACTUALFILE} ${DOTFILE}
