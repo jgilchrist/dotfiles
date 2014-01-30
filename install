@@ -6,7 +6,7 @@ BACKUP=${DOTFILES}/.backup
 
 RED=1
 GREEN=2
-CYAN=3
+YELLOW=3
 
 log() {
     printf "["
@@ -27,7 +27,11 @@ failure() {
 }
 
 notice() {
-    log " Notice" "$1" ${CYAN}
+    log " Notice" "$1" ${YELLOW}
+}
+
+skipped() {
+    log "Skipped" "$1" ${YELLOW}
 }
 
 make_backup_folder() {
@@ -64,8 +68,11 @@ install() {
             return
         fi
     fi
+    
+    if [ -f ${HOME}/.$1 ]; then
+        rm ${HOME}/.$1
+    fi
 
-    rm ${HOME}/.$1
     ln -s ${DOTFILES}/$1 ${HOME}/.$1
     success "$1"
 }
