@@ -17,8 +17,6 @@ alias todo="ack 'todo:'"
 alias pdf="google-chrome"
 alias ccat="pygmentize -g"
 
-alias startapache='sudo /etc/init.d/apache2 start'
-
 function create() {
     mkdir -p $1 && cd $1; pwd
 }
