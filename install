@@ -44,36 +44,39 @@ make_backup_folder() {
 }
 
 install() {
+    DOTFILE="${HOME}/.$1"
+    ACTUALFILE="${DOTFILES}/$1"
+    
     if [ $# -ne 1 ]; then
         printf "Function install takes one argument only, not $#"
         exit
     fi
 
     # Check actual dotfile exists to link to
-    if [ ! -f ${DOTFILES}/$1 ]; then
-        failure "File $1 does not exist."
+    if [ ! -f ${ACTUALFILE} ]; then
+        failure "File ${ACTUALFILE} does not exist."
         exit
     fi
 
     # Move existing non-symlink file to backup
-    if [ -f ${HOME}/.$1 ] && [ ! -h ${HOME}/.$1 ]; then
-        mv ${HOME}/.$1 ${BACKUP}
+    if [ -f ${DOTFILE} ] && [ ! -h ${DOTFILE} ]; then
+        mv ${DOTFILE} ${BACKUP}
         notice "Backed up existing $1"
     fi
 
     # If the symlink already exists, return
-    if [ -f ${HOME}/.$1 ] && [ -h ${HOME}/.$1 ]; then
-        if [ "$(readlink -f ${HOME}/.$1)" == "${DOTFILES}/$1" ]; then
+    if [ -f ${DOTFILE} ] && [ -h ${DOTFILE} ]; then
+        if [ "$(readlink -f ${DOTFILE})" == "${ACTUALFILE}" ]; then
             notice "$1 already installed"
             return
         fi
     fi
     
-    if [ -f ${HOME}/.$1 ]; then
-        rm ${HOME}/.$1
+    if [ -f ${DOTFILE} ]; then
+        rm ${DOTFILE}
     fi
 
-    ln -s ${DOTFILES}/$1 ${HOME}/.$1
+    ln -s ${ACTUALFILE} ${HOME}/.$1
     success "$1"
 }
 
