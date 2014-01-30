@@ -46,7 +46,7 @@ make_backup_folder() {
 install() {
     DOTFILE="${HOME}/.$1"
     ACTUALFILE="${DOTFILES}/$1"
-    
+
     if [ $# -ne 1 ]; then
         printf "Function install takes one argument only, not $#"
         exit
@@ -76,7 +76,7 @@ install() {
         rm ${DOTFILE}
     fi
 
-    ln -s ${ACTUALFILE} ${HOME}/.$1
+    ln -s ${ACTUALFILE} ${DOTFILE}
     success "$1"
 }
 
