@@ -31,13 +31,17 @@ vnoremap p "_c<Esc>p
 " ------------------------------------------------------------------------------
 nnoremap Y y$
 
+" Shift-Q repeats the q macro
+" ------------------------------------------------------------------------------
+nnoremap Q @q
+
 " Enter removes search highlighting
 " ------------------------------------------------------------------------------
 nnoremap <CR> :nohlsearch<CR>
 
-" Space repeats last macro
+" Space toggles the current fold
 " ------------------------------------------------------------------------------
-nnoremap <space> @@
+nnoremap <space> za
 
 " Close the current buffer with <leader>q
 " ------------------------------------------------------------------------------
