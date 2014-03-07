@@ -1,0 +1,27 @@
+snippet ah "An aida header" !b
+#ifndef AIDA_`!p snip.rv = snip.basename.upper()`
+#define AIDA_`!p snip.rv = snip.basename.upper()`
+
+namespace aida {
+
+$1
+
+}
+
+#endif
+endsnippet
+
+snippet as "An aida source file" !b
+#include <${0:`!p
+import os.path
+filename, _ = os.path.split(path)
+headerDir = filename.replace('src/', '')
+snip.rv = "%s/%s.h" % (headerDir, snip.basename)
+`}>
+
+namespace aida {
+
+$1
+
+}
+endsnippet
