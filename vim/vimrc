@@ -2,8 +2,6 @@
 
 execute pathogen#infect()
 
-source $HOME/.vim/rc/filetype.vim
-
 " Settings {{{
 
 " Extended matching for latex, HTML, etc.
