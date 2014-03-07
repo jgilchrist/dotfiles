@@ -84,7 +84,7 @@ autocmd InsertLeave * match TrailingWhitespace /\s\+$/
 autocmd ColorScheme * highlight TrailingWhitespace ctermbg=red guibg=darkred
 
 set t_Co=256
-colorscheme Tomorrow-Night
+colorscheme tomorrow-night
 
 " }}}
 
