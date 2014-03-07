@@ -2,10 +2,181 @@
 
 execute pathogen#infect()
 
+source $HOME/.vim/rc/filetype.vim
+
+" Settings {{{
+
 " Extended matching for latex, HTML, etc.
 runtime macros/matchit.vim
 
-source $HOME/.vim/rc/settings.vim
-source $HOME/.vim/rc/filetype.vim
-source $HOME/.vim/rc/map.vim
-source $HOME/.vim/rc/plugin.vim
+" Enables Vim specific settings
+set nocompatible
+" Don't show the intro message when starting Vim
+set shortmess=I
+" Keep 1000 lines of history
+set history=1000
+
+" Turn on language specific syntax, plugins and indents
+syntax on
+filetype plugin indent on
+set encoding=utf-8
+
+" Show line numbers on the left hand side for coding
+set number
+" Auto-indent code
+set autoindent
+" Don't wrap lines
+set nowrap
+" When entering closing braces, flash the opening brace
+set showmatch
+" Highlight the current line
+set cursorline
+" Don't redraw during macros
+set lazyredraw
+" Improve redrawing
+set ttyfast
+
+" Expand tabs into spaces
+set expandtab
+" Expand tabs into 4 spaces
+set tabstop=4
+" Use 4 spaces for indentation
+set shiftwidth=4
+" Round up to the closest shift-width when inserting tabs
+set shiftround
+" Allow backspace to act correctly for 4 spaces
+set softtabstop=4
+" Allow backspace to delete over lines
+set backspace=indent,eol,start
+
+" Make the status bar two lines
+set laststatus=2
+" Make vim scroll when the cursor reaches the 3rd line from the end
+set scrolloff=3
+" Show the currently entered command on the statusline
+set showcmd
+" Show the current cursor position on the status bar
+set ruler
+" Show a column for the 100th character on the line
+set colorcolumn=81
+" Open splits to the right and to the bottom
+set splitbelow
+set splitright
+
+" Search incrementally
+set incsearch
+" Highlight matched text
+set hlsearch
+" Ignore case when searching, unless the search includes case
+set ignorecase smartcase
+
+" Don't keep swap files or backups (use version control instead!)
+set noswapfile
+set nobackup
+
+" Allows a completion menu for command line completion
+set wildmenu
+set wildmode=list:longest,full
+" Ignore the following types of files:
+set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
+
+highlight TrailingWhitespace ctermbg=red guibg=darkred
+autocmd InsertEnter * match
+autocmd InsertLeave * match TrailingWhitespace /\s\+$/
+autocmd ColorScheme * highlight TrailingWhitespace ctermbg=red guibg=darkred
+
+set t_Co=256
+colorscheme Tomorrow-Night
+
+" }}}
+
+" Mappings {{{
+
+" Disable the arrow keys
+" ------------------------------------------------------------------------------
+nnoremap <Up> <nop>
+nnoremap <Down> <nop>
+nnoremap <Left> <nop>
+nnoremap <Right> <nop>
+
+" Leader key as ,
+" ------------------------------------------------------------------------------
+let mapleader=","
+noremap \ ,
+
+" Easy split navigation
+" ------------------------------------------------------------------------------
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" :W and :Q still work
+" ------------------------------------------------------------------------------
+command! W write
+command! Q quit
+
+" Delete and paste without overwriting the paste register
+" ------------------------------------------------------------------------------
+nnoremap x "_x
+vnoremap p "_c<Esc>p
+
+" Make Y behave like other capitals
+" ------------------------------------------------------------------------------
+nnoremap Y y$
+
+" Shift-Q repeats the q macro
+" ------------------------------------------------------------------------------
+nnoremap Q @q
+
+" Enter removes search highlighting
+" ------------------------------------------------------------------------------
+nnoremap <CR> :nohlsearch<CR>
+
+" Space toggles the current fold
+" ------------------------------------------------------------------------------
+nnoremap <space> za
+
+" Close the current buffer with <leader>q
+" ------------------------------------------------------------------------------
+nnoremap <leader>q :bd<CR>
+
+" Underline with a mapping
+" ------------------------------------------------------------------------------
+nnoremap <leader>- yypVr-A--<esc>
+inoremap <leader>- <esc>yypVr-A--
+
+" }}}
+
+" Plugin settings {{{
+
+" CtrlP
+" ------------------------------------------------------------------------------
+
+" Sane Ignore For ctrlp
+let g:ctrlp_custom_ignore = {
+    \ 'dir': '\.git$\|\.hg$\|\.svn$\|\.yardoc\|target\|data\|log\|tmp\|doc$',
+    \ 'file': '\v\.(exe|so|dat|dll|class)$'
+    \ }
+
+" NERDTree
+" ------------------------------------------------------------------------------
+nnoremap <leader>nt :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$', '\.class$']
+
+let g:NERDSpaceDelims=1
+
+" vim-airline
+" ------------------------------------------------------------------------------
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+
+if !exists("g:UltiSnipsJumpForwardTrigger")
+    let g:UltiSnipsJumpForwardTrigger="<tab>"
+endif
+
+" switch.vim
+" ------------------------------------------------------------------------------
+nnoremap s :Switch<cr>
+
+" }}}
