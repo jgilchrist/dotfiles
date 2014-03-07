@@ -1,6 +1,27 @@
 " Jonny Gilchrist's .vimrc file
 
-execute pathogen#infect()
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+Bundle 'kien/ctrlp.vim'
+Bundle 'bling/vim-airline'
+
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'SirVer/ultisnips'
+
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
+
+Bundle 'AndrewRadev/switch.vim'
+
+Bundle 'beyondmarc/opengl.vim'
+Bundle 'tikhomirov/vim-glsl'
 
 " Settings {{{
 
@@ -8,7 +29,6 @@ execute pathogen#infect()
 runtime macros/matchit.vim
 
 " Enables Vim specific settings
-set nocompatible
 " Don't show the intro message when starting Vim
 set shortmess=I
 " Keep 1000 lines of history
