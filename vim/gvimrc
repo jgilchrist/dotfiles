@@ -1,5 +1,4 @@
 set guifont=Inconsolata\ 12
-set background=dark
 
 " Remove scrollbars and menus from the GUI
 set guioptions=c
