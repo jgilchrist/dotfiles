@@ -17,7 +17,7 @@
 [push]
     default = simple
 [alias]
-    create = "!f(){ git init \"$@\" && git commit -m \"Created Repository\" --allow-empty;};f\n"
+    create = !git init && git commit --allow-empty -m \"Created repository\"
 
     aa = add --all
     au = add -u
