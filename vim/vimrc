@@ -197,3 +197,5 @@ endif
 nnoremap s :Switch<cr>
 
 " }}}
+
+" vim: set fdm=marker:
