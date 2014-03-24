@@ -21,7 +21,6 @@ Bundle 'tpope/vim-repeat'
 Bundle 'AndrewRadev/switch.vim'
 
 Bundle 'beyondmarc/opengl.vim'
-Bundle 'tikhomirov/vim-glsl'
 
 " Settings {{{
 
