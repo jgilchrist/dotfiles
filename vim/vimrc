@@ -11,7 +11,9 @@ Plugin 'bling/vim-airline'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
+
 Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
