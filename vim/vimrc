@@ -2,23 +2,28 @@ set nocompatible
 
 filetype off
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-Bundle 'kien/ctrlp.vim'
-Bundle 'bling/vim-airline'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
 
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'SirVer/ultisnips'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'SirVer/ultisnips'
 
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 
-Bundle 'AndrewRadev/switch.vim'
+Plugin 'AndrewRadev/switch.vim'
 
-Bundle 'beyondmarc/opengl.vim'
+Plugin 'beyondmarc/opengl.vim'
+
+Plugin 'file://~/.vim/bundle/lang', {'pinned': 1}
+Plugin 'file://~/.vim/bundle/snippets', {'pinned': 1}
+
+call vundle#end()
 
 " Settings {{{
 
