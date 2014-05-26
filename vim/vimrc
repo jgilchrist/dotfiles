@@ -49,8 +49,6 @@ set autoindent
 set nowrap
 " When entering closing braces, flash the opening brace
 set showmatch
-" Highlight the current line
-set cursorline
 " Don't redraw during macros
 set lazyredraw
 " Improve redrawing
