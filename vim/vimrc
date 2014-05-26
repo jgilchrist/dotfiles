@@ -20,8 +20,6 @@ Plugin 'tpope/vim-repeat'
 
 Plugin 'AndrewRadev/switch.vim'
 
-Plugin 'beyondmarc/opengl.vim'
-
 Plugin 'lang', {'pinned': 1}
 Plugin 'snippets', {'pinned': 1}
 
