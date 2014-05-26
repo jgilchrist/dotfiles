@@ -6,19 +6,19 @@ call vundle#begin()
 
 Plugin 'gmarik/vundle'
 
-Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
+Plugin 'kien/ctrlp.vim',            {'name': 'ctrlp'}
+Plugin 'bling/vim-airline',         {'name': 'airline'}
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree',       {'name': 'nerdtree'}
+Plugin 'scrooloose/nerdcommenter',  {'name': 'nerdcommenter'}
 
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips',          {'name': 'ultisnips'}
+Plugin 'honza/vim-snippets',        {'name': 'default-snippets'}
 
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround',        {'name': 'surround'}
+Plugin 'tpope/vim-repeat',          {'name': 'repeat'}
 
-Plugin 'AndrewRadev/switch.vim'
+Plugin 'AndrewRadev/switch.vim',    {'name': 'switch'}
 
 Plugin 'lang', {'pinned': 1}
 Plugin 'snippets', {'pinned': 1}
