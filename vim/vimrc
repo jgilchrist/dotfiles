@@ -22,8 +22,8 @@ Plugin 'AndrewRadev/switch.vim'
 
 Plugin 'beyondmarc/opengl.vim'
 
-Plugin 'file://~/.vim/bundle/lang', {'pinned': 1}
-Plugin 'file://~/.vim/bundle/snippets', {'pinned': 1}
+Plugin 'lang', {'pinned': 1}
+Plugin 'snippets', {'pinned': 1}
 
 call vundle#end()
 
