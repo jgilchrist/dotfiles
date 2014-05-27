@@ -2,8 +2,6 @@
 . ~/.bash_aliases
 . ~/.bash_prompt
 
-. /etc/environment
-
 # Machine-specific modifications to the path
 if [ -f "${HOME}/.path" ]; then
     . "${HOME}/.path"
