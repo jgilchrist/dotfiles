@@ -33,8 +33,6 @@ runtime macros/matchit.vim
 " Enables Vim specific settings
 " Don't show the intro message when starting Vim
 set shortmess=I
-" Keep 1000 lines of history
-set history=1000
 
 " Turn on language specific syntax, plugins and indents
 syntax on
