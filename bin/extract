@@ -1,0 +1,57 @@
+#!/bin/bash
+
+. ~/.bash_colors
+
+usage() {
+    echo "Usage: extract <file>"
+}
+
+if [ $# -ne 1 ]; then
+    usage
+    exit 1
+fi
+
+file=$1
+
+if [ ! -f $file ]; then
+    echoc $RED "Error: '$file' is not a valid file"
+    exit 1
+fi
+
+
+case $file in
+    *.tar.bz2)
+        tar xvjf $file
+        ;;
+    *.tar.gz)
+        tar xvzf $file
+        ;;
+    *.bz2)
+        bunzip2 $file
+        ;;
+    *.rar)
+        unrar x $file
+        ;;
+    *.gz)
+        gunzip $file
+        ;;
+    *.tar)
+        tar xzf $file
+        ;;
+    *.tgz)
+        tar xvzf $file
+        ;;
+    *.zip)
+        unzip $file
+        ;;
+    *.Z)
+        uncompress $file
+        ;;
+    *.7z)
+        7z x $file
+        ;;
+    *)
+        echoc $RED "Extract does not know how to extract '$file'"
+esac
+
+echoc $GREEN "Successfully extracted $file"
