@@ -55,3 +55,12 @@ BRIGHT_CYAN=$(bright_color $FG_CYAN)
 BRIGHT_WHITE=$(bright_color $FG_WHITE)
 
 RESET="${BEGIN}${DULL};${FG_WHITE};${BG_NULL}${END}"
+
+# Alternative to echo which takes a color as its first argument
+echoc() {
+    if [ $# -eq 2 ]; then
+        echo -e "$1$2${RESET}"
+    else
+        echo $@
+    fi
+}
