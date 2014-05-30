@@ -30,7 +30,6 @@ call vundle#end()
 " Extended matching for latex, HTML, etc.
 runtime macros/matchit.vim
 
-" Enables Vim specific settings
 " Don't show the intro message when starting Vim
 set shortmess=I
 
