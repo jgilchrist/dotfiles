@@ -13,7 +13,6 @@ Plugin 'scrooloose/nerdtree',       {'name': 'nerdtree'}
 Plugin 'scrooloose/nerdcommenter',  {'name': 'nerdcommenter'}
 
 Plugin 'SirVer/ultisnips',          {'name': 'ultisnips'}
-Plugin 'honza/vim-snippets',        {'name': 'default-snippets'}
 
 Plugin 'tpope/vim-surround',        {'name': 'surround'}
 Plugin 'tpope/vim-repeat',          {'name': 'repeat'}
