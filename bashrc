@@ -9,7 +9,7 @@ fi
 
 # Machine-specific modifications to the environment
 if [ -f "${HOME}/.env" ]; then
-    . "${HOME}/.env" 
+    . "${HOME}/.env"
 fi
 
 if [ -d "${HOME}/bin" ]; then
