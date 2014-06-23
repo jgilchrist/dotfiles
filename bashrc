@@ -7,6 +7,11 @@ if [ -f "${HOME}/.path" ]; then
     . "${HOME}/.path"
 fi
 
+# Machine-specific modifications to the environment
+if [ -f "${HOME}/.env" ]; then
+    . "${HOME}/.env" 
+fi
+
 if [ -d "${HOME}/bin" ]; then
     export PATH="${HOME}/bin:$PATH"
 fi
