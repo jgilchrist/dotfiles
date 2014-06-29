@@ -1,12 +1,9 @@
 #!/bin/bash
 
-# Gets the path of the script, wherever it's called from.
-DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd)"
-BACKUP=${DOTFILES}/.backup
-
 RED=1
 GREEN=2
 YELLOW=3
+BLUE=4
 
 log() {
     printf "["
@@ -27,20 +24,35 @@ failure() {
 }
 
 notice() {
-    log " Notice" "$1" ${YELLOW}
+    log " Notice" "$1" ${BLUE}
 }
 
 skipped() {
     log "Skipped" "$1" ${YELLOW}
 }
 
-make_backup_folder() {
-    if [ -d ${BACKUP} ]; then
-        rm -rf ${BACKUP}
-        success "Removed old backups"
+timestamp() {
+    date +%s
+}
+
+# Gets the path of the script, wherever it's called from.
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd)"
+BACKUP_DIR=${DOTFILES}/.backup/$(timestamp)
+
+ensure_backup_dir() {
+    if [ -d ${BACKUP_DIR} ]; then
+        return
     fi
 
-    mkdir -p ${BACKUP}
+    mkdir -p ${BACKUP_DIR}
+    notice "Created backup folder: ${BACKUP_DIR}"
+}
+
+backup() {
+    ensure_backup_dir
+
+    mv $1 $2
+    success "Backed up file: $1"
 }
 
 install() {
@@ -55,14 +67,13 @@ install() {
     # Check actual dotfile exists to link to
     if [ ! -f ${ACTUALFILE} ]; then
         failure "File ${ACTUALFILE} does not exist."
-        exit
+        return
     fi
 
     # If there is already a real dotfile with this name
     if [ -f ${DOTFILE} ] && [ ! -h ${DOTFILE} ]; then
         # Back it up
-        mv ${DOTFILE} ${BACKUP}
-        notice "Backed up existing file $1"
+        backup ${DOTFILE} ${BACKUP_DIR}
     fi
 
     # If the dotfile exists but is a symlink
@@ -73,7 +84,7 @@ install() {
             skipped "$1"
             return
         else
-            mv ${DOTFILE} ${BACKUP}
+            mv ${DOTFILE} ${BACKUP_DIR}
             notice "Backed up existing symlink $1"
         fi
     fi
@@ -83,8 +94,6 @@ install() {
 }
 
 main() {
-    make_backup_folder
-
     # Bash
     install bashrc
     install bash_aliases
