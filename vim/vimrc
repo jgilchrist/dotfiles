@@ -7,7 +7,6 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 
 Plugin 'kien/ctrlp.vim',            {'name': 'ctrlp'}
-Plugin 'bling/vim-airline',         {'name': 'airline'}
 
 Plugin 'scrooloose/nerdtree',       {'name': 'nerdtree'}
 Plugin 'scrooloose/nerdcommenter',  {'name': 'nerdcommenter'}
