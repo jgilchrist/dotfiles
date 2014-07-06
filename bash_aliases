@@ -13,6 +13,8 @@ alias :q="exit"
 
 alias todo="ack 'todo:'"
 
+alias make="make --no-print-directory"
+
 # helper programs
 alias ack="ack-grep"
 alias pdf="google-chrome"
