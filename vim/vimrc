@@ -80,6 +80,12 @@ set ruler
 set splitbelow
 set splitright
 
+" Resize splits when vim itself is resized
+augroup ResizeSplits
+    au!
+    au VimResized * :wincmd =
+augroup END
+
 " Search incrementally
 set incsearch
 " Highlight matched text
