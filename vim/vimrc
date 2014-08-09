@@ -40,6 +40,8 @@ set number
 set nowrap
 " When entering closing braces, flash the opening brace
 set showmatch
+" Show matching brackets for 2 tenths of a second
+set matchtime=2
 " Don't redraw during macros
 set lazyredraw
 " Improve redrawing
