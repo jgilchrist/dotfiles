@@ -123,6 +123,11 @@ nnoremap <Right> <nop>
 let mapleader=","
 noremap \ ,
 
+" Remap H and L to start and end of the line
+" ------------------------------------------------------------------------------
+noremap H ^
+noremap L $
+
 " Easy split navigation
 " ------------------------------------------------------------------------------
 nnoremap <c-j> <c-w>j
