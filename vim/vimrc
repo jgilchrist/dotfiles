@@ -46,6 +46,10 @@ set matchtime=2
 set lazyredraw
 " Improve redrawing
 set ttyfast
+" Make vim scroll when the cursor reaches the 3rd line from the end
+set scrolloff=3
+" Show a column for the 100th character on the line
+set colorcolumn=81
 
 " Auto-indent code
 set autoindent
@@ -64,14 +68,11 @@ set backspace=indent,eol,start
 
 " Make the status bar two lines
 set laststatus=2
-" Make vim scroll when the cursor reaches the 3rd line from the end
-set scrolloff=3
 " Show the currently entered command on the statusline
 set showcmd
 " Show the current cursor position on the status bar
 set ruler
-" Show a column for the 100th character on the line
-set colorcolumn=81
+
 " Open splits to the right and to the bottom
 set splitbelow
 set splitright
