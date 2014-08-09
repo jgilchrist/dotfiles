@@ -154,6 +154,10 @@ nnoremap Y y$
 " ------------------------------------------------------------------------------
 nnoremap Q @q
 
+" When joining lines, keep the cursor in place
+" ------------------------------------------------------------------------------
+nnoremap J mzJ`z
+
 " Enter removes search highlighting
 " ------------------------------------------------------------------------------
 nnoremap <CR> :nohlsearch<CR>
