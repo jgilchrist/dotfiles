@@ -104,6 +104,7 @@ set wildmode=list:longest,full
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
 
 syntax on
+set synmaxcol=800
 colorscheme default
 
 " }}}
