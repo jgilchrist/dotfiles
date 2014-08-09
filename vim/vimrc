@@ -22,10 +22,10 @@ Plugin 'lang', {'pinned': 1}
 
 call vundle#end()
 
-" Settings {{{
-
 " Extended matching for latex, HTML, etc.
 runtime macros/matchit.vim
+
+" Settings {{{
 
 " Don't show the intro message when starting Vim
 set shortmess=I
