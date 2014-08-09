@@ -139,6 +139,7 @@ nnoremap <c-l> <c-w>l
 " ------------------------------------------------------------------------------
 command! W write
 command! Q quit
+cnoremap sudowrite w !sudo tee % >/dev/null
 
 " Delete and paste without overwriting the paste register
 " ------------------------------------------------------------------------------
