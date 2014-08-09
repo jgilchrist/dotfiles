@@ -30,8 +30,7 @@ runtime macros/matchit.vim
 " Don't show the intro message when starting Vim
 set shortmess=I
 
-" Turn on language specific syntax, plugins and indents
-syntax on
+" Turn on language specific plugins and indents
 filetype plugin indent on
 set encoding=utf-8
 
@@ -98,6 +97,7 @@ autocmd InsertLeave * match TrailingWhitespace /\s\+$/
 autocmd ColorScheme * highlight TrailingWhitespace ctermbg=red guibg=darkred
 
 set t_Co=256
+syntax on
 colorscheme default
 
 " }}}
