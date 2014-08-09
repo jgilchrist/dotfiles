@@ -51,6 +51,9 @@ set scrolloff=3
 " Show a column for the 100th character on the line
 set colorcolumn=81
 
+" Automatically read the file if it changed outside vim
+set autoread
+
 " Auto-indent code
 set autoindent
 " Expand tabs into spaces
