@@ -36,8 +36,6 @@ set encoding=utf-8
 
 " Show line numbers on the left hand side for coding
 set number
-" Auto-indent code
-set autoindent
 " Don't wrap lines
 set nowrap
 " When entering closing braces, flash the opening brace
@@ -47,6 +45,8 @@ set lazyredraw
 " Improve redrawing
 set ttyfast
 
+" Auto-indent code
+set autoindent
 " Expand tabs into spaces
 set expandtab
 " Expand tabs into 4 spaces
