@@ -3,27 +3,16 @@
 . ~/.bash_prompt
 
 # Machine-specific modifications to the path
-if [ -f "${HOME}/.path" ]; then
-    . "${HOME}/.path"
-fi
+[ -f "${HOME}/.path" ] && source "${HOME}/.path"
 
 # Machine-specific modifications to the environment
-if [ -f "${HOME}/.env" ]; then
-    . "${HOME}/.env"
-fi
+[ -f "${HOME}/.env" ] && source "${HOME}/.env"
 
-if [ -d "${HOME}/bin" ]; then
-    export PATH="${HOME}/bin:$PATH"
-fi
-
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
+# User's binary directory
+[ -d "${HOME}/bin" ] && export PATH="${HOME}/bin:$PATH"
 
 # Always use a 256 color terminal
-if [ "$TERM" != "screen-256color" ]; then
-    export TERM="xterm-256color"
-fi
+[ "$TERM" != "screen-256color" ] && export TERM="xterm-256color"
 
 # Always save 10000 history, without duplicates
 export HISTCONTROL=erasedups
