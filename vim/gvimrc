@@ -6,6 +6,3 @@ set cursorline
 
 " Remove scrollbars and menus from the GUI
 set guioptions=c
-
-" Disable the mouse
-set mouse=c
