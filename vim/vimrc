@@ -195,7 +195,7 @@ nnoremap N Nzzzv
 " Sane Ignore For ctrlp
 let g:ctrlp_custom_ignore = {
     \ 'dir': '\.git$\|\.hg$\|\.svn$\|\.yardoc\|target\|data\|log\|tmp\|doc$',
-    \ 'file': '\v\.(exe|so|dat|dll|class)$'
+    \ 'file': '\v\.(exe|so|dat|dll|class|pdf|mat)$'
     \ }
 
 " NERDTree
