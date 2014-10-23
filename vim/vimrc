@@ -118,7 +118,7 @@ nnoremap <Down> <nop>
 nnoremap <Left> <nop>
 nnoremap <Right> <nop>
 
-" Leader key as ,
+" Saner line handling
 " ------------------------------------------------------------------------------
 nnoremap j gj
 nnoremap k gk
