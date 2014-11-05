@@ -109,6 +109,10 @@ main() {
 
     # Tmux
     install tmux.conf
+
+    [ ! -f ${HOME}/.env ] && echo "Create ~/.env for machine specific environment modifications"
+    [ ! -f ${HOME}/.path ] && echo "Create ~/.path for machine specific path modifications"
+    [ ! -f ${HOME}/.aliases ] && echo "Create ~/.aliases for machine specific aliases"
 }
 
 main
