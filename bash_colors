@@ -25,8 +25,8 @@ BG_WHITE=47
 
 BG_NULL=00
 
-BEGIN="\[\033["
-END="m\]"
+BEGIN="\033["
+END="m"
 
 dull_color() {
     echo "${BEGIN}${DULL};${1}${END}"
