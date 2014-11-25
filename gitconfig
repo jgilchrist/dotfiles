@@ -15,6 +15,7 @@
     autocrlf = input
     whitespace = trailing-space,space-before-tab
 [diff]
+    algorithm = patience
     renames = copies
     mnemonicprefix = true
 [push]
