@@ -3,8 +3,11 @@
     email = jonnygilchrist@gmail.com
 [color]
     ui = auto
-[merge]
-    tool = vimdiff
+[color "branch"]
+    current = green reverse
+    remote = yellow
+[color "status"]
+    changed = blue
 [core]
     editor = vim
     pager = less -FXRS
