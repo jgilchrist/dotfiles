@@ -19,5 +19,5 @@ alias make="make --no-print-directory"
 alias ccat="pygmentize -g"
 
 function create() {
-    mkdir -p $1 && cd $1; pwd
+    mkdir -p "$*" && cd "$*"; pwd
 }
