@@ -5,6 +5,8 @@ alias ls='ls --color=auto -p --group-directories-first'
 alias la='ls -a'
 alias ll='ls -l'
 
+alias grep="grep --color"
+
 alias b='cd ..; pwd'
 
 # vim commands for terminal

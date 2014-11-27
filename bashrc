@@ -20,7 +20,6 @@ export HISTSIZE=10000
 shopt -s histappend
 
 # Command options
-export GREP_OPTIONS="--color"
 export LESS='-R'
 
 # Other config
