@@ -21,6 +21,3 @@ shopt -s histappend
 
 # Command options
 export LESS='-R'
-
-# Other config
-export NOSE_REDNOSE=1
