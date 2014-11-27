@@ -16,7 +16,6 @@ alias :q="exit"
 alias make="make --no-print-directory"
 
 # helper programs
-alias pdf="google-chrome"
 alias ccat="pygmentize -g"
 
 function create() {
