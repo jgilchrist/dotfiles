@@ -13,8 +13,6 @@ alias b='cd ..; pwd'
 alias :x="exit"
 alias :q="exit"
 
-alias todo="ack 'todo:'"
-
 alias make="make --no-print-directory"
 
 # helper programs
