@@ -4,3 +4,4 @@ bundle/*
 !bundle/rust
 !bundle/snippets
 .netrwhist
+tags
