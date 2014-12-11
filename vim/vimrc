@@ -21,6 +21,7 @@ Plugin 'AndrewRadev/switch.vim',    {'name': 'switch'}
 Plugin 'LaTeX-Box-Team/LaTeX-Box',  {'name': 'latex-box'}
 
 Plugin 'lang', {'pinned': 1}
+Plugin 'rust', {'pinned': 1}
 
 call vundle#end()
 
