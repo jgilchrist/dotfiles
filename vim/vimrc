@@ -10,6 +10,7 @@ Plugin 'kien/ctrlp.vim',            {'name': 'ctrlp'}
 
 Plugin 'scrooloose/nerdtree',       {'name': 'nerdtree'}
 Plugin 'scrooloose/nerdcommenter',  {'name': 'nerdcommenter'}
+Plugin 'scrooloose/syntastic',      {'name': 'syntastic'}
 
 Plugin 'SirVer/ultisnips',          {'name': 'ultisnips'}
 
@@ -212,6 +213,11 @@ let g:ctrlp_custom_ignore = {
     \ 'dir': '\.git$\|\.hg$\|\.svn$\|\.yardoc\|target\|data\|log\|tmp\|doc$',
     \ 'file': '\v\.(exe|so|dat|dll|class|pdf|mat)$'
     \ }
+
+" Syntastic
+" ------------------------------------------------------------------------------
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 
 " NERDTree
 " ------------------------------------------------------------------------------
