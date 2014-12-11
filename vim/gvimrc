@@ -1,5 +1,5 @@
 set guifont=Inconsolata\ 11
-color tomorrow-night
+color gotham
 
 " Highlight the current line
 set cursorline
