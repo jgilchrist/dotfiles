@@ -1,4 +1,4 @@
-set guifont=Inconsolata\ 11
+set guifont=Inconsolata\ 12
 color gotham
 
 " Highlight the current line
