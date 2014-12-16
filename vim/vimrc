@@ -24,8 +24,9 @@ Plugin 'LaTeX-Box-Team/LaTeX-Box',  {'name': 'latex-box'}
 Plugin 'whatyouhide/vim-gotham',    {'name': 'gotham'}
 Plugin 'chriskempson/base16-vim',   {'name': 'base16'}
 
-Plugin 'lang', {'pinned': 1}
-Plugin 'rust', {'pinned': 1}
+Plugin 'lang',      {'pinned': 1}
+Plugin 'snippets',  {'pinned': 1}
+Plugin 'rust',      {'pinned': 1}
 
 call vundle#end()
 
