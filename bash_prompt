@@ -18,4 +18,4 @@ else
     echo 'Cannot load ~/bin/git-prompt.sh: Prompt will not contain the current git branch.'
 fi
 PS1+="\n"
-PS1+="% "
+PS1+="▶ "
