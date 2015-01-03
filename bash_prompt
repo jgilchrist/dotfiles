@@ -13,7 +13,7 @@ PS1+="in ${YELLOW}\w"
 PS1+="${RESET} "
 if [ -f $GIT_PROMPT_SCRIPT_LOC ]; then
     source $GIT_PROMPT_SCRIPT_LOC
-    PS1+="\$(__git_ps1 '(${VIOLET}%s${RESET})')"
+    PS1+="\$(__git_ps1 'on ${VIOLET}%s${RESET}')"
 else
     echo 'Cannot load ~/bin/git-prompt.sh: Prompt will not contain the current git branch.'
 fi
