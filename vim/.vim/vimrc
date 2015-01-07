@@ -27,7 +27,6 @@ Plugin 'chriskempson/base16-vim',   {'name': 'base16'}
 
 " Local plugins
 Plugin 'lang',      {'pinned': 1}
-Plugin 'snippets',  {'pinned': 1}
 Plugin 'rust',      {'pinned': 1}
 
 call vundle#end()
