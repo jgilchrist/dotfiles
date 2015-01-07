@@ -6,22 +6,25 @@ call vundle#begin()
 
 Plugin 'gmarik/vundle'
 
+" File management
 Plugin 'kien/ctrlp.vim',            {'name': 'ctrlp'}
-
 Plugin 'scrooloose/nerdtree',       {'name': 'nerdtree'}
+
+" Code
 Plugin 'scrooloose/nerdcommenter',  {'name': 'nerdcommenter'}
 Plugin 'scrooloose/syntastic',      {'name': 'syntastic'}
-
 Plugin 'SirVer/ultisnips',          {'name': 'ultisnips'}
+Plugin 'AndrewRadev/switch.vim',    {'name': 'switch'}
 
+" Vim enhancements
 Plugin 'tpope/vim-surround',        {'name': 'surround'}
 Plugin 'tpope/vim-repeat',          {'name': 'repeat'}
 
-Plugin 'AndrewRadev/switch.vim',    {'name': 'switch'}
-
+" Colorschemes
 Plugin 'whatyouhide/vim-gotham',    {'name': 'gotham'}
 Plugin 'chriskempson/base16-vim',   {'name': 'base16'}
 
+" Local plugins
 Plugin 'lang',      {'pinned': 1}
 Plugin 'snippets',  {'pinned': 1}
 Plugin 'rust',      {'pinned': 1}
