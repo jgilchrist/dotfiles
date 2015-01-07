@@ -19,6 +19,7 @@ Plugin 'AndrewRadev/switch.vim',    {'name': 'switch'}
 " Vim enhancements
 Plugin 'tpope/vim-surround',        {'name': 'surround'}
 Plugin 'tpope/vim-repeat',          {'name': 'repeat'}
+Plugin 'junegunn/goyo.vim',         {'name': 'goyo'}
 
 " Colorschemes
 Plugin 'whatyouhide/vim-gotham',    {'name': 'gotham'}
