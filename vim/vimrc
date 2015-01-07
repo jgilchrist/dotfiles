@@ -1,0 +1,236 @@
+set nocompatible
+
+filetype off
+set rtp+=~/.vim/bundle/vundle
+call vundle#begin()
+
+Plugin 'gmarik/vundle'
+
+Plugin 'kien/ctrlp.vim',            {'name': 'ctrlp'}
+
+Plugin 'scrooloose/nerdtree',       {'name': 'nerdtree'}
+Plugin 'scrooloose/nerdcommenter',  {'name': 'nerdcommenter'}
+Plugin 'scrooloose/syntastic',      {'name': 'syntastic'}
+
+Plugin 'SirVer/ultisnips',          {'name': 'ultisnips'}
+
+Plugin 'tpope/vim-surround',        {'name': 'surround'}
+Plugin 'tpope/vim-repeat',          {'name': 'repeat'}
+
+Plugin 'AndrewRadev/switch.vim',    {'name': 'switch'}
+
+Plugin 'LaTeX-Box-Team/LaTeX-Box',  {'name': 'latex-box'}
+
+Plugin 'whatyouhide/vim-gotham',    {'name': 'gotham'}
+Plugin 'chriskempson/base16-vim',   {'name': 'base16'}
+
+Plugin 'lang',      {'pinned': 1}
+Plugin 'snippets',  {'pinned': 1}
+Plugin 'rust',      {'pinned': 1}
+
+call vundle#end()
+
+" Extended matching for latex, HTML, etc.
+runtime macros/matchit.vim
+
+" Settings {{{
+
+" Don't show the intro message when starting Vim
+set shortmess=I
+
+" Turn on language specific plugins and indents
+filetype plugin indent on
+set encoding=utf-8
+
+" Show line numbers on the left hand side for coding
+set number
+" Don't wrap lines
+set nowrap
+" When entering closing braces, flash the opening brace
+set showmatch
+" Show matching brackets for 2 tenths of a second
+set matchtime=2
+" Don't redraw during macros
+set lazyredraw
+" Improve redrawing
+set ttyfast
+" Make vim scroll when the cursor reaches the 3rd line from the end
+set scrolloff=3
+" Show a column for the 100th character on the line
+set colorcolumn=81
+
+" Automatically read the file if it changed outside vim
+set autoread
+
+" Auto-indent code
+set autoindent
+" Expand tabs into spaces
+set expandtab
+" Expand tabs into 4 spaces
+set tabstop=4
+" Use 4 spaces for indentation
+set shiftwidth=4
+" Round up to the closest shift-width when inserting tabs
+set shiftround
+" Allow backspace to act correctly for 4 spaces
+set softtabstop=4
+" Allow backspace to delete over lines
+set backspace=indent,eol,start
+
+" Make the status bar two lines
+set laststatus=2
+" Show the currently entered command on the statusline
+set showcmd
+" Show the current cursor position on the status bar
+set ruler
+
+" Open splits to the right and to the bottom
+set splitbelow
+set splitright
+
+" Resize splits when vim itself is resized
+augroup ResizeSplits
+    au!
+    au VimResized * :wincmd =
+augroup END
+
+" Search incrementally
+set incsearch
+" Highlight matched text
+set hlsearch
+" Ignore case when searching, unless the search includes case
+set ignorecase smartcase
+
+" Don't keep swap files or backups (use version control instead!)
+set noswapfile
+set nobackup
+
+" Allows a completion menu for command line completion
+set wildmenu
+set wildmode=list:longest,full
+" Ignore the following types of files:
+set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
+
+syntax on
+set synmaxcol=800
+colorscheme gotham256
+
+" }}}
+
+" Mappings {{{
+
+" Disable the arrow keys
+" ------------------------------------------------------------------------------
+nnoremap <Up> <nop>
+nnoremap <Down> <nop>
+nnoremap <Left> <nop>
+nnoremap <Right> <nop>
+
+" Saner line handling
+" ------------------------------------------------------------------------------
+nnoremap j gj
+nnoremap k gk
+
+" Leader key as ,
+" ------------------------------------------------------------------------------
+let mapleader=","
+noremap \ ,
+
+" Remap H and L to start and end of the line
+" ------------------------------------------------------------------------------
+noremap H ^
+noremap L $
+
+" Easy split navigation
+" ------------------------------------------------------------------------------
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" :W and :Q still work
+" ------------------------------------------------------------------------------
+command! W write
+command! Q quit
+cnoremap sudowrite w !sudo tee % >/dev/null
+
+" Delete and paste without overwriting the paste register
+" ------------------------------------------------------------------------------
+nnoremap x "_x
+vnoremap p "_c<Esc>p
+
+" Make Y behave like other capitals
+" ------------------------------------------------------------------------------
+nnoremap Y y$
+
+" Shift-Q repeats the q macro
+" ------------------------------------------------------------------------------
+nnoremap Q @q
+
+" When joining lines, keep the cursor in place
+" ------------------------------------------------------------------------------
+nnoremap J mzJ`z
+
+" Enter removes search highlighting
+" ------------------------------------------------------------------------------
+nnoremap <silent> <CR> :nohlsearch<CR>
+
+" Space toggles the current fold
+" ------------------------------------------------------------------------------
+nnoremap <space> za
+
+" Close the current buffer with <leader>q
+" ------------------------------------------------------------------------------
+nnoremap <leader>q :q<CR>
+
+" Add an arrow -> with <leader>a
+" ------------------------------------------------------------------------------
+inoremap <leader>a ->
+
+" Underline with a mapping
+" ------------------------------------------------------------------------------
+nnoremap <leader>- yypVr-A--<esc>
+inoremap <leader>- <esc>yypVr-A--
+
+" Keep search matches in the middle of the window
+" ------------------------------------------------------------------------------
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Ctrl-B is Ctrl-P buffer list
+" ------------------------------------------------------------------------------
+nnoremap <c-B> :CtrlPBuffer<cr>
+inoremap <c-B> :CtrlPBuffer<cr>
+
+" }}}
+
+" Plugin settings {{{
+
+" CtrlP
+" ------------------------------------------------------------------------------
+
+" Sane Ignore For ctrlp
+let g:ctrlp_custom_ignore = {
+    \ 'dir': '\.git$\|\.hg$\|\.svn$\|\.yardoc\|target\|data\|log\|tmp\|doc$',
+    \ 'file': '\v\.(exe|so|dat|dll|class|pdf|mat)$'
+    \ }
+
+" Syntastic
+" ------------------------------------------------------------------------------
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+
+" NERDTree
+" ------------------------------------------------------------------------------
+nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$', '\.class$']
+
+let g:NERDSpaceDelims=1
+
+" switch.vim
+" ------------------------------------------------------------------------------
+nnoremap <silent> s :Switch<cr>
+
+" }}}
+
+" vim: set fdm=marker:

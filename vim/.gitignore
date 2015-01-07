@@ -1,0 +1,7 @@
+bundle/*
+!bundle/vundle
+!bundle/lang
+!bundle/rust
+!bundle/snippets
+.netrwhist
+tags
