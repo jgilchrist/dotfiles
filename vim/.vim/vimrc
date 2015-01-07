@@ -188,11 +188,6 @@ nnoremap <leader>q :q<CR>
 " ------------------------------------------------------------------------------
 inoremap <leader>a ->
 
-" Underline with a mapping
-" ------------------------------------------------------------------------------
-nnoremap <leader>- yypVr-A--<esc>
-inoremap <leader>- <esc>yypVr-A--
-
 " Keep search matches in the middle of the window
 " ------------------------------------------------------------------------------
 nnoremap n nzzzv
