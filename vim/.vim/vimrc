@@ -58,7 +58,7 @@ set ttyfast
 " Make vim scroll when the cursor reaches the 3rd line from the end
 set scrolloff=3
 " Show a column for the 100th character on the line
-set colorcolumn=81
+set colorcolumn=101
 
 " Automatically read the file if it changed outside vim
 set autoread
