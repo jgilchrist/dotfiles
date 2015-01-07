@@ -17,7 +17,7 @@ Plugin 'SirVer/ultisnips',          {'name': 'ultisnips'}
 Plugin 'AndrewRadev/switch.vim',    {'name': 'switch'}
 
 " Vim enhancements
-Plugin 'tpope/vim-surround',        {'name': 'surround'}
+Plugin 'jgilchrist/vim-surround',   {'name': 'surround'}
 Plugin 'tpope/vim-repeat',          {'name': 'repeat'}
 Plugin 'junegunn/goyo.vim',         {'name': 'goyo'}
 
