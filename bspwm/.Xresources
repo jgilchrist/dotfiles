@@ -1,0 +1,40 @@
+URxvt.font: xft:Inconsolata:style=medium:pixelsize=14:antialias=true:hinting=slight
+URxvt.scrollBar: false
+URxvt.skipScroll: true
+URxvt.fading: 10
+
+*.background: #111111
+*.foreground: #c5c8c6
+*.cursorColor: #c5c8c6
+
+! BLACK
+*color0: #282a23
+*color8: #373b41
+
+! RED
+*color1: #a54242
+*color9: #cc6666
+
+! GREEN
+*color2: #8c9440
+*color10: #b5bd68
+
+! YELLOW
+*color3: #de935f
+*color11: #f0c674
+
+! BLUE
+*color4: #5f819d
+*color12: #81a2be
+
+! MAGENTA
+*color5: #85678f
+*color13: #b294bb
+
+! CYAN
+*color6: #5e8d87
+*color14: #8abeb7
+
+! WHITE
+*color7: #707880
+*color15: #c5c8c6
