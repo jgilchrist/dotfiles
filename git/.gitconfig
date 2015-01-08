@@ -9,7 +9,7 @@
 [core]
     editor = vim
     pager = less -FXRS
-    excludesfile = ~/.gitignore
+    excludesfile = ~/.gitignore_global
     autocrlf = input
     whitespace = trailing-space,space-before-tab
 [diff]
