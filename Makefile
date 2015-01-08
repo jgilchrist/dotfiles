@@ -4,12 +4,8 @@ ALL := $(COMMON) $(EXTRA)
 
 .PHONY: $(ALL)
 
-usage: print-usage
-common: $(COMMON)
-extra: $(EXTRA)
-all: $(ALL)
-
-print-usage:
+.PHONY: usage
+usage:
 	@echo 'Usage:'
 	@echo '    make folder      Install an individual folder of dotfiles'
 	@echo '    make group       Install a preset list of dotfiles'
@@ -18,6 +14,11 @@ print-usage:
 	@echo 'Groups:'
 	@echo '    common           ($(COMMON))'
 	@echo '    extra            ($(EXTRA))'
+
+.PHONY: common extra all
+common: $(COMMON)
+extra: $(EXTRA)
+all: $(ALL)
 
 bash:
 	stow bash
