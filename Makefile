@@ -1,7 +1,12 @@
-ALL := bash fish git scripts tmux vim
+COMMON := bash git scripts tmux vim
+EXTRA := fish
+ALL := $(COMMON) $(EXTRA)
 
-all: $(ALL)
 .PHONY: $(ALL)
+
+common: $(COMMON)
+extra: $(EXTRA)
+all: $(ALL)
 
 bash:
 	stow bash
