@@ -21,16 +21,23 @@ extra: $(EXTRA)
 all: $(ALL)
 
 bash:
-	stow bash
+	@stow bash
+	@echo "Installed bash"
 bspwm:
-	stow bspwm
+	@stow bspwm
+	@echo "Installed bspwm"
 fish:
-	stow fish
+	@stow fish
+	@echo "Installed fish"
 git:
-	stow git
+	@stow git
+	@echo "Installed git"
 scripts:
-	stow scripts
+	@stow scripts
+	@echo "Installed scripts"
 tmux:
-	stow tmux
+	@stow tmux
+	@echo "Installed tmux"
 vim:
-	stow vim
+	@stow vim
+	@echo "Installed vim"
