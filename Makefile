@@ -1,5 +1,5 @@
 COMMON := bash git scripts tmux vim
-EXTRA := bspwm fish
+EXTRA := bspwm fish latex
 ALL := $(COMMON) $(EXTRA)
 
 .PHONY: $(ALL)
@@ -32,6 +32,9 @@ fish:
 git:
 	@stow git
 	@echo "Installed git"
+latex:
+	@stow latex
+	@echo "Installed latex"
 scripts:
 	@stow scripts
 	@echo "Installed scripts"
