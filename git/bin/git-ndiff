@@ -1,3 +1,5 @@
 #!/bin/bash
 
-git diff --numstat "$@" | awk '{ added += $1; removed += $2; diff = $1 - $2; printf("%+i - %s\n", diff, $3) } END { printf("Line difference: %+i\n", added - removed); }'
+git diff --numstat "$@" | awk '{ diff += $1 - $2; } END { printf("%+i", diff); }'
+
+if [ -t 1 ]; then echo; fi
