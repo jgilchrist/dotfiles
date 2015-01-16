@@ -4,7 +4,6 @@
 [color]
     ui = auto
 [color "branch"]
-    current = green reverse
     remote = yellow
 [core]
     editor = vim
