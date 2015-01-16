@@ -1,15 +1,18 @@
 . ~/.aliases
 
-# ls aliases
+# /usr/bin aliases
 alias ls='ls --color=auto -p --group-directories-first'
 alias la='ls -a'
 alias ll='ls -l'
 
-alias open="xdg-open"
-
 alias grep="grep --color"
 
 alias b='cd ..; pwd'
+
+# Abbreviations
+alias open="xdg-open"
+alias sys="systemctl"
+alias sudo="sudo "
 
 # vim commands for terminal
 alias :x="exit"
