@@ -21,3 +21,6 @@ shopt -s histappend
 
 # Command options
 export LESS='-R'
+
+# Editor
+export EDITOR='vim'
