@@ -24,6 +24,8 @@
     au = add -u
     ap = add -p
 
+    amend = commit --amend
+
     s = status -s
     st = status
 
@@ -37,6 +39,7 @@
     dc = diff --cached
     dl = diff HEAD^
     dw = diff --color-words
+    ds = diff --stat
 
     head = !git l -1
     h = !git head
