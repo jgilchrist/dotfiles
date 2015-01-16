@@ -24,8 +24,10 @@
     aa = add --all
     au = add -u
     ap = add -p
+
     s = status -s
     st = status
+
     ci = commit
     cm = commit -m
 
@@ -34,12 +36,13 @@
 
     di = diff
     dc = diff --cached
-    dl = diff HEAD^ HEAD
-    wdiff = diff --color-words
+    dl = diff HEAD^
+    dw = diff --color-words
 
-    head = !git lb -1
+    head = !git l -1
     h = !git head
 
-    lb = !git log --oneline --abbrev-commit --graph --decorate --color
-    l = !git lb -10
-    la = !git lb --all
+    prettylog = log --oneline --abbrev-commit --graph --decorate
+    l = !git prettylog -10
+    la = !git prettylog --all -10
+    ll = !git prettylog --all
