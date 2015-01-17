@@ -12,6 +12,9 @@ alias b='cd ..; pwd'
 # Abbreviations
 alias open="xdg-open"
 alias sys="systemctl"
+alias usys="systemctl --user"
+
+# Trailing space allows alias expansion in arguments
 alias sudo="sudo "
 
 # vim commands for terminal
