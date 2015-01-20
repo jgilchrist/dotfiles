@@ -4,3 +4,5 @@ sort.order = { * = title # author # journal # publisher # volume # number # page
 key.generation = on
 key.format = {%-2T(title):%N(year)}
 delete.field doi
+new.entry.type {Online}
+new.entry.type {online=Online}
