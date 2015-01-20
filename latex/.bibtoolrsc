@@ -1,0 +1,3 @@
+print.line.length = 1000
+sort = on
+sort.order = { * = title # author # journal # publisher # volume # number # pages # month # year }
