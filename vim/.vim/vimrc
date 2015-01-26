@@ -35,58 +35,59 @@ runtime macros/matchit.vim
 
 " Settings {{{
 
+filetype plugin indent on
+
+set encoding=utf-8
+
 " Don't show the intro message when starting Vim
 set shortmess=I
 
-" Turn on language specific plugins and indents
-filetype plugin indent on
-set encoding=utf-8
+" Appearance
+syntax on
+colorscheme gotham256
 
-" Show line numbers on the left hand side for coding
 set number
-" Don't wrap lines
+set ruler
+set showcmd
 set nowrap
-" When entering closing braces, flash the opening brace
-set showmatch
-" Show matching brackets for 2 tenths of a second
-set matchtime=2
-" Don't redraw during macros
-set lazyredraw
-" Improve redrawing
-set ttyfast
-" Make vim scroll when the cursor reaches the 3rd line from the end
+set laststatus=2
 set scrolloff=3
-" Show a column for the 100th character on the line
 set colorcolumn=101
+set synmaxcol=800 " Don't attempt to highlight lines longer than 800 chars
+
+set wildmenu
+set wildmode=list:longest,full
+
+
+" Indentation
+set autoindent
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+set backspace=indent,eol,start
+
+
+" Search
+set incsearch
+set hlsearch
+set ignorecase smartcase
+
+
+" Redrawing
+set lazyredraw
+set ttyfast
+
 
 " Automatically read the file if it changed outside vim
 set autoread
 
-" Auto-indent code
-set autoindent
-" Expand tabs into spaces
-set expandtab
-" Expand tabs into 4 spaces
-set tabstop=4
-" Use 4 spaces for indentation
-set shiftwidth=4
-" Round up to the closest shift-width when inserting tabs
-set shiftround
-" Allow backspace to act correctly for 4 spaces
-set softtabstop=4
-" Allow backspace to delete over lines
-set backspace=indent,eol,start
-
-" Make the status bar two lines
-set laststatus=2
-" Show the currently entered command on the statusline
-set showcmd
-" Show the current cursor position on the status bar
-set ruler
 
 " Open splits to the right and to the bottom
 set splitbelow
 set splitright
+
 
 " Resize splits when vim itself is resized
 augroup ResizeSplits
@@ -94,26 +95,16 @@ augroup ResizeSplits
     au VimResized * :wincmd =
 augroup END
 
-" Search incrementally
-set incsearch
-" Highlight matched text
-set hlsearch
-" Ignore case when searching, unless the search includes case
-set ignorecase smartcase
+
+" Flash matching braces for 200ms
+set showmatch
+set matchtime=2
+
 
 " Don't keep swap files or backups (use version control instead!)
 set noswapfile
 set nobackup
 
-" Allows a completion menu for command line completion
-set wildmenu
-set wildmode=list:longest,full
-" Ignore the following types of files:
-set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
-
-syntax on
-set synmaxcol=800
-colorscheme gotham256
 
 " }}}
 
@@ -183,10 +174,6 @@ nnoremap <space> za
 " ------------------------------------------------------------------------------
 nnoremap <leader>q :q<CR>
 
-" Add an arrow -> with <leader>a
-" ------------------------------------------------------------------------------
-inoremap <leader>a ->
-
 " Keep search matches in the middle of the window
 " ------------------------------------------------------------------------------
 nnoremap n nzzzv
@@ -196,6 +183,10 @@ nnoremap N Nzzzv
 " ------------------------------------------------------------------------------
 nnoremap <c-B> :CtrlPBuffer<cr>
 inoremap <c-B> :CtrlPBuffer<cr>
+
+" Add an arrow -> with <leader>a
+" ------------------------------------------------------------------------------
+inoremap <leader>a ->
 
 " }}}
 
@@ -220,6 +211,8 @@ let g:syntastic_auto_loc_list = 1
 nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$', '\.class$']
 
+" NERDCommenter
+" ------------------------------------------------------------------------------
 let g:NERDSpaceDelims=1
 
 " switch.vim
