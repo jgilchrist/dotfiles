@@ -1,8 +1,0 @@
-set guifont=Inconsolata\ 12
-color gotham
-
-" Highlight the current line
-set cursorline
-
-" Remove scrollbars and menus from the GUI
-set guioptions=c
