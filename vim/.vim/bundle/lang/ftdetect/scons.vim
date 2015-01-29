@@ -1,1 +1,1 @@
-au BufNewFile,BufRead SConscript,SConstruct setfiletype python
+autocmd BufNewFile,BufRead SConscript,SConstruct set filetype=python

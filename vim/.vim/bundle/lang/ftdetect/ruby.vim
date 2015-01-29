@@ -1,3 +1,3 @@
-au BufNewFile,BufRead *ru setfiletype ruby
-au BufNewFile,BufRead Gemfile setfiletype ruby
-au BufNewFile,BufRead Guardfile setfiletype ruby
+autocmd BufNewFile,BufRead *ru set filetype=ruby
+autocmd BufNewFile,BufRead Gemfile set filetype=ruby
+autocmd BufNewFile,BufRead Guardfile set filetype=ruby
