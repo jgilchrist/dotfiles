@@ -24,9 +24,11 @@ Plug 'junegunn/goyo.vim'
 Plug 'whatyouhide/vim-gotham'
 Plug 'chriskempson/base16-vim'
 
+" Languages
+Plug 'rust-lang/rust.vim'
+
 " Local plugins
 Plug 'lang', {'frozen': 1}
-Plug 'rust', {'frozen': 1}
 
 call plug#end()
 
