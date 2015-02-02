@@ -1,6 +1,6 @@
 # Other config files
-. ~/.bash_aliases
-. ~/.bash_prompt
+. ~/.bash/aliases
+. ~/.bash/prompts/at_in_on
 
 # Machine-specific modifications to the path
 [ -f "${HOME}/.path" ] && source "${HOME}/.path"
