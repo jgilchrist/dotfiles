@@ -1,0 +1,6 @@
+#!/bin/bash
+
+. ${HOME}/.bash/colors
+. ${HOME}/.bash/prompts/git_prompt
+
+PS1="\n ${BLUE}\w${RESET} \$(__git_ps1 '(${VIOLET}%s${RESET})') ${GREEN}»${RESET} "
