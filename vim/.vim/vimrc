@@ -186,6 +186,15 @@ nnoremap N Nzzzv
 nnoremap <c-B> :CtrlPBuffer<cr>
 inoremap <c-B> :CtrlPBuffer<cr>
 
+" Surround with 's'
+" ------------------------------------------------------------------------------
+nmap s ys
+vmap s S
+
+" Switch with 'S'
+" ------------------------------------------------------------------------------
+nnoremap <silent> S :Switch<cr>
+
 " Add an arrow -> with <leader>a
 " ------------------------------------------------------------------------------
 inoremap <leader>a ->
@@ -193,6 +202,7 @@ inoremap <leader>a ->
 " }}}
 
 " Plugin settings {{{
+"
 
 " CtrlP
 " ------------------------------------------------------------------------------
@@ -216,10 +226,6 @@ let NERDTreeIgnore = ['\.pyc$', '\.class$']
 " NERDCommenter
 " ------------------------------------------------------------------------------
 let g:NERDSpaceDelims=1
-
-" switch.vim
-" ------------------------------------------------------------------------------
-nnoremap <silent> s :Switch<cr>
 
 " }}}
 
