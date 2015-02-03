@@ -36,6 +36,10 @@ bright_color() {
     echo "${BEGIN}${BRIGHT};${1}${END}"
 }
 
+color_escape() {
+    echo "\[$1\]"
+}
+
 BLACK=$(dull_color $FG_BLACK)
 RED=$(dull_color $FG_RED)
 GREEN=$(dull_color $FG_GREEN)
