@@ -3,12 +3,18 @@
 . ${HOME}/.bash/colors
 . ${HOME}/.bash/prompts/git_prompt
 
+E_BLUE=$(color_escape $BLUE)
+E_GREEN=$(color_escape $GREEN)
+E_YELLOW=$(color_escape $YELLOW)
+E_VIOLET=$(color_escape $VIOLET)
+E_RESET=$(color_escape $RESET)
+
 PS1="\n"
-PS1+="${BLUE}\u"
-PS1+="${RESET} "
-PS1+="at ${GREEN}\h${RESET} "
-PS1+="in ${YELLOW}\w"
-PS1+="${RESET} "
-PS1+="\$(__git_ps1 'on ${VIOLET}%s${RESET}')"
+PS1+="${E_BLUE}\u"
+PS1+="${E_RESET} "
+PS1+="at ${E_GREEN}\h${E_RESET} "
+PS1+="in ${E_YELLOW}\w"
+PS1+="${E_RESET} "
+PS1+="\$(__git_ps1 'on ${E_VIOLET}%s${E_RESET}')"
 PS1+="\n"
 PS1+="▶ "
