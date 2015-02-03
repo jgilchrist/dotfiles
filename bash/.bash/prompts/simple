@@ -3,4 +3,9 @@
 . ${HOME}/.bash/colors
 . ${HOME}/.bash/prompts/git_prompt
 
-PS1="\n ${BLUE}\w${RESET} \$(__git_ps1 '(${VIOLET}%s${RESET})') ${GREEN}»${RESET} "
+E_BLUE=$(color_escape $BLUE)
+E_GREEN=$(color_escape $GREEN)
+E_VIOLET=$(color_escape $VIOLET)
+E_RESET=$(color_escape $RESET)
+
+PS1="\n ${E_BLUE}\w${E_RESET} \$(__git_ps1 '(${E_VIOLET}%s${E_RESET})') ${E_GREEN}»${E_RESET} "
