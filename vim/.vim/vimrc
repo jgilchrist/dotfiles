@@ -117,6 +117,11 @@ set nobackup
 let mapleader=","
 noremap \ ,
 
+" Edit/source configuration
+" ------------------------------------------------------------------------------
+nnoremap <leader>ec :vsplit $MYVIMRC<cr>
+nnoremap <leader>sc :source $MYVIMRC<cr>
+
 " Disable the arrow keys
 " ------------------------------------------------------------------------------
 nnoremap <Up> <nop>
