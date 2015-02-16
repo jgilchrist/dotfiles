@@ -1,24 +1,11 @@
-COMMON := bash git scripts tmux vim
+DEFAULT := bash git scripts tmux vim
 EXTRA := bspwm fish latex
-ALL := $(COMMON) $(EXTRA)
+ALL := $(DEFAULT) $(EXTRA)
+
+.PHONY: default
+default: $(DEFAULT)
 
 .PHONY: $(ALL)
-
-.PHONY: usage
-usage:
-	@echo 'Usage:'
-	@echo '    make folder      Install an individual folder of dotfiles'
-	@echo '    make group       Install a preset list of dotfiles'
-	@echo '    make all         Install all dotfiles'
-	@echo
-	@echo 'Groups:'
-	@echo '    common           ($(COMMON))'
-	@echo '    extra            ($(EXTRA))'
-
-.PHONY: common extra all
-common: $(COMMON)
-extra: $(EXTRA)
-all: $(ALL)
 
 bash:
 	@stow -R bash
