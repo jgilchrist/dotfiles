@@ -1,7 +1,3 @@
-# Dotfiles
-
-## Installation
-
 These dotfiles are managed using `GNU Stow`, a symlink farm manager. Install it using your favourite package manager.
 
 ```sh
