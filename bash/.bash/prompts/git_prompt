@@ -1,8 +1,8 @@
-GIT_PROMPT_SCRIPT_LOC=${HOME}/bin/git-prompt.sh
+GIT_PROMPT_SCRIPT_LOC=~/.bash/git-prompt.sh
 
 if [ -f $GIT_PROMPT_SCRIPT_LOC ]; then
     source $GIT_PROMPT_SCRIPT_LOC
     PS1+="\$(__git_ps1 'on ${VIOLET}%s${RESET}')"
 else
-    echo 'Cannot load ~/bin/git-prompt.sh: Prompt will not contain the current git branch.'
+    echo 'Cannot load ${GIT_PROMPT_SCRIPT_LOC}: Prompt will not contain the current git branch.'
 fi
