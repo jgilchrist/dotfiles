@@ -10,7 +10,6 @@ alias grep="grep --color"
 alias b='cd ..; pwd'
 
 # Abbreviations
-alias open="xdg-open"
 alias sys="systemctl"
 alias usys="systemctl --user"
 
