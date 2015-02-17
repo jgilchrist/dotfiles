@@ -1,5 +1,0 @@
-#!/bin/bash
-
-git diff --numstat "$@" | awk '{ diff += $1 - $2; } END { printf("%+i", diff); }'
-
-if [ -t 1 ]; then echo; fi
