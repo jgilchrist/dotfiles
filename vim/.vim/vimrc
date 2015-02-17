@@ -214,7 +214,7 @@ inoremap <leader>a ->
 
 " Sane Ignore For ctrlp
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\.git$\|\.hg$\|\.svn$\|\.yardoc\|target\|data\|log\|tmp\|doc$',
+    \ 'dir': '\.git$\|\.hg$\|\.svn$\|\.yardoc\|target\|data\|log\|tmp\|doc\|_site$',
     \ 'file': '\v\.(exe|so|dat|dll|class|pdf|mat)$'
     \ }
 
