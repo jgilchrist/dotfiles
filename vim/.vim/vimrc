@@ -237,7 +237,12 @@ let g:NERDSpaceDelims=1
 " GUI {{{
 
 if has('gui_running')
-    set guifont=Inconsolata\ 12
+    if has('mac')
+        set guifont=Monaco:h11
+    else
+        set guifont=Inconsolata\ 12
+    endif
+
     color gotham
     set cursorline
 
