@@ -10,8 +10,8 @@ stow git
 # ...
 
 # Uninstall a config
-stow -D bash
+stow --delete bash
 
 # Install a config to /
-stow -t / bash
+stow --target=/ bash
 ```
