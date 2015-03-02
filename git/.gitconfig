@@ -34,7 +34,7 @@
 
     co = checkout
     b = branch
-    nb = checkout -b
+    bnew = checkout -b
 
     di = diff
     dc = diff --cached
