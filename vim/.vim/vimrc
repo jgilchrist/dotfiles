@@ -212,11 +212,13 @@ inoremap <leader>a ->
 " CtrlP
 " ------------------------------------------------------------------------------
 
-" Sane Ignore For ctrlp
-let g:ctrlp_custom_ignore = {
-    \ 'dir': '\.git$\|\.hg$\|\.svn$\|\.yardoc\|target\|data\|log\|tmp\|doc\|_site\|__pycache__$',
-    \ 'file': '\v\.(exe|so|dat|dll|class|pdf|mat|aux|bbl|bcf|blg|fdb_latexmk|fls|log|out|run.xml|synctex.gz)$'
-    \ }
+" Use Ag for faster CtrlP. It automatically repects .gitignore, but must
+" be told to ignore version control directories.
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden
+                            \ --ignore-dir .git
+                            \ --ignore-dir .svn
+                            \ --ignore-dir .hg
+                            \ -g ""'
 
 " Syntastic
 " ------------------------------------------------------------------------------
