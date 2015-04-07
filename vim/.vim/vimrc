@@ -20,12 +20,13 @@ Plug 'jgilchrist/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'junegunn/goyo.vim'
 
+" Languages
+Plug 'rust-lang/rust.vim'
+Plug 'cespare/vim-toml'
+
 " Colorschemes
 Plug 'whatyouhide/vim-gotham'
 Plug 'chriskempson/base16-vim'
-
-" Languages
-Plug 'rust-lang/rust.vim'
 
 " Local plugins
 Plug 'lang', {'frozen': 1}
