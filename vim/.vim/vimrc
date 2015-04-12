@@ -111,6 +111,11 @@ set noswapfile
 set nobackup
 
 
+" Error bells
+set noerrorbells
+set visualbell
+
+
 " }}}
 
 " Mappings {{{
