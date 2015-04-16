@@ -5,6 +5,8 @@ if empty(glob("~/.vim/autoload/plug.vim"))
 endif
 " }}}
 
+set runtimepath+=~/.vim/lang
+
 call plug#begin("~/.vim/bundle")
 
 " File management
@@ -29,9 +31,6 @@ Plug 'cespare/vim-toml'
 " Colorschemes
 Plug 'whatyouhide/vim-gotham'
 Plug 'chriskempson/base16-vim'
-
-" Local plugins
-Plug 'lang', {'frozen': 1}
 
 call plug#end()
 
