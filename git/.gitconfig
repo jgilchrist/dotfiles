@@ -38,7 +38,7 @@
 
     di = diff
     dc = diff --cached
-    dl = diff HEAD^
+    dl = show -p HEAD
     dw = diff --color-words
     ds = diff --stat
 
