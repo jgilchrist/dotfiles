@@ -25,6 +25,7 @@ Plug 'tpope/vim-repeat'
 Plug 'junegunn/goyo.vim'
 
 " Languages
+Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 
