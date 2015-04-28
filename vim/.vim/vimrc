@@ -244,7 +244,7 @@ let g:syntastic_auto_loc_list = 1
 " NERDTree
 " ------------------------------------------------------------------------------
 nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
-let NERDTreeIgnore = ['\.pyc$', '\.class$']
+let NERDTreeIgnore = ['\.bbl$', '\.aux$', '\.run.xml$', '\.pyc$', '\.class$']
 
 " NERDCommenter
 " ------------------------------------------------------------------------------
