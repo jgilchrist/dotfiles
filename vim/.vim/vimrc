@@ -166,6 +166,13 @@ cnoremap sudowrite w !sudo tee % >/dev/null
 nnoremap x "_x
 vnoremap p "_c<Esc>p
 
+" <leader> shortcuts for copying/pasting to/from system clipboard
+" ------------------------------------------------------------------------------
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
+
 " Make Y behave like other capitals
 " ------------------------------------------------------------------------------
 nnoremap Y y$
