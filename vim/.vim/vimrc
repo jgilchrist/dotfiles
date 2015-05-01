@@ -123,8 +123,7 @@ set visualbell
 " Leader key as ,
 " ------------------------------------------------------------------------------
 let mapleader=","
-let maplocalleader="\\"
-noremap \ ,
+let maplocalleader=","
 
 " Edit/source configuration
 " ------------------------------------------------------------------------------
