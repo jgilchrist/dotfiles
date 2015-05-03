@@ -1,8 +1,8 @@
 #!/bin/bash
 
 . ${HOME}/.bash/colors
-. ${HOME}/.bash/prompts/git_prompt
-. ${HOME}/.bash/prompts/virtualenv_prompt
+. ${HOME}/.bash/prompts/elements/git
+. ${HOME}/.bash/prompts/elements/virtualenv
 
 E_BLUE=$(color_escape $BLUE)
 E_GREEN=$(color_escape $GREEN)
