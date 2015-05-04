@@ -9,6 +9,10 @@ set runtimepath+=~/.vim/lang
 
 call plug#begin("~/.vim/bundle")
 
+let g:plug_url_format = 'git@github.com:%s.git'
+Plug 'jgilchrist/vim-colors'
+unlet! g:plug_url_format
+
 " File management
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
