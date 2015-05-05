@@ -11,16 +11,18 @@ cd ~/.dotfiles
 
 ### Install a config
 
-```
+```sh
 stow <config> # e.g. stow bash
 ```
 
 ### Uninstall a config
-```
+
+```sh
 stow --delete <config>
 ```
 
 ### Install a config to /
-```
+
+```sh
 stow --target=/ <config>
 ```
