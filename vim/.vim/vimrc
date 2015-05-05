@@ -119,7 +119,6 @@ set nobackup
 
 " Error bells
 set noerrorbells
-set visualbell
 
 
 " }}}
