@@ -1,5 +1,5 @@
-DEFAULT := bash git scripts tmux vim
-EXTRA := bspwm latex weechat
+DEFAULT := bash git latex scripts tmux vim
+EXTRA := bspwm weechat
 ALL := $(DEFAULT) $(EXTRA)
 
 .PHONY: default
