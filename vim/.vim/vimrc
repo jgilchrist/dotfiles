@@ -9,8 +9,10 @@ set runtimepath+=~/.vim/lang
 
 call plug#begin("~/.vim/bundle")
 
+" My plugins
 let g:plug_url_format = 'git@github.com:%s.git'
 Plug 'jgilchrist/vim-colors'
+Plug 'jgilchrist/vim-surround'
 unlet! g:plug_url_format
 
 " File management
@@ -24,7 +26,6 @@ Plug 'SirVer/ultisnips'
 Plug 'AndrewRadev/switch.vim'
 
 " Vim enhancements
-Plug 'jgilchrist/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'junegunn/goyo.vim'
 Plug 'vim-scripts/hexHighlight.vim'
