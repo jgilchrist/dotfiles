@@ -1,17 +1,26 @@
+# dotfiles
+
 These dotfiles are managed using `GNU Stow`, a symlink farm manager. Install it using your favourite package manager.
+
+### Getting the dotfiles
 
 ```sh
 git clone https://github.com/jgilchrist/dotfiles ~/.dotfiles
 cd ~/.dotfiles
+```
 
-# Install a config
-stow bash
-stow git
-# ...
+### Install a config
 
-# Uninstall a config
-stow --delete bash
+```
+stow <config> # e.g. stow bash
+```
 
-# Install a config to /
-stow --target=/ bash
+### Uninstall a config
+```
+stow --delete <config>
+```
+
+### Install a config to /
+```
+stow --target=/ <config>
 ```
