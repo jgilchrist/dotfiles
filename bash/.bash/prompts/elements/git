@@ -1,4 +1,12 @@
-GIT_PROMPT_SCRIPT_LOC=/usr/share/git/git-prompt.sh
+case $OSTYPE in
+    linux*)
+        GIT_PROMPT_SCRIPT_LOC=/usr/share/git/git-prompt.sh
+        ;;
+    darwin*)
+        GIT_PROMPT_SCRIPT_LOC=/usr/local/etc/bash_completion.d/git-prompt.sh
+        ;;
+esac
+
 
 if [ -f $GIT_PROMPT_SCRIPT_LOC ]; then
     source $GIT_PROMPT_SCRIPT_LOC
