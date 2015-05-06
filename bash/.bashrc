@@ -19,6 +19,9 @@ export HISTCONTROL=erasedups
 export HISTSIZE=10000
 shopt -s histappend
 
+# Ignore some file extensions
+export FIGNORE=`colonise ${HOME}/.bash/fignore`
+
 # Command options
 export LESS='-R'
 
