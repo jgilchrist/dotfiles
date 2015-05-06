@@ -1,4 +1,4 @@
-GIT_PROMPT_SCRIPT_LOC=~/.bash/git-prompt.sh
+GIT_PROMPT_SCRIPT_LOC=/usr/share/git/git-prompt.sh
 
 if [ -f $GIT_PROMPT_SCRIPT_LOC ]; then
     source $GIT_PROMPT_SCRIPT_LOC
