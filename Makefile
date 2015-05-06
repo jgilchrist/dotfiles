@@ -1,5 +1,5 @@
 DEFAULT := bash git latex scripts tmux vim
-EXTRA := bspwm weechat
+EXTRA := weechat
 ALL := $(DEFAULT) $(EXTRA)
 
 .PHONY: default
@@ -10,9 +10,6 @@ default: $(DEFAULT)
 bash:
 	@stow -R bash
 	@echo "Installed bash"
-bspwm:
-	@stow -R bspwm
-	@echo "Installed bspwm"
 git:
 	@stow -R git
 	@echo "Installed git"
