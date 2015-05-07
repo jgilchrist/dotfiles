@@ -58,3 +58,10 @@
 	insteadOf = github:
 [url "git@bitbucket.org:jgilchrist/"]
 	insteadOf = bitbucket:
+[advice]
+    pushNonFastForward = false
+    statusHints = false
+    ; commitBeforeMerge = false
+    ; resolveConflict = false
+    ; implicitIdentity = false
+    detachedHead = false
