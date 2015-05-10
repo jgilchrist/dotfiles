@@ -37,7 +37,7 @@
     bnew = checkout -b
 
     di = diff
-    dc = diff --cached
+    dc = diff --staged
     dl = show -p HEAD --oneline --stat
     dw = diff --color-words
     ds = diff --stat
