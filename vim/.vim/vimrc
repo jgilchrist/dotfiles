@@ -174,9 +174,6 @@ nnoremap J mzJ`z
 " Enter removes search highlighting
 nnoremap <silent> <CR> :nohlsearch<CR>
 
-" Space toggles the current fold
-nnoremap <space> za
-
 " Close the current buffer with <leader>q
 nnoremap <leader>q :q<CR>
 
