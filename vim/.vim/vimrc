@@ -5,6 +5,8 @@ if empty(glob("~/.vim/autoload/plug.vim"))
 endif
 " }}}
 
+" Plugins {{{
+
 set runtimepath+=~/.vim/lang
 
 call plug#begin("~/.vim/bundle")
@@ -44,6 +46,8 @@ call plug#end()
 " Extended matching for latex, HTML, etc.
 runtime macros/matchit.vim
 
+" }}}
+
 " Settings {{{
 
 filetype plugin indent on
@@ -69,7 +73,6 @@ set synmaxcol=800 " Don't attempt to highlight lines longer than 800 chars
 set wildmenu
 set wildmode=list:longest,full
 
-
 " Indentation
 set autoindent
 set expandtab
@@ -79,26 +82,21 @@ set shiftwidth=4
 set shiftround
 set backspace=indent,eol,start
 
-
 " Search
 set incsearch
 set hlsearch
 set ignorecase smartcase
 
-
 " Redrawing
 set lazyredraw
 set ttyfast
 
-
 " Automatically read the file if it changed outside vim
 set autoread
-
 
 " Open splits to the right and to the bottom
 set splitbelow
 set splitright
-
 
 " Resize splits when vim itself is resized
 augroup ResizeSplits
@@ -106,131 +104,105 @@ augroup ResizeSplits
     au VimResized * :wincmd =
 augroup END
 
-
 " Flash matching braces for 200ms
 set showmatch
 set matchtime=2
 
-
-" Don't keep swap files or backups (use version control instead!)
+" Don't keep swap files or backups
 set noswapfile
 set nobackup
-
 
 " Error bells
 set noerrorbells
 
-
 " }}}
 
 " Mappings {{{
-"
+
 " Leader key as ,
-" ------------------------------------------------------------------------------
 let mapleader=","
 let maplocalleader=","
 
 " Edit/source configuration
-" ------------------------------------------------------------------------------
 nnoremap <leader>ec :vsplit $MYVIMRC<cr>
 nnoremap <leader>sc :source $MYVIMRC<cr>
 
 " Disable the arrow keys
-" ------------------------------------------------------------------------------
 nnoremap <Up> <nop>
 nnoremap <Down> <nop>
 nnoremap <Left> <nop>
 nnoremap <Right> <nop>
 
 " Saner line handling
-" ------------------------------------------------------------------------------
 nnoremap j gj
 nnoremap k gk
 
 " Remap H and L to start and end of the line
-" ------------------------------------------------------------------------------
 noremap H ^
 noremap L $
 
 " Easy split navigation
-" ------------------------------------------------------------------------------
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
 " :W and :Q still work
-" ------------------------------------------------------------------------------
 command! W write
 command! Q quit
 cnoremap sudowrite w !sudo tee % >/dev/null
 
 " Delete and paste without overwriting the paste register
-" ------------------------------------------------------------------------------
 nnoremap x "_x
 vnoremap p "_c<Esc>p
 
 " <leader> shortcuts for copying/pasting to/from system clipboard
-" ------------------------------------------------------------------------------
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 
 " Make Y behave like other capitals
-" ------------------------------------------------------------------------------
 nnoremap Y y$
 
 " Shift-Q repeats the q macro
-" ------------------------------------------------------------------------------
 nnoremap Q @q
 
 " When joining lines, keep the cursor in place
-" ------------------------------------------------------------------------------
 nnoremap J mzJ`z
 
 " Enter removes search highlighting
-" ------------------------------------------------------------------------------
 nnoremap <silent> <CR> :nohlsearch<CR>
 
 " Space toggles the current fold
-" ------------------------------------------------------------------------------
 nnoremap <space> za
 
 " Close the current buffer with <leader>q
-" ------------------------------------------------------------------------------
 nnoremap <leader>q :q<CR>
 
 " Keep search matches in the middle of the window
-" ------------------------------------------------------------------------------
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
 " Ctrl-B is Ctrl-P buffer list
-" ------------------------------------------------------------------------------
 nnoremap <c-B> :CtrlPBuffer<cr>
 inoremap <c-B> :CtrlPBuffer<cr>
 
 " Surround with 's'
-" ------------------------------------------------------------------------------
 nmap s ys
 vmap s S
 
 " Switch with 'S'
-" ------------------------------------------------------------------------------
 nnoremap <silent> S :Switch<cr>
 
 " Add an arrow -> with <leader>a
-" ------------------------------------------------------------------------------
 inoremap <leader>a ->
 
 " }}}
 
 " Plugin settings {{{
-"
 
-" CtrlP
-" ------------------------------------------------------------------------------
+" CtrlP {{{
 
 " Use Ag for faster CtrlP. It automatically repects .gitignore, but must
 " be told to ignore version control directories.
@@ -239,24 +211,29 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden
                             \ --ignore-dir .svn
                             \ --ignore-dir .hg
                             \ -g ""'
+" }}}
 
-" Syntastic
-" ------------------------------------------------------------------------------
+" Syntastic {{{
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
+" }}}
 
-" NERDTree
-" ------------------------------------------------------------------------------
+" NERDTree {{{
 nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.bbl$', '\.aux$', '\.run.xml$', '\.pyc$', '\.class$']
+" }}}
 
-" NERDCommenter
-" ------------------------------------------------------------------------------
+" NERDCommenter {{{
 let g:NERDSpaceDelims=1
+" }}}
 
-" LaTeX-Box
-" ------------------------------------------------------------------------------
+" LaTeX-Box {{{
 let g:tex_flavor = "latex"
+" }}}
+
+" HexHighlight {{{
+nnoremap <leader>cc :call HexHighlight()<CR>
+" }}}
 
 " }}}
 
@@ -278,9 +255,7 @@ endif
 
 " }}}
 
-nnoremap <leader>cc :call HexHighlight()<CR>
-
-nmap <C-S-P> :call <SID>SynStack()<CR>
+" Functions {{{
 
 function! <SID>SynStack()
     if !exists("*synstack")
@@ -288,5 +263,8 @@ function! <SID>SynStack()
     endif
     echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+nmap <C-S-P> :call <SID>SynStack()<CR>
+
+" }}}
 
 " vim: set fdm=marker:
