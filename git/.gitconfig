@@ -1,22 +1,27 @@
 [user]
     name = Jonny Gilchrist
     email = jonnygilchrist@gmail.com
-[color]
-    ui = auto
-[color "branch"]
-    remote = yellow
+
 [core]
     editor = vim
     pager = less -FXRS
     excludesfile = ~/.gitignore_global
     autocrlf = input
     whitespace = trailing-space,space-before-tab
+
+[push]
+    default = simple
+
 [diff]
     algorithm = patience
     renames = copies
     mnemonicprefix = true
-[push]
-    default = simple
+
+[color]
+    ui = auto
+[color "branch"]
+    remote = yellow
+
 [alias]
     create = !git init && git commit --allow-empty -m \"Created repository\"
 
@@ -54,14 +59,16 @@
     l = !git prettylog -10
     la = !git prettylog --all -10
     ll = !git prettylog --all
+
 [url "git@github.com:jgilchrist/"]
 	insteadOf = github:
 [url "git@bitbucket.org:jgilchrist/"]
 	insteadOf = bitbucket:
+
 [advice]
     pushNonFastForward = false
     statusHints = false
+    detachedHead = false
     ; commitBeforeMerge = false
     ; resolveConflict = false
     ; implicitIdentity = false
-    detachedHead = false
