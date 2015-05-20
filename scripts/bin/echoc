@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Alternative to echo which takes a color as its first argument
+
+set -e
+set -u
+
+. ~/.bash/colors
+
+usage() {
+    echo "Usage: echoc <color> <string>"
+}
+
+if [ $# -ne 2 ]; then
+    usage
+    exit 1
+fi
+
+echo -e "$1$2${RESET}"
