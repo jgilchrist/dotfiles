@@ -1,10 +1,17 @@
+% Always use spaces
+print.use.tab = off
+
+% Ensure that lines are not wrapped
 print.line.length = 1000
-print.use.tab=off
+
 sort = on
 sort.order = { * = title # author # journal # publisher # volume # number # pages # month # year }
-key.generation = on
-key.format = {%-2T(title):%N(year)}
+
 delete.field doi
 delete.field url
+
 new.entry.type {Online}
 new.entry.type {online=Online}
+
+key.generation = on
+key.format = {%-2T(title):%N(year)}
