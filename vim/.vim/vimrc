@@ -136,6 +136,8 @@ nnoremap <Right> <nop>
 " Saner line handling
 nnoremap j gj
 nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 
 " Remap H and L to start and end of the line
 noremap H ^
