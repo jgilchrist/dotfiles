@@ -179,10 +179,6 @@ nnoremap <silent> <CR> :nohlsearch<CR>
 " Close the current buffer with <leader>q
 nnoremap <leader>q :q<CR>
 
-" Keep search matches in the middle of the window
-nnoremap n nzzzv
-nnoremap N Nzzzv
-
 " Ctrl-B is Ctrl-P buffer list
 nnoremap <c-B> :CtrlPBuffer<cr>
 inoremap <c-B> :CtrlPBuffer<cr>
