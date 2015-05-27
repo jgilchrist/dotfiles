@@ -37,7 +37,6 @@
     st = status
 
     ci = commit
-    cm = commit -m
 
     co = checkout
     b = branch
