@@ -48,9 +48,6 @@
     dl = show -p HEAD --oneline --stat
     dw = diff --color-words
 
-    head = !git l -1
-    h = !git head
-
     up = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
     merged = "!git branch --merged | grep -v \"\\*\" | grep -v \"master\" "
 
