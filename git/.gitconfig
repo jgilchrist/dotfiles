@@ -29,6 +29,8 @@
     au = add -u
     ap = add -p
 
+    rh = reset HEAD
+
     amend = commit --amend
 
     s = status -s
@@ -46,8 +48,6 @@
     dl = show -p HEAD --oneline --stat
     dw = diff --color-words
     ds = diff --stat
-
-    rh = reset HEAD
 
     head = !git l -1
     h = !git head
