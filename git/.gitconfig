@@ -44,10 +44,9 @@
     bnew = checkout -b
 
     di = diff
-    dc = diff --staged
+    ds = diff --staged
     dl = show -p HEAD --oneline --stat
     dw = diff --color-words
-    ds = diff --stat
 
     head = !git l -1
     h = !git head
