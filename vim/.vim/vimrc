@@ -111,9 +111,6 @@ set matchtime=2
 set noswapfile
 set nobackup
 
-" Error bells
-set noerrorbells
-
 " Don't search through includes for completion as this can be slow
 set complete-=i
 
