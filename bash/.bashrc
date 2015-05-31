@@ -2,9 +2,6 @@
 . ~/.bash/aliases
 . ~/.bash/prompt
 
-# Machine-specific modifications to the path
-[ -f "${HOME}/.path" ] && source "${HOME}/.path"
-
 # Machine-specific modifications to the environment
 [ -f "${HOME}/.env" ] && source "${HOME}/.env"
 
