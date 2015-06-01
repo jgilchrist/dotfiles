@@ -114,6 +114,9 @@ set nobackup
 " Error bells
 set noerrorbells
 
+" Don't search through includes for completion as this can be slow
+set complete-=i
+
 " When joining lines, delete comment characters if appropriate
 set formatoptions+=j
 
