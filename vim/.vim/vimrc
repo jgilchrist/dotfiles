@@ -114,6 +114,9 @@ set nobackup
 " Error bells
 set noerrorbells
 
+" When joining lines, delete comment characters if appropriate
+set formatoptions+=j
+
 " }}}
 
 " Mappings {{{
