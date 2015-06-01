@@ -39,7 +39,6 @@ Plug 'cespare/vim-toml'
 
 " Colorschemes
 Plug 'whatyouhide/vim-gotham'
-Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
