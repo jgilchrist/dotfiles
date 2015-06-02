@@ -13,3 +13,10 @@ if [ -f $GIT_PROMPT_SCRIPT_LOC ]; then
 else
     echo "Cannot load ${GIT_PROMPT_SCRIPT_LOC}: Prompt will not contain the current git branch."
 fi
+
+E_VIOLET=$(color_escape $VIOLET)
+E_RESET=$(color_escape $RESET)
+
+function prompt_git() {
+    printf `__git_ps1 "(${E_VIOLET}%s${E_RESET})"`
+}

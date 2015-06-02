@@ -9,4 +9,8 @@ E_GREEN=$(color_escape $GREEN)
 E_VIOLET=$(color_escape $VIOLET)
 E_RESET=$(color_escape $RESET)
 
-PS1="\n ${E_BLUE}\w${E_RESET} \$(__git_ps1 '(${E_VIOLET}%s${E_RESET})')\$(prompt_virtualenv) ${E_GREEN}»${E_RESET} "
+function set_prompt() {
+    PS1="\n ${E_BLUE}\w${E_RESET} $(prompt_git)$(prompt_virtualenv) ${E_GREEN}»${E_RESET} "
+}
+
+PROMPT_COMMAND="set_prompt; $PROMPT_COMMAND"
