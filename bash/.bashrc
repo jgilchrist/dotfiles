@@ -14,12 +14,14 @@
 # Always save 10000 history, without duplicates
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
+
+# Ensure that history is preserved if more than one instance of bash is run
 shopt -s histappend
 
 # Ignore some file extensions
 export FIGNORE=`colonise ${HOME}/.bash/fignore`
 
-# Command options
+# Always color less output
 export LESS='-R'
 
 # Editor
