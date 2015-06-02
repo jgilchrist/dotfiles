@@ -14,9 +14,10 @@ else
     echo "Cannot load ${GIT_PROMPT_SCRIPT_LOC}: Prompt will not contain the current git branch."
 fi
 
-RE_VIOLET=$(readline_color_escape $VIOLET)
-RE_RESET=$(readline_color_escape $RESET)
 
 function prompt_git() {
-    echo -e `__git_ps1 "(${RE_VIOLET}%s${RE_RESET})"`
+    local E_VIOLET=$(readline_color_escape $VIOLET)
+    local E_RESET=$(readline_color_escape $RESET)
+
+    echo -e `__git_ps1 "(${E_VIOLET}%s${E_RESET})"`
 }
