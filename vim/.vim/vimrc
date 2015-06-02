@@ -174,9 +174,6 @@ nnoremap Q @q
 " When joining lines, keep the cursor in place
 nnoremap J mzJ`z
 
-" Enter removes search highlighting
-nnoremap <silent> <CR> :nohlsearch<CR>
-
 " Close the current buffer with <leader>q
 nnoremap <leader>q :q<CR>
 
