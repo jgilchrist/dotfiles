@@ -1,9 +1,7 @@
-DEFAULT := bash git latex scripts tmux vim
-EXTRA := weechat
-ALL := $(DEFAULT) $(EXTRA)
+ALL := bash git latex scripts tmux vim
 
 .PHONY: default
-default: $(DEFAULT)
+default: $(ALL)
 
 .PHONY: $(ALL)
 
@@ -25,6 +23,3 @@ tmux:
 vim:
 	@stow -R vim
 	@echo "Installed vim"
-weechat:
-	@stow -R weechat
-	@echo "Installed weechat"
