@@ -3,10 +3,10 @@
 . ${HOME}/.bash/prompts/elements/git
 . ${HOME}/.bash/prompts/elements/virtualenv
 
-E_BLUE=$(color_escape $BLUE)
-E_GREEN=$(color_escape $GREEN)
-E_VIOLET=$(color_escape $VIOLET)
-E_RESET=$(color_escape $RESET)
+E_BLUE=$(prompt_color_escape $BLUE)
+E_GREEN=$(prompt_color_escape $GREEN)
+E_VIOLET=$(prompt_color_escape $VIOLET)
+E_RESET=$(prompt_color_escape $RESET)
 
 function set_prompt() {
     PS1="\n ${E_BLUE}\w${E_RESET} $(prompt_git)$(prompt_virtualenv) ${E_GREEN}»${E_RESET} "

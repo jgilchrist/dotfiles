@@ -36,8 +36,12 @@ bright_color() {
     echo "${BEGIN}${BRIGHT};${1}${END}"
 }
 
-color_escape() {
+prompt_color_escape() {
     echo "\[$1\]"
+}
+
+readline_color_escape() {
+    echo "\001$1\002"
 }
 
 BLACK=$(dull_color $FG_BLACK)
