@@ -3,8 +3,6 @@
 set -e
 set -u
 
-. ~/.bash/colors
-
 usage() {
     echo "Usage: extract <file>"
 }

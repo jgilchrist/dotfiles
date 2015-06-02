@@ -1,5 +1,6 @@
 # Other config files
 . ~/.bash/aliases
+. ~/.bash/colors
 . ~/.bash/prompt
 
 # Machine-specific modifications to the environment

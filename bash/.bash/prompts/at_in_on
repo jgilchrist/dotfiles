@@ -1,6 +1,5 @@
 #!/bin/bash
 
-. ${HOME}/.bash/colors
 . ${HOME}/.bash/prompts/elements/git
 
 E_BLUE=$(color_escape $BLUE)

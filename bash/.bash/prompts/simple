@@ -1,6 +1,5 @@
 #!/bin/bash
 
-. ${HOME}/.bash/colors
 . ${HOME}/.bash/prompts/elements/git
 . ${HOME}/.bash/prompts/elements/virtualenv
 
