@@ -5,6 +5,8 @@
 set -e
 set -u
 
+. ~/.bash/colors
+
 usage() {
     echo "Usage: echoc <color> <string>"
 }
