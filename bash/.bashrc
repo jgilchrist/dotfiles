@@ -25,5 +25,8 @@ export FIGNORE=`colonise ${HOME}/.bash/fignore`
 # Always color less output
 export LESS='-R'
 
+# Never store history for less
+export LESSHISTFILE=-
+
 # Editor
 export EDITOR='vim'
