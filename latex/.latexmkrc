@@ -7,6 +7,9 @@ $pdflatex = "xelatex -interaction=nonstopmode -halt-on-error -synctex=1 --shell-
 # Always generate PDFs
 $pdf_mode = 1;
 
+# Put all generated files in build/
+$out_dir = "build";
+
 # Remove .bbl files (latexmk doesn't be default since .bib files might not be available)
 $bibtex_use = 2;
 
