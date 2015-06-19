@@ -1,0 +1,8 @@
+function set_prompt() {
+    local E_GREEN=$(prompt_color_escape $GREEN)
+    local E_RESET=$(prompt_color_escape $RESET)
+
+    PS1="\n ${E_GREEN}»${E_RESET} "
+}
+
+set_prompt
