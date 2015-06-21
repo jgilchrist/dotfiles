@@ -38,6 +38,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 
 " Colorschemes
+Plug 'endel/vim-github-colorscheme'
 Plug 'whatyouhide/vim-gotham'
 
 call plug#end()
@@ -58,7 +59,7 @@ set shortmess=I
 
 " Appearance
 syntax on
-colorscheme gotham256
+colorscheme github
 
 set number
 set ruler
