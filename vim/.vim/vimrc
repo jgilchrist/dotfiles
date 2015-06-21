@@ -247,8 +247,6 @@ if has('gui_running')
         set guifont=Inconsolata\ 12
     endif
 
-    color gotham
-
     " Remove scrollbars and menus from the GUI
     set guioptions=c
 endif
