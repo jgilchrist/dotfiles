@@ -97,9 +97,6 @@ set autoread
 set splitbelow
 set splitright
 
-" Persistent undo
-set undofile
-
 " Resize splits when vim itself is resized
 augroup ResizeSplits
     au!
