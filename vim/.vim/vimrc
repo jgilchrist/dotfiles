@@ -64,6 +64,7 @@ colorscheme github
 set number
 set ruler
 set showcmd
+set cursorline
 set nowrap
 set laststatus=2
 set scrolloff=3
@@ -247,7 +248,6 @@ if has('gui_running')
     endif
 
     color gotham
-    set cursorline
 
     " Remove scrollbars and menus from the GUI
     set guioptions=c
