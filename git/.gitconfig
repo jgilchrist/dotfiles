@@ -72,3 +72,6 @@
     ; commitBeforeMerge = false
     ; resolveConflict = false
     ; implicitIdentity = false
+
+[rebase]
+    autosquash = true
