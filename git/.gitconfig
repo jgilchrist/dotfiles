@@ -60,9 +60,9 @@
     la = !git prettylog --all -10
     ll = !git prettylog --all
 
-[url "git@github.com:jgilchrist/"]
+[url "git@github.com:"]
 	insteadOf = github:
-[url "git@bitbucket.org:jgilchrist/"]
+[url "git@bitbucket.org:"]
 	insteadOf = bitbucket:
 
 [advice]
