@@ -184,7 +184,8 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader><space> :nohlsearch<CR>
 
 " Settings toggles
-nnoremap <leader>sw :set wrap!<CR>
+nnoremap <leader>sw :set wrap!<CR>:set wrap?<CR>
+nnoremap <leader>sl :set list!<CR>:set list?<CR>
 
 " Ctrl-B is Ctrl-P buffer list
 nnoremap <c-B> :CtrlPBuffer<cr>
