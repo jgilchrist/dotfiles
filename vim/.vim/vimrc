@@ -70,6 +70,7 @@ set laststatus=2
 set scrolloff=3
 set colorcolumn=101
 set synmaxcol=800 " Don't attempt to highlight lines longer than 800 chars
+set listchars=tab:▸\ ,eol:¬,trail:·
 
 set wildmenu
 set wildmode=list:longest,full
