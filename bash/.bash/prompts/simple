@@ -9,7 +9,7 @@ function set_prompt() {
     local E_VIOLET=$(prompt_color_escape $VIOLET)
     local E_RESET=$(prompt_color_escape $RESET)
 
-    PS1="\n ${E_BLUE}\w${E_RESET} \$(prompt_git)\$(prompt_virtualenv) ${E_GREEN}»${E_RESET} "
+    PS1="\n ${E_BLUE}\w${E_RESET}\$(prompt_git)\$(prompt_virtualenv) ${E_GREEN}»${E_RESET} "
 }
 
 set_prompt
