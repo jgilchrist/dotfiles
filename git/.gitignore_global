@@ -3,7 +3,6 @@
 # ignored by the repository .gitignore.
 
 # General
-*~
 *.swp
 ._*
 
