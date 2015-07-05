@@ -1,3 +1,10 @@
 set editing-mode vi
 
+# List all matches when attempting to complete filenames
 set show-all-if-ambiguous on
+
+# Autocomplete regardless of case
+set completion-ignore-case on
+
+# Immediately add a trailing / when completing symlinked directories
+set mark-symlinked-directories on
