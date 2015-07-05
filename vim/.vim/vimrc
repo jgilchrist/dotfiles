@@ -61,6 +61,8 @@ set shortmess=I
 syntax on
 colorscheme github
 
+set hidden
+
 set number
 set ruler
 set showcmd
