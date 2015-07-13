@@ -180,7 +180,7 @@ nnoremap Q @q
 nnoremap J mzJ`z
 
 " Close the current buffer with <leader>q
-nnoremap <leader>q :q<CR>
+nnoremap <leader>q :bd<CR>
 
 " Hide search highlighting
 nnoremap <leader><space> :nohlsearch<CR>
