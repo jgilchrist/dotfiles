@@ -61,9 +61,9 @@
     ll = !git prettylog --all
 
 [url "git@github.com:"]
-	insteadOf = github:
+    insteadOf = github:
 [url "git@bitbucket.org:"]
-	insteadOf = bitbucket:
+    insteadOf = bitbucket:
 
 [advice]
     pushNonFastForward = false
