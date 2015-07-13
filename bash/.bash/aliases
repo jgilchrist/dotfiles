@@ -29,3 +29,11 @@ alias ccat="pygmentize -g"
 function create() {
     mkdir -p "$*" && cd "$*"; pwd
 }
+
+function e() {
+    if [ $# -gt 0 ]; then
+        command gvim --remote-silent "$@"
+    else
+        command gvim "$@"
+    fi
+}
