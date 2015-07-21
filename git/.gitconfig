@@ -52,6 +52,8 @@
     dl = show -p HEAD --oneline --stat
     dw = diff --color-words
 
+    assume = update-index --assume-unchanged
+    unassume = update-index --no-assume-unchanged
     assumed = !git ls-files -v | grep "^[[:lower:]]"
 
     up = !git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
