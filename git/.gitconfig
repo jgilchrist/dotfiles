@@ -52,6 +52,8 @@
     dl = show -p HEAD --oneline --stat
     dw = diff --color-words
 
+    assumed = !git ls-files -v | grep "^[[:lower:]]"
+
     up = !git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
     merged = !git branch --merged | grep -v "\\*" | grep -v "master"
 
