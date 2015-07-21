@@ -39,6 +39,7 @@ Plug 'cespare/vim-toml'
 
 " Colorschemes
 Plug 'endel/vim-github-colorscheme'
+Plug 'gosukiwi/vim-atom-dark'
 Plug 'whatyouhide/vim-gotham'
 
 call plug#end()
