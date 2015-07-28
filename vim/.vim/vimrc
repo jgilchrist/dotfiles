@@ -1,51 +1,37 @@
-" vim-plug auto-installation {{{
-if empty(glob("~/.vim/autoload/plug.vim"))
-    call system('mkdir -p ~/.vim/autoload')
-    call system('curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim')
-endif
-" }}}
 
 " Plugins {{{
+
+function! s:SourceFromDir(directory)
+    let directory_wildcard = '~/.vim/' . a:directory . '/*'
+
+    for config_file in split(glob(directory_wildcard), '\n')
+        if filereadable(config_file)
+            execute 'source' config_file
+        endif
+    endfor
+endfunction
+
+function! s:InstallVimPlug()
+    if empty(glob("~/.vim/autoload/plug.vim"))
+        call system('mkdir -p ~/.vim/autoload')
+        call system('curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim')
+    endif
+endfunction
+call s:InstallVimPlug()
 
 set runtimepath+=~/.vim/lang
 
 call plug#begin("~/.vim/bundle")
 
+call s:SourceFromDir('plugins')
+call s:SourceFromDir('plugins/incubating')
+
 " My plugins
 let g:plug_url_format = 'git@github.com:%s.git'
-Plug 'jgilchrist/vim-colors'
-Plug 'jgilchrist/vim-surround'
+call s:SourceFromDir('plugins/jgilchrist')
 unlet! g:plug_url_format
 
-" File management
-Plug 'kien/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
-
-" Code
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/syntastic'
-Plug 'SirVer/ultisnips'
-Plug 'AndrewRadev/switch.vim'
-
-" Vim enhancements
-Plug 'tpope/vim-repeat'
-Plug 'junegunn/goyo.vim'
-Plug 'vim-scripts/hexHighlight.vim'
-
-" Languages
-Plug 'LaTeX-Box-Team/LaTeX-Box'
-Plug 'rust-lang/rust.vim'
-Plug 'cespare/vim-toml'
-
-" Colorschemes
-Plug 'endel/vim-github-colorscheme'
-Plug 'gosukiwi/vim-atom-dark'
-Plug 'whatyouhide/vim-gotham'
-
 call plug#end()
-
-" Extended matching for latex, HTML, etc.
-runtime macros/matchit.vim
 
 " }}}
 
@@ -98,6 +84,7 @@ set ttyfast
 
 " Automatically read the file if it changed outside vim
 set autoread
+set modeline
 
 " Open splits to the right and to the bottom
 set splitbelow
@@ -190,56 +177,12 @@ nnoremap <leader><space> :nohlsearch<CR>
 nnoremap <leader>sw :set wrap!<CR>:set wrap?<CR>
 nnoremap <leader>sl :set list!<CR>:set list?<CR>
 
-" Ctrl-B is Ctrl-P buffer list
-nnoremap <c-B> :CtrlPBuffer<cr>
-inoremap <c-B> :CtrlPBuffer<cr>
-
 " Surround with 's'
 nmap s ys
 vmap s S
 
-" Switch with 'S'
-nnoremap <silent> S :Switch<cr>
-
 " Add an arrow -> with <leader>a
 inoremap <leader>a ->
-
-" }}}
-
-" Plugin settings {{{
-
-" CtrlP {{{
-
-" Use Ag for faster CtrlP. It automatically repects .gitignore, but must
-" be told to ignore version control directories.
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden
-                            \ --ignore-dir .git
-                            \ --ignore-dir .svn
-                            \ --ignore-dir .hg
-                            \ -g ""'
-" }}}
-
-" Syntastic {{{
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-" }}}
-
-" NERDTree {{{
-nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
-let NERDTreeIgnore = ['\.bbl$', '\.aux$', '\.run.xml$', '\.pyc$', '\.class$']
-" }}}
-
-" NERDCommenter {{{
-let g:NERDSpaceDelims=1
-" }}}
-
-" LaTeX-Box {{{
-let g:tex_flavor = "latex"
-" }}}
-
-" HexHighlight {{{
-nnoremap <leader>cc :call HexHighlight()<CR>
-" }}}
 
 " }}}
 

@@ -1,0 +1,5 @@
+Plug 'vim-scripts/hexHighlight.vim'
+
+nnoremap <leader>cc :call HexHighlight()<CR>
+
+" vim: ft=vim:
