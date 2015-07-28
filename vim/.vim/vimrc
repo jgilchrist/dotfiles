@@ -88,6 +88,7 @@ set ttyfast
 " Automatically read the file if it changed outside vim
 set autoread
 set modeline
+set modelines=1
 
 " Open splits to the right and to the bottom
 set splitbelow
