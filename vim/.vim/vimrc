@@ -117,6 +117,30 @@ set formatoptions+=j
 
 " Mappings {{{
 
+" Sanity {{{
+" These mappings improve consistency in Vim's commands
+
+" Saner line handling
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
+" :W and :Q still work
+command! W write
+command! Q quit
+
+" Delete and paste without overwriting the paste register
+nnoremap x "_x
+vnoremap p "_c<Esc>p
+
+" Make Y behave like other capitals
+nnoremap Y y$
+
+" When joining lines, keep the cursor in place
+nnoremap J mzJ`z
+
+" }}}
 
 " Edit/source configuration
 nnoremap <leader>ec :vsplit $MYVIMRC<cr>
@@ -128,12 +152,6 @@ nnoremap <Down> <nop>
 nnoremap <Left> <nop>
 nnoremap <Right> <nop>
 
-" Saner line handling
-nnoremap j gj
-nnoremap k gk
-nnoremap gj j
-nnoremap gk k
-
 " Remap H and L to start and end of the line
 noremap H ^
 noremap L $
@@ -144,28 +162,14 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" :W and :Q still work
-command! W write
-command! Q quit
-
-" Delete and paste without overwriting the paste register
-nnoremap x "_x
-vnoremap p "_c<Esc>p
-
 " <leader> shortcuts for copying/pasting to/from system clipboard
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 
-" Make Y behave like other capitals
-nnoremap Y y$
-
 " Shift-Q repeats the q macro
 nnoremap Q @q
-
-" When joining lines, keep the cursor in place
-nnoremap J mzJ`z
 
 " Close the current buffer with <leader>q
 nnoremap <silent> <leader>q :bd<CR>
