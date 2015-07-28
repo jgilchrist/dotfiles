@@ -1,1 +1,3 @@
+Plug 'jgilchrist/vim-surround'
+
 " vim: ft=vim:
