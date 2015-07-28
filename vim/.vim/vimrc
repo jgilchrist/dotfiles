@@ -1,3 +1,6 @@
+" Leader key as ,
+let mapleader=","
+let maplocalleader=","
 
 " Plugins {{{
 
@@ -114,9 +117,6 @@ set formatoptions+=j
 
 " Mappings {{{
 
-" Leader key as ,
-let mapleader=","
-let maplocalleader=","
 
 " Edit/source configuration
 nnoremap <leader>ec :vsplit $MYVIMRC<cr>
