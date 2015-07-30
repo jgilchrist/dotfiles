@@ -2,11 +2,7 @@ Plug 'kien/ctrlp.vim'
 
 " Use Ag for faster CtrlP. It automatically repects .gitignore, but must
 " be told to ignore version control directories.
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden
-                            \ --ignore-dir .git
-                            \ --ignore-dir .svn
-                            \ --ignore-dir .hg
-                            \ -g ""'
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 " Ctrl-B is Ctrl-P buffer list
 nnoremap <c-B> :CtrlPBuffer<cr>
