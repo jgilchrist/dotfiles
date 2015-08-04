@@ -1,5 +1,3 @@
-set editing-mode vi
-
 # List all matches when attempting to complete filenames
 set show-all-if-ambiguous on
 
