@@ -1,4 +1,4 @@
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Use Ag for faster CtrlP. It automatically repects .gitignore, but must
 " be told to ignore version control directories.
