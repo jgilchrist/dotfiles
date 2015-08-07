@@ -29,11 +29,6 @@ call plug#begin("~/.vim/bundle")
 call s:SourceFromDir('plugins')
 call s:SourceFromDir('plugins/incubating')
 
-" My plugins
-let g:plug_url_format = 'git@github.com:%s.git'
-call s:SourceFromDir('plugins/jgilchrist')
-unlet! g:plug_url_format
-
 call plug#end()
 
 " }}}
