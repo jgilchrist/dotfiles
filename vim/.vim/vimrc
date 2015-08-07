@@ -28,6 +28,7 @@ call plug#begin("~/.vim/bundle")
 
 call s:SourceFromDir('plugins')
 call s:SourceFromDir('plugins/incubating')
+call s:SourceFromDir('plugins/local')
 
 call plug#end()
 
