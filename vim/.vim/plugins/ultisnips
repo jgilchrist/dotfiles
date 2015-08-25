@@ -1,3 +1,5 @@
 Plug 'SirVer/ultisnips'
 
+let g:UltiSnipsSnippetsDir = '~/.vim/lang/UltiSnips'
+
 " vim: ft=vim:
