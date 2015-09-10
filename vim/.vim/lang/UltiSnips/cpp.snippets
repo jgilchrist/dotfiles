@@ -1,9 +1,5 @@
 extends c
 
-snippet beginend "$1.begin(), $1.end() (beginend)"
-${1:v}${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}begin(), $1${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}end()
-endsnippet
-
 snippet class "class .. (class)"
 class ${1:`!p snip.rv = snip.basename.capitalize() or "name"`} {
 public:
@@ -19,14 +15,6 @@ snippet ns "namespace .. (namespace)"
 namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`} {
 	${VISUAL}${0}
 }
-endsnippet
-
-snippet map "std::map (map)"
-std::map<${1:key}, ${2:value}> map$0;
-endsnippet
-
-snippet vector "std::vector (v)"
-std::vector<${1:type}> ${2:name}$0;
 endsnippet
 
 snippet tp "template <typename ..> (template)"
