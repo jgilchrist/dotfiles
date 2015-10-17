@@ -1,5 +1,0 @@
-Plug 'LaTeX-Box-Team/LaTeX-Box'
-
-let g:tex_flavor = "latex"
-
-" vim: ft=vim:
