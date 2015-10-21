@@ -44,6 +44,15 @@ readline_color_escape() {
     echo "\001$1\002"
 }
 
+echoc() {
+    if [ $# -ne 2 ]; then
+        echo "Usage: echoc <color> <string>"
+        return 1
+    fi
+
+    echo -e "$1$2${RESET}"
+}
+
 BLACK=$(dull_color $FG_BLACK)
 RED=$(dull_color $FG_RED)
 GREEN=$(dull_color $FG_GREEN)

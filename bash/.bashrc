@@ -2,6 +2,12 @@
 . ~/.bash/aliases
 . ~/.bash/colors
 
+# Turns a newline-separated list of values into a colon separated list of values
+# for use with (for example) FIGNORE which requires a colon separated list of values.
+colonise() {
+    cat $1 | tr "\n" ":"
+}
+
 # Machine-specific modifications to the environment
 [ -f "${HOME}/.env" ] && source "${HOME}/.env"
 

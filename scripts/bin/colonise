@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# Turns a newline-separated list of values into a colon separated list of values
-# for use with (for example) FIGNORE which requires a colon separated list of
-# values.
-
-cat $1 | tr "\n" ":"
