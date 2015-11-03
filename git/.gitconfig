@@ -59,7 +59,7 @@
     up = !git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
     merged = !git branch --merged | grep -v "\\*" | grep -v "master"
 
-    prettylog = log --oneline --abbrev-commit --graph --decorate
+    prettylog = log --oneline --graph --format='%C(green)%h%C(auto)%d%Creset %Creset%s %C(yellow)%cr%Creset'
     l = !git prettylog -10
     la = !git prettylog --all -10
     ll = !git prettylog --all
