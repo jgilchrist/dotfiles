@@ -1,5 +1,3 @@
-. ~/.aliases
-
 # /usr/bin aliases
 alias ls='ls --color=auto -p --group-directories-first'
 alias la='ls -a'
