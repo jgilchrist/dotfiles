@@ -1,6 +1,7 @@
 # Other config files
 . ~/.bash/aliases
 . ~/.bash/colors
+. ~/.bash/prompts/simple
 
 # Turns a newline-separated list of values into a colon separated list of values
 # for use with (for example) FIGNORE which requires a colon separated list of values.
