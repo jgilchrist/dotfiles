@@ -4,12 +4,23 @@
 . ${HOME}/.bash/prompts/elements/virtualenv
 
 function set_prompt() {
-    local E_BLUE=$(prompt_color_escape $BLUE)
+    local E_YELLOW=$(prompt_color_escape $YELLOW)
     local E_GREEN=$(prompt_color_escape $GREEN)
+    local E_BLUE=$(prompt_color_escape $BLUE)
     local E_VIOLET=$(prompt_color_escape $VIOLET)
     local E_RESET=$(prompt_color_escape $RESET)
 
-    PS1="\n ${E_BLUE}\w${E_RESET}\$(prompt_git)\$(prompt_virtualenv) ${E_GREEN}»${E_RESET} "
+    PS1="\n"
+    PS1+=" "
+
+    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+        PS1+="[${E_YELLOW}\h${E_RESET}] "
+    fi
+
+    PS1+="${E_BLUE}\w${E_RESET}"
+    PS1+="\$(prompt_git)"
+    PS1+="\$(prompt_virtualenv)"
+    PS1+=" ${E_GREEN}»${E_RESET} "
 }
 
 set_prompt
