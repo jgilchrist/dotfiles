@@ -1,8 +1,8 @@
 # /usr/bin aliases
-alias ls='ls --color=auto -p --group-directories-first'
-alias la='ls -a'
+alias ls='ls -h --color=auto -p --group-directories-first'
+alias la='ls -A'
 alias ll='ls -l'
-alias lla='ls -la'
+alias lla='ls -Al'
 
 alias grep="grep --color"
 
