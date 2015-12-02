@@ -225,7 +225,7 @@ vmap s S
 
 if has('gui_running')
     if has('mac')
-        set guifont=Monaco:h11
+        set guifont=Source\ Code\ Pro:h12
     else
         set guifont=Inconsolata\ 12
     endif
