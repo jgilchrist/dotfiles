@@ -44,6 +44,10 @@ call plug#end()
 
 runtime macros/matchit.vim
 
+" Plugin Settings {{{
+
+" CtrlP {{{
+
 " Use Ag for faster CtrlP. It automatically repects .gitignore, but must
 " be told to ignore version control directories.
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
@@ -52,25 +56,57 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 nnoremap <c-B> :CtrlPBuffer<cr>
 inoremap <c-B> :CtrlPBuffer<cr>
 
+"}}}
+
+" NERDCommenter {{{
+
 let g:NERDSpaceDelims=1
+
+" }}}
+
+" NERDTree {{{
 
 nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.bbl$', '\.aux$', '\.run.xml$', '\.pyc$', '\.class$']
 
+" }}}
+
+" Switch {{{
+
 " Switch with 'S'
 nnoremap <silent> S :Switch<cr>
+
+" }}}
+
+" Syntastic {{{
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 
+" }}}
+
+" UltiSnips {{{
+
 let g:UltiSnipsSnippetsDir = '~/.vim/lang/UltiSnips'
+
+" }}}
+
+" vimtex {{{
 
 let g:tex_flavor = "latex"
 let g:vimtex_fold_enabled = 0
 let g:vimtex_latexmk_build_dir = "build"
 
+" }}}
+
+" EasyAlign {{{
+
 vmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+" }}}
+
+" }}}
 
 " }}}
 
