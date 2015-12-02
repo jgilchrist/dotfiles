@@ -4,16 +4,6 @@ let maplocalleader=","
 
 " Plugins {{{
 
-function! s:SourceFromDir(directory)
-    let directory_wildcard = '~/.vim/' . a:directory . '/*'
-
-    for config_file in split(glob(directory_wildcard), '\n')
-        if filereadable(config_file)
-            execute 'source' config_file
-        endif
-    endfor
-endfunction
-
 function! s:InstallVimPlug()
     if empty(glob("~/.vim/autoload/plug.vim"))
         call system('mkdir -p ~/.vim/autoload')
@@ -25,12 +15,58 @@ call s:InstallVimPlug()
 set runtimepath+=~/.vim/lang
 
 call plug#begin("~/.vim/bundle")
+Plug 'gosukiwi/vim-atom-dark'
+Plug 'endel/vim-github-colorscheme'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-repeat'
+Plug 'rust-lang/rust.vim'
+Plug 'jgilchrist/vim-surround'
+Plug 'AndrewRadev/switch.vim'
+Plug 'scrooloose/syntastic'
+Plug 'wellle/targets.vim'
+Plug 'cespare/vim-toml'
+Plug 'SirVer/ultisnips'
+Plug 'lervag/vimtex'
+Plug 'rking/ag.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'tommcdo/vim-exchange'
 
-call s:SourceFromDir('plugins')
-call s:SourceFromDir('plugins/incubating')
-call s:SourceFromDir('plugins/local')
-
+Plug 'tfnico/vim-gradle'
+Plug 'vale1410/vim-minizinc'
 call plug#end()
+
+runtime macros/matchit.vim
+
+" Use Ag for faster CtrlP. It automatically repects .gitignore, but must
+" be told to ignore version control directories.
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
+" Ctrl-B is Ctrl-P buffer list
+nnoremap <c-B> :CtrlPBuffer<cr>
+inoremap <c-B> :CtrlPBuffer<cr>
+
+let g:NERDSpaceDelims=1
+
+nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.bbl$', '\.aux$', '\.run.xml$', '\.pyc$', '\.class$']
+
+" Switch with 'S'
+nnoremap <silent> S :Switch<cr>
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+
+let g:UltiSnipsSnippetsDir = '~/.vim/lang/UltiSnips'
+
+let g:tex_flavor = "latex"
+let g:vimtex_fold_enabled = 0
+let g:vimtex_latexmk_build_dir = "build"
+
+vmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " }}}
 

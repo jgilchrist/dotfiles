@@ -1,6 +1,0 @@
-Plug 'AndrewRadev/switch.vim'
-
-" Switch with 'S'
-nnoremap <silent> S :Switch<cr>
-
-" vim: ft=vim:

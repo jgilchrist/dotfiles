@@ -1,4 +1,0 @@
-" Extended matching for latex, HTML, etc.
-runtime macros/matchit.vim
-
-" vim: ft=vim:

@@ -1,6 +1,0 @@
-Plug 'scrooloose/nerdtree'
-
-nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
-let NERDTreeIgnore = ['\.bbl$', '\.aux$', '\.run.xml$', '\.pyc$', '\.class$']
-
-" vim: ft=vim:
