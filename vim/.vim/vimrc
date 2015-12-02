@@ -2,7 +2,7 @@
 let mapleader=","
 let maplocalleader=","
 
-" Plugins {{{
+" Package Manager {{{
 
 function! s:InstallVimPlug()
     if empty(glob("~/.vim/autoload/plug.vim"))
@@ -11,6 +11,10 @@ function! s:InstallVimPlug()
     endif
 endfunction
 call s:InstallVimPlug()
+
+" }}}
+
+" Plugins {{{
 
 set runtimepath+=~/.vim/lang
 
