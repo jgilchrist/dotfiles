@@ -1,7 +1,6 @@
 #!/bin/bash
 
 . ${HOME}/.bash/prompts/elements/git
-. ${HOME}/.bash/prompts/elements/virtualenv
 
 function set_prompt() {
     local E_YELLOW=$(prompt_color_escape $YELLOW)
@@ -19,7 +18,6 @@ function set_prompt() {
 
     PS1+="${E_BLUE}\w${E_RESET}"
     PS1+="\$(prompt_git)"
-    PS1+="\$(prompt_virtualenv)"
     PS1+=" ${E_GREEN}»${E_RESET} "
 }
 
