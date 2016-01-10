@@ -18,9 +18,9 @@ else
     echo "Cannot load ${GIT_PROMPT_SCRIPT_LOC}: Prompt will not contain the current git branch."
 fi
 
-export GIT_PS1_SHOWDIRTYSTATE=true
-export GIT_PS1_SHOWSTASHSTATE=true
-export GIT_PS1_SHOWUNTRACKEDFILES=true
+export GIT_PS1_SHOWDIRTYSTATE=
+export GIT_PS1_SHOWSTASHSTATE=
+export GIT_PS1_SHOWUNTRACKEDFILES=
 export GIT_PS1_SHOWUPSTREAM="auto"
 
 function prompt_git() {
