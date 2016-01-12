@@ -37,7 +37,7 @@
 
     amend = commit --amend
 
-    s = status -s
+    s = status -sb
     st = status
 
     ci = commit
