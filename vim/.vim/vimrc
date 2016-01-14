@@ -37,9 +37,6 @@ Plug 'lervag/vimtex'
 Plug 'rking/ag.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'tommcdo/vim-exchange'
-
-Plug 'tfnico/vim-gradle'
-Plug 'vale1410/vim-minizinc'
 call plug#end()
 
 runtime macros/matchit.vim
