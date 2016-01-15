@@ -10,7 +10,7 @@ colonise() {
 }
 
 # Machine-specific modifications to the environment
-[ -f "${HOME}/.env" ] && source "${HOME}/.env"
+[ -f "${HOME}/.env.local" ] && source "${HOME}/.env.local"
 
 # User's binary directory
 [ -d "${HOME}/bin" ] && export PATH="${HOME}/bin:$PATH"
