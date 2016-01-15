@@ -21,6 +21,9 @@
     renames = copies
     mnemonicprefix = true
 
+[rebase]
+    autosquash = true
+
 [color]
     ui = auto
 [color "branch"]
@@ -79,6 +82,3 @@
     ; commitBeforeMerge = false
     ; resolveConflict = false
     ; implicitIdentity = false
-
-[rebase]
-    autosquash = true
