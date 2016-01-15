@@ -1,3 +1,15 @@
+ALL = ag bash git latex tmux vim
+
+.PHONY: default
+default: usage
+
+.PHONY: all
+all: $(ALL)
+
+.PHONY: usage
+usage:
+	@echo "usage: make <target> {$(ALL)}"
+
 .PHONY: ag
 ag:
 	stow ag
