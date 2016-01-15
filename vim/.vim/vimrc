@@ -19,24 +19,34 @@ call s:InstallVimPlug()
 set runtimepath+=~/.vim/lang
 
 call plug#begin("~/.vim/bundle")
+
+" File management
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+
+" Vim behaviour
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'scrooloose/nerdcommenter'
+Plug 'AndrewRadev/switch.vim'
+Plug 'tommcdo/vim-exchange'
+
+" Syntax and search
+Plug 'rking/ag.vim'
+Plug 'SirVer/ultisnips'
+" Plug 'scrooloose/syntastic'
+
+" Extra features
+Plug 'junegunn/goyo.vim'
+
+" Filetype plugins
+Plug 'lervag/vimtex'
+Plug 'cespare/vim-toml'
+Plug 'rust-lang/rust.vim'
+
+" Colorschemes
 Plug 'gosukiwi/vim-atom-dark'
 Plug 'endel/vim-github-colorscheme'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-repeat'
-Plug 'rust-lang/rust.vim'
-Plug 'tpope/vim-surround'
-Plug 'AndrewRadev/switch.vim'
-Plug 'scrooloose/syntastic'
-Plug 'wellle/targets.vim'
-Plug 'cespare/vim-toml'
-Plug 'SirVer/ultisnips'
-Plug 'lervag/vimtex'
-Plug 'rking/ag.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'tommcdo/vim-exchange'
 
 so ~/.vim/plugins.local
 call plug#end()
