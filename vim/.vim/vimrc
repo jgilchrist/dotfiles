@@ -37,6 +37,8 @@ Plug 'lervag/vimtex'
 Plug 'rking/ag.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'tommcdo/vim-exchange'
+
+so ~/.vim/plugins.local
 call plug#end()
 
 runtime macros/matchit.vim
@@ -274,5 +276,7 @@ if has('gui_running')
 endif
 
 " }}}
+
+so ~/.vim/vimrc.local
 
 " vim: set fdm=marker:
