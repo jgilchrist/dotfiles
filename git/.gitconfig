@@ -24,6 +24,9 @@
 [rebase]
     autosquash = true
 
+[stash]
+    showPatch = true
+
 [color]
     ui = auto
 [color "branch"]
