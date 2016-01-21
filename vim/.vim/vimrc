@@ -130,7 +130,7 @@ set shortmess=I
 
 " Appearance
 syntax on
-colorscheme atom-dark-256
+colorscheme github
 
 set hidden
 
@@ -282,7 +282,7 @@ if has('gui_running')
     " Remove scrollbars and menus from the GUI
     set guioptions=c
 
-    color atom-dark
+    color github
 endif
 
 " }}}
