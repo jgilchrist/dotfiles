@@ -19,7 +19,9 @@ alias sudo="sudo "
 alias :x="exit"
 alias :q="exit"
 
+# Addition of default commands
 alias make="make --no-print-directory"
+alias units="units --verbose --one-line"
 
 # helper programs
 alias ccat="pygmentize -g"
