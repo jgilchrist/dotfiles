@@ -50,3 +50,15 @@ export LESS='-R'
 
 # Never store history for less
 export LESSHISTFILE=-
+
+create() {
+    mkdir -p "$*" && cd "$*"; pwd
+}
+
+e() {
+    if [ $# -gt 0 ]; then
+        command gvim --remote-silent "$@"
+    else
+        command gvim "$@"
+    fi
+}
