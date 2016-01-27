@@ -1,33 +1,5 @@
 #!/bin/bash
 
-DULL=0
-BRIGHT=1
-
-FG_BLACK=30
-FG_RED=31
-FG_GREEN=32
-FG_YELLOW=33
-FG_BLUE=34
-FG_VIOLET=35
-FG_CYAN=36
-FG_WHITE=37
-
-FG_NULL=00
-
-BG_BLACK=40
-BG_RED=41
-BG_GREEN=42
-BG_YELLOW=43
-BG_BLUE=44
-BG_VIOLET=45
-BG_CYAN=46
-BG_WHITE=47
-
-BG_NULL=00
-
-BEGIN="\033["
-END="m"
-
 dull_color() {
     echo "${BEGIN}${DULL};${1}${END}"
 }
@@ -36,10 +8,62 @@ bright_color() {
     echo "${BEGIN}${BRIGHT};${1}${END}"
 }
 
+colors_init() {
+    local DULL=0
+    local BRIGHT=1
+
+    local FG_BLACK=30
+    local FG_RED=31
+    local FG_GREEN=32
+    local FG_YELLOW=33
+    local FG_BLUE=34
+    local FG_VIOLET=35
+    local FG_CYAN=36
+    local FG_WHITE=37
+    local FG_NULL=00
+
+    local BG_BLACK=40
+    local BG_RED=41
+    local BG_GREEN=42
+    local BG_YELLOW=43
+    local BG_BLUE=44
+    local BG_VIOLET=45
+    local BG_CYAN=46
+    local BG_WHITE=47
+    local BG_NULL=00
+
+    local BEGIN="\033["
+    local END="m"
+
+    BLACK=$(dull_color $FG_BLACK)
+    RED=$(dull_color $FG_RED)
+    GREEN=$(dull_color $FG_GREEN)
+    YELLOW=$(dull_color $FG_YELLOW)
+    BLUE=$(dull_color $FG_BLUE)
+    VIOLET=$(dull_color $FG_VIOLET)
+    CYAN=$(dull_color $FG_CYAN)
+    WHITE=$(dull_color $FG_WHITE)
+
+    BRIGHT_BLACK=$(bright_color $FG_BLACK)
+    BRIGHT_RED=$(bright_color $FG_RED)
+    BRIGHT_GREEN=$(bright_color $FG_GREEN)
+    BRIGHT_YELLOW=$(bright_color $FG_YELLOW)
+    BRIGHT_BLUE=$(bright_color $FG_BLUE)
+    BRIGHT_VIOLET=$(bright_color $FG_VIOLET)
+    BRIGHT_CYAN=$(bright_color $FG_CYAN)
+    BRIGHT_WHITE=$(bright_color $FG_WHITE)
+
+    RESET="${BEGIN}${DULL};${FG_WHITE};${BG_NULL}${END}"
+}
+
+colors_init
+unset -f dull_color bright_color
+
 prompt_color_escape() {
     echo "\[$1\]"
 }
 
+# Readline uses different characters to escape
 readline_color_escape() {
     echo "\001$1\002"
 }
@@ -52,23 +76,3 @@ echoc() {
 
     echo -e "$1$2${RESET}"
 }
-
-BLACK=$(dull_color $FG_BLACK)
-RED=$(dull_color $FG_RED)
-GREEN=$(dull_color $FG_GREEN)
-YELLOW=$(dull_color $FG_YELLOW)
-BLUE=$(dull_color $FG_BLUE)
-VIOLET=$(dull_color $FG_VIOLET)
-CYAN=$(dull_color $FG_CYAN)
-WHITE=$(dull_color $FG_WHITE)
-
-BRIGHT_BLACK=$(bright_color $FG_BLACK)
-BRIGHT_RED=$(bright_color $FG_RED)
-BRIGHT_GREEN=$(bright_color $FG_GREEN)
-BRIGHT_YELLOW=$(bright_color $FG_YELLOW)
-BRIGHT_BLUE=$(bright_color $FG_BLUE)
-BRIGHT_VIOLET=$(bright_color $FG_VIOLET)
-BRIGHT_CYAN=$(bright_color $FG_CYAN)
-BRIGHT_WHITE=$(bright_color $FG_WHITE)
-
-RESET="${BEGIN}${DULL};${FG_WHITE};${BG_NULL}${END}"
