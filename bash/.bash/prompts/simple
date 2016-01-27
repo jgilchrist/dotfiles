@@ -3,11 +3,11 @@
 . ${HOME}/.bash/prompts/elements/git
 
 function set_prompt() {
-    local E_YELLOW=$(prompt_color_escape $YELLOW)
-    local E_GREEN=$(prompt_color_escape $GREEN)
-    local E_BLUE=$(prompt_color_escape $BLUE)
-    local E_VIOLET=$(prompt_color_escape $VIOLET)
-    local E_RESET=$(prompt_color_escape $RESET)
+    local E_YELLOW=$(prompt_color_escape $COLOR_YELLOW)
+    local E_GREEN=$(prompt_color_escape $COLOR_GREEN)
+    local E_BLUE=$(prompt_color_escape $COLOR_BLUE)
+    local E_VIOLET=$(prompt_color_escape $COLOR_VIOLET)
+    local E_RESET=$(prompt_color_escape $COLOR_RESET)
 
     PS1="\n"
     PS1+=" "

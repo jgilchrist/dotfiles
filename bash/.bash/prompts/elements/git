@@ -31,8 +31,8 @@ fi
 
 
 function prompt_git() {
-    local E_VIOLET=$(readline_color_escape $VIOLET)
-    local E_RESET=$(readline_color_escape $RESET)
+    local E_VIOLET=$(readline_color_escape $COLOR_VIOLET)
+    local E_RESET=$(readline_color_escape $COLOR_RESET)
 
     local GIT_PROMPT_BRANCH=$(__git_ps1 "(${E_VIOLET}%s${E_RESET})")
 

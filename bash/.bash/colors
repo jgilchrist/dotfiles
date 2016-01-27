@@ -35,25 +35,25 @@ colors_init() {
     local BEGIN="\033["
     local END="m"
 
-    BLACK=$(dull_color $FG_BLACK)
-    RED=$(dull_color $FG_RED)
-    GREEN=$(dull_color $FG_GREEN)
-    YELLOW=$(dull_color $FG_YELLOW)
-    BLUE=$(dull_color $FG_BLUE)
-    VIOLET=$(dull_color $FG_VIOLET)
-    CYAN=$(dull_color $FG_CYAN)
-    WHITE=$(dull_color $FG_WHITE)
+    COLOR_BLACK=$(dull_color $FG_BLACK)
+    COLOR_RED=$(dull_color $FG_RED)
+    COLOR_GREEN=$(dull_color $FG_GREEN)
+    COLOR_YELLOW=$(dull_color $FG_YELLOW)
+    COLOR_BLUE=$(dull_color $FG_BLUE)
+    COLOR_VIOLET=$(dull_color $FG_VIOLET)
+    COLOR_CYAN=$(dull_color $FG_CYAN)
+    COLOR_WHITE=$(dull_color $FG_WHITE)
 
-    BRIGHT_BLACK=$(bright_color $FG_BLACK)
-    BRIGHT_RED=$(bright_color $FG_RED)
-    BRIGHT_GREEN=$(bright_color $FG_GREEN)
-    BRIGHT_YELLOW=$(bright_color $FG_YELLOW)
-    BRIGHT_BLUE=$(bright_color $FG_BLUE)
-    BRIGHT_VIOLET=$(bright_color $FG_VIOLET)
-    BRIGHT_CYAN=$(bright_color $FG_CYAN)
-    BRIGHT_WHITE=$(bright_color $FG_WHITE)
+    COLOR_BRIGHT_BLACK=$(bright_color $FG_BLACK)
+    COLOR_BRIGHT_RED=$(bright_color $FG_RED)
+    COLOR_BRIGHT_GREEN=$(bright_color $FG_GREEN)
+    COLOR_BRIGHT_YELLOW=$(bright_color $FG_YELLOW)
+    COLOR_BRIGHT_BLUE=$(bright_color $FG_BLUE)
+    COLOR_BRIGHT_VIOLET=$(bright_color $FG_VIOLET)
+    COLOR_BRIGHT_CYAN=$(bright_color $FG_CYAN)
+    COLOR_BRIGHT_WHITE=$(bright_color $FG_WHITE)
 
-    RESET="${BEGIN}${DULL};${FG_WHITE};${BG_NULL}${END}"
+    COLOR_RESET="${BEGIN}${DULL};${FG_WHITE};${BG_NULL}${END}"
 }
 
 colors_init
@@ -74,5 +74,5 @@ echoc() {
         return 1
     fi
 
-    echo -e "$1$2${RESET}"
+    echo -e "$1$2${COLOR_RESET}"
 }
