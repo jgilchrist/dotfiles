@@ -32,6 +32,9 @@ pathprepend() {
 # Always use a 256 color terminal
 [ "$TERM" != "screen-256color" ] && export TERM="xterm-256color"
 
+# Editor
+export EDITOR='vim'
+
 # Always save 10000 history, without duplicates
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
@@ -47,6 +50,3 @@ export LESS='-R'
 
 # Never store history for less
 export LESSHISTFILE=-
-
-# Editor
-export EDITOR='vim'
