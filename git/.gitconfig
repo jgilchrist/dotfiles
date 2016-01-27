@@ -54,7 +54,7 @@
     di = diff
     dc = diff --staged
     ds = diff --staged
-    dl = show -p HEAD --oneline --stat
+    dl = show -p --oneline --stat
     dw = diff --color-words
 
     assume = update-index --assume-unchanged
