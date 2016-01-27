@@ -9,11 +9,25 @@ colonise() {
     cat $1 | tr "\n" ":"
 }
 
+# Add a directory to the end of the path if it is not already present
+pathappend() {
+    if [ -d "$1" ] && [[ ! "$PATH" =~ (^|:)"${1}"(:|$) ]]; then
+        PATH="${PATH:+"$PATH:"}$1";
+    fi
+}
+
+# Add a directory to the beginning of the path if it is not already present
+pathprepend() {
+    if [ -d "$1" ] && [[ ! "$PATH" =~ (^|:)"${1}"(:|$) ]]; then
+        PATH="$1${PATH:+":$PATH"}";
+    fi
+}
+
 # Machine-specific modifications to the environment
 [ -f "${HOME}/.env.local" ] && source "${HOME}/.env.local"
 
 # User's binary directory
-[ -d "${HOME}/bin" ] && export PATH="${HOME}/bin:$PATH"
+[ -d "${HOME}/bin" ] && pathprepend "${HOME}/bin"
 
 # Always use a 256 color terminal
 [ "$TERM" != "screen-256color" ] && export TERM="xterm-256color"
