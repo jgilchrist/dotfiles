@@ -1,3 +1,7 @@
+#
+# A virtualenv prompt element which can be added to a bash prompt.
+#
+
 function prompt_virtualenv() {
     if [[ -n "$VIRTUAL_ENV" ]]; then
         venv="${VIRTUAL_ENV##*/}"
@@ -9,3 +13,5 @@ function prompt_virtualenv() {
 }
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+# vim: ft=sh
