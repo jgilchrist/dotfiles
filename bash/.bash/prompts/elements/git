@@ -1,3 +1,15 @@
+#
+# A simple git prompt element which can be added to a bash prompt.
+#
+# Relies on the git-prompt.sh file which is distributed with git.
+#
+# Can be configured by setting the following environment variables:
+#   export GIT_PS1_SHOWDIRTYSTATE=1
+#   export GIT_PS1_SHOWSTASHSTATE=1
+#   export GIT_PS1_SHOWUNTRACKEDFILES=1
+#   export GIT_PS1_SHOWUPSTREAM="auto"
+#
+
 case $OSTYPE in
     linux*)
         if [ -f /etc/bash_completion.d/git-prompt ]; then
@@ -11,17 +23,12 @@ case $OSTYPE in
         ;;
 esac
 
-
 if [ -f $GIT_PROMPT_SCRIPT_LOC ]; then
     source $GIT_PROMPT_SCRIPT_LOC
 else
     echo "Cannot load ${GIT_PROMPT_SCRIPT_LOC}: Prompt will not contain the current git branch."
 fi
 
-export GIT_PS1_SHOWDIRTYSTATE=true
-export GIT_PS1_SHOWSTASHSTATE=true
-export GIT_PS1_SHOWUNTRACKEDFILES=true
-export GIT_PS1_SHOWUPSTREAM="auto"
 
 function prompt_git() {
     local E_VIOLET=$(readline_color_escape $VIOLET)
@@ -31,3 +38,5 @@ function prompt_git() {
 
     echo -e " $GIT_PROMPT_BRANCH"
 }
+
+# vim: ft=sh
