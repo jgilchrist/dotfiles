@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function set_prompt() {
     local E_GREEN=$(prompt_color_escape $GREEN)
     local E_RESET=$(prompt_color_escape $RESET)
