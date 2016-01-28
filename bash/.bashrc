@@ -36,7 +36,7 @@ pathprepend() {
 export EDITOR='vim'
 
 # Always save 10000 history, without duplicates
-export HISTCONTROL=erasedups
+export HISTCONTROL=ignoredups:erasedups
 export HISTSIZE=10000
 
 # Ensure that history is preserved if more than one instance of bash is run
