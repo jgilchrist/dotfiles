@@ -188,6 +188,10 @@ set matchtime=2
 set noswapfile
 set nobackup
 
+" Save undo history between sessions
+set undofile
+set undodir=~/.vim/undo
+
 " Don't search through includes for completion as this can be slow
 set complete-=i
 
