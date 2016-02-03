@@ -37,7 +37,10 @@ export EDITOR='vim'
 
 # Always save 10000 history, without duplicates
 export HISTCONTROL=ignoredups:erasedups
-export HISTSIZE=10000
+export HISTSIZE=100000
+
+# Ignore some common commands
+export HISTIGNORE="exit*:reset*:clear*:history*:\:q"
 
 # Ensure that history is preserved if more than one instance of bash is run
 shopt -s histappend
