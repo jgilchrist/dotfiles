@@ -1,4 +1,4 @@
-ALL = ag bash git latex tmux vim
+ALL = ag bash git tmux vim
 
 .PHONY: default
 default: usage
@@ -23,10 +23,6 @@ bash:
 .PHONY: git
 git:
 	stow git
-
-.PHONY: latex
-latex:
-	stow latex
 
 .PHONY: tmux
 tmux:
