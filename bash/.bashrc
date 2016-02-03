@@ -40,7 +40,7 @@ export HISTCONTROL=ignoredups:erasedups
 export HISTSIZE=100000
 
 # Ignore some common commands
-export HISTIGNORE="exit*:reset*:clear*:history*:\:q"
+export HISTIGNORE="history*:cd*:exit:fg:bg:clear:ls:ll:\:q"
 
 # Ensure that history is preserved if more than one instance of bash is run
 shopt -s histappend
