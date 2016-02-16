@@ -85,3 +85,7 @@
     ; commitBeforeMerge = false
     ; resolveConflict = false
     ; implicitIdentity = false
+
+[pager]
+    diff = less -FXR
+    show = less -FXR
