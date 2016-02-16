@@ -36,7 +36,7 @@ pathprepend() {
 export EDITOR='vim'
 
 # Always save 10000 history, without duplicates
-export HISTCONTROL=ignoredups:erasedups
+export HISTCONTROL=ignoreboth:erasedups
 export HISTSIZE=100000
 
 # Ignore some common commands
