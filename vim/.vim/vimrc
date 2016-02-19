@@ -253,6 +253,7 @@ vnoremap <leader>p "+p
 
 " Shift-Q repeats the q macro
 nnoremap Q @q
+vnoremap Q :normal! @q<CR>
 
 " Close the current buffer with <leader>q
 nnoremap <silent> <leader>q :bd<CR>
