@@ -98,13 +98,6 @@ let g:vimtex_latexmk_build_dir = "build"
 
 " }}}
 
-" EasyAlign {{{
-
-vmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-
-" }}}
-
 " }}}
 
 " }}}
