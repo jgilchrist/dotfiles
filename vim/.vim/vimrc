@@ -22,7 +22,7 @@ call plug#begin("~/.vim/bundle")
 
 " File management
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-vinegar'
 
 " Vim behaviour
 Plug 'tpope/vim-surround'
@@ -70,13 +70,6 @@ inoremap <c-B> :CtrlPBuffer<cr>
 " NERDCommenter {{{
 
 let g:NERDSpaceDelims=1
-
-" }}}
-
-" NERDTree {{{
-
-nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
-let NERDTreeIgnore = ['\.bbl$', '\.aux$', '\.run.xml$', '\.pyc$', '\.class$']
 
 " }}}
 
