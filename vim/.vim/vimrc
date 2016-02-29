@@ -36,9 +36,6 @@ Plug 'rking/ag.vim'
 Plug 'SirVer/ultisnips'
 " Plug 'scrooloose/syntastic'
 
-" Extra features
-Plug 'junegunn/goyo.vim'
-
 " Filetype plugins
 Plug 'lervag/vimtex'
 Plug 'cespare/vim-toml'
