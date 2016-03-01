@@ -30,6 +30,7 @@ Plug 'tpope/vim-repeat'
 Plug 'scrooloose/nerdcommenter'
 Plug 'AndrewRadev/switch.vim'
 Plug 'tommcdo/vim-exchange'
+Plug 'tpope/vim-unimpaired'
 
 " Syntax and search
 Plug 'rking/ag.vim'
@@ -247,10 +248,6 @@ nnoremap <silent> <leader>q :bd<CR>
 
 " Hide search highlighting
 nnoremap <leader><space> :nohlsearch<CR>
-
-" Settings toggles
-nnoremap <leader>sw :set wrap!<CR>:set wrap?<CR>
-nnoremap <leader>sl :set list!<CR>:set list?<CR>
 
 " Surround with 's'
 nmap s ys
