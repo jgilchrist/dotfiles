@@ -21,6 +21,9 @@
     renames = copies
     mnemonicprefix = true
 
+[merge]
+    conflictstyle = diff3
+
 [rebase]
     autosquash = true
 
