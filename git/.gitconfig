@@ -92,3 +92,6 @@
 [pager]
     diff = less -FXR
     show = less -FXR
+
+[rerere]
+	enabled = true
