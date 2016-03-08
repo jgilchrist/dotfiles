@@ -16,12 +16,8 @@ alias usys="systemctl --user"
 alias sudo="sudo "
 
 # vim commands for terminal
-alias :x="exit"
 alias :q="exit"
 
 # Addition of default arguments
 alias make="make --no-print-directory"
 alias units="units --verbose --one-line"
-
-# Helper programs
-alias ccat="pygmentize -g"
