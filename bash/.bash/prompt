@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ${HOME}/.bash/prompts/elements/git
+. ${HOME}/.bash/prompts/git
 
 function set_prompt() {
     local E_YELLOW=$(prompt_color_escape $COLOR_YELLOW)
