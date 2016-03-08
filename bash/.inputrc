@@ -6,3 +6,6 @@ set completion-ignore-case on
 
 # Immediately add a trailing / when completing symlinked directories
 set mark-symlinked-directories on
+
+# Don't expand ~ into its full path
+set expand-tilde off
