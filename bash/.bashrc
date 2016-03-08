@@ -24,7 +24,8 @@ pathprepend() {
 }
 
 # Machine-specific modifications to the environment
-[ -f "${HOME}/.env.local" ] && source "${HOME}/.env.local"
+# Provides a LOADED_LOCAL_ENV variable in case some things should run only once
+[ -f "${HOME}/.env.local" ] && source "${HOME}/.env.local" && export LOADED_LOCAL_ENV=true
 
 # User's binary directory
 [ -d "${HOME}/bin" ] && pathprepend "${HOME}/bin"
