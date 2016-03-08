@@ -1,4 +1,4 @@
-set wrap
-set linebreak
-set colorcolumn=
-set foldmethod=marker
+setlocal wrap
+setlocal linebreak
+setlocal colorcolumn=
+setlocal foldmethod=marker
