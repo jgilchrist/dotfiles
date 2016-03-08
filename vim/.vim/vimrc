@@ -2,7 +2,7 @@
 let mapleader=","
 let maplocalleader=","
 
-" Package Manager {{{
+" Plugin Manager {{{
 
 function! s:InstallVimPlug()
     if empty(glob("~/.vim/autoload/plug.vim"))
