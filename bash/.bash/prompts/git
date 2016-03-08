@@ -37,9 +37,7 @@ function prompt_git() {
     local GIT_PROMPT_BRANCH=$(__git_ps1 "(${E_VIOLET}%s${E_RESET})")
 
     # Only output anything if we are in a repository
-    if [ -n "$GIT_PROMPT_BRANCH" ]; then
-        echo -e " $GIT_PROMPT_BRANCH";
-    fi
+    [ -n "$GIT_PROMPT_BRANCH" ] && echo -e " $GIT_PROMPT_BRANCH"
 }
 
 # vim: ft=sh
