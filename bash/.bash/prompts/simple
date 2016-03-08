@@ -16,7 +16,7 @@ function set_prompt() {
         PS1+="[${E_YELLOW}\h${E_RESET}] "
     fi
 
-    PS1+="${E_BLUE}\w${E_RESET}"
+    PS1+="${E_BLUE}\W${E_RESET}"
     PS1+="\$(prompt_git)"
     PS1+=" ${E_GREEN}»${E_RESET} "
 }
