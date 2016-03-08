@@ -9,3 +9,6 @@ set mark-symlinked-directories on
 
 # Don't expand ~ into its full path
 set expand-tilde off
+
+# Don't show the full names when completing many similarly named files
+set completion-prefix-display-length 2
