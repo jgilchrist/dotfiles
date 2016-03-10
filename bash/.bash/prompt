@@ -16,9 +16,25 @@ function set_prompt() {
         PS1+="[${E_YELLOW}\h${E_RESET}] "
     fi
 
-    PS1+="${E_BLUE}\W${E_RESET}"
+    if [ -n "$PROMPT_FULL_DIR" ]; then
+        local PROMPT_DIR_CMD="\w"
+    else
+        local PROMPT_DIR_CMD="\W"
+    fi
+
+    PS1+="${E_BLUE}${PROMPT_DIR_CMD}${E_RESET}"
     PS1+="\$(prompt_git)"
     PS1+=" \$${E_RESET} "
 }
 
 set_prompt
+
+function prompt_toggle_dir() {
+    if [ -n "$PROMPT_FULL_DIR" ]; then
+        unset PROMPT_FULL_DIR
+    else
+        export PROMPT_FULL_DIR=true
+    fi
+
+    set_prompt
+}
