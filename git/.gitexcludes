@@ -4,3 +4,7 @@
 
 # MacOS
 .DS_Store
+
+# IDEs
+.idea/
+*.iml
