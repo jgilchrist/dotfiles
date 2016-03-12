@@ -21,3 +21,4 @@ alias :q="exit"
 # Addition of default arguments
 alias make="make --no-print-directory"
 alias units="units --verbose --one-line"
+alias toilet="toilet --font future"
