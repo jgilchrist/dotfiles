@@ -6,8 +6,6 @@ alias lla='ls -Al'
 
 alias grep="grep --color"
 
-alias b='cd ..; pwd'
-
 # Abbreviations
 alias sys="systemctl"
 alias usys="systemctl --user"
