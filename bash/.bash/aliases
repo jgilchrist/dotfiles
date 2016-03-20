@@ -1,14 +1,8 @@
 # /usr/bin aliases
 alias ls='ls -h --color=auto -p --group-directories-first'
-alias la='ls -A'
 alias ll='ls -l'
-alias lla='ls -Al'
-
-alias grep="grep --color"
-
-# Abbreviations
-alias sys="systemctl"
-alias usys="systemctl --user"
+alias la='ls -A'
+alias lla='ls -lA'
 
 # Trailing space allows alias expansion in arguments
 alias sudo="sudo "
@@ -17,6 +11,7 @@ alias sudo="sudo "
 alias :q="exit"
 
 # Addition of default arguments
+alias grep="grep --color"
 alias make="make --no-print-directory"
 alias units="units --verbose --one-line"
 alias toilet="toilet --font future"
