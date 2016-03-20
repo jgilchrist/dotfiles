@@ -76,7 +76,6 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 " Ctrl-B is Ctrl-P buffer list
 nnoremap <c-B> :CtrlPBuffer<cr>
-inoremap <c-B> :CtrlPBuffer<cr>
 
 "}}}
 
