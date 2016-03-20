@@ -14,7 +14,7 @@ prompt_color_escape() {
 
 # Readline uses different characters to escape
 readline_color_escape() {
-    echo "\001$1\002"
+    echo "\x01$1\x02"
 }
 
 colors_init() {
