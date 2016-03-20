@@ -74,7 +74,7 @@
     ll = !git prettylog --all
 
     # Show the log since the origin/master commit
-    lo = !git prettylog `git tracking`..
+    lo = !git prettylog `git tracking`^..
 
 [url "git@github.com:jgilchrist/"]
     insteadOf = gh:
