@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 # A simple git prompt element which can be added to a bash prompt.
 #

@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 # A virtualenv prompt element which can be added to a bash prompt.
 #
