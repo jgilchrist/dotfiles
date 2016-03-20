@@ -32,10 +32,7 @@ fi
 
 
 function prompt_git() {
-    local E_VIOLET=$(readline_color_escape $COLOR_VIOLET)
-    local E_RESET=$(readline_color_escape $COLOR_RESET)
-
-    local GIT_PROMPT_BRANCH=$(__git_ps1 "(${E_VIOLET}%s${E_RESET})")
+    local GIT_PROMPT_BRANCH=$(__git_ps1 "(${COLOR_ESC_VIOLET}%s${COLOR_ESC_RESET})")
 
     # Only output anything if we are in a repository
     [ -n "$GIT_PROMPT_BRANCH" ] && echo -e " $GIT_PROMPT_BRANCH"

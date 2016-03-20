@@ -8,6 +8,15 @@ bright_color() {
     echo "${BEGIN}${BRIGHT};${1}${END}"
 }
 
+prompt_color_escape() {
+    echo "\[$1\]"
+}
+
+# Readline uses different characters to escape
+readline_color_escape() {
+    echo "\001$1\002"
+}
+
 colors_init() {
     local DULL=0
     local BRIGHT=1
@@ -54,19 +63,30 @@ colors_init() {
     COLOR_BRIGHT_WHITE=$(bright_color $FG_WHITE)
 
     COLOR_RESET="${BEGIN}${DULL};${FG_WHITE};${BG_NULL}${END}"
+
+    COLOR_ESC_BLACK=$(readline_color_escape $COLOR_BLACK)
+    COLOR_ESC_RED=$(readline_color_escape $COLOR_RED)
+    COLOR_ESC_GREEN=$(readline_color_escape $COLOR_GREEN)
+    COLOR_ESC_YELLOW=$(readline_color_escape $COLOR_YELLOW)
+    COLOR_ESC_BLUE=$(readline_color_escape $COLOR_BLUE)
+    COLOR_ESC_VIOLET=$(readline_color_escape $COLOR_VIOLET)
+    COLOR_ESC_CYAN=$(readline_color_escape $COLOR_CYAN)
+    COLOR_ESC_WHITE=$(readline_color_escape $COLOR_WHITE)
+
+    COLOR_ESC_BRIGHT_BLACK=$(readline_color_escape $COLOR_BRIGHT_BLACK)
+    COLOR_ESC_BRIGHT_RED=$(readline_color_escape $COLOR_BRIGHT_RED)
+    COLOR_ESC_BRIGHT_GREEN=$(readline_color_escape $COLOR_BRIGHT_GREEN)
+    COLOR_ESC_BRIGHT_YELLOW=$(readline_color_escape $COLOR_BRIGHT_YELLOW)
+    COLOR_ESC_BRIGHT_BLUE=$(readline_color_escape $COLOR_BRIGHT_BLUE)
+    COLOR_ESC_BRIGHT_VIOLET=$(readline_color_escape $COLOR_BRIGHT_VIOLET)
+    COLOR_ESC_BRIGHT_CYAN=$(readline_color_escape $COLOR_BRIGHT_CYAN)
+    COLOR_ESC_BRIGHT_WHITE=$(readline_color_escape $COLOR_BRIGHT_WHITE)
+
+    COLOR_ESC_RESET=$(readline_color_escape $COLOR_RESET)
 }
 
 colors_init
-unset -f dull_color bright_color
-
-prompt_color_escape() {
-    echo "\[$1\]"
-}
-
-# Readline uses different characters to escape
-readline_color_escape() {
-    echo "\001$1\002"
-}
+unset -f dull_color bright_color prompt_color_escape readline_color_escape
 
 echoc() {
     if [ $# -ne 2 ]; then

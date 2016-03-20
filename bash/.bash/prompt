@@ -3,17 +3,11 @@
 . ${HOME}/.bash/prompts/git
 
 function set_prompt() {
-    local E_YELLOW=$(prompt_color_escape $COLOR_YELLOW)
-    local E_GREEN=$(prompt_color_escape $COLOR_GREEN)
-    local E_BLUE=$(prompt_color_escape $COLOR_BLUE)
-    local E_VIOLET=$(prompt_color_escape $COLOR_VIOLET)
-    local E_RESET=$(prompt_color_escape $COLOR_RESET)
-
     PS1="\n"
     PS1+=" "
 
     if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-        PS1+="[${E_YELLOW}\h${E_RESET}] "
+        PS1+="[${COLOR_ESC_YELLOW}\h${COLOR_ESC_RESET}] "
     fi
 
     if [ -n "$PROMPT_FULL_DIR" ]; then
@@ -22,9 +16,9 @@ function set_prompt() {
         local PROMPT_DIR_CMD="\W"
     fi
 
-    PS1+="${E_BLUE}${PROMPT_DIR_CMD}${E_RESET}"
+    PS1+="${COLOR_ESC_BLUE}${PROMPT_DIR_CMD}${COLOR_ESC_RESET}"
     PS1+="\$(prompt_git)"
-    PS1+=" \$${E_RESET} "
+    PS1+=" \$${COLOR_ESC_RESET} "
 }
 
 set_prompt
