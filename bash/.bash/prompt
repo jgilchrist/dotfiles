@@ -17,7 +17,7 @@ function set_prompt() {
     fi
 
     PS1+="${COLOR_ESC_BLUE}${PROMPT_DIR_CMD}${COLOR_ESC_RESET}"
-    PS1+="\$(prompt_git)"
+    PS1+="\$(ps1_git)"
     PS1+=" \$${COLOR_ESC_RESET} "
 }
 

@@ -31,7 +31,7 @@ else
 fi
 
 
-function prompt_git() {
+function ps1_git() {
     local GIT_PROMPT_BRANCH=$(__git_ps1 "(${COLOR_ESC_VIOLET}%s${COLOR_ESC_RESET})")
 
     # Only output anything if we are in a repository
