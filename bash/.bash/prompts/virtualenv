@@ -3,7 +3,7 @@
 # A virtualenv prompt element which can be added to a bash prompt.
 #
 
-function prompt_virtualenv() {
+function ps1_virtualenv() {
     if [[ -n "$VIRTUAL_ENV" ]]; then
         venv="${VIRTUAL_ENV##*/}"
     else
