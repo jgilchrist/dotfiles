@@ -272,11 +272,7 @@ vmap s S
 " GUI {{{
 
 if has('gui_running')
-    if has('mac')
-        set guifont=Source\ Code\ Pro:h13
-    else
-        set guifont=Inconsolata\ 12
-    endif
+    set guifont=Source\ Code\ Pro:h13
 
     " Remove scrollbars and menus from the GUI
     set guioptions=c
