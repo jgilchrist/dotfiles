@@ -1,28 +1,31 @@
-# dotfiles
+```
+       mm                         mmmm      ##     mmmm
+       ##              ##        ##"""      ""     ""##
+  m###m##   m####m   #######   #######    ####       ##       m####m   mm#####m
+ ##"  "##  ##"  "##    ##        ##         ##       ##      ##mmmm##  ##mmmm "
+ ##    ##  ##    ##    ##        ##         ##       ##      ##""""""   """"##m
+ "##mm###  "##mm##"    ##mmm     ##      mmm##mmm    ##mmm   "##mmmm#  #mmmmm##
+```
 
-These dotfiles are managed using `GNU Stow`, a symlink farm manager. Install it using your favourite package manager.
+# Installation
 
-### Getting the dotfiles
+Installation requires GNU `stow`, a symlink farm manager. Install it using your favourite package manager.
 
 ```sh
 git clone https://github.com/jgilchrist/dotfiles ~/.dotfiles
 cd ~/.dotfiles
+make
 ```
 
-### Install a config
+# Machine-local configuration
 
-```sh
-stow <config> # e.g. stow bash
-```
+Any configuration which shouldn't be shared between machines should be placed in the following files:
 
-### Uninstall a config
+* `~/.env.local`
+* `~/.gitconfig.local`
+* `~/.vim/vimrc.local`
+* `~/.vim/plugins.local`
 
-```sh
-stow --delete <config>
-```
+# Feedback
 
-### Install a config to /
-
-```sh
-stow --target=/ <config>
-```
+Suggestions and improvements [welcome!](https://github.com/jgilchrist/dotfiles/issues)
