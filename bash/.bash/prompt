@@ -32,13 +32,3 @@ function prompt_toggle_dir() {
 
     set_prompt
 }
-
-function prompt_toggle_git() {
-    if [ -n "$PROMPT_NO_GIT" ]; then
-        unset PROMPT_NO_GIT
-    else
-        export PROMPT_NO_GIT=true
-    fi
-
-    set_prompt
-}
