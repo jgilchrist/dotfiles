@@ -1,6 +1,7 @@
 #!/bin/bash
 
 . ${HOME}/.bash/prompts/git
+. ${HOME}/.bash/prompts/jobs
 
 function set_prompt() {
     PS1="\n"
@@ -16,6 +17,7 @@ function set_prompt() {
         local PROMPT_DIR_CMD="\W"
     fi
 
+    PS1+="\$(ps1_jobs)"
     PS1+="${COLOR_ESC_BLUE}${PROMPT_DIR_CMD}${COLOR_ESC_RESET}"
     PS1+="\$(ps1_git)"
     PS1+=" \$${COLOR_ESC_RESET} "

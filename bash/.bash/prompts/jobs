@@ -1,0 +1,9 @@
+#!/bin/bash
+
+function ps1_jobs() {
+    [ -n "$PROMPT_NO_JOBS" ] && return;
+
+    local stopped=$(jobs -sp | wc -l)
+
+    [ ! $stopped -eq 0 ] && echo -e "${COLOR_ESC_BLACK}[+${stopped}] ${COLOR_ESC_RESET}"
+}
