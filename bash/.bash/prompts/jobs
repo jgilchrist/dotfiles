@@ -5,5 +5,5 @@ function ps1_jobs() {
 
     local stopped=$(jobs -sp | wc -l)
 
-    [ ! $stopped -eq 0 ] && echo -e "${COLOR_ESC_BLACK}[+${stopped}] ${COLOR_ESC_RESET}"
+    [ ! $stopped -eq 0 ] && echo -e "${COLOR_ESC_BRIGHT_BLACK}[+${stopped}] ${COLOR_ESC_RESET}"
 }
