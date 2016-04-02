@@ -1,4 +1,4 @@
-CONFIGS = ag bash git tmux vim
+CONFIGS = bash git tmux vim
 
 .PHONY: default
 default: all
@@ -13,10 +13,6 @@ help: usage
 usage:
 	@echo "usage: make <target>"
 	@echo "targets: [all] $(CONFIGS)"
-
-.PHONY: ag
-ag:
-	stow ag
 
 .PHONY: bash
 bash:
