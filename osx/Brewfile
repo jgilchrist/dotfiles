@@ -1,0 +1,34 @@
+tap 'homebrew/dupes'
+brew 'atool'
+brew 'bash'
+brew 'bash-completion'
+brew 'cloc'
+brew 'cmake'
+brew 'coreutils'
+brew 'dos2unix'
+brew 'git'
+brew 'gnu-sed', args: ['with-default-names']
+brew 'gnu-tar', args: ['with-default-names']
+brew 'gnu-units', args: ['with-default-names']
+brew 'gnu-which', args: ['with-default-names']
+brew 'homebrew/dupes/diffutils'
+brew 'homebrew/dupes/grep', args: ['with-default-names']
+brew 'homebrew/dupes/less'
+brew 'homebrew/dupes/make', args: ['with-default-names']
+brew 'homebrew/dupes/openssh'
+brew 'htop'
+brew 'keychain'
+brew 'macvim', args: ['with-override-system-vim']
+brew 'openssl', args: ['universal']
+brew 'pandoc'
+brew 'pkg-config'
+brew 'python3'
+brew 'rbenv'
+brew 'readline'
+brew 'ruby-build'
+brew 'stow'
+brew 'the_silver_searcher'
+brew 'tmux'
+brew 'toilet'
+brew 'tree'
+brew 'wget'
