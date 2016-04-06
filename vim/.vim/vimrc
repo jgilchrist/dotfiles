@@ -55,9 +55,6 @@ runtime macros/matchit.vim
 
 " Dirvish {{{
 
-" Have - open the current directory
-nnoremap - :Dirvish<cr>
-
 augroup dirvish_mappings
     autocmd!
 
