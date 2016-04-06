@@ -11,6 +11,7 @@ brew 'gnu-sed', args: ['with-default-names']
 brew 'gnu-tar', args: ['with-default-names']
 brew 'gnu-units', args: ['with-default-names']
 brew 'gnu-which', args: ['with-default-names']
+brew 'gpg'
 brew 'homebrew/dupes/diffutils'
 brew 'homebrew/dupes/grep', args: ['with-default-names']
 brew 'homebrew/dupes/less'
