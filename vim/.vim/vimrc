@@ -68,9 +68,8 @@ augroup END
 
 " CtrlP {{{
 
-" Use Ag for faster CtrlP. It automatically repects .gitignore, but must
-" be told to ignore version control directories.
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+" Ignore files in .gitignore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " Ctrl-B is Ctrl-P buffer list
 nnoremap <c-B> :CtrlPBuffer<cr>
