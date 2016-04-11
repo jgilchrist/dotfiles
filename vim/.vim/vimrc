@@ -224,6 +224,7 @@ nnoremap J mzJ`z
 
 " Edit/source configuration
 nnoremap <leader>ec :edit $MYVIMRC<cr>
+nnoremap <leader>el :edit $MYVIMRC.local<cr>
 nnoremap <leader>sc :source $MYVIMRC<cr>
 
 " Disable the arrow keys
