@@ -27,6 +27,7 @@ Any configuration which shouldn't be shared between machines should be placed in
 * `~/.gitconfig.local`
 * `~/.vim/vimrc.local`
 * `~/.vim/plugins.local`
+* `~/.tmux.conf.local`
 
 # Feedback
 
