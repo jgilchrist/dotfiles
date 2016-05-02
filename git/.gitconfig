@@ -59,6 +59,7 @@
     ds = diff --staged
     dl = show -p --oneline --stat
     dw = diff --color-words
+    dcw = diff --staged --color-words
 
     assume = update-index --assume-unchanged
     unassume = update-index --no-assume-unchanged
