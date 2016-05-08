@@ -11,6 +11,11 @@
 #   export GIT_PS1_SHOWUPSTREAM="auto"
 #
 
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWSTASHSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
+export GIT_PS1_SHOWUPSTREAM="auto"
+
 case $OSTYPE in
     linux*)
         if [ -f /etc/bash_completion.d/git-prompt ]; then
