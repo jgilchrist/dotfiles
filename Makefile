@@ -23,7 +23,6 @@ bash:
 .PHONY: git
 git:
 	stow git
-	touch ~/.gitconfig.local
 
 .PHONY: tmux
 tmux:
