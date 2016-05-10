@@ -281,12 +281,8 @@ inoremap <leader>ce <c-v><esc>
 " GUI {{{
 
 if has('gui_running')
-    set guifont=Source\ Code\ Pro:h13
-
     " Remove scrollbars and menus from the GUI
     set guioptions=c
-
-    color github
 endif
 
 " }}}
