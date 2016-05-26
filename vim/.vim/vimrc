@@ -107,6 +107,7 @@ let g:vimtex_latexmk_build_dir = "build"
 filetype plugin indent on
 
 set encoding=utf-8
+set fileencoding=utf-8
 
 " Don't show the intro message when starting Vim
 set shortmess=I
