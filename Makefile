@@ -31,6 +31,8 @@ tmux:
 .PHONY: vim
 vim:
 	mkdir -p ~/.vim
+	mkdir -p ~/.vim/autoload
+	curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim
 	stow vim
 	touch ~/.vim/plugins.local
 	touch ~/.vim/vimrc.local

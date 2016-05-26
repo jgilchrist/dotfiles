@@ -2,18 +2,6 @@
 let mapleader=","
 let maplocalleader=","
 
-" Plugin Manager {{{
-
-function! s:InstallVimPlug()
-    if empty(glob("~/.vim/autoload/plug.vim"))
-        call system('mkdir -p ~/.vim/autoload')
-        call system('curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim')
-    endif
-endfunction
-call s:InstallVimPlug()
-
-" }}}
-
 " Plugins {{{
 
 set runtimepath+=~/.vim/lang
