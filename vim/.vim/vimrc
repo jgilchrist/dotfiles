@@ -181,6 +181,7 @@ set complete-=i
 
 " When joining lines, delete comment characters if appropriate
 set formatoptions+=j
+set nojoinspaces
 
 " }}}
 
