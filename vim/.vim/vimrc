@@ -109,8 +109,11 @@ filetype plugin indent on
 set encoding=utf-8
 set fileencoding=utf-8
 
-" Don't show the intro message when starting Vim
-set shortmess=I
+" i - [noeol] instead of [Incomplete last line]
+" x - [unix] instead of [unix format]
+" t - Truncate file message at start if it is too long to fit on the command line
+" I - Don't show the intro message when starting Vim
+set shortmess=ixtI
 
 " Appearance
 syntax on
