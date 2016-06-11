@@ -4,13 +4,7 @@
 #
 
 function ps1_virtualenv() {
-    if [[ -n "$VIRTUAL_ENV" ]]; then
-        venv="${VIRTUAL_ENV##*/}"
-    else
-        venv=""
-    fi
-
-    [[ -n "$venv" ]] && echo " (venv:$venv)"
+    [[ -n "$VIRTUAL_ENV" ]] && echo -e "${COLOR_ESC_BRIGHT_RED}(venv) ${COLOR_ESC_RESET}"
 }
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
