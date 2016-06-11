@@ -1,4 +1,4 @@
-CONFIGS = bash git tmux vim
+CONFIGS = bash git tmux vim local
 
 .PHONY: default
 default: all
@@ -36,3 +36,7 @@ vim:
 	stow vim
 	touch ~/.vim/plugins.local
 	touch ~/.vim/vimrc.local
+
+.PHONY: local
+local:
+	stow local
