@@ -18,7 +18,6 @@
 
 [diff]
     algorithm = patience
-    renames = copies
     mnemonicprefix = true
 
 [merge]
