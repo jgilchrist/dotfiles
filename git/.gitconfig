@@ -9,6 +9,9 @@
     autocrlf = input
     whitespace = trailing-space,space-before-tab
 
+[commit]
+    verbose = true
+
 [branch]
     # Always use rebase instead of merge when pulling branches
     autosetuprebase = always
