@@ -22,7 +22,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
 
 " Syntax and search
-Plug 'rking/ag.vim'
 Plug 'SirVer/ultisnips'
 " Plug 'scrooloose/syntastic'
 
