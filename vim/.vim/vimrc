@@ -23,7 +23,7 @@ Plug 'wellle/targets.vim'
 
 " Syntax and search
 Plug 'SirVer/ultisnips'
-" Plug 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
 " Filetype plugins
 Plug 'lervag/vimtex'
