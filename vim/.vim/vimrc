@@ -28,7 +28,7 @@ Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
 
 " Colorschemes
-Plug 'gosukiwi/vim-atom-dark'
+Plug 'w0ng/vim-hybrid'
 Plug 'endel/vim-github-colorscheme'
 
 so ~/.vim/plugins.local
@@ -113,7 +113,8 @@ set shortmess=ixtI
 
 " Appearance
 syntax on
-colorscheme github
+set background=light
+colorscheme hybrid
 
 set hidden
 
