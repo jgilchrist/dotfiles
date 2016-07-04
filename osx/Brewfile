@@ -19,7 +19,7 @@ brew 'homebrew/dupes/make', args: ['with-default-names']
 brew 'homebrew/dupes/openssh'
 brew 'htop'
 brew 'keychain'
-brew 'macvim', args: ['with-override-system-vim']
+brew 'macvim', args: ['with-override-system-vim', 'with-python3']
 brew 'openssl', args: ['universal']
 brew 'pandoc'
 brew 'pkg-config'
