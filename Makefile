@@ -37,6 +37,10 @@ vim:
 	touch ~/.vim/plugins.local
 	touch ~/.vim/vimrc.local
 
+.PHONY: ctags
+ctags:
+	stow ctags
+
 .PHONY: local
 local:
 	stow local
