@@ -20,10 +20,7 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
-
-" Syntax and search
 Plug 'SirVer/ultisnips'
-Plug 'scrooloose/syntastic'
 
 " Filetype plugins
 Plug 'lervag/vimtex'
