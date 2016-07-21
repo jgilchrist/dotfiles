@@ -98,10 +98,6 @@
     ; resolveConflict = false
     ; implicitIdentity = false
 
-[pager]
-    diff = less -FXR
-    show = less -FXR
-
 [rerere]
     enabled = true
 
