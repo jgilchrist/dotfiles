@@ -16,3 +16,6 @@ alias make="make --no-print-directory"
 alias units="units --verbose --one-line"
 alias toilet="toilet --font future"
 alias tree="tree --dirsfirst -F -I '.git|build'"
+
+# Small 'functions'
+alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
