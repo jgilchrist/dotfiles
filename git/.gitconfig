@@ -20,7 +20,7 @@
     default = simple
 
 [diff]
-    algorithm = patience
+    compactionHeuristic = true
     mnemonicprefix = true
 
 [merge]
