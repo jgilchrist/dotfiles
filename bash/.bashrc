@@ -29,9 +29,6 @@ pathprepend() {
 # Ensure local binaries are on the path
 [ -d "${HOME}/.local/bin" ] && pathprepend "${HOME}/.local/bin"
 
-# User's binary directory
-[ -d "${HOME}/bin" ] && pathprepend "${HOME}/bin"
-
 # Always use a 256 color terminal
 [ "$TERM" != "screen-256color" ] && export TERM="xterm-256color"
 
