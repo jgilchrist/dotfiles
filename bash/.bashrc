@@ -55,9 +55,16 @@ export LESS='-R'
 export LESSHISTFILE=-
 
 e() {
+    # If no vim instance exists, create one
+    if [ -z "$(command gvim --serverlist)" ]; then
+        command gvim "$@"
+        return
+    fi
+
+    # Otherwise, open the file in the current instance
     if [ $# -gt 0 ]; then
         command gvim --remote-silent "$@"
     else
-        command gvim "$@"
+        command gvim --remote-silent .
     fi
 }
