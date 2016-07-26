@@ -23,7 +23,6 @@ Plug 'wellle/targets.vim'
 Plug 'SirVer/ultisnips'
 
 " Filetype plugins
-Plug 'lervag/vimtex'
 Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
 
