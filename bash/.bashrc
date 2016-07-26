@@ -1,6 +1,7 @@
 # Other config files
 . ~/.bash/aliases
 . ~/.bash/colors
+. ~/.bash/functions
 . ~/.bash/prompt
 
 # Turns a newline-separated list of values into a colon separated list of values
@@ -57,18 +58,3 @@ export LESS='-R'
 
 # Never store history for less
 export LESSHISTFILE=-
-
-e() {
-    # If no vim instance exists, create one
-    if [ -z "$(command gvim --serverlist)" ]; then
-        command gvim "$@"
-        return
-    fi
-
-    # Otherwise, open the file in the current instance
-    if [ $# -gt 0 ]; then
-        command gvim --remote-silent "$@"
-    else
-        command gvim --remote-silent .
-    fi
-}
