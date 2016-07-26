@@ -14,3 +14,43 @@ function e() {
         command gvim --remote-silent .
     fi
 }
+
+# This function is taken from Greg Hurell's dotfiles, and is responsible
+# for automatically running .tmux files if present in the current directory.
+#
+# These files can then be used to set up and/or attach to tmux sessions
+# which are tailored to a specific project.
+#
+# See github.com/wincent/wincent
+function t() {
+    # If provided with args, pass them through.
+    if [[ -n "$@" ]]; then
+        tmux "$@"
+        return
+    fi
+
+    # Check for .tmux file (poor man's Tmuxinator).
+    if [ -x .tmux ]; then
+        # Prompt the first time we see a given .tmux file before running it.
+        local DIGEST="$(openssl sha -sha512 .tmux)"
+        if ! grep -q "$DIGEST" ~/..tmux.digests 2> /dev/null; then
+            cat .tmux
+            echo
+            echo -n "Trust (and run) this .tmux file? (t = trust, otherwise = skip) "
+            read -n 1 reply
+            echo
+            if [[ $reply =~ ^[Tt]$ ]]; then
+                echo "$DIGEST" >> ~/..tmux.digests
+                ./.tmux
+                return
+            fi
+        else
+            ./.tmux
+            return
+        fi
+    fi
+
+    # Attach to existing session, or create one, based on current directory.
+    SESSION_NAME=$(basename "$(pwd)")
+    tmux new -A -s "$SESSION_NAME"
+}
