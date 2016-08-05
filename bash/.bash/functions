@@ -52,5 +52,8 @@ function t() {
 
     # Attach to existing session, or create one, based on current directory.
     SESSION_NAME=$(basename "$(pwd)")
+    if [ "$SESSION_NAME" == "$USER" ]; then
+        SESSION_NAME="main"
+    fi
     tmux new -A -s "$SESSION_NAME"
 }
