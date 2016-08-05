@@ -16,15 +16,9 @@ Plug 'justinmk/vim-dirvish'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'scrooloose/nerdcommenter'
-Plug 'AndrewRadev/switch.vim'
 Plug 'tommcdo/vim-exchange'
-Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
 Plug 'SirVer/ultisnips'
-
-" Filetype plugins
-Plug 'cespare/vim-toml'
-Plug 'rust-lang/rust.vim'
 
 " Colorschemes
 Plug 'w0ng/vim-hybrid'
