@@ -18,11 +18,14 @@ Plug 'tpope/vim-repeat'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tommcdo/vim-exchange'
 Plug 'wellle/targets.vim'
-Plug 'SirVer/ultisnips'
 
 " Colorschemes
 Plug 'w0ng/vim-hybrid'
 Plug 'endel/vim-github-colorscheme'
+
+if has("python")
+    Plug 'SirVer/ultisnips'
+endif
 
 so ~/.vim/plugins.local
 call plug#end()
