@@ -19,9 +19,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tommcdo/vim-exchange'
 Plug 'wellle/targets.vim'
 
-" Colorschemes
+" Colorscheme
 Plug 'w0ng/vim-hybrid'
-Plug 'endel/vim-github-colorscheme'
 
 if has("python")
     Plug 'SirVer/ultisnips'
