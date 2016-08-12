@@ -20,3 +20,4 @@ alias tree="tree --dirsfirst -F -I '.git|build'"
 # Small 'functions'
 alias wanip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ve="source .env/bin/activate"
+alias stopwatch="time read"
