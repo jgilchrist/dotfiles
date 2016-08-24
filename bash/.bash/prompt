@@ -1,9 +1,10 @@
 #!/bin/bash
 
 . ${HOME}/.bash/prompts/git
-. ${HOME}/.bash/prompts/jobs
 
 function set_prompt() {
+    PROMPT_COMMAND='hasjobs=$(jobs -p)'
+
     PS1="\n"
     PS1+=" "
 
@@ -17,9 +18,9 @@ function set_prompt() {
         local PROMPT_DIR_CMD="\W"
     fi
 
-    PS1+="\$(ps1_jobs)"
+    PS1+="${hasjobs:+${COLOR_ESC_DARK_GRAY}[+\j] ${COLOR_ESC_RESET}}"
     PS1+="${COLOR_ESC_BLUE}${PROMPT_DIR_CMD}${COLOR_ESC_RESET}"
-    PS1+="\$(ps1_git)"
+    PS1+='`__git_ps1 " (${COLOR_ESC_VIOLET}%s${COLOR_ESC_RESET})"`'
     PS1+=" \$${COLOR_ESC_RESET} "
 }
 

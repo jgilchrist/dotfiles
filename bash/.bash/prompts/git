@@ -35,25 +35,4 @@ else
     echo "Cannot load ${GIT_PROMPT_SCRIPT_LOC}: Prompt will not contain the current git branch."
 fi
 
-
-function ps1_git() {
-    # If we don't want to show the branch, return immediately
-    [ -n "$PROMPT_NO_GIT" ] && return;
-
-    local GIT_PROMPT_BRANCH=$(__git_ps1 "(${COLOR_ESC_VIOLET}%s${COLOR_ESC_RESET})")
-
-    # Only output anything if we are in a repository
-    [ -n "$GIT_PROMPT_BRANCH" ] && echo -e " $GIT_PROMPT_BRANCH"
-}
-
-function prompt_toggle_git() {
-    if [ -n "$PROMPT_NO_GIT" ]; then
-        unset PROMPT_NO_GIT
-    else
-        export PROMPT_NO_GIT=true
-    fi
-
-    set_prompt
-}
-
 # vim: ft=sh
