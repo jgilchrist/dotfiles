@@ -120,7 +120,8 @@ set backspace=indent,eol,start
 " Search
 set incsearch
 set hlsearch
-set ignorecase smartcase
+set ignorecase
+set smartcase
 
 " Redrawing
 set lazyredraw
