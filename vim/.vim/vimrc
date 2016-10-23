@@ -127,6 +127,9 @@ set smartcase
 set lazyredraw
 set ttyfast
 
+" Disable all bells (audio, flash)
+set belloff=all
+
 " Automatically read the file if it changed outside vim
 set autoread
 set modeline
