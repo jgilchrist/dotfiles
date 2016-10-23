@@ -13,18 +13,18 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'justinmk/vim-dirvish'
 
 " Vim behaviour
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
-Plug 'tommcdo/vim-exchange'
 Plug 'wellle/targets.vim'
-
-" Colorscheme
-Plug 'w0ng/vim-hybrid'
+Plug 'tommcdo/vim-exchange'
 
 if has("python")
     Plug 'SirVer/ultisnips'
 endif
+
+" Colorscheme
+Plug 'w0ng/vim-hybrid'
 
 so ~/.vim/plugins.local
 call plug#end()
