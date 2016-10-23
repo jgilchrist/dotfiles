@@ -39,9 +39,13 @@ function t() {
             echo -n "Trust (and run) this .tmux file? (t = trust, otherwise = skip) "
             read -n 1 reply
             echo
-            if [[ $reply =~ ^[Tt]$ ]]; then
+            if [[ $reply =~ ^[TtYy]$ ]]; then
                 echo "$DIGEST" >> ~/..tmux.digests
                 ./.tmux
+                return
+            else
+                echo
+                echo ".tmux file not trusted: exiting..."
                 return
             fi
         else
