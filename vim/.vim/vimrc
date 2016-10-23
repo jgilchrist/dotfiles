@@ -63,13 +63,6 @@ let g:NERDSpaceDelims=1
 
 " }}}
 
-" Switch {{{
-
-" Switch with 'S'
-nnoremap <silent> S :Switch<cr>
-
-" }}}
-
 " Syntastic {{{
 
 let g:syntastic_always_populate_loc_list = 1
@@ -80,14 +73,6 @@ let g:syntastic_auto_loc_list = 1
 " UltiSnips {{{
 
 let g:UltiSnipsSnippetsDir = '~/.vim/lang/UltiSnips'
-
-" }}}
-
-" vimtex {{{
-
-let g:tex_flavor = "latex"
-let g:vimtex_fold_enabled = 0
-let g:vimtex_latexmk_build_dir = "build"
 
 " }}}
 
