@@ -1,4 +1,4 @@
-CONFIGS = bash git tmux vim local
+CONFIGS = bash git tmux vim
 
 .PHONY: default
 default: all
@@ -41,7 +41,3 @@ vim:
 .PHONY: ctags
 ctags:
 	stow ctags
-
-.PHONY: local
-local:
-	stow local
