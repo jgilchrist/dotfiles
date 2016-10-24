@@ -4,8 +4,6 @@ let maplocalleader=","
 
 " Plugins {{{
 
-set runtimepath+=~/.vim/lang
-
 call plug#begin()
 
 " File management
@@ -62,10 +60,6 @@ let g:NERDSpaceDelims=1
 " Syntastic {{{
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-" }}}
-
-" UltiSnips {{{
-let g:UltiSnipsSnippetsDir = '~/.vim/lang/UltiSnips'
 " }}}
 
 " }}}
