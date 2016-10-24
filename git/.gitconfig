@@ -76,6 +76,7 @@
     l = !git prettylog -10
     la = !git prettylog --all -10
     ll = !git prettylog --all
+    head = !git prettylog -1
 
     # Show the log since the origin/master commit
     lo = !git prettylog `git tracking`^..
