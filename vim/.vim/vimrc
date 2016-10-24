@@ -218,6 +218,7 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" <leader>a selects the whole buffer
 nnoremap <leader>a ggVG
 
 " <leader> shortcuts for copying/pasting to/from system clipboard
