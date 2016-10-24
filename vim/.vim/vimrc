@@ -221,6 +221,9 @@ nnoremap <c-l> <c-w>l
 " <leader>a selects the whole buffer
 nnoremap <leader>a ggVG
 
+" gp selects the last pasted text
+nnoremap gp `[v`]
+
 " <leader> shortcuts for copying/pasting to/from system clipboard
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
