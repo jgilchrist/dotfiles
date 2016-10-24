@@ -19,6 +19,7 @@ bash:
 	mkdir -p ~/.bash
 	stow bash
 	touch ~/.env.local
+	cp ~/.bash/prompts/prompt.default ~/.bash/prompt
 
 .PHONY: git
 git:
