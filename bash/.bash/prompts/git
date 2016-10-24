@@ -20,6 +20,8 @@ case $OSTYPE in
     linux*)
         if [ -f /etc/bash_completion.d/git-prompt ]; then
             GIT_PROMPT_SCRIPT_LOC=/etc/bash_completion.d/git-prompt
+        elif [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
+            GIT_PROMPT_SCRIPT_LOC=/usr/share/git-core/contrib/completion/git-prompt.sh
         else
             GIT_PROMPT_SCRIPT_LOC=/usr/share/git/git-prompt.sh
         fi
