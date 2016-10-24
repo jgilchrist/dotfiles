@@ -72,6 +72,7 @@
     tracking = !git rev-parse --abbrev-ref '@{u}'
 
     prettylog = log --oneline --graph --format='%C(green)%h%C(auto)%d%Creset %Creset%s %C(yellow)%cr%Creset'
+    lg = !git prettylog
     l = !git prettylog -10
     la = !git prettylog --all -10
     ll = !git prettylog --all
