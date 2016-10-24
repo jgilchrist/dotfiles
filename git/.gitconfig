@@ -66,6 +66,7 @@
     assume = update-index --assume-unchanged
     unassume = update-index --no-assume-unchanged
     assumed = !git ls-files -v | grep "^[[:lower:]]"
+    restage = update-index --again
 
     up = !git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
     merged = !git branch --merged | grep -v "\\*" | grep -v "master"
