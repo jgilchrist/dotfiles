@@ -28,7 +28,3 @@ Any configuration which shouldn't be shared between machines should be placed in
 * `~/.vim/vimrc.local`
 * `~/.vim/plugins.local`
 * `~/.tmux.conf.local`
-
-# Feedback
-
-Suggestions and improvements [welcome!](https://github.com/jgilchrist/dotfiles/issues)
