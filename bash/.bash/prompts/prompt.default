@@ -2,6 +2,11 @@
 
 . ${HOME}/.bash/prompts/git
 
+# export GIT_PS1_SHOWDIRTYSTATE=
+# export GIT_PS1_SHOWSTASHSTATE=
+# export GIT_PS1_SHOWUNTRACKEDFILES=
+export GIT_PS1_SHOWUPSTREAM="auto"
+
 function set_prompt() {
     PROMPT_COMMAND='hasjobs=$(jobs -p)'
 
