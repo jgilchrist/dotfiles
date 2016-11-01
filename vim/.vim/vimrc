@@ -51,6 +51,9 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 nnoremap <c-B> :CtrlPBuffer<cr>
 nnoremap <c-T> :CtrlPTag<cr>
 
+" Don't crowd the home directory for the cache
+let g:ctrlp_cache_dir = '~/.vim/tmp/cache/ctrlp'
+
 "}}}
 
 " NERDCommenter {{{
