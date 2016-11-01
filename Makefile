@@ -33,6 +33,7 @@ tmux:
 vim:
 	mkdir -p ~/.vim
 	mkdir -p ~/.vim/autoload
+	mkdir -p ~/.vim/tmp
 	curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim
 	stow vim
 	touch ~/.vim/plugins.local
