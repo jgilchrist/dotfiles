@@ -146,6 +146,9 @@ augroup ResizeSplits
     au VimResized * :wincmd =
 augroup END
 
+" Use a nice vertical separator for splits
+set fillchars+=vert:│
+
 " Flash matching braces for 200ms
 set showmatch
 set matchtime=2
