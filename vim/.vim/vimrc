@@ -256,6 +256,9 @@ nnoremap <silent> <leader>q :bd<CR>
 " Make the current window the only one on the screen
 nnoremap <silent> <leader>o :only<CR>
 
+" Go back to the last buffer
+nnoremap <silent> <leader>b <C-^>
+
 " Hide search highlighting
 nnoremap <leader><space> :nohlsearch<CR>
 
