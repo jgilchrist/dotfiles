@@ -96,6 +96,7 @@ set cursorline
 set nowrap
 set laststatus=2
 set scrolloff=3
+set sidescrolloff=3
 set synmaxcol=800 " Don't attempt to highlight lines longer than 800 chars
 set listchars=tab:\|\ ,trail:∙,extends:>,precedes:<,nbsp:‡
 set breakindent
