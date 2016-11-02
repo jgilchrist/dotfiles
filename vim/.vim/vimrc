@@ -253,6 +253,9 @@ vnoremap Q :normal! @q<CR>
 " Close the current buffer with <leader>q
 nnoremap <silent> <leader>q :bd<CR>
 
+" Make the current window the only one on the screen
+nnoremap <silent> <leader>o :only<CR>
+
 " Hide search highlighting
 nnoremap <leader><space> :nohlsearch<CR>
 
