@@ -153,20 +153,32 @@ set fillchars+=vert:│
 set showmatch
 set matchtime=2
 
-" Don't keep swap files or backups
-set noswapfile
-set nobackup
-
-" Save undo history between sessions
-set undofile
-set undodir=~/.vim/undo
-
 " Don't search through includes for completion as this can be slow
 set complete-=i
 
 " When joining lines, delete comment characters if appropriate
 set formatoptions+=j
 set nojoinspaces
+
+
+" Backups/Swapfiles/Undofiles {{{
+
+" Keep backups, swapfiles and undofiles if we're not root
+if exists('$SUDO_USER')
+    set viminfo=
+    set nobackup
+    set nowritebackup
+    set noswapfile
+    set noundofile
+else
+    set viminfo+=n~/.vim/tmp/viminfo
+    set backupdir=~/.vim/tmp/backup
+    set directory=~/.vim/tmp/swap
+    set undodir=~/.vim/tmp/undo
+    set undofile
+endif
+
+" }}}
 
 " }}}
 
