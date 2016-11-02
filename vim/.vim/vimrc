@@ -128,6 +128,9 @@ set ttyfast
 " Disable all bells (audio, flash)
 set belloff=all
 
+" Allow the cursor to move anywhere in visual block mode
+set virtualedit=block
+
 " Automatically read the file if it changed outside vim
 set autoread
 set modeline
