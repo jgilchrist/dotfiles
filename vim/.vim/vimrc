@@ -24,7 +24,7 @@ endif
 " Colorscheme
 Plug 'w0ng/vim-hybrid'
 
-so ~/.vim/plugins.local
+runtime plugins.local
 call plug#end()
 
 runtime macros/matchit.vim
@@ -278,6 +278,6 @@ nnoremap K <nop>
 
 " }}}
 
-so ~/.vim/vimrc.local
+runtime vimrc.local
 
 " vim: set fdm=marker:
