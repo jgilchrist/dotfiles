@@ -18,6 +18,12 @@ alias toilet="toilet --font future"
 alias tree="tree --dirsfirst -F -I '.git|build'"
 alias gdb="gdb -q"
 
+# MacOS sets hostnames dynamically. Since keychain uses the hostname
+# to keep track of environment variables, changing hostnames will
+# cause it to lose track. Instead, specify a custom hostname
+# to be used for all commands.
+alias keychain="keychain --host jgilchrist"
+
 # Small 'functions'
 alias wanip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ve="source .env/bin/activate"
