@@ -4,26 +4,6 @@
 . ~/.bash/functions
 . ~/.bash/prompt
 
-# Turns a newline-separated list of values into a colon separated list of values
-# for use with (for example) FIGNORE which requires a colon separated list of values.
-colonise() {
-    cat $1 | tr "\n" ":"
-}
-
-# Add a directory to the end of the path if it is not already present
-pathappend() {
-    if [ -d "$1" ] && [[ ! "$PATH" =~ (^|:)"${1}"(:|$) ]]; then
-        PATH="${PATH:+"$PATH:"}$1";
-    fi
-}
-
-# Add a directory to the beginning of the path if it is not already present
-pathprepend() {
-    if [ -d "$1" ] && [[ ! "$PATH" =~ (^|:)"${1}"(:|$) ]]; then
-        PATH="$1${PATH:+":$PATH"}";
-    fi
-}
-
 # Machine-specific modifications to the environment
 [ -f "${HOME}/.env.local" ] && source "${HOME}/.env.local"
 
