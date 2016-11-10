@@ -16,7 +16,7 @@
 # Editor
 export EDITOR='vim'
 
-# Always save 10000 history, without duplicates
+# Always save 100000 history, without duplicates
 export HISTCONTROL=ignoreboth:erasedups
 export HISTSIZE=100000
 
