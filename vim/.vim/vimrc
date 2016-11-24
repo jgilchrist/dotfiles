@@ -17,7 +17,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'wellle/targets.vim'
 Plug 'tommcdo/vim-exchange'
 
-if has("python")
+if has("python") || has("python3")
     Plug 'SirVer/ultisnips'
 endif
 
