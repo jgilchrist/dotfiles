@@ -25,6 +25,7 @@
 
 [merge]
     conflictstyle = diff3
+    tool = vim -d
 
 [rebase]
     autosquash = true
