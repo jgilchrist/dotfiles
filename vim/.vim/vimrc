@@ -24,6 +24,10 @@ endif
 " Colorscheme
 Plug 'w0ng/vim-hybrid'
 
+" Wiki
+Plug 'vimwiki/vimwiki'
+Plug 'mattn/calendar-vim'
+
 runtime plugins.local
 call plug#end()
 
