@@ -252,7 +252,7 @@ nnoremap <silent> <leader>q :bd<CR>
 nnoremap <silent> <leader>o :only<CR>
 
 " Go back to the last buffer
-nnoremap <silent> <leader>b <C-^>
+nnoremap <silent> <backspace> <C-^>
 
 " Hide search highlighting
 nnoremap <leader><space> :nohlsearch<CR>
