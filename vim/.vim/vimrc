@@ -35,16 +35,6 @@ runtime macros/matchit.vim
 
 " Plugin Settings {{{
 
-" Dirvish {{{
-augroup dirvish_mappings
-    autocmd!
-
-    " gh hides dotfiles
-    autocmd FileType dirvish nnoremap <buffer> gh
-                \ :g:\v/\.[^\/]+/?$:d<cr>:noh<cr>
-augroup END
-" }}}
-
 " CtrlP {{{
 
 " Ignore files in .gitignore
