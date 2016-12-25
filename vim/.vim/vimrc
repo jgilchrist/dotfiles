@@ -249,6 +249,9 @@ vnoremap <leader>p "+p
 nnoremap Q @q
 vnoremap Q :normal! @q<CR>
 
+" Quickly edit the Q macro
+nnoremap <leader>eq :<c-u><c-r><c-r>='let @q = '. string(getreg('q'))<cr><c-f><left>
+
 " Close the current buffer with <leader>q
 nnoremap <silent> <leader>q :bd<CR>
 
@@ -265,10 +268,6 @@ nnoremap <leader><space> :nohlsearch<CR>
 nmap s ys
 vmap s S
 
-" Quickly edit a macro
-nnoremap <leader>m  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
-" Quickly edit the Q macro
-nnoremap <leader>eq :<c-u><c-r><c-r>='let @q = '. string(getreg('q'))<cr><c-f><left>
 " Easily insert the escape ^] character
 inoremap <leader>ce <c-v><esc>
 
