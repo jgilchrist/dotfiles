@@ -28,6 +28,7 @@
     tool = vim -d
 
 [rebase]
+    stat = true
     autosquash = true
 
 [stash]
