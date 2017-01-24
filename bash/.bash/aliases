@@ -29,5 +29,5 @@ alias keychain="keychain --host jgilchrist"
 
 # Small 'functions'
 alias wanip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias ve="source .env/bin/activate"
+alias ve="source .venv/bin/activate"
 alias stopwatch="time read"
