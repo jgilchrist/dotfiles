@@ -44,6 +44,7 @@ function t() {
 
     # Attach to existing session, or create one, based on current directory.
     SESSION_NAME=$(basename "$(pwd)")
+    SESSION_NAME=${SESSION_NAME//.}
     if [ "$SESSION_NAME" = "$USER" ]; then
         SESSION_NAME="main"
     fi
