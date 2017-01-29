@@ -2,21 +2,21 @@ tap 'homebrew/dupes'
 brew 'atool'
 brew 'bash'
 brew 'bash-completion'
-brew 'cloc'
 brew 'cmake'
 brew 'coreutils'
 brew 'dos2unix'
+brew 'findutils'
 brew 'git'
 brew 'gnu-sed', args: ['with-default-names']
 brew 'gnu-tar', args: ['with-default-names']
 brew 'gnu-units', args: ['with-default-names']
 brew 'gnu-which', args: ['with-default-names']
-brew 'gpg'
 brew 'homebrew/dupes/diffutils'
 brew 'homebrew/dupes/grep', args: ['with-default-names']
 brew 'homebrew/dupes/less'
 brew 'homebrew/dupes/make', args: ['with-default-names']
 brew 'homebrew/dupes/openssh'
+brew 'homebrew/versions/gnupg21'
 brew 'htop'
 brew 'keychain'
 brew 'macvim', args: ['with-override-system-vim', 'with-python3']
@@ -24,12 +24,10 @@ brew 'openssl', args: ['universal']
 brew 'pandoc'
 brew 'pkg-config'
 brew 'python3'
-brew 'rbenv'
+brew 'ranger'
 brew 'readline'
 brew 'reattach-to-user-namespace'
-brew 'ruby-build'
 brew 'stow'
-brew 'the_silver_searcher'
 brew 'tmux'
 brew 'toilet'
 brew 'tree'
