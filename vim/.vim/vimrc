@@ -17,10 +17,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'wellle/targets.vim'
 Plug 'tommcdo/vim-exchange'
 
-if has("python") || has("python3")
-    Plug 'SirVer/ultisnips'
-endif
-
 " Colorscheme
 Plug 'w0ng/vim-hybrid'
 
