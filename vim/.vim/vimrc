@@ -44,7 +44,7 @@ let g:NERDSpaceDelims=1
 " }}}
 " VimWiki {{{
 let g:vimwiki_dir_link = 'index'
-let g:vimwiki_list = [{'path': '~/.vim/wiki'}]
+let g:vimwiki_list = [{'path': '~/.vim/wiki/'}]
 " }}}
 
 " }}}
