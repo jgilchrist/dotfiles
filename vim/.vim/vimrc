@@ -23,6 +23,9 @@ Plug 'w0ng/vim-hybrid'
 " Wiki
 Plug 'vimwiki/vimwiki'
 
+" Extras
+Plug 'junegunn/goyo.vim'
+
 runtime plugins.local
 call plug#end()
 
