@@ -20,7 +20,7 @@
     default = simple
 
 [diff]
-    compactionHeuristic = true
+    indentHeuristic = true
     mnemonicprefix = true
 
 [merge]
