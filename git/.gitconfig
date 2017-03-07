@@ -40,8 +40,6 @@
 
 [color]
     ui = auto
-[color "branch"]
-    remote = yellow
 
 [alias]
     create = !git init && git commit --allow-empty -m \"Created repository\"
