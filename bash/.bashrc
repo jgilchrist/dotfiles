@@ -4,11 +4,11 @@
 . ~/.bash/functions
 . ~/.bash/prompt
 
-# Machine-specific modifications to the environment
-[ -f "${HOME}/.env.local" ] && source "${HOME}/.env.local"
-
 # Ensure local binaries are on the path
 [ -d "${HOME}/.local/bin" ] && pathprepend "${HOME}/.local/bin"
+
+# Machine-specific modifications to the environment
+[ -f "${HOME}/.env.local" ] && source "${HOME}/.env.local"
 
 # Always use a 256 color terminal
 [ "$TERM" != "screen-256color" ] && export TERM="xterm-256color"
