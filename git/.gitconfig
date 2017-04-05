@@ -75,7 +75,6 @@
     prettylog = log --oneline --graph --format='%C(green)%h%C(auto)%d%C(reset) %s %C(yellow)(%cr)%C(reset) %C(blue)<%an>%C(reset)'
     lg = !git prettylog
     l = !git prettylog -10
-    la = !git prettylog --all -10
     ll = !git prettylog --all
     head = !git prettylog -1
 
