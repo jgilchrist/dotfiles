@@ -7,7 +7,6 @@
     pager = less -FXRS
     excludesfile = ~/.gitexcludes
     autocrlf = input
-    whitespace = trailing-space,space-before-tab
 
 [commit]
     verbose = true
