@@ -33,6 +33,9 @@
     autosquash = true
     autostash = true
 
+[rerere]
+    enabled = true
+
 [stash]
     showPatch = true
 
@@ -40,46 +43,34 @@
     ui = auto
 
 [alias]
-    create = !git init && git commit --allow-empty -m \"Created repository\"
-
     aa = add --all
-    au = add -u
     ap = add -p
-
-    rh = reset HEAD
-
-    amend = commit --amend
-
-    s = status -sb
-
+    au = add -u
+    b  = branch
     ci = commit
-
     co = checkout
-    b = branch
-    bnew = checkout -b
-
     di = diff
     ds = diff --staged
-    dw = diff --color-words
-    dsw = diff --staged --color-words
+    rh = reset HEAD
+    s  = status -sb
+
+    amend = commit --amend
+    bnew = checkout -b
+    create = !git init && git commit --allow-empty -m \"Created repository\"
+    restage = update-index --again
+    up = !git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
 
     assumed = !git ls-files -v | grep "^[[:lower:]]"
-    restage = update-index --again
-
-    up = !git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
     merged = !git branch --merged | grep -v "\\*"
+    root = !pwd
     tracking = !git rev-parse --abbrev-ref '@{u}'
 
     prettylog = log --oneline --graph --format='%C(green)%h%C(auto)%d%C(reset) %s %C(yellow)(%cr)%C(reset) %C(blue)<%an>%C(reset)'
     lg = !git prettylog
     l = !git prettylog -10
     ll = !git prettylog --all
+    lo = !git prettylog `git tracking`^.. # Show the log since the origin/master commit
     head = !git prettylog -1
-
-    # Show the log since the origin/master commit
-    lo = !git prettylog `git tracking`^..
-
-    root = !pwd
 
 [url "git@github.com:jgilchrist/"]
     insteadOf = gh:
@@ -89,9 +80,6 @@
     insteadOf = github:
 [url "git@bitbucket.org:"]
     insteadOf = bitbucket:
-
-[rerere]
-    enabled = true
 
 [include]
     path = ~/.gitconfig.local
