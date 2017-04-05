@@ -13,7 +13,7 @@
     verbose = true
 
 [fetch]
-	prune = true
+    prune = true
 
 [branch]
     # Always use rebase instead of merge when pulling branches
