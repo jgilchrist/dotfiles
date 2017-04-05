@@ -69,7 +69,7 @@
     restage = update-index --again
 
     up = !git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
-    merged = !git branch --merged | grep -v "\\*" | grep -v "master"
+    merged = !git branch --merged | grep -v "\\*"
     tracking = !git rev-parse --abbrev-ref '@{u}'
 
     prettylog = log --oneline --graph --format='%C(green)%h%C(auto)%d%C(reset) %s %C(yellow)(%cr)%C(reset) %C(blue)<%an>%C(reset)'
