@@ -62,7 +62,6 @@
 
     di = diff
     ds = diff --staged
-    dl = show -p --oneline --stat
     dw = diff --color-words
     dsw = diff --staged --color-words
 
