@@ -92,14 +92,6 @@
 [url "git@bitbucket.org:"]
     insteadOf = bitbucket:
 
-[advice]
-    pushNonFastForward = false
-    statusHints = false
-    detachedHead = false
-    ; commitBeforeMerge = false
-    ; resolveConflict = false
-    ; implicitIdentity = false
-
 [rerere]
     enabled = true
 
