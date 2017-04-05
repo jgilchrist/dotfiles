@@ -65,8 +65,6 @@
     dw = diff --color-words
     dsw = diff --staged --color-words
 
-    assume = update-index --assume-unchanged
-    unassume = update-index --no-assume-unchanged
     assumed = !git ls-files -v | grep "^[[:lower:]]"
     restage = update-index --again
 
