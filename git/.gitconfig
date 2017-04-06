@@ -21,6 +21,9 @@
 [push]
     default = simple
 
+[pull]
+    ff = only
+
 [diff]
     indentHeuristic = true
     mnemonicprefix = true
