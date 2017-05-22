@@ -42,9 +42,6 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 nnoremap <c-B> :CtrlPBuffer<cr>
 nnoremap <c-T> :CtrlPTag<cr>
 "}}}
-" NERDCommenter {{{
-let g:NERDSpaceDelims=1
-" }}}
 " VimWiki {{{
 let g:vimwiki_dir_link = 'index'
 let g:vimwiki_list = [{'path': '~/.vim/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
