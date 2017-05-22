@@ -15,6 +15,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
+Plug 'justinmk/vim-sneak'
 Plug 'tommcdo/vim-exchange'
 
 " Colorscheme
@@ -246,10 +247,6 @@ nnoremap <silent> <backspace> <C-^>
 
 " Hide search highlighting
 nnoremap <leader><space> :nohlsearch<CR>
-
-" Surround with 's'
-nmap s ys
-vmap s S
 
 " Easily insert the escape ^] character
 inoremap <leader>ce <c-v><esc>
