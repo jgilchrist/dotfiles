@@ -17,6 +17,7 @@ Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'tommcdo/vim-exchange'
+Plug 'tommcdo/vim-lion'
 
 " Colorscheme
 Plug 'w0ng/vim-hybrid'
