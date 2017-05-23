@@ -28,7 +28,7 @@ shopt -s histappend
 shopt -s checkwinsize
 
 # Ignore some file extensions
-export FIGNORE=`colonise ${HOME}/.bash/fignore`
+export FIGNORE=".localized:.DS_Store"
 
 # Always color less output
 export LESS='-R'
