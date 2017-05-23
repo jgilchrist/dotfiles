@@ -2,7 +2,7 @@
 # files which should be ignored on all systems.
 #
 # It shouldn't contain ignore patterns for files specific to any single
-# repository. For example, ignore patterns for specific auxhilary IDE files
+# repository. For example, ignore patterns for specific auxiliary IDE files
 # should be placed in the repository's .git/info/exclude file.
 
 # MacOS
