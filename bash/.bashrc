@@ -30,8 +30,5 @@ shopt -s checkwinsize
 # Ignore some file extensions
 export FIGNORE=".localized:.DS_Store"
 
-# Always color less output
-export LESS='-R'
-
 # Never store history for less
 export LESSHISTFILE=-
