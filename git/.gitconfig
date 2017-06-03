@@ -63,6 +63,7 @@
     amend = commit --amend
     bnew = checkout -b
     create = !git init && git commit --allow-empty -m \"Created repository\"
+    pushfwl = push --force-with-lease
     restage = update-index --again
     up = !git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
 
