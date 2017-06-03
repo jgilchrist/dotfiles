@@ -35,6 +35,9 @@ runtime macros/matchit.vim
 
 " Plugin Settings {{{
 
+" Dirvish {{{
+let g:dirvish_mode = 2
+" }}}
 " CtrlP {{{
 " Ignore files in .gitignore
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
