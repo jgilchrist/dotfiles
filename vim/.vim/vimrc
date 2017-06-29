@@ -243,9 +243,6 @@ nnoremap <silent> <backspace> <C-^>
 " Hide search highlighting
 nnoremap <leader><space> :nohlsearch<CR>
 
-" Easily insert the escape ^] character
-inoremap <leader>ce <c-v><esc>
-
 " Ignore K keypresses, which do not often yield useful results
 nnoremap K <nop>
 
