@@ -237,9 +237,6 @@ nnoremap <leader>eq :<c-u><c-r><c-r>='let @q = '. string(getreg('q'))<cr><c-f><l
 " Close the current buffer with <leader>q
 nnoremap <silent> <leader>q :bd<CR>
 
-" Make the current window the only one on the screen
-nnoremap <silent> <leader>o :only<CR>
-
 " Go back to the last buffer
 nnoremap <silent> <backspace> <C-^>
 
