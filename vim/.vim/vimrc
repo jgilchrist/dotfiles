@@ -205,12 +205,6 @@ nnoremap <leader>ec :edit $MYVIMRC<cr>
 nnoremap <leader>el :edit $MYVIMRC.local<cr>
 nnoremap <leader>sc :source $MYVIMRC<cr>
 
-" Disable the arrow keys
-nnoremap <Up> <nop>
-nnoremap <Down> <nop>
-nnoremap <Left> <nop>
-nnoremap <Right> <nop>
-
 " Remap H and L to start and end of the line
 noremap H ^
 noremap L $
