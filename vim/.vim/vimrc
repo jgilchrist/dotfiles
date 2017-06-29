@@ -71,7 +71,6 @@ set shortmess=ixtI
 
 " Appearance
 syntax on
-set background=dark
 colorscheme hybrid
 
 set hidden
