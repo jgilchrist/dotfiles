@@ -22,10 +22,8 @@ Plug 'tommcdo/vim-lion'
 " Colorscheme
 Plug 'w0ng/vim-hybrid'
 
-" Wiki
-Plug 'vimwiki/vimwiki'
-
 " Extras
+Plug 'vimwiki/vimwiki'
 Plug 'junegunn/goyo.vim'
 
 runtime plugins.local
