@@ -31,27 +31,6 @@ call plug#end()
 
 runtime macros/matchit.vim
 
-" Plugin Settings {{{
-
-" Dirvish {{{
-let g:dirvish_mode = ':sort r /[^\/]$/'
-" }}}
-" CtrlP {{{
-" Ignore files in .gitignore
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
-" Ctrl-B is Ctrl-P buffer list
-" Ctrl-T is Ctrl-P tag list
-nnoremap <c-B> :CtrlPBuffer<cr>
-nnoremap <c-T> :CtrlPTag<cr>
-"}}}
-" VimWiki {{{
-let g:vimwiki_dir_link = 'index'
-let g:vimwiki_list = [{'path': '~/.vim/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
-" }}}
-
-" }}}
-
 " }}}
 
 " Settings {{{
@@ -251,6 +230,27 @@ if has('gui_running')
     " Remove scrollbars and menus from the GUI
     set guioptions=c
 endif
+" }}}
+
+" Plugin Settings {{{
+
+" Dirvish {{{
+let g:dirvish_mode = ':sort r /[^\/]$/'
+" }}}
+" CtrlP {{{
+" Ignore files in .gitignore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+" Ctrl-B is Ctrl-P buffer list
+" Ctrl-T is Ctrl-P tag list
+nnoremap <c-B> :CtrlPBuffer<cr>
+nnoremap <c-T> :CtrlPTag<cr>
+"}}}
+" VimWiki {{{
+let g:vimwiki_dir_link = 'index'
+let g:vimwiki_list = [{'path': '~/.vim/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
+" }}}
+
 " }}}
 
 runtime vimrc.local
