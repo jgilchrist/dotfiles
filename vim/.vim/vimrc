@@ -80,7 +80,6 @@ set backspace=indent,eol,start
 
 " Search
 set incsearch
-set hlsearch
 set ignorecase
 set smartcase
 set infercase
@@ -216,9 +215,6 @@ nnoremap <silent> <leader>q :bd<CR>
 
 " Go back to the last buffer
 nnoremap <silent> <backspace> <C-^>
-
-" Hide search highlighting
-nnoremap <leader><space> :nohlsearch<CR>
 
 " Ignore K keypresses, which do not often yield useful results
 nnoremap K <nop>
