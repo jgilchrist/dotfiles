@@ -156,10 +156,10 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
-vnoremap j gj
-vnoremap k gk
-vnoremap gj j
-vnoremap gk k
+xnoremap j gj
+xnoremap k gk
+xnoremap gj j
+xnoremap gk k
 
 " :W and :Q still work
 command! W write
@@ -167,7 +167,7 @@ command! Q quit
 
 " Delete and paste without overwriting the paste register
 nnoremap x "_x
-vnoremap p "_c<Esc>p
+xnoremap p "_c<Esc>p
 
 " Make Y behave like other capitals
 nnoremap Y y$
@@ -200,13 +200,13 @@ nnoremap gp `[v`]
 
 " <leader> shortcuts for copying/pasting to/from system clipboard
 nnoremap <leader>y "+y
-vnoremap <leader>y "+y
+xnoremap <leader>y "+y
 nnoremap <leader>p "+p
-vnoremap <leader>p "+p
+xnoremap <leader>p "+p
 
 " Shift-Q repeats the q macro
 nnoremap Q @q
-vnoremap Q :normal! @q<CR>
+xnoremap Q :normal! @q<CR>
 
 " Quickly edit the Q macro
 nnoremap <leader>eq :<c-u><c-r><c-r>='let @q = '. string(getreg('q'))<cr><c-f><left>
