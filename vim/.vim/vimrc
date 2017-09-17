@@ -47,7 +47,9 @@ set fileencoding=utf-8
 set shortmess=ixtI
 
 " Appearance
-syntax on
+if !exists("g:syntax_on")
+    syntax enable
+endif
 colorscheme hybrid
 set background=dark
 
