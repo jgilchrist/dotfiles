@@ -15,6 +15,7 @@
 # export GIT_PS1_SHOWSTASHSTATE=
 # export GIT_PS1_SHOWUNTRACKEDFILES=
 export GIT_PS1_SHOWUPSTREAM="auto"
+export GIT_PS1_DESCRIBE_STYLE="tag"
 
 case $OSTYPE in
     linux*)
