@@ -1,4 +1,4 @@
-CONFIGS = bash git tmux vim
+CONFIGS = dirs bash git tmux vim
 
 .PHONY: default
 default: all
@@ -13,6 +13,10 @@ help: usage
 usage:
 	@echo "usage: make <target>"
 	@echo "targets: [all] $(CONFIGS)"
+
+.PHONY: dirs
+dirs:
+	mkdir -p ~/.local/bin
 
 .PHONY: bash
 bash:
