@@ -250,6 +250,7 @@ nnoremap <C-T> :CtrlPTag<cr>
 " VimWiki {{{
 let g:vimwiki_dir_link = 'index'
 let g:vimwiki_list = [{'path': '~/.vim/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_folding = 'expr'
 " }}}
 
 " }}}
