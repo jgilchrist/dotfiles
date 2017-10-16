@@ -82,12 +82,8 @@
 
 [url "git@github.com:jgilchrist/"]
     insteadOf = gh:
-[url "git@bitbucket.org:jgilchrist/"]
-    insteadOf = bb:
 [url "git@github.com:"]
     insteadOf = github:
-[url "git@bitbucket.org:"]
-    insteadOf = bitbucket:
 
 [include]
     path = ~/.gitconfig.local
