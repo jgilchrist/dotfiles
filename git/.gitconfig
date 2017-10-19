@@ -80,10 +80,5 @@
     lo = !git prettylog `git tracking`^.. # Show the log since the origin/master commit
     head = !git prettylog -1
 
-[url "git@github.com:jgilchrist/"]
-    insteadOf = gh:
-[url "git@github.com:"]
-    insteadOf = github:
-
 [include]
     path = ~/.gitconfig.local
