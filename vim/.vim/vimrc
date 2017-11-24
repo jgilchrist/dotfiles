@@ -52,7 +52,7 @@ set fileencoding=utf-8
 set shortmess=ixtI
 
 " Appearance
-if !exists("g:syntax_on")
+if !exists('g:syntax_on')
     syntax enable
 endif
 colorscheme hybrid
