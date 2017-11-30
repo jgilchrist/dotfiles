@@ -28,7 +28,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'w0ng/vim-hybrid'
 
 " Extras
-Plug 'vimwiki/vimwiki'
+Plug 'lervag/wiki'
 Plug 'junegunn/goyo.vim'
 
 runtime plugins.local
@@ -252,11 +252,6 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 nnoremap <C-B> :CtrlPBuffer<cr>
 nnoremap <C-T> :CtrlPTag<cr>
 "}}}
-" VimWiki {{{
-let g:vimwiki_dir_link = 'index'
-let g:vimwiki_list = [{'path': '~/.vim/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_folding = 'expr'
-" }}}
 
 " }}}
 
