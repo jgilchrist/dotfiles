@@ -28,7 +28,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'w0ng/vim-hybrid'
 
 " Extras
-Plug 'lervag/wiki'
+Plug 'jgilchrist/wiki'
 Plug 'junegunn/goyo.vim'
 
 " Experiments
