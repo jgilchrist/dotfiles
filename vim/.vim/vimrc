@@ -143,6 +143,15 @@ if executable("rg")
     set grepformat=%f:%l:%c:%m
 endif
 
+" Only display the cursorline on windows that are in focus
+augroup highlight_follows_focus
+    autocmd!
+    au WinEnter * set cursorline
+    au WinLeave * set nocursorline
+    au FocusGained * set cursorline
+    au FocusLost * set nocursorline
+augroup END
+
 " Backups/Swapfiles/Undofiles {{{
 
 " Keep backups, swapfiles and undofiles if we're not root
