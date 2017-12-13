@@ -249,6 +249,12 @@ nnoremap <silent> <backspace> <C-^>
 " Ignore K keypresses, which do not often yield useful results
 nnoremap K <nop>
 
+" Use the arrow keys to resize viewports
+nnoremap <Right> :vertical resize +2<CR>
+nnoremap <Left> :vertical resize -2<CR>
+nnoremap <Down> :resize -2<CR>
+nnoremap <Up> :resize +2<CR>
+
 " }}}
 
 " GUI {{{
