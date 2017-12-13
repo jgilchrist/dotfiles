@@ -31,6 +31,12 @@ Plug 'w0ng/vim-hybrid'
 Plug 'lervag/wiki'
 Plug 'junegunn/goyo.vim'
 
+" Experiments
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-characterize'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-unimpaired'
+
 runtime plugins.local
 call plug#end()
 
