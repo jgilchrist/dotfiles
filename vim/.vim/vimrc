@@ -137,6 +137,11 @@ set complete-=i
 set formatoptions+=j
 set nojoinspaces
 
+" Use ripgrep for vim's :grep command
+if executable("rg")
+    set grepprg=rg\ --vimgrep
+    set grepformat=%f:%l:%c:%m
+endif
 
 " Backups/Swapfiles/Undofiles {{{
 
