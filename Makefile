@@ -23,7 +23,7 @@ bash:
 	mkdir -p ~/.bash
 	stow bash
 	touch ~/.env.local
-	cp --no-clobber ~/.bash/prompts/prompt.default ~/.bash/prompt
+	cp --no-clobber ~/.bash/prompts/prompt.default ~/.prompt
 
 .PHONY: git
 git:
