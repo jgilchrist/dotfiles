@@ -14,21 +14,6 @@ function pathprepend() {
     fi
 }
 
-function e() {
-    # If no vim instance exists, create one
-    if [ -z "$(command gvim --serverlist)" ]; then
-        command gvim "$@"
-        return
-    fi
-
-    # Otherwise, open the file in the current instance
-    if [ $# -gt 0 ]; then
-        command gvim --remote-silent "$@"
-    else
-        command gvim --remote-silent .
-    fi
-}
-
 function t() {
     local TMUX_SESSION_NAME="main"
 
