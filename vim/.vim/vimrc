@@ -243,9 +243,6 @@ nnoremap <leader>eq :<c-u><c-r><c-r>='let @q = '. string(getreg('q'))<cr><c-f><l
 " Go back to the last buffer
 nnoremap <silent> <backspace> <C-^>
 
-" Ignore K keypresses, which do not often yield useful results
-nnoremap K <nop>
-
 " Use the arrow keys to resize viewports
 nnoremap <Right> :vertical resize +2<CR>
 nnoremap <Left> :vertical resize -2<CR>
