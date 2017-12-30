@@ -240,9 +240,6 @@ xnoremap Q :normal! @q<CR>
 " Quickly edit the Q macro
 nnoremap <leader>eq :<c-u><c-r><c-r>='let @q = '. string(getreg('q'))<cr><c-f><left>
 
-" Close the current buffer with <leader>q
-nnoremap <silent> <leader>q :bd<CR>
-
 " Go back to the last buffer
 nnoremap <silent> <backspace> <C-^>
 
