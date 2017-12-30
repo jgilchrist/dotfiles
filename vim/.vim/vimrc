@@ -1,5 +1,5 @@
-let g:mapleader=','
-let g:maplocalleader=','
+let mapleader=','
+let maplocalleader=','
 
 " Plugins {{{
 
