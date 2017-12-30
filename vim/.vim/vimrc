@@ -16,7 +16,11 @@ Plug 'tommcdo/vim-lion'
 
 " File management
 Plug 'ctrlpvim/ctrlp.vim'
+    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+    nnoremap <C-B> :CtrlPBuffer<cr>
+
 Plug 'justinmk/vim-dirvish'
+    let g:dirvish_mode = ':sort r /[^\/]$/'
 
 " Syntax
 Plug 'w0rp/ale'
@@ -254,23 +258,6 @@ if has('gui_running')
     " Remove scrollbars and menus from the GUI
     set guioptions=c
 endif
-" }}}
-
-" Plugin Settings {{{
-
-" Dirvish {{{
-let g:dirvish_mode = ':sort r /[^\/]$/'
-" }}}
-" CtrlP {{{
-" Ignore files in .gitignore
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
-" Ctrl-B is Ctrl-P buffer list
-" Ctrl-T is Ctrl-P tag list
-nnoremap <C-B> :CtrlPBuffer<cr>
-nnoremap <C-T> :CtrlPTag<cr>
-"}}}
-
 " }}}
 
 runtime vimrc.local
