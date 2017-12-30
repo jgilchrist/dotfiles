@@ -194,7 +194,7 @@ command! Q quit
 
 " Delete and paste without overwriting the paste register
 nnoremap x "_x
-xnoremap p "_c<Esc>p
+xnoremap p "_dp
 
 " Make Y behave like other capitals
 nnoremap Y y$
