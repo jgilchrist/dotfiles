@@ -175,6 +175,11 @@ endif
 
 " }}}
 
+if has('gui_running')
+    " Remove scrollbars and menus from the GUI
+    set guioptions=c
+endif
+
 " }}}
 
 " Mappings {{{
@@ -251,13 +256,6 @@ nnoremap <silent> <backspace> <C-^>
 nnoremap <Right> :vertical resize +2<CR>
 nnoremap <Left> :vertical resize -2<CR>
 
-" }}}
-
-" GUI {{{
-if has('gui_running')
-    " Remove scrollbars and menus from the GUI
-    set guioptions=c
-endif
 " }}}
 
 runtime vimrc.local
