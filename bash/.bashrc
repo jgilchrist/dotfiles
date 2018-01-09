@@ -17,9 +17,6 @@ function pathprepend() {
 # Ensure local binaries are on the path
 [ -d "${HOME}/.local/bin" ] && pathprepend "${HOME}/.local/bin"
 
-# Machine-specific modifications to the environment
-[ -f "${HOME}/.env.local" ] && source "${HOME}/.env.local"
-
 # Always use a 256 color terminal
 [ "$TERM" != "screen-256color" ] && export TERM="xterm-256color"
 
@@ -110,5 +107,8 @@ export COLOR_WHITE="\e[97m"
 # }}}
 
 . ~/.prompt
+
+# Machine-specific modifications to the environment
+[ -f "${HOME}/.env.local" ] && source "${HOME}/.env.local"
 
 # vim: set fdm=marker:
