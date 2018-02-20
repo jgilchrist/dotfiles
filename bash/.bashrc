@@ -1,12 +1,5 @@
 export EDITOR='vim'
 
-# Add a directory to the end of the path if it is not already present
-function pathappend() {
-    if [ -d "$1" ] && [[ ! "$PATH" =~ (^|:)"${1}"(:|$) ]]; then
-        PATH="${PATH:+"$PATH:"}$1";
-    fi
-}
-
 # Add a directory to the beginning of the path if it is not already present
 function pathprepend() {
     if [ -d "$1" ] && [[ ! "$PATH" =~ (^|:)"${1}"(:|$) ]]; then
