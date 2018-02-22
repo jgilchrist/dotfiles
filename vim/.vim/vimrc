@@ -27,6 +27,7 @@ Plug 'w0rp/ale'
 
 " Languages
 Plug 'rust-lang/rust.vim'
+Plug 'leafgarland/typescript-vim'
 
 " Colorscheme
 Plug 'w0ng/vim-hybrid'
