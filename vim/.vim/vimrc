@@ -45,7 +45,7 @@ Plug 'tpope/vim-unimpaired'
 runtime plugins.local
 call plug#end()
 
-runtime macros/matchit.vim
+packadd! matchit
 
 " }}}
 
