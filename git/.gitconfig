@@ -78,6 +78,7 @@
     ll = !git lg --all
     lo = !git lg `git tracking`^.. # Show the log since the origin/master commit
     head = !git lg -1
+    mine = !git lg --author="$(git config user.email)"
 
 [include]
     path = ~/.gitconfig.local
