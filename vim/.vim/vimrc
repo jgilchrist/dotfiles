@@ -33,7 +33,6 @@ Plug 'leafgarland/typescript-vim'
 Plug 'w0ng/vim-hybrid'
 
 " Extras
-Plug 'jgilchrist/wiki'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/goyo.vim'
 
