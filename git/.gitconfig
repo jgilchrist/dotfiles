@@ -4,7 +4,7 @@
 
 [core]
     editor = vim
-    pager = less -FXRS
+    pager = less -FXRS --tabs=4
     excludesfile = ~/.gitexcludes
     autocrlf = input
 
