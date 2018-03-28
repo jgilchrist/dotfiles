@@ -106,6 +106,7 @@ set infercase
 " Redrawing
 set lazyredraw
 set ttyfast
+set ttimeoutlen=50
 
 " Disable all bells (audio, flash)
 set belloff=all
