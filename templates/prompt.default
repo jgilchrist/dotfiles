@@ -1,7 +1,5 @@
 #!/bin/bash
 
-. ${HOME}/.bash/prompts/git
-
 # export GIT_PS1_SHOWDIRTYSTATE=
 # export GIT_PS1_SHOWSTASHSTATE=
 # export GIT_PS1_SHOWUNTRACKEDFILES=
@@ -14,7 +12,7 @@ function set_prompt() {
     PS1+=" "
 
     if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-        PS1+="[${COLOR_ESC_YELLOW}\h${COLOR_ESC_RESET}] "
+        PS1+="[\[${COLOR_YELLOW}\]\h\[${COLOR_RESET}\]] "
     fi
 
     if [ -n "$PROMPT_FULL_DIR" ]; then
@@ -23,10 +21,10 @@ function set_prompt() {
         local PROMPT_DIR_CMD="\W"
     fi
 
-    PS1+="${hasjobs:+${COLOR_ESC_DARK_GRAY}[+\j] ${COLOR_ESC_RESET}}"
-    PS1+="${COLOR_ESC_BLUE}${PROMPT_DIR_CMD}${COLOR_ESC_RESET}"
-    PS1+='`__git_ps1 " (${COLOR_ESC_VIOLET}%s${COLOR_ESC_RESET})"`'
-    PS1+=" \$${COLOR_ESC_RESET} "
+    PS1+="${hasjobs:+\[${COLOR_DARK_GRAY}\][+\j] \[${COLOR_RESET}\]}"
+    PS1+="\[${COLOR_BLUE}\]${PROMPT_DIR_CMD}\[${COLOR_RESET}\]"
+    PS1+='`__git_ps1 " (\[${COLOR_VIOLET}\]%s\[${COLOR_RESET}\])"`'
+    PS1+=" \$\[${COLOR_RESET}\] "
 }
 
 set_prompt
