@@ -62,7 +62,7 @@ alias toilet="toilet --font future"
 alias tree="tree --dirsfirst -F -I '.git|build'"
 alias gdb="gdb -q"
 alias prettier="prettier --trailing-comma es5 --single-quote --print-width 100 --write"
-alias rg="rg --colors path:fg:green --colors line:fg:black --colors line:style:bold"
+alias rg="rg --smart-case --colors path:fg:green --colors line:fg:black --colors line:style:bold"
 
 # Shorter versions of commonly typed commands
 alias sys="systemctl"
