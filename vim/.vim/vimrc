@@ -27,6 +27,7 @@ Plug 'leafgarland/typescript-vim'
 
 " Colorscheme
 Plug 'w0ng/vim-hybrid'
+Plug 'cormacrelf/vim-colors-github'
 
 " Extras
 Plug 'itchyny/lightline.vim'
