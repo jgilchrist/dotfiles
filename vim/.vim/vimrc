@@ -22,9 +22,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'justinmk/vim-dirvish'
     let g:dirvish_mode = ':sort r /[^\/]$/'
 
-" Syntax
-Plug 'w0rp/ale'
-
 " Languages
 Plug 'rust-lang/rust.vim'
 Plug 'leafgarland/typescript-vim'
