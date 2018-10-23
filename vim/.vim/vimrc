@@ -15,9 +15,8 @@ Plug 'tommcdo/vim-exchange'
 Plug 'tommcdo/vim-lion'
 
 " File management
-Plug 'ctrlpvim/ctrlp.vim'
-    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-    nnoremap <C-B> :CtrlPBuffer<cr>
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+nnoremap <C-P> :FZF<CR>
 
 Plug 'justinmk/vim-dirvish'
     let g:dirvish_mode = ':sort r /[^\/]$/'
