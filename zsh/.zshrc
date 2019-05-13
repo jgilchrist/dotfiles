@@ -16,14 +16,17 @@ function pathprepend() {
 # Always use a 256 color terminal
 [ "$TERM" != "screen-256color" ] && export TERM="xterm-256color"
 
-# Save more history without duplicates, and preserve history if running more
-# than one instance of bash
-export HISTCONTROL=ignoreboth:erasedups
-export HISTSIZE=100000
-shopt -s histappend
+HISTFILE="${HOME}/.zhistory"
+HISTSIZE="1000000"
+SAVEHIST="1000000"
 
-# Ensure that LINES and COLUMNS are set correctly after resizing
-shopt -s checkwinsize
+setopt EXTENDED_HISTORY             # Write to the history file in the format ":start:elapsed;command"
+setopt INC_APPEND_HISTORY           # Write to the history file immediately
+setopt SHARE_HISTORY                # Share history between all ZSH sessions
+setopt HIST_EXPIRE_DUPS_FIRST       # Expire duplicate entries first
+setopt HIST_IGNORE_DUPS             # Don't write duplicate entries
+setopt HIST_IGNORE_ALL_DUPS         # Delete old entries if the new entry is a duplicate
+setopt HIST_SAVE_NO_DUPS            # Don't write duplicate entries to the history file
 
 # Ignore some file extensions
 export FIGNORE=".localized:.DS_Store"
