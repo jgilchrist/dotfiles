@@ -1,5 +1,7 @@
 export EDITOR='vim'
 
+autoload -U colors && colors
+
 # Add a directory to the beginning of the path if it is not already present
 function pathprepend() {
     if [ -d "$1" ] && [[ ! "$PATH" =~ (^|:)"${1}"(:|$) ]]; then
@@ -71,26 +73,6 @@ alias keychain="keychain --host jgilchrist"
 
 # Small 'functions'
 alias wanip="dig +short myip.opendns.com @resolver1.opendns.com"
-# }}}
-
-# Colors {{{
-export COLOR_RESET="\e[0m"
-export COLOR_BLACK="\e[30m"
-export COLOR_RED="\e[31m"
-export COLOR_GREEN="\e[32m"
-export COLOR_YELLOW="\e[33m"
-export COLOR_BLUE="\e[34m"
-export COLOR_VIOLET="\e[35m"
-export COLOR_CYAN="\e[36m"
-export COLOR_LIGHT_GRAY="\e[37m"
-export COLOR_DARK_GRAY="\e[90m"
-export COLOR_LIGHT_RED="\e[91m"
-export COLOR_LIGHT_GREEN="\e[92m"
-export COLOR_LIGHT_YELLOW="\e[93m"
-export COLOR_LIGHT_BLUE="\e[94m"
-export COLOR_LIGHT_VIOLET="\e[95m"
-export COLOR_LIGHT_CYAN="\e[96m"
-export COLOR_WHITE="\e[97m"
 # }}}
 
 . ~/.prompt
