@@ -1,6 +1,7 @@
 export EDITOR='vim'
 
 autoload -U colors && colors
+autoload -U compinit && compinit
 
 # Add a directory to the beginning of the path if it is not already present
 function pathprepend() {
