@@ -1,5 +1,8 @@
 export EDITOR='vim'
 
+autoload -U colors && colors
+autoload -U compinit && compinit
+
 # Add a directory to the beginning of the path if it is not already present
 function pathprepend() {
     if [ -d "$1" ] && [[ ! "$PATH" =~ (^|:)"${1}"(:|$) ]]; then
@@ -13,14 +16,17 @@ function pathprepend() {
 # Always use a 256 color terminal
 [ "$TERM" != "screen-256color" ] && export TERM="xterm-256color"
 
-# Save more history without duplicates, and preserve history if running more
-# than one instance of bash
-export HISTCONTROL=ignoreboth:erasedups
-export HISTSIZE=100000
-shopt -s histappend
+HISTFILE="${HOME}/.zhistory"
+HISTSIZE="1000000"
+SAVEHIST="1000000"
 
-# Ensure that LINES and COLUMNS are set correctly after resizing
-shopt -s checkwinsize
+setopt EXTENDED_HISTORY             # Write to the history file in the format ":start:elapsed;command"
+setopt INC_APPEND_HISTORY           # Write to the history file immediately
+setopt SHARE_HISTORY                # Share history between all ZSH sessions
+setopt HIST_EXPIRE_DUPS_FIRST       # Expire duplicate entries first
+setopt HIST_IGNORE_DUPS             # Don't write duplicate entries
+setopt HIST_IGNORE_ALL_DUPS         # Delete old entries if the new entry is a duplicate
+setopt HIST_SAVE_NO_DUPS            # Don't write duplicate entries to the history file
 
 # Ignore some file extensions
 export FIGNORE=".localized:.DS_Store"
@@ -71,26 +77,6 @@ alias keychain="keychain --host jgilchrist"
 
 # Small 'functions'
 alias wanip="dig +short myip.opendns.com @resolver1.opendns.com"
-# }}}
-
-# Colors {{{
-export COLOR_RESET="\e[0m"
-export COLOR_BLACK="\e[30m"
-export COLOR_RED="\e[31m"
-export COLOR_GREEN="\e[32m"
-export COLOR_YELLOW="\e[33m"
-export COLOR_BLUE="\e[34m"
-export COLOR_VIOLET="\e[35m"
-export COLOR_CYAN="\e[36m"
-export COLOR_LIGHT_GRAY="\e[37m"
-export COLOR_DARK_GRAY="\e[90m"
-export COLOR_LIGHT_RED="\e[91m"
-export COLOR_LIGHT_GREEN="\e[92m"
-export COLOR_LIGHT_YELLOW="\e[93m"
-export COLOR_LIGHT_BLUE="\e[94m"
-export COLOR_LIGHT_VIOLET="\e[95m"
-export COLOR_LIGHT_CYAN="\e[96m"
-export COLOR_WHITE="\e[97m"
 # }}}
 
 . ~/.prompt

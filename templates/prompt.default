@@ -1,40 +1,4 @@
 #!/bin/bash
 
-# export GIT_PS1_SHOWDIRTYSTATE=
-# export GIT_PS1_SHOWSTASHSTATE=
-# export GIT_PS1_SHOWUNTRACKEDFILES=
-export GIT_PS1_SHOWUPSTREAM="auto"
-
-function set_prompt() {
-    PROMPT_COMMAND='hasjobs=$(jobs -p)'
-
-    PS1="\n"
-    PS1+=" "
-
-    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-        PS1+="[\[${COLOR_YELLOW}\]\h\[${COLOR_RESET}\]] "
-    fi
-
-    if [ -n "$PROMPT_FULL_DIR" ]; then
-        local PROMPT_DIR_CMD="\w"
-    else
-        local PROMPT_DIR_CMD="\W"
-    fi
-
-    PS1+="${hasjobs:+\[${COLOR_DARK_GRAY}\][+\j] \[${COLOR_RESET}\]}"
-    PS1+="\[${COLOR_BLUE}\]${PROMPT_DIR_CMD}\[${COLOR_RESET}\]"
-    PS1+='`__git_ps1 " (\[${COLOR_VIOLET}\]%s\[${COLOR_RESET}\])"`'
-    PS1+=" \$\[${COLOR_RESET}\] "
-}
-
-set_prompt
-
-function prompt_toggle_dir() {
-    if [ -n "$PROMPT_FULL_DIR" ]; then
-        unset PROMPT_FULL_DIR
-    else
-        export PROMPT_FULL_DIR=true
-    fi
-
-    set_prompt
-}
+export PROMPT="
+ %{$fg[yellow]%}%~%{$reset_color%} %{$fg[blue]%}$%{$reset_color%} "
