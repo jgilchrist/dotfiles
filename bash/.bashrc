@@ -61,11 +61,7 @@ alias units="units --verbose --one-line"
 alias toilet="toilet --font future"
 alias tree="tree --dirsfirst -F -I '.git|build'"
 alias gdb="gdb -q"
-alias prettier="prettier --trailing-comma es5 --single-quote --print-width 100 --write"
 alias rg="rg --smart-case --colors path:fg:green --colors line:fg:black --colors line:style:bold"
-
-# Shorter versions of commonly typed commands
-alias sys="systemctl"
 
 # MacOS sets hostnames dynamically. Since keychain uses the hostname
 # to keep track of environment variables, changing hostnames will
@@ -75,8 +71,6 @@ alias keychain="keychain --host jgilchrist"
 
 # Small 'functions'
 alias wanip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias ve="source .venv/bin/activate"
-alias stopwatch="time read"
 # }}}
 
 # Colors {{{
