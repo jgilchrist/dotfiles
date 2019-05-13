@@ -1,4 +1,4 @@
-CONFIGS = dirs bash git tmux vim
+CONFIGS = dirs git tmux vim zsh
 
 .PHONY: default
 default: all
@@ -18,9 +18,9 @@ usage:
 dirs:
 	mkdir -p ~/.local/bin
 
-.PHONY: bash
-bash:
-	stow bash
+.PHONY: zsh
+zsh:
+	stow zsh
 	touch ~/.env.local
 	cp --no-clobber ./templates/prompt.default ~/.prompt
 
