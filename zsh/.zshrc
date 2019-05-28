@@ -24,6 +24,9 @@ setopt HIST_IGNORE_DUPS             # Don't write duplicate entries
 setopt HIST_IGNORE_ALL_DUPS         # Delete old entries if the new entry is a duplicate
 setopt HIST_SAVE_NO_DUPS            # Don't write duplicate entries to the history file
 
+unsetopt BEEP                       # Turn off terminal bells
+unsetopt LIST_BEEP                  # Turn off autocomplete bells
+
 # Ignore some file extensions
 export FIGNORE=".localized:.DS_Store"
 
