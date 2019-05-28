@@ -3,15 +3,11 @@ export EDITOR='vim'
 autoload -U colors && colors
 autoload -U compinit && compinit
 
-# Add a directory to the beginning of the path if it is not already present
-function pathprepend() {
-    if [ -d "$1" ] && [[ ! "$PATH" =~ (^|:)"${1}"(:|$) ]]; then
-        PATH="$1${PATH:+":$PATH"}";
-    fi
-}
+# Prevent duplicates in $PATH
+typeset -gU path
 
 # Ensure local binaries are on the path
-[ -d "${HOME}/.local/bin" ] && pathprepend "${HOME}/.local/bin"
+[ -d "${HOME}/.local/bin" ] && path=(~/.local/bin $path)
 
 # Always use a 256 color terminal
 [ "$TERM" != "screen-256color" ] && export TERM="xterm-256color"
