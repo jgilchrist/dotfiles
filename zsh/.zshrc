@@ -30,6 +30,9 @@ export FIGNORE=".localized:.DS_Store"
 # Never store history for less
 export LESSHISTFILE=-
 
+# Set some default LESS options
+export LESS="--quit-if-one-screen --ignore-case --raw-control-chars --chop-long-lines --hilite-unread --no-init"
+
 # Functions and aliases {{{
 function t() {
     local TMUX_SESSION_NAME="main"
