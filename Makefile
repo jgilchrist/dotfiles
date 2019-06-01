@@ -20,9 +20,9 @@ dirs:
 
 .PHONY: zsh
 zsh:
-	stow zsh
+	stow zsh --ignore ".*\.template"
 	touch ~/.env.local
-	cp --no-clobber ./templates/prompt.default ~/.prompt
+	cp --no-clobber ./zsh/prompt.template ~/.prompt
 
 .PHONY: git
 git:
