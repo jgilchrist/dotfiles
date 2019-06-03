@@ -1,14 +1,3 @@
-```
-  _____   ____ _______ ______ _____ _      ______  _____
- |  __ \ / __ \__   __|  ____|_   _| |    |  ____|/ ____|
- | |  | | |  | | | |  | |__    | | | |    | |__  | (___
- | |  | | |  | | | |  |  __|   | | | |    |  __|  \___ \
- | |__| | |__| | | |  | |     _| |_| |____| |____ ____) |
- |_____/ \____/  |_|  |_|    |_____|______|______|_____/
-
- # Dotfiles for bash, vim, git, tmux, etc.
-```
-
 # Installation
 
 Installation requires GNU `stow`, a symlink farm manager. Install it using your favourite package manager.
