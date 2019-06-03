@@ -26,6 +26,7 @@ setopt HIST_SAVE_NO_DUPS            # Don't write duplicate entries to the histo
 
 unsetopt BEEP                       # Turn off terminal bells
 unsetopt LIST_BEEP                  # Turn off autocomplete bells
+unsetopt CLOBBER                    # Force using >! and >>! to overwrite existing files
 
 # Ignore some file extensions
 export FIGNORE=".localized:.DS_Store"
