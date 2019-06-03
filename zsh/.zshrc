@@ -2,6 +2,7 @@ export EDITOR='vim'
 
 autoload -U colors && colors
 autoload -U compinit && compinit
+autoload -U edit-command-line
 
 # Prevent duplicates in $PATH
 typeset -gU path
@@ -11,6 +12,10 @@ typeset -gU path
 
 # Always use a 256 color terminal
 [ "$TERM" != "screen-256color" ] && export TERM="xterm-256color"
+
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
 
 HISTFILE="${HOME}/.zhistory"
 HISTSIZE="1000000"
