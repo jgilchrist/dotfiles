@@ -145,6 +145,11 @@ if executable("rg")
     set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif
 
+augroup cwindow_after_grep
+    autocmd!
+    au QuickFixCmdPost [^l]* cwindow
+augroup END
+
 " Only display the cursorline on windows that are in focus
 augroup highlight_follows_focus
     autocmd!
