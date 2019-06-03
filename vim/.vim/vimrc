@@ -142,8 +142,7 @@ set nojoinspaces
 
 " Use ripgrep for vim's :grep command
 if executable("rg")
-    set grepprg=rg\ --vimgrep
-    set grepformat=%f:%l:%c:%m
+    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif
 
 " Only display the cursorline on windows that are in focus
