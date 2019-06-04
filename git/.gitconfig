@@ -74,7 +74,7 @@
     root = rev-parse --show-toplevel
     tracking = rev-parse --abbrev-ref '@{u}'
 
-    lg = log --oneline --graph --format='%C(green)%h|%C(auto)%d%C(reset) %s %C(yellow)%cr %C(blue)(%an)%C(reset)'
+    lg = log --oneline --graph --format='%C(green)%h|%C(auto)%d%C(reset) %s %C(yellow)%cd %C(blue)(%an)%C(reset)'
     l = !git lg -20
     ll = !git lg --all
     lo = !git lg `git tracking`^.. # Show the log since the origin/master commit
