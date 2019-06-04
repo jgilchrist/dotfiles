@@ -69,6 +69,7 @@ alias sudo="sudo "
 alias :q="exit"
 
 # Addition of default arguments
+alias bat="bat --wrap=never"
 alias grep="grep --color"
 alias make="make --no-print-directory"
 alias units="units --verbose --one-line"
