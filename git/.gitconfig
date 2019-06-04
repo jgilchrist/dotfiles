@@ -15,6 +15,7 @@
     prune = true
 
 [log]
+    date = human
     decorate = auto
 
 [branch]
