@@ -1,0 +1,145 @@
+#!/bin/bash
+
+set -eo pipefail
+
+red="\033[1;31m"
+green="\033[1;32m"
+blue="\033[1;34m"
+reset="\033[0m"
+
+usage() {
+	echo "./install"
+	echo "Install dotfiles for various programs"
+    echo ""
+    echo "Usage:"
+    echo "  ./install [all,dirs,git,tmux,vim,zsh]"
+    echo "  ./install --help"
+}
+
+log_target() {
+    echo ""
+    echo -e "Installing ${blue}$1${reset}"
+}
+
+log_target_success() {
+    echo -e "Installed ${blue}$1${reset}"
+}
+
+log_success() {
+    echo -e "  ${green}*${reset} $1"
+}
+
+log_noaction() {
+    echo -e "  ${blue}*${reset} $1"
+}
+
+log_fail() {
+    echo -e "  ${red}*${reset} $1"
+}
+
+create_dirs() {
+    log_target "dirs"
+
+    mkdir -p ~/.local/bin
+    log_success "Created local binary directory at ${blue}~/.local/bin${reset}"
+
+    log_target_success "dirs"
+}
+
+install_git() {
+    log_target "git"
+
+	stow git
+    log_success "Linked git dotfiles"
+
+    log_target_success "git"
+}
+
+install_tmux() {
+    log_target "tmux"
+
+	stow tmux
+    log_success "Linked tmux dotfiles"
+
+    log_target_success "tmux"
+}
+
+install_vim() {
+    log_target "vim"
+
+	mkdir -p ~/.vim
+	mkdir -p ~/.vim/autoload
+	mkdir -p ~/.vim/tmp
+	mkdir -p ~/.vim/tmp/backup
+	mkdir -p ~/.vim/tmp/swap
+	mkdir -p ~/.vim/tmp/undo
+    log_success "Created vim tempfile directories"
+
+	curl -sfLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim
+    log_success "Installed vim-plug"
+
+	stow vim
+    log_success "Linked vim dotfiles"
+
+	touch ~/.vim/plugins.local
+	touch ~/.vim/vimrc.local
+    log_success "Created machine-local config files"
+
+    log_target_success "vim"
+}
+
+install_zsh() {
+    log_target "zsh"
+
+	stow zsh --ignore ".*\.template"
+    log_success "Linked zsh dotfiles"
+
+	touch ~/.env.local
+    log_success "Created machine-local config files"
+
+	cp --no-clobber ./zsh/prompt.template ~/.prompt
+    log_success "Installed prompt script"
+
+    log_target_success "zsh"
+}
+
+
+main() {
+	if [ "$#" -eq 0 ]; then
+		usage
+		exit 0
+	fi
+
+	if [ "$#" -ne 1 ]; then
+		usage
+		exit 1
+	fi
+
+    local cmd=$1
+
+	if [[ $cmd == "--help" ]]; then
+        usage
+        exit 1
+	elif [[ $cmd == "all" ]]; then
+        create_dirs
+        install_git
+        install_tmux
+        install_vim
+        install_zsh
+    elif [[ $cmd == "dirs" ]]; then
+        create_dirs
+    elif [[ $cmd == "git" ]]; then
+        install_git
+    elif [[ $cmd == "tmux" ]]; then
+        install_tmux
+    elif [[ $cmd == "vim" ]]; then
+        install_vim
+    elif [[ $cmd == "zsh" ]]; then
+        install_zsh
+    else
+        usage
+        exit 1
+    fi
+}
+
+main "$@"
