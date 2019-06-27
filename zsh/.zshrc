@@ -13,6 +13,9 @@ typeset -gU path
 # Always use a 256 color terminal
 [ "$TERM" != "screen-256color" ] && export TERM="xterm-256color"
 
+# Ignore Ctrl-S/Ctrl-Q to avoid locking terminals
+stty -ixon
+
 zle -N edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
