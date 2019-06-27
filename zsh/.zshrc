@@ -24,6 +24,9 @@ HISTFILE="${HOME}/.zhistory"
 HISTSIZE="1000000"
 SAVEHIST="1000000"
 
+# Don't show % at the end of command output without a terminating '\n'
+PROMPT_EOL_MARK=''
+
 setopt EXTENDED_HISTORY             # Write to the history file in the format ":start:elapsed;command"
 setopt INC_APPEND_HISTORY           # Write to the history file immediately
 setopt SHARE_HISTORY                # Share history between all ZSH sessions
