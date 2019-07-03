@@ -8,8 +8,8 @@ blue="\033[1;34m"
 reset="\033[0m"
 
 usage() {
-	echo "./install"
-	echo "Install dotfiles for various programs"
+    echo "./install"
+    echo "Install dotfiles for various programs"
     echo ""
     echo "Usage:"
     echo "  ./install [all,dirs,git,tmux,vim,zsh]"
@@ -49,7 +49,7 @@ create_dirs() {
 install_git() {
     log_target "git"
 
-	stow git
+    stow git
     log_success "Linked git dotfiles"
 
     log_target_success "git"
@@ -58,7 +58,7 @@ install_git() {
 install_tmux() {
     log_target "tmux"
 
-	stow tmux
+    stow tmux
     log_success "Linked tmux dotfiles"
 
     log_target_success "tmux"
@@ -67,22 +67,22 @@ install_tmux() {
 install_vim() {
     log_target "vim"
 
-	mkdir -p ~/.vim
-	mkdir -p ~/.vim/autoload
-	mkdir -p ~/.vim/tmp
-	mkdir -p ~/.vim/tmp/backup
-	mkdir -p ~/.vim/tmp/swap
-	mkdir -p ~/.vim/tmp/undo
+    mkdir -p ~/.vim
+    mkdir -p ~/.vim/autoload
+    mkdir -p ~/.vim/tmp
+    mkdir -p ~/.vim/tmp/backup
+    mkdir -p ~/.vim/tmp/swap
+    mkdir -p ~/.vim/tmp/undo
     log_success "Created vim tempfile directories"
 
-	curl -sfLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim
+    curl -sfLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim
     log_success "Installed vim-plug"
 
-	stow vim
+    stow vim
     log_success "Linked vim dotfiles"
 
-	touch ~/.vim/plugins.local
-	touch ~/.vim/vimrc.local
+    touch ~/.vim/plugins.local
+    touch ~/.vim/vimrc.local
     log_success "Created machine-local config files"
 
     log_target_success "vim"
@@ -91,13 +91,13 @@ install_vim() {
 install_zsh() {
     log_target "zsh"
 
-	stow zsh --ignore ".*\.template"
+    stow zsh --ignore ".*\.template"
     log_success "Linked zsh dotfiles"
 
-	touch ~/.env.local
+    touch ~/.env.local
     log_success "Created machine-local config files"
 
-	cp --no-clobber ./zsh/prompt.template ~/.prompt
+    cp --no-clobber ./zsh/prompt.template ~/.prompt
     log_success "Installed prompt script"
 
     log_target_success "zsh"
@@ -105,22 +105,22 @@ install_zsh() {
 
 
 main() {
-	if [ "$#" -eq 0 ]; then
-		usage
-		exit 0
-	fi
+    if [ "$#" -eq 0 ]; then
+        usage
+        exit 0
+    fi
 
-	if [ "$#" -ne 1 ]; then
-		usage
-		exit 1
-	fi
+    if [ "$#" -ne 1 ]; then
+        usage
+        exit 1
+    fi
 
     local cmd=$1
 
-	if [[ $cmd == "--help" ]]; then
+    if [[ $cmd == "--help" ]]; then
         usage
         exit 1
-	elif [[ $cmd == "all" ]]; then
+    elif [[ $cmd == "all" ]]; then
         create_dirs
         install_git
         install_tmux
