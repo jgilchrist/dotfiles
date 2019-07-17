@@ -39,6 +39,8 @@ unsetopt BEEP                       # Turn off terminal bells
 unsetopt LIST_BEEP                  # Turn off autocomplete bells
 unsetopt CLOBBER                    # Force using >! and >>! to overwrite existing files
 
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
 # Ignore some file extensions
 export FIGNORE=".localized:.DS_Store"
 
