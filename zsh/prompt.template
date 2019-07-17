@@ -1,4 +1,15 @@
 #!/bin/bash
 
-export PROMPT="
- %{$fg[yellow]%}%~%{$reset_color%} %{$fg[blue]%}$%{$reset_color%} "
+function set_prompt() {
+    local ps1="
+"
+
+    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+        ps1+=" [%{$fg[yellow]%}%n@%m%{$reset_color%}]"
+    fi
+
+	ps1+="%(1j. %{$fg[grey]%}[+%j]%{$reset_color%}.) %{$fg[yellow]%}%~%{$reset_color%} %{$fg[blue]%}$%{$reset_color%} "
+	export PROMPT=${ps1}
+}
+
+set_prompt
