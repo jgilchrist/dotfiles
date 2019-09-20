@@ -76,12 +76,12 @@
     tracking = rev-parse --abbrev-ref '@{u}'
 
     lg = log --oneline --graph --format='%C(green)%h|%C(auto)%d%C(reset) %s %C(yellow)%cd %C(blue)(%an)%C(reset)'
-    l = !git lg -20
-    ll = !git lg --all
-    lls = !git ll --simplify-by-decoration
-    lo = !git lg `git tracking`^.. # Show the log since the origin/master commit
-    head = !git lg -1
-    mine = !git lg --author="$(git config user.email)"
+    l = lg -20
+    ll = lg --all
+    lls = ll --simplify-by-decoration
+    lo = lg `git tracking`^.. # Show the log since the origin/master commit
+    head = lg -1
+    mine = lg --author="$(git config user.email)"
 
 [include]
     path = ~/.gitconfig.local
