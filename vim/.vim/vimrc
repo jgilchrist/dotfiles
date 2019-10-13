@@ -16,7 +16,9 @@ Plug 'tommcdo/vim-lion'
 
 " File management
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-nnoremap <C-P> :FZF<CR>
+Plug 'junegunn/fzf.vim'
+nnoremap <C-P> :Files<CR>
+nnoremap <C-B> :Buffers<CR>
 
 Plug 'justinmk/vim-dirvish'
     let g:dirvish_mode = ':sort r /[^\/]$/'
