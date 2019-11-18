@@ -55,15 +55,15 @@
 
 [alias]
     aa = add --all
-    ap = add -p
-    au = add -u
+    ap = add --patch
+    au = add --update
     b  = branch
     ci = commit
     co = checkout
     di = diff
     ds = diff --staged
     rh = reset HEAD
-    s  = status -sb
+    s  = status --short --branch
 
     amend = commit --amend
     bnew = checkout -b
