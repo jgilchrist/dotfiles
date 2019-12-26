@@ -82,7 +82,6 @@ set scrolloff=3
 set sidescrolloff=3
 set synmaxcol=300
 set listchars=tab:\|\ ,trail:∙,extends:>,precedes:<,nbsp:‡
-set breakindent
 set showbreak=>\ 
 set breakindentopt=shift:2
 
