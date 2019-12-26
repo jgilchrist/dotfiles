@@ -6,6 +6,7 @@ brew 'cmake'
 brew 'coreutils'
 brew 'dos2unix'
 brew 'findutils'
+brew 'fzf'
 brew 'git'
 brew 'gnu-sed', args: ['with-default-names']
 brew 'gnu-tar', args: ['with-default-names']
@@ -17,13 +18,17 @@ brew 'homebrew/dupes/grep', args: ['with-default-names']
 brew 'homebrew/dupes/less'
 brew 'homebrew/dupes/make', args: ['with-default-names']
 brew 'homebrew/dupes/openssh'
+brew 'httpie'
 brew 'htop'
+brew 'hugo'
 brew 'jq'
+brew 'just'
 brew 'keychain'
 brew 'macvim', args: ['with-override-system-vim', 'with-python3']
 brew 'node'
 brew 'openssl', args: ['universal']
 brew 'pandoc'
+brew 'pgcli'
 brew 'pkg-config'
 brew 'python3'
 brew 'readline'
@@ -31,3 +36,4 @@ brew 'stow'
 brew 'tmux'
 brew 'tree'
 brew 'wget'
+brew 'zsh'
