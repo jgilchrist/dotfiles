@@ -39,3 +39,8 @@ brew 'tree'
 brew 'wget'
 brew 'yarn'
 brew 'zsh'
+
+# Useful utilities
+# brew 'tig'
+# brew 'dive'
+# brew 'shellcheck'
