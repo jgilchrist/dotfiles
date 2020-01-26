@@ -24,13 +24,12 @@ brew 'hugo'
 brew 'jq'
 brew 'just'
 brew 'keychain'
-brew 'macvim', args: ['with-override-system-vim', 'with-python3']
+brew 'macvim', args: ['with-override-system-vim']
 brew 'node'
 brew 'openssl', args: ['universal']
 brew 'pandoc'
 brew 'pgcli'
 brew 'pkg-config'
-brew 'python3'
 brew 'readline'
 brew 'stow'
 brew 'tmux'
