@@ -1,10 +1,10 @@
-tap 'homebrew/dupes'
 brew 'atool'
 brew 'bash'
 brew 'bash-completion'
 brew 'bat'
 brew 'cmake'
 brew 'coreutils'
+brew 'diffutils'
 brew 'dos2unix'
 brew 'findutils'
 brew 'fzf'
@@ -14,20 +14,19 @@ brew 'gnu-tar', args: ['with-default-names']
 brew 'gnu-units', args: ['with-default-names']
 brew 'gnu-which', args: ['with-default-names']
 brew 'gnupg'
+brew 'grep', args: ['with-default-names']
 brew 'hexyl'
-brew 'homebrew/dupes/diffutils'
-brew 'homebrew/dupes/grep', args: ['with-default-names']
-brew 'homebrew/dupes/less'
-brew 'homebrew/dupes/make', args: ['with-default-names']
-brew 'homebrew/dupes/openssh'
-brew 'httpie'
 brew 'htop'
+brew 'httpie'
 brew 'hugo'
 brew 'jq'
 brew 'just'
 brew 'keychain'
+brew 'less'
 brew 'macvim', args: ['with-override-system-vim']
+brew 'make', args: ['with-default-names']
 brew 'node'
+brew 'openssh'
 brew 'openssl', args: ['universal']
 brew 'pandoc'
 brew 'pkg-config'
@@ -35,15 +34,15 @@ brew 'readline'
 brew 'ripgrep'
 brew 'stow'
 brew 'tealdeer'
-brew 'tokei'
 brew 'tmux'
+brew 'tokei'
 brew 'tree'
 brew 'wget'
 brew 'yarn'
 brew 'zsh'
 
 # Useful utilities
-# brew 'tig'
 # brew 'dive'
-# brew 'shellcheck'
 # brew 'pgcli'
+# brew 'shellcheck'
+# brew 'tig'
