@@ -14,6 +14,7 @@ brew 'gnu-tar', args: ['with-default-names']
 brew 'gnu-units', args: ['with-default-names']
 brew 'gnu-which', args: ['with-default-names']
 brew 'gnupg'
+brew 'hexyl'
 brew 'homebrew/dupes/diffutils'
 brew 'homebrew/dupes/grep', args: ['with-default-names']
 brew 'homebrew/dupes/less'
@@ -32,8 +33,10 @@ brew 'pandoc'
 brew 'pgcli'
 brew 'pkg-config'
 brew 'readline'
+brew 'ripgrep'
 brew 'stow'
 brew 'tealdeer'
+brew 'tokei'
 brew 'tmux'
 brew 'tree'
 brew 'wget'
