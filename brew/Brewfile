@@ -30,7 +30,6 @@ brew 'macvim', args: ['with-override-system-vim']
 brew 'node'
 brew 'openssl', args: ['universal']
 brew 'pandoc'
-brew 'pgcli'
 brew 'pkg-config'
 brew 'readline'
 brew 'ripgrep'
@@ -47,3 +46,4 @@ brew 'zsh'
 # brew 'tig'
 # brew 'dive'
 # brew 'shellcheck'
+# brew 'pgcli'
