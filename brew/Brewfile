@@ -1,6 +1,5 @@
 brew 'atool'
 brew 'bat'
-brew 'cmake'
 brew 'coreutils'
 brew 'diffutils'
 brew 'dos2unix'
@@ -40,6 +39,7 @@ brew 'yarn'
 brew 'zsh'
 
 # Useful utilities
+# brew 'cmake'
 # brew 'dive'
 # brew 'pgcli'
 # brew 'shellcheck'
