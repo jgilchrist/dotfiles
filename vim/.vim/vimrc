@@ -26,6 +26,7 @@ Plug 'justinmk/vim-dirvish'
 " Languages
 Plug 'rust-lang/rust.vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'hashivim/vim-terraform'
 
 " Colorscheme
 Plug 'w0ng/vim-hybrid'
