@@ -100,4 +100,24 @@ alias wanip="dig +short myip.opendns.com @resolver1.opendns.com"
 # Machine-specific modifications to the environment
 [ -f "${HOME}/.env.local" ] && source "${HOME}/.env.local"
 
+# Tool-specific configuration/aliases {{{
+# This needs to come after .env.local as .env.local may add these tools to the path
+
+# If FZF is installed, use it
+if [ -f ~/.fzf.zsh ]; then
+    source ~/.fzf.zsh
+
+    # If fd is installed, use it for FZF
+    if (( $+commands[fd] )); then
+        export FZF_DEFAULT_COMMAND='fd --type file'
+    fi
+fi
+
+# If tokei is installed, alias 'cloc' to it
+if (( $+commands[tokei] )); then
+    alias cloc="tokei --sort=code"
+fi
+
+# }}}
+
 # vim: set fdm=marker:
