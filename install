@@ -5,148 +5,99 @@ set -eo pipefail
 red="\033[1;31m"
 green="\033[1;32m"
 blue="\033[1;34m"
+yellow="\033[1;33m"
+grey="\033[1;30m"
 reset="\033[0m"
-
-usage() {
-    echo "./install"
-    echo "Install dotfiles for various programs"
-    echo ""
-    echo "Usage:"
-    echo "  ./install [all,dirs,git,tmux,vim,zsh]"
-    echo "  ./install --help"
-}
 
 log_target() {
     echo ""
     echo -e "Installing ${blue}$1${reset}"
 }
 
-log_target_success() {
-    echo -e "Installed ${blue}$1${reset}"
-}
-
-log_success() {
+log_info() {
     echo -e "  ${green}*${reset} $1"
 }
 
-log_noaction() {
-    echo -e "  ${blue}*${reset} $1"
+create_directory() {
+    echo -en "    ${green}-${reset} ${blue}$1${reset}: "
+    if [ -d $1 ]; then
+        echo -e "${yellow}Already exists${reset}"
+    else
+        mkdir -p $1
+        echo -e "${green}Created${reset}"
+    fi
 }
 
-log_fail() {
-    echo -e "  ${red}*${reset} $1"
+create_file() {
+    echo -en "    ${green}-${reset} ${blue}$1${reset}: "
+    if [ -f $1 ]; then
+        echo -e "${yellow}Already exists${reset}"
+    else
+        touch $1
+        echo -e "${green}Created${reset}"
+    fi
 }
 
-create_dirs() {
-    log_target "dirs"
+install_vim_plug() {
+    local vim_plug_dir="${HOME}/.vim/autoload/plug.vim "
+    echo -en "    ${green}-${reset} ${blue}${vim_plug_dir}${reset}: "
 
-    mkdir -p ~/.local/bin
-    log_success "Created local binary directory at ${blue}~/.local/bin${reset}"
-
-    log_target_success "dirs"
+    if [ -f $1 ]; then
+        echo -e "${yellow}Already exists${reset}"
+    else
+        curl -sfLo ${vim_plug_dir} https://raw.github.com/junegunn/vim-plug/master/plug.vim
+        echo -e "${green}Downloaded${reset}"
+    fi
 }
 
-install_git() {
-    log_target "git"
+copy_prompt_template() {
+    local prompt_path="${HOME}/.prompt"
+    echo -en "    ${green}-${reset} ${blue}${prompt_path}${reset}: "
 
-    stow git
-    log_success "Linked git dotfiles"
-
-    log_target_success "git"
+    if [ -f $1 ]; then
+        echo -e "${yellow}Already exists${reset}"
+    else
+        cp --no-clobber ./zsh/prompt.template ${prompt_path}
+        echo -e "${green}Copied${reset}"
+    fi
 }
 
-install_tmux() {
-    log_target "tmux"
-
-    stow tmux
-    log_success "Linked tmux dotfiles"
-
-    log_target_success "tmux"
-}
-
-install_vim() {
-    log_target "vim"
-
-    mkdir -p ~/.vim
-    mkdir -p ~/.vim/autoload
-    mkdir -p ~/.vim/tmp
-    mkdir -p ~/.vim/tmp/backup
-    mkdir -p ~/.vim/tmp/swap
-    mkdir -p ~/.vim/tmp/undo
-    log_success "Created vim tempfile directories"
-
-    curl -sfLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim
-    log_success "Installed vim-plug"
-
-    stow vim
-    log_success "Linked vim dotfiles"
-
-    touch ~/.vim/plugins.local
-    touch ~/.vim/vimrc.local
-    log_success "Created machine-local config files"
-
-    log_target_success "vim"
-}
-
-install_zsh() {
-    log_target "zsh"
-
-    stow zsh --ignore ".*\.template"
-    log_success "Linked zsh dotfiles"
-
-    touch ~/.env.local
-    log_success "Created machine-local config files"
-
-    cp --no-clobber ./zsh/prompt.template ~/.prompt
-    log_success "Installed prompt script"
-
-    log_target_success "zsh"
-}
-
-install_ripgrep() {
-    log_target "ripgrep"
-    stow ripgrep
-    log_success "Linked ripgrep dotfiles"
-}
 
 main() {
-    if [ "$#" -eq 0 ]; then
-        usage
-        exit 0
-    fi
+    echo ""
 
-    if [ "$#" -ne 1 ]; then
-        usage
-        exit 1
-    fi
+    log_info "Creating local binary directory"
+    create_directory ~/.local/bin
+    echo ""
 
-    local cmd=$1
+    log_info "Creating .vim files"
+    create_directory ~/.vim
+    create_directory ~/.vim/autoload
+    create_directory ~/.vim/tmp
+    create_directory ~/.vim/tmp/backup
+    create_directory ~/.vim/tmp/swap
+    create_directory ~/.vim/tmp/undo
+    create_file ~/.vim/plugins.local
+    create_file ~/.vim/vimrc.local
+    echo ""
 
-    if [[ $cmd == "--help" ]]; then
-        usage
-        exit 1
-    elif [[ $cmd == "all" ]]; then
-        create_dirs
-        install_git
-        install_tmux
-        install_vim
-        install_zsh
-        install_ripgrep
-    elif [[ $cmd == "dirs" ]]; then
-        create_dirs
-    elif [[ $cmd == "git" ]]; then
-        install_git
-    elif [[ $cmd == "tmux" ]]; then
-        install_tmux
-    elif [[ $cmd == "vim" ]]; then
-        install_vim
-    elif [[ $cmd == "zsh" ]]; then
-        install_zsh
-    elif [[ $cmd == "ripgrep" ]]; then
-        install_ripgrep
+    log_info "Installing vim plugin manager"
+    install_vim_plug
+    echo ""
+
+    log_info "Creating machine-local config files"
+    create_file ~/.env.local
+    copy_prompt_template
+    echo ""
+
+    log_info "Symlinking files"
+    echo -en "    ${green}-${reset} ${blue}Dotfiles${reset}: "
+    stow . --target="${HOME}" --ignore="(.git|.mailmap|install|etc|README.md)"
+
+    if [ $? -eq 0 ]; then
+    echo -e "${green}Linked${reset}"
     else
-        usage
-        exit 1
+    echo -e "${red}Failed${reset}"
     fi
 }
 

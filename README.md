@@ -4,8 +4,7 @@ Installation requires GNU `stow`, a symlink farm manager. Install it using your 
 
 ```sh
 git clone https://github.com/jgilchrist/dotfiles ~/.dotfiles
-cd ~/.dotfiles
-make
+cd ~/.dotfiles && ./install
 ```
 
 # Machine-local configuration
