@@ -113,6 +113,11 @@ if [ -f ~/.fzf.zsh ]; then
     fi
 fi
 
+# If ripgrep is installed, configure its config file
+if (( $+commands[rg] )); then
+    export RIPGREP_CONFIG_PATH="${HOME}/.config/ripgrep/config"
+fi
+
 # If tokei is installed, alias 'cloc' to it
 if (( $+commands[tokei] )); then
     alias cloc="tokei --sort=code"

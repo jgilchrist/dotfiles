@@ -103,6 +103,11 @@ install_zsh() {
     log_target_success "zsh"
 }
 
+install_ripgrep() {
+    log_target "ripgrep"
+    stow ripgrep
+    log_success "Linked ripgrep dotfiles"
+}
 
 main() {
     if [ "$#" -eq 0 ]; then
@@ -126,6 +131,7 @@ main() {
         install_tmux
         install_vim
         install_zsh
+        install_ripgrep
     elif [[ $cmd == "dirs" ]]; then
         create_dirs
     elif [[ $cmd == "git" ]]; then
@@ -136,6 +142,8 @@ main() {
         install_vim
     elif [[ $cmd == "zsh" ]]; then
         install_zsh
+    elif [[ $cmd == "ripgrep" ]]; then
+        install_ripgrep
     else
         usage
         exit 1
