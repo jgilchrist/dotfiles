@@ -90,6 +90,11 @@ main() {
     copy_prompt_template
     echo ""
 
+    log_info "Creating ~/.config directories"
+    create_directory ~/.config/ripgrep
+    create_directory ~/.config/pgcli
+    echo ""
+
     log_info "Symlinking files"
     echo -en "    ${green}-${reset} ${blue}Dotfiles${reset}: "
     stow . --target="${HOME}" --ignore="(.git|.mailmap|install|etc|README.md)"
