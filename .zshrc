@@ -1,5 +1,7 @@
 export EDITOR='vim'
 
+[ -d "${HOME}/.local/share/completions" ] && fpath=(~/.local/share/completions $fpath)
+
 autoload -U colors && colors
 autoload -U compinit && compinit
 autoload -U edit-command-line
