@@ -30,7 +30,7 @@
 
 [diff]
     indentHeuristic = true
-    mnemonicprefix = true
+    noPrefix = true
 
 [merge]
     conflictstyle = diff3
