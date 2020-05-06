@@ -132,6 +132,11 @@ if (( $+commands[docker] )); then
     export DOCKER_BUILDKIT=1
 fi
 
+if (( $+commands[curlie] )); then
+    alias http="curlie"
+    alias https="curlie --https"
+fi
+
 # }}}
 
 # vim: set fdm=marker:
