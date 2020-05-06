@@ -127,6 +127,11 @@ if (( $+commands[tokei] )); then
     alias cloc="tokei --sort=code"
 fi
 
+if (( $+commands[docker] )); then
+    export COMPOSE_DOCKER_CLI_BUILD=1
+    export DOCKER_BUILDKIT=1
+fi
+
 # }}}
 
 # vim: set fdm=marker:
