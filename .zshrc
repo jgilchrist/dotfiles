@@ -1,6 +1,6 @@
 export EDITOR='vim'
 
-[ -d "${HOME}/.local/share/completions" ] && fpath=(~/.local/share/completions $fpath)
+[ -d "${HOME}/.local/share/zsh/site-functions" ] && fpath=($fpath ~/.local/share/zsh/site-functions)
 
 autoload -U colors && colors
 autoload -U compinit && compinit
