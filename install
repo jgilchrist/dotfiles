@@ -95,15 +95,27 @@ main() {
     create_directory ~/.config/pgcli
     echo ""
 
-    log_info "Symlinking files"
+    log_info "Symlinking dotfiles"
     echo -en "    ${green}-${reset} ${blue}Dotfiles${reset}: "
-    stow . --target="${HOME}" --ignore="(.git|.mailmap|install|etc|README.md)"
+    stow . --target="${HOME}" --ignore="(.git|.mailmap|install|bin|etc|README.md)"
 
     if [ $? -eq 0 ]; then
-    echo -e "${green}Linked${reset}"
+        echo -e "${green}Linked${reset}"
     else
-    echo -e "${red}Failed${reset}"
+        echo -e "${red}Failed${reset}"
     fi
+    echo ""
+
+    log_info "Symlinking scripts"
+    echo -en "    ${green}-${reset} ${blue}Scripts${reset}: "
+    stow bin --target="${HOME}/.local/bin" --ignore="(.gitkeep)"
+
+    if [ $? -eq 0 ]; then
+        echo -e "${green}Linked${reset}"
+    else
+        echo -e "${red}Failed${reset}"
+    fi
+    echo ""
 }
 
 main "$@"
