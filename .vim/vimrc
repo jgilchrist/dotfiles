@@ -209,6 +209,7 @@ xnoremap gk k
 " :W and :Q still work
 command! W write
 command! Q quit
+cabbrev <silent> X :x
 
 " Delete and paste without overwriting the paste register
 nnoremap x "_x
