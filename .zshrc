@@ -103,10 +103,10 @@ alias wanip="dig +short myip.opendns.com @resolver1.opendns.com"
 . ~/.prompt
 
 # Machine-specific modifications to the environment
-[ -f "${HOME}/.env.local" ] && source "${HOME}/.env.local"
+[ -f "${HOME}/.local/env" ] && source "${HOME}/.local/env"
 
 # Tool-specific configuration/aliases {{{
-# This needs to come after .env.local as .env.local may add these tools to the path
+# This needs to come after .local/env as .local/env may add these tools to the path
 
 # If FZF is installed, use it
 if [ -f ~/.fzf.zsh ]; then

@@ -11,8 +11,8 @@ cd ~/.dotfiles && ./install
 
 Any configuration which shouldn't be shared between machines should be placed in the following files:
 
-* `~/.env.local`
-* `~/.gitconfig.local`
+* `~/.local/env`
+* `~/.local/gitconfig`
+* `~/.local/tmux.conf`
 * `~/.vim/vimrc.local`
 * `~/.vim/plugins.local`
-* `~/.tmux.conf.local`
