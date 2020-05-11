@@ -86,7 +86,7 @@ main() {
     echo ""
 
     log_info "Creating machine-local config files"
-    create_file ~/.env.local
+    create_file ~/.local/env
     copy_prompt_template
     echo ""
 
