@@ -75,6 +75,7 @@
     restage = update-index --again
     tags = tag --sort=-taggerdate
     up = !git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
+    vtag = !git tag -a -m "" $1
 
     assumed = !git ls-files -v | grep "^[[:lower:]]"
     merged = !git branch --merged | grep -v "\\*"
