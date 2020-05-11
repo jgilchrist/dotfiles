@@ -20,20 +20,20 @@ log_info() {
 
 create_directory() {
     echo -en "    ${green}-${reset} ${blue}$1${reset}: "
-    if [ -d $1 ]; then
+    if [ -d "$1" ]; then
         echo -e "${yellow}Already exists${reset}"
     else
-        mkdir -p $1
+        mkdir -p "$1"
         echo -e "${green}Created${reset}"
     fi
 }
 
 create_file() {
     echo -en "    ${green}-${reset} ${blue}$1${reset}: "
-    if [ -f $1 ]; then
+    if [ -f "$1" ]; then
         echo -e "${yellow}Already exists${reset}"
     else
-        touch $1
+        touch "$1"
         echo -e "${green}Created${reset}"
     fi
 }
@@ -42,10 +42,10 @@ install_vim_plug() {
     local vim_plug_dir="${HOME}/.vim/autoload/plug.vim "
     echo -en "    ${green}-${reset} ${blue}${vim_plug_dir}${reset}: "
 
-    if [ -f ${vim_plug_dir} ]; then
+    if [ -f "${vim_plug_dir}" ]; then
         echo -e "${yellow}Already exists${reset}"
     else
-        curl -sfLo ${vim_plug_dir} https://raw.github.com/junegunn/vim-plug/master/plug.vim
+        curl -sfLo "${vim_plug_dir}" https://raw.github.com/junegunn/vim-plug/master/plug.vim
         echo -e "${green}Downloaded${reset}"
     fi
 }
@@ -54,10 +54,10 @@ copy_prompt_template() {
     local prompt_path="${HOME}/.prompt"
     echo -en "    ${green}-${reset} ${blue}${prompt_path}${reset}: "
 
-    if [ -f $prompt_path ]; then
+    if [ -f "$prompt_path" ]; then
         echo -e "${yellow}Already exists${reset}"
     else
-        cp --no-clobber ./etc/prompt.template ${prompt_path}
+        cp --no-clobber ./etc/prompt.template "${prompt_path}"
         echo -e "${green}Copied${reset}"
     fi
 }
