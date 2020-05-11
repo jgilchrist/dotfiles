@@ -14,18 +14,26 @@ main() {
         exit 1
     fi
 
-    local dayofweek=$(date +%w)
-    [ ${dayofweek} -eq 1 ] && local lookback=3 || local lookback=1
+    local dayofweek
+    dayofweek=$(date +%w)
+    local lookback
+    if [ "${dayofweek}" -eq 1 ]; then
+        lookback=3
+    else
+        lookback=1
+    fi
 
-    local log_date=$(date --date="$lookback day ago" +'%Y-%m-%d')
-    local log_file="${DAY_LOG_DIR}/${log_date}.md"
+    local log_date
+    log_date=$(date --date="$lookback day ago" +'%Y-%m-%d')
+    local log_file
+    log_file="${DAY_LOG_DIR}/${log_date}.md"
 
     if [ ! -f "${log_file}" ]; then
         echo "no log file: ${log_file}"
         exit 1
     fi
 
-    ${EDITOR} ${log_file}
+    ${EDITOR} "${log_file}"
 }
 
-main $@
+main "$@"

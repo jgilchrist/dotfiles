@@ -14,21 +14,25 @@ main() {
         exit 1
     fi
 
-    local log_date=$(date +'%Y-%m-%d')
-    local log_file="${DAY_LOG_DIR}/${log_date}.md"
+    local log_date
+    log_date=$(date +'%Y-%m-%d')
+    local log_file
+    log_file="${DAY_LOG_DIR}/${log_date}.md"
 
     if [ ! -f "${log_file}" ]; then
         touch "${log_file}"
-        echo "# ${log_date}\n" >> "${log_file}"
+        echo "# ${log_date}" >> "${log_file}"
+        echo "" >> "${log_file}"
     fi
 
     if [ $# -eq 0 ]; then
         ${EDITOR} "${log_file}"
     else
-        local timestamped_message="$(date +'[%H:%M]') $@"
+        local timestamped_message
+        timestamped_message="$(date +'[%H:%M]') $*"
         echo "$timestamped_message"
-        echo "$timestamped_message" >> ${log_file}
+        echo "$timestamped_message" >> "${log_file}"
     fi
 }
 
-main $@
+main "$@"
