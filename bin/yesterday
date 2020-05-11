@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+
+main() {
+    if [ -z "${DAY_LOG_DIR}" ]; then
+        echo "DAY_LOG_DIR not defined"
+        exit 1
+    fi
+
+    if [ -z "${EDITOR}" ]; then
+        echo "EDITOR not defined"
+        exit 1
+    fi
+
+    local dayofweek=$(date +%w)
+    [ ${dayofweek} -eq 1 ] && local lookback=3 || local lookback=1
+
+    local log_date=$(date --date="$lookback day ago" +'%Y-%m-%d')
+    local log_file="${DAY_LOG_DIR}/${log_date}.md"
+
+    if [ ! -f "${log_file}" ]; then
+        echo "no log file: ${log_file}"
+        exit 1
+    fi
+
+    ${EDITOR} ${log_file}
+}
+
+main $@
