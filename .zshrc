@@ -67,6 +67,22 @@ function t() {
     tmux new -A -s "$TMUX_SESSION_NAME"
 }
 
+function load_dir_aliases() {
+    local DIRS_SOURCE_FILE="$1"
+    local DIRS_GEN_FILE="${HOME}/.local/dirs.sh"
+
+    touch ${DIRS_GEN_FILE}
+    chmod +x ${DIRS_GEN_FILE}
+    echo -n "" >! ${DIRS_GEN_FILE}
+
+    while read dir; do
+        echo "$dir" | awk '{print "hash -d "$1"="$2""}' >> ${DIRS_GEN_FILE}
+    done < ${DIRS_SOURCE_FILE}
+
+    source ${DIRS_GEN_FILE}
+    rm ${DIRS_GEN_FILE}
+}
+
 # /usr/bin aliases
 alias ls='ls -h --color=auto -p --group-directories-first'
 alias ll='ls -l'
@@ -104,6 +120,9 @@ alias wanip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 # Machine-specific modifications to the environment
 [ -f "${HOME}/.local/env" ] && source "${HOME}/.local/env"
+
+# Machine-local directory aliases from ~/.local/dirs
+[ -f "${HOME}/.local/dirs" ] && load_dir_aliases "${HOME}/.local/dirs"
 
 # Tool-specific configuration/aliases {{{
 # This needs to come after .local/env as .local/env may add these tools to the path
