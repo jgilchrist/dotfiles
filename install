@@ -54,10 +54,10 @@ copy_prompt_template() {
     local prompt_path="${HOME}/.prompt"
     echo -en "    ${green}-${reset} ${blue}${prompt_path}${reset}: "
 
-    if [ -f $1 ]; then
+    if [ -f $prompt_path ]; then
         echo -e "${yellow}Already exists${reset}"
     else
-        cp --no-clobber ./zsh/prompt.template ${prompt_path}
+        cp --no-clobber ./etc/prompt.template ${prompt_path}
         echo -e "${green}Copied${reset}"
     fi
 }
