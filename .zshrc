@@ -133,7 +133,7 @@ if [ -f ~/.fzf.zsh ]; then
 
     # If fd is installed, use it for FZF
     if (( $+commands[fd] )); then
-        export FZF_DEFAULT_COMMAND='fd --type file'
+        export FZF_DEFAULT_COMMAND='fd --type file --hidden --exclude ".git/**"'
     fi
 fi
 
