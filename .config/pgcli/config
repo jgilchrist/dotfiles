@@ -140,7 +140,7 @@ null_string = <null>
 enable_pager = True
 
 # Use keyring to automatically save and load password in a secure manner
-keyring = True
+keyring = False
 
 [colors]
 completion-menu.completion.current = "bg:#ffffff #000000"
