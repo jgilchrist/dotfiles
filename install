@@ -39,7 +39,7 @@ create_file() {
 }
 
 install_vim_plug() {
-    local vim_plug_dir="${HOME}/.vim/autoload/plug.vim "
+    local vim_plug_dir="${HOME}/.vim/autoload/plug.vim"
     echo -en "    ${green}-${reset} ${blue}${vim_plug_dir}${reset}: "
 
     if [ -f "${vim_plug_dir}" ]; then
