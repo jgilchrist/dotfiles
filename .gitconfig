@@ -5,7 +5,7 @@
 [core]
     editor = vim
     pager = less -FXRS --tabs=4
-    excludesfile = ~/.gitexcludes
+    excludesfile = ~/.config/git/excludes
     autocrlf = input
 
 [commit]
