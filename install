@@ -91,6 +91,7 @@ main() {
     echo ""
 
     log_info "Creating ~/.config directories"
+    create_directory ~/.config/git
     create_directory ~/.config/htop
     create_directory ~/.config/pgcli
     create_directory ~/.config/ripgrep
