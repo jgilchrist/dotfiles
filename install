@@ -99,7 +99,7 @@ main() {
 
     log_info "Symlinking dotfiles"
     echo -en "    ${green}-${reset} ${blue}Dotfiles${reset}: "
-    stow . --target="${HOME}" --ignore="(.git|.mailmap|install|bin|etc|README.md)"
+    stow . --target="${HOME}" --ignore="(\.git|\.mailmap|install|bin|etc|README.md)"
 
     if [ $? -eq 0 ]; then
         echo -e "${green}Linked${reset}"
