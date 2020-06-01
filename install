@@ -50,19 +50,6 @@ install_vim_plug() {
     fi
 }
 
-copy_prompt_template() {
-    local prompt_path="${HOME}/.prompt"
-    echo -en "    ${green}-${reset} ${blue}${prompt_path}${reset}: "
-
-    if [ -f "$prompt_path" ]; then
-        echo -e "${yellow}Already exists${reset}"
-    else
-        cp --no-clobber ./etc/prompt.template "${prompt_path}"
-        echo -e "${green}Copied${reset}"
-    fi
-}
-
-
 main() {
     echo ""
 
@@ -88,7 +75,6 @@ main() {
     log_info "Creating machine-local config files"
     create_file ~/.local/env
     create_file ~/.local/dirs
-    copy_prompt_template
     echo ""
 
     log_info "Creating ~/.config directories"

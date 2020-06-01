@@ -83,6 +83,18 @@ function load_dir_aliases() {
     rm ${DIRS_GEN_FILE}
 }
 
+function set_default_prompt() {
+    local ps1="
+"
+
+    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+        ps1+=" [%{$fg[yellow]%}%n@%m%{$reset_color%}]"
+    fi
+
+	ps1+="%(1j. %{$fg[grey]%}[+%j]%{$reset_color%}.) %{$fg[yellow]%}%~%{$reset_color%} %{$fg[blue]%}$%{$reset_color%} "
+	export PROMPT=${ps1}
+}
+
 # /usr/bin aliases
 alias ls='ls -h --color=auto -p --group-directories-first'
 alias ll='ls -l'
@@ -116,7 +128,12 @@ alias keychain="keychain --host jgilchrist"
 alias wanip="dig +short myip.opendns.com @resolver1.opendns.com"
 # }}}
 
-. ~/.prompt
+if [  -f "${HOME}/.local/prompt" ]; then
+    . "${HOME}/.local/prompt"
+else
+    set_default_prompt
+fi
+
 
 # Machine-specific modifications to the environment
 [ -f "${HOME}/.local/env" ] && source "${HOME}/.local/env"
