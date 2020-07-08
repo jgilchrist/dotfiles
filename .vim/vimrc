@@ -39,6 +39,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'junegunn/goyo.vim'
 
 " Experiments
+Plug 'jgilchrist/vim-mergetool'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-eunuch'
@@ -270,6 +271,23 @@ nnoremap <Right> :vertical resize +2<CR>
 nnoremap <Left> :vertical resize -2<CR>
 
 " }}}
+
+function s:on_mergetool_set_layout(split)
+  setlocal nocursorline
+
+  " When base is horizontal split at the bottom
+  " Turn off diff mode, and show syntax highlighting
+  " Also let it take less height
+  if (a:split["layout"] ==# 'mr,b' || a:split["layout"] ==# 'ml,b') && a:split["split"] ==# 'b'
+	setlocal nodiff
+	setlocal syntax=off
+	resize 15
+  endif
+endfunction
+
+let g:mergetool_layout = 'ml,b'
+let g:mergetool_prefer_revision = 'remote'
+let g:MergetoolSetLayoutCallback = function('s:on_mergetool_set_layout')
 
 runtime vimrc.local
 
