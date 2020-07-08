@@ -30,7 +30,9 @@ main() {
 
     if [ ! -f "${log_file}" ]; then
         echo "no log file: ${log_file}"
-        exit 1
+        sleep 1
+        echo "# ${log_date}" >> "${log_file}"
+        echo "" >> "${log_file}"
     fi
 
     ${EDITOR} "${log_file}"
