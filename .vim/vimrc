@@ -23,6 +23,10 @@ nnoremap <C-B> :Buffers<CR>
 Plug 'justinmk/vim-dirvish'
     let g:dirvish_mode = ':sort r /[^\/]$/'
 
+" Vim behaviour
+Plug 'machakann/vim-highlightedyank'
+    let g:highlightedyank_highlight_duration = 200
+
 " Languages
 Plug 'rust-lang/rust.vim'
 Plug 'leafgarland/typescript-vim'
@@ -44,8 +48,6 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-unimpaired'
-Plug 'machakann/vim-highlightedyank'
-    let g:highlightedyank_highlight_duration = 200
 
 runtime plugins.local
 call plug#end()
