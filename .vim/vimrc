@@ -27,6 +27,8 @@ Plug 'justinmk/vim-dirvish'
 Plug 'machakann/vim-highlightedyank'
     let g:highlightedyank_highlight_duration = 200
 
+Plug 'tpope/vim-unimpaired'
+
 " Languages
 Plug 'rust-lang/rust.vim'
 Plug 'leafgarland/typescript-vim'
@@ -47,7 +49,6 @@ Plug 'jgilchrist/vim-mergetool'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-unimpaired'
 
 runtime plugins.local
 call plug#end()
