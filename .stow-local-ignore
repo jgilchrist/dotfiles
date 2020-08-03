@@ -1,5 +1,5 @@
-.git
-.mailmap
+\.git
+\.mailmap
 install
 bin
 etc
