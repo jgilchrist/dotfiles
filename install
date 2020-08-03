@@ -97,7 +97,7 @@ main() {
 
     log_info "Symlinking scripts"
     echo -en "    ${green}-${reset} ${blue}Scripts${reset}: "
-    stow bin --target="${HOME}/.local/bin" --ignore="(.gitkeep)"
+    stow bin --target="${HOME}/.local/bin"
 
     if [ $? -eq 0 ]; then
         echo -e "${green}Linked${reset}"
