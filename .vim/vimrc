@@ -161,7 +161,7 @@ augroup cwindow_after_grep
 augroup END
 
 " Only display the cursorline on windows that are in focus
-augroup highlight_follows_focus
+augroup cursorline_follows_focus
     autocmd!
     au WinEnter * set cursorline
     au WinLeave * set nocursorline
@@ -169,9 +169,9 @@ augroup highlight_follows_focus
     au FocusLost * set nocursorline
 augroup END
 
-function! s:disable_highlight_follows_focus()
-  if exists('#highlight_follows_focus#WinEnter')
-    augroup highlight_follows_focus
+function! s:disable_cursorline_follows_focus()
+  if exists('#cursorline_follows_focus#WinEnter')
+    augroup cursorline_follows_focus
       autocmd!
     augroup END
   endif
@@ -285,7 +285,7 @@ nnoremap <Left> :vertical resize -2<CR>
 
 function s:on_mergetool_set_layout(split)
   setlocal nocursorline
-  call s:disable_highlight_follows_focus()
+  call s:disable_cursorline_follows_focus()
 
   " When base is horizontal split at the bottom
   " Turn off diff mode, and show syntax highlighting
