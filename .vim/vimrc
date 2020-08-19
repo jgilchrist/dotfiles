@@ -169,6 +169,14 @@ augroup highlight_follows_focus
     au FocusLost * set nocursorline
 augroup END
 
+function! s:disable_highlight_follows_focus()
+  if exists('#highlight_follows_focus#WinEnter')
+    augroup highlight_follows_focus
+      autocmd!
+    augroup END
+  endif
+endfunction
+
 " Backups/Swapfiles/Undofiles {{{
 
 " Keep backups, swapfiles and undofiles if we're not root
@@ -277,6 +285,7 @@ nnoremap <Left> :vertical resize -2<CR>
 
 function s:on_mergetool_set_layout(split)
   setlocal nocursorline
+  call s:disable_highlight_follows_focus()
 
   " When base is horizontal split at the bottom
   " Turn off diff mode, and show syntax highlighting
