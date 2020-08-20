@@ -76,7 +76,9 @@ function load_dir_aliases() {
     echo -n "" >! ${DIRS_GEN_FILE}
 
     while read dir; do
-        echo "$dir" | awk '{print "hash -d "$1"="$2""}' >> ${DIRS_GEN_FILE}
+        local name=$(echo $dir | cut -d: -f1)
+        local location=$(echo $dir | cut -d: -f2)
+        echo "hash -d $name=$location" >> ${DIRS_GEN_FILE}
     done < ${DIRS_SOURCE_FILE}
 
     source ${DIRS_GEN_FILE}
