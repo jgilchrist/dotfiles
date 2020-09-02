@@ -287,6 +287,8 @@ function s:on_mergetool_set_layout(split)
   setlocal nocursorline
   call s:disable_cursorline_follows_focus()
 
+  nnoremap <leader>mt <plug>(MergetoolToggle)
+
   " When base is horizontal split at the bottom
   " Turn off diff mode, and show syntax highlighting
   " Also let it take less height
