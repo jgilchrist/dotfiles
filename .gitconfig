@@ -72,7 +72,7 @@
     s  = status --short --branch
 
     amend = commit --amend
-    bnew = checkout -b
+    bnew = switch --create
     create = !git init && git commit --allow-empty -m \"Created repository\"
     pushfwl = push --force-with-lease
     restage = update-index --again
