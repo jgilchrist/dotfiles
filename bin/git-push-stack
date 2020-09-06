@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -euo pipefail
+set -eu
 
 STACK_ID_DIRECTIVE='stack-id'
 BRANCH_DIRECTIVE='branch'
