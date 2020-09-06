@@ -89,7 +89,7 @@
     l = lg -20
     ll = lg --all
     lls = ll --simplify-by-decoration
-    lo = lg `git tracking`^.. # Show the log since the origin/master commit
+    lr = !git lg "$(git tracking)"^..
     head = lg -1
 
 [include]
