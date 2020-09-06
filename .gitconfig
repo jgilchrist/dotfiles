@@ -66,7 +66,6 @@
     au = add --update
     b  = branch
     ci = commit
-    co = checkout
     di = diff
     ds = diff --staged
     rh = reset HEAD
@@ -92,7 +91,6 @@
     lls = ll --simplify-by-decoration
     lo = lg `git tracking`^.. # Show the log since the origin/master commit
     head = lg -1
-    mine = !git lg --author="$(git config user.email)"
 
 [include]
     path = ~/.local/gitconfig
