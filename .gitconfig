@@ -77,7 +77,7 @@
     pushfwl = push --force-with-lease
     restage = update-index --again
     tags = tag --sort=-taggerdate
-    up = !git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
+    up = !git push --set-upstream upstream "$(git rev-parse --abbrev-ref HEAD)"
     vtag = !git tag -a -m "" $1
 
     assumed = !git ls-files -v | grep "^[[:lower:]]"
