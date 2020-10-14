@@ -3,7 +3,6 @@
     email = jonnygilchrist@gmail.com
 
 [core]
-    editor = vim
     pager = less -FXRS --tabs=4
     excludesfile = ~/.config/git/excludes
     autocrlf = input
