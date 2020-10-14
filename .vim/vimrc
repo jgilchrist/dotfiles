@@ -21,7 +21,7 @@ nnoremap <C-P> :Files<CR>
 nnoremap <C-B> :Buffers<CR>
 
 Plug 'justinmk/vim-dirvish'
-    let g:dirvish_mode = ':sort r /[^\/]$/'
+    let g:dirvish_mode = ':sort | sort ,^.*/,'
 
 " Vim behaviour
 Plug 'machakann/vim-highlightedyank'
