@@ -283,6 +283,8 @@ nnoremap <Left> :vertical resize -2<CR>
 
 " }}}
 
+" Mergetool {{{
+
 function s:on_mergetool_set_layout(split)
   setlocal nocursorline
   call s:disable_cursorline_follows_focus()
@@ -302,6 +304,8 @@ endfunction
 let g:mergetool_layout = 'ml,b'
 let g:mergetool_prefer_revision = 'remote'
 let g:MergetoolSetLayoutCallback = function('s:on_mergetool_set_layout')
+
+" }}}
 
 runtime vimrc.local
 
