@@ -93,8 +93,8 @@ function set_default_prompt() {
         ps1+=" [%{$fg[yellow]%}%n@%m%{$reset_color%}]"
     fi
 
-	ps1+="%(1j. %{$fg[grey]%}[+%j]%{$reset_color%}.) %{$fg[yellow]%}%~%{$reset_color%} %{$fg[blue]%}$%{$reset_color%} "
-	export PROMPT=${ps1}
+    ps1+="%(1j. %{$fg[grey]%}[+%j]%{$reset_color%}.) %{$fg[yellow]%}%~%{$reset_color%} %{$fg[blue]%}$%{$reset_color%} "
+    export PROMPT=${ps1}
 }
 
 # /usr/bin aliases

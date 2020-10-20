@@ -21,11 +21,11 @@ nnoremap <C-P> :Files<CR>
 nnoremap <C-B> :Buffers<CR>
 
 Plug 'justinmk/vim-dirvish'
-    let g:dirvish_mode = ':sort | sort ,^.*/,'
+  let g:dirvish_mode = ':sort | sort ,^.*/,'
 
 " Vim behaviour
 Plug 'machakann/vim-highlightedyank'
-    let g:highlightedyank_highlight_duration = 200
+  let g:highlightedyank_highlight_duration = 200
 
 Plug 'tpope/vim-unimpaired'
 
@@ -72,7 +72,7 @@ set shortmess=ixtI
 
 " Appearance
 if !exists('g:syntax_on')
-    syntax enable
+  syntax enable
 endif
 colorscheme hybrid
 set background=dark
@@ -132,8 +132,8 @@ set splitright
 
 " Resize splits when vim itself is resized
 augroup ResizeSplits
-    au!
-    au VimResized * :wincmd =
+  au!
+  au VimResized * :wincmd =
 augroup END
 
 " Use a nice vertical separator for splits
@@ -152,21 +152,21 @@ set nojoinspaces
 
 " Use ripgrep for vim's :grep command
 if executable("rg")
-    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif
 
 augroup cwindow_after_grep
-    autocmd!
-    au QuickFixCmdPost [^l]* cwindow
+  autocmd!
+  au QuickFixCmdPost [^l]* cwindow
 augroup END
 
 " Only display the cursorline on windows that are in focus
 augroup cursorline_follows_focus
-    autocmd!
-    au WinEnter * set cursorline
-    au WinLeave * set nocursorline
-    au FocusGained * set cursorline
-    au FocusLost * set nocursorline
+  autocmd!
+  au WinEnter * set cursorline
+  au WinLeave * set nocursorline
+  au FocusGained * set cursorline
+  au FocusLost * set nocursorline
 augroup END
 
 function! s:disable_cursorline_follows_focus()
@@ -181,24 +181,24 @@ endfunction
 
 " Keep backups, swapfiles and undofiles if we're not root
 if exists('$SUDO_USER')
-    set viminfo=
-    set nobackup
-    set nowritebackup
-    set noswapfile
-    set noundofile
+  set viminfo=
+  set nobackup
+  set nowritebackup
+  set noswapfile
+  set noundofile
 else
-    set viminfo+=n~/.vim/tmp/viminfo
-    set backupdir=~/.vim/tmp/backup
-    set directory=~/.vim/tmp/swap
-    set undodir=~/.vim/tmp/undo
-    set undofile
+  set viminfo+=n~/.vim/tmp/viminfo
+  set backupdir=~/.vim/tmp/backup
+  set directory=~/.vim/tmp/swap
+  set undodir=~/.vim/tmp/undo
+  set undofile
 endif
 
 " }}}
 
 if has('gui_running')
-    " Remove scrollbars and menus from the GUI
-    set guioptions=c
+  " Remove scrollbars and menus from the GUI
+  set guioptions=c
 endif
 
 " }}}
@@ -295,9 +295,9 @@ function s:on_mergetool_set_layout(split)
   " Turn off diff mode, and show syntax highlighting
   " Also let it take less height
   if (a:split["layout"] ==# 'mr,b' || a:split["layout"] ==# 'ml,b') && a:split["split"] ==# 'b'
-	setlocal nodiff
-	setlocal syntax=off
-	resize 15
+    setlocal nodiff
+    setlocal syntax=off
+    resize 15
   endif
 endfunction
 

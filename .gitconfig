@@ -48,7 +48,7 @@
     autostash = true
 
 [advice]
-	detachedHead = false
+    detachedHead = false
 
 [rerere]
     enabled = true
