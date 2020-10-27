@@ -55,16 +55,40 @@ export LESS="--quit-if-one-screen --ignore-case --raw-control-chars --chop-long-
 
 # Functions and aliases {{{
 function t() {
-    local TMUX_SESSION_NAME="main"
+  emulate -L zsh
 
-    # If provided with args, pass them through.
-    if [[ -n "$@" ]]; then
-        tmux "$@"
+  # If provided with args, pass them through.
+  if [[ -n "$@" ]]; then
+    tmux "$@"
+    return
+  fi
+
+  if [ -x .tmux ]; then
+    # Prompt the first time we see a given .tmux file before running it.
+    local DIGEST="$(md5sum .tmux)"
+    if ! grep -q "$DIGEST" ~/..tmux.digests 2> /dev/null; then
+      if (( $+commands[bat] )); then
+        bat .tmux
+      else
+        cat .tmux
+      fi
+      read -k 1 -r \
+        'REPLY?Trust (and run) this .tmux file? (t = trust, otherwise = skip) '
+      echo
+      if [[ $REPLY =~ ^[Tt]$ ]]; then
+        echo "$DIGEST" >> ~/..tmux.digests
+        ./.tmux
         return
+      fi
+    else
+      ./.tmux
+      return
     fi
+  fi
 
-    # Attach to existing session, or create one.
-    tmux new -A -s "$TMUX_SESSION_NAME"
+  # Attach to existing session, or create one, based on current directory.
+  local SESSION_NAME=$(basename "${$(pwd)//[.:]/_}")
+  tmux new -A -s "$SESSION_NAME"
 }
 
 function scratch() {
