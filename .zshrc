@@ -67,6 +67,14 @@ function t() {
     tmux new -A -s "$TMUX_SESSION_NAME"
 }
 
+function scratch() {
+  local SCRATCH=$(mktemp -d)
+  echo "Spawing subshell in scratch directory: $SCRATCH"
+  (cd $SCRATCH; zsh)
+  echo "Removing scratch directory"
+  rm -rf "$SCRATCH"
+}
+
 function load_dir_aliases() {
     local DIRS_SOURCE_FILE="$1"
     local DIRS_GEN_FILE="${HOME}/.local/dirs.sh"
