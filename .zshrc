@@ -90,9 +90,9 @@ function t() {
         cat "${tmux_file}"
       fi
       read -k 1 -r \
-        'REPLY?Trust (and run) this .tmux file? (t = trust, otherwise = skip) '
+        'REPLY?Trust (and run) this .tmux file? (y = trust, otherwise = skip) '
       echo
-      if [[ $REPLY =~ ^[Tt]$ ]]; then
+      if [[ $REPLY =~ ^[Yy]$ ]]; then
         echo "$DIGEST" >> ~/..tmux.digests
         "${tmux_file}"
         return
