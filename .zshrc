@@ -101,7 +101,7 @@ function scratch() {
 
 function load_dir_aliases() {
     local DIRS_SOURCE_FILE="$1"
-    local DIRS_GEN_FILE="${HOME}/.local/dirs.sh"
+    local DIRS_GEN_FILE=$(mktemp)
 
     touch ${DIRS_GEN_FILE}
     chmod +x ${DIRS_GEN_FILE}
