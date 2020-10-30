@@ -10,3 +10,6 @@
 
 # Ignore files
 .ignore
+
+# .tmux files
+.tmux
