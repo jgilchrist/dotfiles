@@ -31,6 +31,7 @@ main() {
     fi
 
     local tmux_file="${tmux_file_dir}/.tmux"
+    echo "Using .tmux file from ${tmux_file_dir}"
     # Prompt the first time we see a given .tmux file before running it.
     local DIGEST="$(md5sum ${tmux_file})"
     if ! grep -q "$DIGEST" ~/..tmux.digests 2> /dev/null; then
@@ -43,11 +44,13 @@ main() {
         echo
         if [[ $REPLY =~ ^[Yy]$ ]]; then
             echo "$DIGEST" >> ~/..tmux.digests
-            "${tmux_file}"
+            (cd "${tmux_file_dir}" && "${tmux_file}")
             return
+        else
+            echo "Skipping."
         fi
     else
-        "${tmux_file}"
+        (cd "${tmux_file_dir}" && "${tmux_file}")
         return
     fi
 }
