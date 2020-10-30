@@ -54,56 +54,6 @@ export LESSHISTFILE=-
 export LESS="--quit-if-one-screen --ignore-case --raw-control-chars --chop-long-lines --hilite-unread --no-init"
 
 # Functions and aliases {{{
-function t() {
-  emulate -L zsh
-
-  # If provided with args, pass them through.
-  if [[ -n "$@" ]]; then
-    tmux "$@"
-    return
-  fi
-
-  local search_path="$(pwd)"
-  while [[ "$search_path" != / ]];
-  do
-    if [ -x "${search_path}/.tmux" ]; then
-      local tmux_file_dir="${search_path}"
-      break
-    fi
-
-    search_path="$(readlink -f "$search_path"/..)"
-  done
-
-  if [ -z ${tmux_file_dir+x} ]; then
-    # Attach to existing session, or create one, based on current directory.
-    local SESSION_NAME=$(basename "${$(pwd)//[.:]/_}")
-    tmux new -A -s "$SESSION_NAME"
-  else
-    echo "Found .tmux file in ${tmux_file_dir}"
-    local tmux_file="${tmux_file_dir}/.tmux"
-    # Prompt the first time we see a given .tmux file before running it.
-    local DIGEST="$(md5sum ${tmux_file})"
-    if ! grep -q "$DIGEST" ~/..tmux.digests 2> /dev/null; then
-      if (( $+commands[bat] )); then
-        bat "${tmux_file}"
-      else
-        cat "${tmux_file}"
-      fi
-      read -k 1 -r \
-        'REPLY?Trust (and run) this .tmux file? (y = trust, otherwise = skip) '
-      echo
-      if [[ $REPLY =~ ^[Yy]$ ]]; then
-        echo "$DIGEST" >> ~/..tmux.digests
-        "${tmux_file}"
-        return
-      fi
-    else
-      "${tmux_file}"
-      return
-    fi
-  fi
-}
-
 function scratch() {
   local SCRATCH=$(mktemp -d)
   echo "Spawing subshell in scratch directory: $SCRATCH"
