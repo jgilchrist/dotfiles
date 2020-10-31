@@ -1,4 +1,4 @@
-export EDITOR='vim'
+export EDITOR="vim"
 
 [ -d "${HOME}/.local/share/zsh/site-functions" ] && fpath=($fpath ~/.local/share/zsh/site-functions)
 
@@ -19,8 +19,8 @@ typeset -gU path
 stty -ixon
 
 zle -N edit-command-line
-bindkey '^xe' edit-command-line
-bindkey '^x^e' edit-command-line
+bindkey "^xe" edit-command-line
+bindkey "^x^e" edit-command-line
 
 HISTFILE="${HOME}/.zhistory"
 HISTSIZE="1000000"
@@ -42,7 +42,7 @@ unsetopt BEEP                       # Turn off terminal bells
 unsetopt LIST_BEEP                  # Turn off autocomplete bells
 unsetopt CLOBBER                    # Force using >! and >>! to overwrite existing files
 
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ":completion:*" matcher-list "m:{a-z}={A-Z}"
 
 # Ignore some file extensions
 export FIGNORE=".localized:.DS_Store"
@@ -93,10 +93,10 @@ function set_default_prompt() {
 }
 
 # /usr/bin aliases
-alias ls='ls -h --color=auto -p --group-directories-first'
-alias ll='ls -l'
-alias la='ls -A'
-alias lla='ls -lA'
+alias ls="ls -h --color=auto -p --group-directories-first"
+alias ll="ls -l"
+alias la="ls -A"
+alias lla="ls -lA"
 
 # Trailing space allows alias expansion in arguments
 alias sudo="sudo "
@@ -147,7 +147,7 @@ if [ -f ~/.fzf.zsh ]; then
 
     # If fd is installed, use it for FZF
     if (( $+commands[fd] )); then
-        export FZF_DEFAULT_COMMAND='fd --type file --hidden --exclude ".git/**"'
+        export FZF_DEFAULT_COMMAND="fd --type file --hidden --exclude '.git/**'"
     fi
 fi
 
