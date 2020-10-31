@@ -25,7 +25,7 @@ main() {
         if [ -x "${selected_dir}/.tmux" ]; then
             local tmux_file_dir="${selected_dir}"
         else
-          echo "No .tmux file found in ${selected_dir}"
+          echo "No .tmux file selected"
           return
         fi
     fi
