@@ -120,9 +120,6 @@ alias k9s="k9s --readonly"
 # cause it to lose track. Instead, specify a custom hostname
 # to be used for all commands.
 alias keychain="keychain --host jgilchrist"
-
-# Small 'functions'
-alias wanip="dig +short myip.opendns.com @resolver1.opendns.com"
 # }}}
 
 if [  -f "${HOME}/.local/prompt" ]; then
