@@ -93,10 +93,10 @@ function set_default_prompt() {
 }
 
 # /usr/bin aliases
-alias ls="ls -h --color=auto -p --group-directories-first"
+alias ls="ls --human-readable --color=auto --indicator-style=slash --group-directories-first"
 alias ll="ls -l"
-alias la="ls -A"
-alias lla="ls -lA"
+alias la="ls --almost-all"
+alias lla="ls -l --almost-all"
 
 # Trailing space allows alias expansion in arguments
 alias sudo="sudo "
