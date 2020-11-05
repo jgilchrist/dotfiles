@@ -91,5 +91,12 @@
     lr = !git lg "$(git tracking)"^..
     head = lg -1
 
+[advice]
+    pushNonFastForward = false
+    statusHints        = false
+    commitBeforeMerge  = false
+    resolveConflict    = false
+    detachedHead       = false
+
 [include]
     path = ~/.local/gitconfig
