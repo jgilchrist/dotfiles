@@ -95,17 +95,6 @@ main() {
         echo -e "${red}Failed${reset}"
     fi
     echo ""
-
-    log_info "Symlinking scripts"
-    echo -en "    ${green}-${reset} ${blue}Scripts${reset}: "
-    stow bin --target="${HOME}/.local/bin"
-
-    if [ $? -eq 0 ]; then
-        echo -e "${green}Linked${reset}"
-    else
-        echo -e "${red}Failed${reset}"
-    fi
-    echo ""
 }
 
 main "$@"
