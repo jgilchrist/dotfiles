@@ -242,9 +242,9 @@ nnoremap <leader>sc :source $MYVIMRC<cr>
 
 " Remap H and L to start and end of the line
 nnoremap H ^
-nnoremap L $
+nnoremap L g_
 xnoremap H ^
-xnoremap L $
+xnoremap L g_
 
 " Easy split navigation
 nnoremap <c-j> <c-w>j
