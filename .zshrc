@@ -117,6 +117,7 @@ alias tree="tree --dirsfirst -F -I '.git|build'"
 alias units="units --verbose --one-line"
 alias dc="docker-compose"
 alias k9s="k9s --readonly"
+alias dust="dust --reverse"
 
 # MacOS sets hostnames dynamically. Since keychain uses the hostname
 # to keep track of environment variables, changing hostnames will
