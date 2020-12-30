@@ -12,7 +12,9 @@ Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'tommcdo/vim-exchange'
-Plug 'tommcdo/vim-lion'
+Plug 'junegunn/vim-easy-align'
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " File management
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
