@@ -255,9 +255,6 @@ nnoremap <c-l> <c-w>l
 " <leader>a selects the whole buffer
 nnoremap <leader>a ggVG
 
-" <leader>l selects the current line (without the trailing newline)
-nnoremap <leader>l 0vg_
-
 " gp selects the last pasted text
 nnoremap gp `[v`]
 
