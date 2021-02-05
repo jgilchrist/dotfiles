@@ -6,6 +6,10 @@ autoload -U colors && colors
 autoload -U compinit && compinit
 autoload -U edit-command-line
 
+set -o vi
+# Setup backspace to work correctly in vim mode
+bindkey "^?" backward-delete-char
+
 # Prevent duplicates in $PATH
 typeset -gU path
 
