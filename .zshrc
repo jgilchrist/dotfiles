@@ -1,10 +1,17 @@
 export EDITOR="vim"
 
 [ -d "${HOME}/.local/share/zsh/site-functions" ] && fpath=($fpath ~/.local/share/zsh/site-functions)
+[ -d "${HOME}/.config/zsh/prompt" ] && fpath=($fpath ~/.config/zsh/prompt)
 
 autoload -U colors && colors
 autoload -U compinit && compinit
 autoload -U edit-command-line
+autoload -U promptinit; promptinit
+
+prompt pure
+prompt_pure_set_title() {}
+zstyle :prompt:pure:prompt:success color yellow
+PURE_GIT_PULL=0
 
 set -o vi
 # Setup backspace to work correctly in vim mode
@@ -29,9 +36,6 @@ bindkey "^x^e" edit-command-line
 HISTFILE="${HOME}/.zhistory"
 HISTSIZE="1000000"
 SAVEHIST="1000000"
-
-# Don't show % at the end of command output without a terminating '\n'
-PROMPT_EOL_MARK=''
 
 setopt EXTENDED_HISTORY             # Write to the history file in the format ":start:elapsed;command"
 setopt INC_APPEND_HISTORY           # Write to the history file immediately
@@ -84,18 +88,6 @@ function load_dir_aliases() {
     rm ${DIRS_GEN_FILE}
 }
 
-function set_default_prompt() {
-    local ps1="
-"
-
-    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-        ps1+=" [%{$fg[yellow]%}%n@%m%{$reset_color%}]"
-    fi
-
-    ps1+="%(1j. %{$fg[grey]%}[+%j]%{$reset_color%}.) %{$fg[yellow]%}%~%{$reset_color%} %{$fg[blue]%}$%{$reset_color%} "
-    export PROMPT=${ps1}
-}
-
 # /usr/bin aliases
 alias mv="mv --interactive --verbose"
 alias cp="cp --interactive --verbose"
@@ -129,12 +121,6 @@ alias dust="dust --reverse"
 # to be used for all commands.
 alias keychain="keychain --host jgilchrist"
 # }}}
-
-if [  -f "${HOME}/.local/prompt" ]; then
-    . "${HOME}/.local/prompt"
-else
-    set_default_prompt
-fi
 
 
 # Machine-specific modifications to the environment
