@@ -6,12 +6,7 @@ export EDITOR="vim"
 autoload -U colors && colors
 autoload -U compinit && compinit
 autoload -U edit-command-line
-autoload -U promptinit; promptinit
-
-prompt pure
-prompt_pure_set_title() {}
-zstyle :prompt:pure:prompt:success color yellow
-PURE_GIT_PULL=0
+autoload -U promptinit; promptinit; prompt pure
 
 set -o vi
 # Setup backspace to work correctly in vim mode
