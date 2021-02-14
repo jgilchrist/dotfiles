@@ -30,6 +30,7 @@
 [diff]
     indentHeuristic = true
     noPrefix = true
+    submodule = log
 
 [merge]
     conflictstyle = diff3
