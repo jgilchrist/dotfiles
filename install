@@ -80,6 +80,7 @@ main() {
     log_info "Creating ~/.config directories"
     create_directory ~/.config/git
     create_directory ~/.config/htop
+    create_directory ~/.config/nvim
     create_directory ~/.config/pgcli
     create_directory ~/.config/ripgrep
     create_directory ~/.config/zsh
