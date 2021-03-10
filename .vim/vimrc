@@ -54,6 +54,11 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 
 runtime plugins.local
+
+if has("nvim")
+  runtime plugins.nvim
+endif
+
 call plug#end()
 
 packadd! matchit
