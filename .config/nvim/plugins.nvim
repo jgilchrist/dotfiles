@@ -1,1 +1,3 @@
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+runtime plugins.nvim.local
