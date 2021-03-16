@@ -51,9 +51,6 @@
     autosquash = true
     autostash = true
 
-[advice]
-    detachedHead = false
-
 [rerere]
     enabled = true
 
