@@ -155,6 +155,8 @@ set matchtime=2
 " Don't search through includes for completion as this can be slow
 set complete-=i
 
+set nrformats-=octal
+
 " When joining lines, delete comment characters if appropriate
 set formatoptions+=j
 set nojoinspaces
