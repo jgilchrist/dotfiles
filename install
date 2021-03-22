@@ -9,6 +9,7 @@ yellow="\033[1;33m"
 grey="\033[1;30m"
 reset="\033[0m"
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 log_info() {
     echo -e "  ${green}*${reset} $1"
@@ -74,12 +75,11 @@ main() {
     echo ""
 
     log_info "Creating ~/.config directories"
-    create_directory ~/.config/git
-    create_directory ~/.config/htop
-    create_directory ~/.config/nvim
-    create_directory ~/.config/pgcli
-    create_directory ~/.config/ripgrep
-    create_directory ~/.config/zsh
+    for config_dir in ${DIR}/.config/*; do
+        if [ -d "$config_dir" ]; then
+            create_directory "${HOME}/.config/$(basename "$config_dir")"
+        fi
+    done
     echo ""
 
     log_info "Symlinking dotfiles"
