@@ -9,10 +9,6 @@ yellow="\033[1;33m"
 grey="\033[1;30m"
 reset="\033[0m"
 
-log_target() {
-    echo ""
-    echo -e "Installing ${blue}$1${reset}"
-}
 
 log_info() {
     echo -e "  ${green}*${reset} $1"
