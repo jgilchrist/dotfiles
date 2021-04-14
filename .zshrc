@@ -58,11 +58,19 @@ zstyle ":completion:*" matcher-list "m:{a-z}={A-Z}"
 # Ignore some file extensions
 export FIGNORE=".localized:.DS_Store"
 
-# Never store history for less
-export LESSHISTFILE=-
 
 # Set some default LESS options
 export LESS="--quit-if-one-screen --ignore-case --raw-control-chars --chop-long-lines --hilite-unread --no-init"
+
+# Config file locations {{{
+
+# Never store history for less
+export LESSHISTFILE=-
+
+# Allow storing readline configuration under .config
+export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
+
+# }}}
 
 # Functions and aliases {{{
 function scratch() {
