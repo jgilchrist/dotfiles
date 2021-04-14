@@ -8,7 +8,7 @@ export XDG_DATA_HOME=${XDG_DATA_HOME:=${HOME}/.local/share}
 [ -d "${HOME}/.config/zsh/prompt" ] && fpath=($fpath ~/.config/zsh/prompt)
 
 autoload -U colors && colors
-autoload -U compinit && compinit
+autoload -U compinit && compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 autoload -U edit-command-line
 autoload -U promptinit; promptinit; prompt pure
 
@@ -36,7 +36,6 @@ zle -N edit-command-line
 bindkey "^xe" edit-command-line
 bindkey "^x^e" edit-command-line
 
-HISTFILE="${HOME}/.zhistory"
 HISTSIZE="1000000"
 SAVEHIST="1000000"
 
@@ -63,6 +62,10 @@ export FIGNORE=".localized:.DS_Store"
 export LESS="--quit-if-one-screen --ignore-case --raw-control-chars --chop-long-lines --hilite-unread --no-init"
 
 # Config file locations {{{
+
+# Store zsh files in XDG directories
+HISTFILE="${XDG_DATA_HOME}/zsh/history"
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
 
 # Never store history for less
 export LESSHISTFILE=-

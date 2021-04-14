@@ -54,6 +54,11 @@ main() {
     create_directory ~/.local/bin
     echo ""
 
+    log_info "Creating zsh directories"
+    create_directory ~/.cache/zsh
+    create_directory ~/.local/share/zsh
+    echo ""
+
     log_info "Creating .vim files"
     create_directory ~/.vim
     create_directory ~/.vim/autoload
