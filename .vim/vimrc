@@ -25,6 +25,12 @@ let g:fzf_preview_window = []
 
 Plug 'justinmk/vim-dirvish'
   let g:dirvish_mode = ':sort | sort ,^.*/,'
+  " Disable Dirvish's C-p and C-n mappings
+  augroup dirvish_config
+      autocmd!
+      autocmd FileType dirvish silent! unmap <buffer> <C-p>
+      autocmd FileType dirvish silent! unmap <buffer> <C-n>
+    augroup END
 
 " Vim behaviour
 Plug 'machakann/vim-highlightedyank'
