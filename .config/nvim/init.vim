@@ -5,8 +5,6 @@ let &packpath = &runtimepath
 
 source ~/.vim/vimrc
 
-set termguicolors
-
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
