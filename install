@@ -47,6 +47,18 @@ install_vim_plug() {
     fi
 }
 
+install_tpm() {
+    local tpm_dir="${HOME}/.config/tmux/plugins/tpm"
+    echo -en "    ${green}-${reset} ${blue}${tpm_dir}${reset}: "
+
+    if [ -d "${tpm_dir}" ]; then
+        echo -e "${yellow}Already exists${reset}"
+    else
+        git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+        echo -e "${green}Downloaded${reset}"
+    fi
+}
+
 main() {
     echo ""
 
@@ -85,6 +97,10 @@ main() {
             create_directory "${HOME}/.config/$(basename "$config_dir")"
         fi
     done
+    echo ""
+
+    log_info "Installing tpm"
+    install_tpm
     echo ""
 
     log_info "Symlinking dotfiles"
