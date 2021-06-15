@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+
+set -euo pipefail
+
+main() {
+    local TMUX_SESSION_NAME="main"
+
+    # If provided with args, pass them through.
+    if [[ -n "$@" ]]; then
+        tmux "$@"
+        return
+    fi
+
+    # Attach to existing session, or create one.
+    tmux new -A -s "$TMUX_SESSION_NAME"
+}
+
+main "$@"
