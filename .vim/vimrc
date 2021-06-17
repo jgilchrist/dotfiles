@@ -131,7 +131,9 @@ set ttimeout
 set ttimeoutlen=50
 
 " Disable all bells (audio, flash)
-set belloff=all
+if exists("&belloff")
+  set belloff=all
+endif
 
 " Allow the cursor to move anywhere in visual block mode
 set virtualedit=block
