@@ -302,7 +302,7 @@ nnoremap <Left> :vertical resize -2<CR>
 
 " Mergetool {{{
 
-function s:on_mergetool_set_layout(split)
+function! s:on_mergetool_set_layout(split)
   setlocal nocursorline
   call s:disable_cursorline_follows_focus()
 
