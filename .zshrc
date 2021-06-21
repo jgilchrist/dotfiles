@@ -77,12 +77,12 @@ export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 # }}}
 
 # Functions and aliases {{{
-function scratch() {
-  local SCRATCH=$(mktemp -d)
-  echo "Spawing subshell in scratch directory: $SCRATCH"
-  (cd $SCRATCH; zsh)
-  echo "Removing scratch directory"
-  rm -rf "$SCRATCH"
+function tmpdir() {
+  local SCRATCHDIR=$(mktemp -d -p "/tmp")
+  echo "Spawing subshell in scratch directory: $SCRATCHDIR"
+  (cd $SCRATCHDIR; zsh)
+  echo "Removing scratch directory ($SCRATCHDIR)"
+  rm -rf "$SCRATCHDIR"
 }
 
 function load_dir_aliases() {
