@@ -1,5 +1,3 @@
-export EDITOR="vim"
-
 # Set default dirs for parity on MacOS
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:=${HOME}/.config}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:=${HOME}/.cache}
@@ -155,6 +153,13 @@ if [ -f ~/.fzf.zsh ]; then
     if (( $+commands[fd] )); then
         export FZF_DEFAULT_COMMAND="fd --type file --hidden --exclude '.git/**'"
     fi
+fi
+
+if (( $+commands[nvim] )); then
+    export EDITOR="nvim"
+    alias vim="nvim"
+else
+    export EDITOR="vim"
 fi
 
 if (( $+commands[brew] )); then
