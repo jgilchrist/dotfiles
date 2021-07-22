@@ -6,7 +6,7 @@ let maplocalleader=','
 function! PackInit() abort
     packadd minpac
 
-    call minpac#init({'package_name': 'plugins'})
+    call minpac#init({'package_name': 'plugins', 'verbose': 3})
     call minpac#add('k-takata/minpac', {'type': 'opt'})
 
     call minpac#add('tpope/vim-commentary')
