@@ -29,6 +29,7 @@
 
 [pull]
     ff = only
+    twohead = ort
 
 [diff]
     indentHeuristic = true
