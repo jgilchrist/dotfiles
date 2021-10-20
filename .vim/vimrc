@@ -3,85 +3,74 @@ let maplocalleader=','
 
 " Plugins {{{
 
-function! PackInit() abort
-    packadd minpac
+call plug#begin()
 
-    call minpac#init({'package_name': 'plugins', 'verbose': 3})
-    call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-    call minpac#add('tpope/vim-commentary')
-    call minpac#add('tpope/vim-surround')
-
-    " Extensions to vim's language
-    call minpac#add('tpope/vim-repeat')
-    call minpac#add('tpope/vim-surround')
-    call minpac#add('wellle/targets.vim')
-    call minpac#add('justinmk/vim-sneak')
-    call minpac#add('tommcdo/vim-exchange')
-    call minpac#add('junegunn/vim-easy-align')
-
-    " File management
-    call minpac#add('junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' })
-    call minpac#add('junegunn/fzf.vim')
-
-    call minpac#add('justinmk/vim-dirvish')
-
-    " Vim behaviour
-    call minpac#add('machakann/vim-highlightedyank')
-    call minpac#add('tpope/vim-unimpaired')
-    call minpac#add('jgilchrist/vim-mergetool')
-
-    " Languages
-    call minpac#add('rust-lang/rust.vim')
-    call minpac#add('leafgarland/typescript-vim')
-    call minpac#add('hashivim/vim-terraform')
-    call minpac#add('PProvost/vim-ps1')
-
-    " Colorscheme
-    call minpac#add('w0ng/vim-hybrid')
-    call minpac#add('cormacrelf/vim-colors-github')
-
-    " Extras
-    call minpac#add('itchyny/lightline.vim')
-    call minpac#add('junegunn/goyo.vim')
-
-    " Experiments
-    call minpac#add('tpope/vim-abolish')
-    call minpac#add('tpope/vim-characterize')
-    call minpac#add('tpope/vim-eunuch')
-    call minpac#add('tpope/vim-fugitive')
-    call minpac#add('lervag/wiki.vim')
-    call minpac#add('dhruvasagar/vim-table-mode')
-
-    runtime plugins.local
-
-    if has("nvim")
-        runtime plugins.nvim
-    endif
-endfunction
-
-packloadall
-
-command! PackUpdate call PackInit() | call minpac#update() | packloadall
-command! PackClean  call PackInit() | call minpac#clean()
-command! PackStatus call PackInit() | call minpac#status()
-
+" Extensions to vim's language
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'wellle/targets.vim'
+Plug 'justinmk/vim-sneak'
+Plug 'tommcdo/vim-exchange'
+Plug 'junegunn/vim-easy-align'
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
+" File management
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 nnoremap <C-P> :Files<CR>
 nnoremap <C-B> :Buffers<CR>
 let g:fzf_preview_window = []
 
-let g:dirvish_mode = ':sort | sort ,^.*/,'
-" Disable Dirvish's C-p and C-n mappings
-augroup dirvish_config
-    autocmd!
-    autocmd FileType dirvish silent! unmap <buffer> <C-p>
-    autocmd FileType dirvish silent! unmap <buffer> <C-n>
-augroup END
+Plug 'justinmk/vim-dirvish'
+  let g:dirvish_mode = ':sort | sort ,^.*/,'
+  " Disable Dirvish's C-p and C-n mappings
+  augroup dirvish_config
+      autocmd!
+      autocmd FileType dirvish silent! unmap <buffer> <C-p>
+      autocmd FileType dirvish silent! unmap <buffer> <C-n>
+    augroup END
 
-let g:highlightedyank_highlight_duration = 200
+" Vim behaviour
+Plug 'machakann/vim-highlightedyank'
+  let g:highlightedyank_highlight_duration = 200
+
+Plug 'tpope/vim-unimpaired'
+Plug 'jgilchrist/vim-mergetool'
+
+" Languages
+Plug 'rust-lang/rust.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'hashivim/vim-terraform'
+Plug 'PProvost/vim-ps1'
+
+" Colorscheme
+Plug 'w0ng/vim-hybrid'
+Plug 'cormacrelf/vim-colors-github'
+
+" Extras
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/goyo.vim'
+
+" Experiments
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-characterize'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'lervag/wiki.vim'
+Plug 'dhruvasagar/vim-table-mode'
+
+runtime plugins.local
+
+if has("nvim")
+  runtime plugins.nvim
+endif
+
+call plug#end()
+
+runtime macros/matchit.vim
 
 " }}}
 

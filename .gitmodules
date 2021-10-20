@@ -1,6 +1,3 @@
 [submodule ".config/zsh/prompt"]
 	path = .config/zsh/prompt
 	url = https://github.com/jgilchrist/pure
-[submodule ".vim/pack/plugins/opt/minpac"]
-	path = .vim/pack/plugins/opt/minpac
-	url = https://github.com/k-takata/minpac
