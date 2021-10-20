@@ -98,6 +98,12 @@ set fileencoding=utf-8
 " I - Don't show the intro message when starting Vim
 set shortmess=ixtI
 
+" F - don't print filenames
+if &diff
+  set shortmess+=F
+endif
+
+
 " Appearance
 if !exists('g:syntax_on')
   syntax enable
