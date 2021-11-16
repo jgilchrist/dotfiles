@@ -99,5 +99,8 @@
     resolveConflict    = false
     detachedHead       = false
 
+[help]
+    autoCorrect = prompt
+
 [include]
     path = ~/.local/gitconfig
