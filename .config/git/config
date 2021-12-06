@@ -98,6 +98,7 @@
     commitBeforeMerge  = false
     resolveConflict    = false
     detachedHead       = false
+    skippedCherryPicks = false
 
 [help]
     autoCorrect = prompt
