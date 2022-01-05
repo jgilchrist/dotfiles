@@ -259,9 +259,6 @@ cabbrev <silent> X :x
 nnoremap x "_x
 xnoremap p "_dp
 
-" Make Y behave like other capitals
-nnoremap Y y$
-
 " When joining lines, keep the cursor in place
 nnoremap J mzJ`z
 
