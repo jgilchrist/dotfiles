@@ -10,3 +10,6 @@
 
 # Ignore files
 .ignore
+
+# IDE files
+.idea/
