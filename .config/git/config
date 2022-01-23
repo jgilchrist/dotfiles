@@ -92,6 +92,9 @@
     lr = !git lg "$(git tracking)"^..
     head = lg -1
 
+    update-branch = !"git fetch upstream $1 && git diff --stat $1...$1@{upstream} && git fetch upstream $1:$1 --update-head-ok"
+    update-master = !git update-branch master
+
 [advice]
     pushNonFastForward = false
     statusHints        = false
