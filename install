@@ -38,13 +38,8 @@ create_file() {
 install_vim_plug() {
     local vim_plug_dir="${HOME}/.vim/autoload/plug.vim"
     echo -en "    ${green}-${reset} ${blue}${vim_plug_dir}${reset}: "
-
-    if [ -f "${vim_plug_dir}" ]; then
-        echo -e "${yellow}Already exists${reset}"
-    else
-        curl -sfLo "${vim_plug_dir}" https://raw.github.com/junegunn/vim-plug/master/plug.vim
-        echo -e "${green}Downloaded${reset}"
-    fi
+    curl -sfLo "${vim_plug_dir}" https://raw.github.com/junegunn/vim-plug/master/plug.vim
+    echo -e "${green}Downloaded${reset}"
 }
 
 install_tpm() {
