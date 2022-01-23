@@ -1,3 +1,4 @@
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'ekickx/clipboard-image.nvim'
 
 runtime plugins.nvim.local
