@@ -30,7 +30,7 @@
     ff = only
 
 [diff]
-    indentHeuristic = true
+    algorithm = histogram
     noPrefix = true
     submodule = log
 
