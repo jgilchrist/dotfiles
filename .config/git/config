@@ -35,7 +35,7 @@
     submodule = log
 
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
     tool = vim_mergetool
 
 [mergetool]
