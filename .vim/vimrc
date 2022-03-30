@@ -61,11 +61,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'lervag/wiki.vim'
 Plug 'dhruvasagar/vim-table-mode'
 
-runtime plugins.local
-
 if has("nvim")
-  runtime plugins.nvim
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'ekickx/clipboard-image.nvim'
 endif
+
+runtime plugins.local.vim
 
 call plug#end()
 
