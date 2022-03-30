@@ -103,7 +103,13 @@ set ruler
 set showcmd
 set cursorline
 set nowrap
-set laststatus=2
+
+if has("nvim")
+    set laststatus=3
+else
+    set laststatus=2
+endif
+
 set scrolloff=3
 set sidescrolloff=3
 set synmaxcol=300
