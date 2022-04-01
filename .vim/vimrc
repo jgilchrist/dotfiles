@@ -44,6 +44,12 @@ Plug 'PProvost/vim-ps1'
 " Colorscheme
 Plug 'w0ng/vim-hybrid'
 Plug 'cormacrelf/vim-colors-github'
+Plug 'TaDaa/vimade'
+  augroup vimade_focus
+      autocmd!
+      autocmd FocusLost * VimadeFadeActive
+      autocmd FocusGained * VimadeUnfadeActive
+    augroup END
 
 " Extras
 Plug 'itchyny/lightline.vim'
