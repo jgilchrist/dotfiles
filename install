@@ -98,6 +98,12 @@ main() {
     install_tpm
     echo ""
 
+    log_info "Installing terminfo files"
+    ./etc/terminfo/install_terminfo.sh etc/terminfo/xterm-256color.terminfo
+    ./etc/terminfo/install_terminfo.sh etc/terminfo/tmux.terminfo
+    ./etc/terminfo/install_terminfo.sh etc/terminfo/tmux-256color.terminfo
+    echo ""
+
     log_info "Symlinking dotfiles"
     echo -en "    ${green}-${reset} ${blue}Dotfiles${reset}: "
     stow . --target="${HOME}"

@@ -26,7 +26,7 @@ typeset -gU path
 [ -d "${HOME}/.cargo/bin" ] && path=(~/.cargo/bin $path)
 
 # Always use a 256 color terminal
-[ "$TERM" != "screen-256color" ] && export TERM="xterm-256color"
+[ "$TERM" != "tmux-256color" ] && export TERM="xterm-256color"
 
 # Ignore Ctrl-S/Ctrl-Q to avoid locking terminals
 stty -ixon

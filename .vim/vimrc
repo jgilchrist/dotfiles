@@ -101,6 +101,7 @@ if !exists('g:syntax_on')
   syntax enable
 endif
 colorscheme hybrid
+highlight Comment cterm=italic gui=italic
 set background=dark
 
 set hidden
