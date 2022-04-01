@@ -73,7 +73,7 @@ main() {
     create_directory ~/.vim/tmp/backup
     create_directory ~/.vim/tmp/swap
     create_directory ~/.vim/tmp/undo
-    create_file ~/.vim/plugins.local
+    create_file ~/.vim/plugins.local.vim
     create_file ~/.vim/vimrc.local
     echo ""
 
