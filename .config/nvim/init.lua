@@ -20,16 +20,16 @@ require('packer').startup(function(use)
   use 'wellle/targets.vim'
   use 'justinmk/vim-sneak'
   use 'tommcdo/vim-exchange'
-  use 'junegunn/vim-easy-align'
+  use {'junegunn/vim-easy-align', config = function() require'plugins.easyalign' end }
 
   -- File management
-  use {'junegunn/fzf', run = ':call fzf#install()'}
+  use {'junegunn/fzf', run = ':call fzf#install()', config = function() require'plugins.fzf' end }
   use 'junegunn/fzf.vim'
 
-  use 'justinmk/vim-dirvish'
+  use {'justinmk/vim-dirvish', config = function() require'plugins.dirvish' end }
 
   use 'tpope/vim-unimpaired'
-  use 'jgilchrist/vim-mergetool'
+  use {'jgilchrist/vim-mergetool', config = function() require'plugins.mergetool' end }
 
   -- Languages
   use 'rust-lang/rust.vim'
@@ -40,7 +40,7 @@ require('packer').startup(function(use)
   -- Colorscheme
   use 'w0ng/vim-hybrid'
   use 'cormacrelf/vim-colors-github'
-  use 'TaDaa/vimade'
+  use {'TaDaa/vimade', config = function() require'plugins.vimade' end }
 
   -- Extras
   use 'itchyny/lightline.vim'
@@ -52,44 +52,19 @@ require('packer').startup(function(use)
   use 'tpope/vim-characterize'
   use 'tpope/vim-eunuch'
   use 'tpope/vim-fugitive'
-  use 'lervag/wiki.vim'
+  use {'lervag/wiki.vim', config = function() require'plugins.wiki' end }
   use 'dhruvasagar/vim-table-mode'
   -- use 'phaazon/hop.nvim'
   -- use 'simrat39/rust-tools.nvim'
   -- use 'neovim/nvim-lspconfig'
 
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-  use 'ekickx/clipboard-image.nvim'
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function() require'plugins.treesitter' end }
+  use {'ekickx/clipboard-image.nvim', config = function() require'plugins.clipboardimage' end }
 
   if packer_bootstrap then
     require('packer').sync()
   end
 end)
-
-vim.cmd [[xmap ga <Plug>(EasyAlign)]]
-vim.cmd [[nmap ga <Plug>(EasyAlign)]]
-
-vim.cmd [[nnoremap <C-P> :Files<CR>]]
-vim.cmd [[nnoremap <C-B> :Buffers<CR>]]
-vim.cmd "let g:fzf_preview_window = []"
-
-vim.cmd [[let g:dirvish_mode = ':sort | sort ,^.*/,']]
--- Disable Dirvish's C-p and C-n mappings
-vim.cmd [[
-augroup dirvish_config
-  autocmd!
-  autocmd FileType dirvish silent! unmap <buffer> <C-p>
-  autocmd FileType dirvish silent! unmap <buffer> <C-n>
-augroup END
-]]
-
-vim.cmd [[
-augroup vimade_focus
-  autocmd!
-  autocmd FocusLost * VimadeFadeActive
-  autocmd FocusGained * VimadeUnfadeActive
-augroup END
-]]
 
 -- }}}
 
@@ -340,75 +315,6 @@ vim.cmd [[nnoremap <Left> :vertical resize -2<CR>]]
 
 -- }}}
 
--- Mergetool {{{
-
-vim.cmd [[function! OnMergetoolSetLayout(split)
-  setlocal nocursorline
-  call s:disable_cursorline_follows_focus()
-
-  nnoremap <leader>mt :MergetoolToggle<cr>
-
-  " When base is horizontal split at the bottom
-  " Turn off diff mode, and show syntax highlighting
-  " Also let it take less height
-  if (a:split["layout"] ==# 'mr,b' || a:split["layout"] ==# 'ml,b') && a:split["split"] ==# 'b'
-    setlocal nodiff
-    setlocal syntax=off
-    resize 15
-  endif
-endfunction]]
-
-vim.cmd [[let g:mergetool_layout = 'ml,b']]
-vim.cmd [[let g:mergetool_prefer_revision = 'remote']]
-vim.cmd [[let g:MergetoolSetLayoutCallback = function('OnMergetoolSetLayout')]]
-
--- }}}
-
 vim.cmd [[runtime init.local.vim]]
-
-vim.cmd [[
-if exists("g:use_wiki")
-" Wiki {{{
-let g:wiki_link_extension = '.md'
-let g:wiki_link_target_type = 'md'
-let g:wiki_filetypes = ['md']
-let g:wiki_tags_format_pattern = '\v%(^|\s)#\zs[^# ]+'
-
-let g:wiki_map_create_page = 'WikiMapCreatePage'
-function! WikiMapCreatePage(text) abort
-    return substitute(tolower(a:text), '\s\+', '-', 'g')
-endfunction
-
-let g:wiki_map_link_create = 'WikiMapLinkCreate'
-function! WikiMapLinkCreate(text) abort
-    return substitute(tolower(a:text), '\s\+', '-', 'g')
-endfunction
-
-nnoremap <leader>ww :WikiFzfPages<CR>
-
-if !exists("g:wiki_root")
-    echoerr "g:wiki_root is not defined"
-endif
-" }}}
-endif
-]]
-
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
-  highlight = { enable = true, },
-  indent = { enable = true, },
-}
-
-require'clipboard-image'.setup {
-  default = {
-    img_dir = {"%:p:h", "img"},
-    img_name = function()
-      vim.fn.inputsave()
-      local name = vim.fn.input('Name: ')
-      vim.fn.inputrestore()
-      return name
-    end,
-  }
-}
 
 -- vim: set fdm=marker:
