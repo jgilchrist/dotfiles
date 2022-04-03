@@ -3,77 +3,95 @@ vim.cmd [[let maplocalleader=',']]
 
 -- Plugins {{{
 
-vim.cmd [[call plug#begin()]]
+local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  packer_bootstrap = vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
 
--- Extensions to vim's language
-vim.cmd [[Plug 'tpope/vim-repeat']]
-vim.cmd [[Plug 'tpope/vim-commentary']]
-vim.cmd [[Plug 'tpope/vim-surround']]
-vim.cmd [[Plug 'wellle/targets.vim']]
-vim.cmd [[Plug 'justinmk/vim-sneak']]
-vim.cmd [[Plug 'tommcdo/vim-exchange']]
-vim.cmd [[Plug 'junegunn/vim-easy-align']]
+require('packer').startup(function(use)
+
+  -- Packer can manage itself
+  use 'wbthomason/packer.nvim'
+
+  -- Extensions to vim's language
+  use 'tpope/vim-repeat'
+  use 'tpope/vim-commentary'
+  use 'tpope/vim-surround'
+  use 'wellle/targets.vim'
+  use 'justinmk/vim-sneak'
+  use 'tommcdo/vim-exchange'
+  use 'junegunn/vim-easy-align'
+
+  -- File management
+  use {'junegunn/fzf', run = ':call fzf#install()'}
+  use 'junegunn/fzf.vim'
+
+  use 'justinmk/vim-dirvish'
+
+  use 'tpope/vim-unimpaired'
+  use 'jgilchrist/vim-mergetool'
+
+  -- Languages
+  use 'rust-lang/rust.vim'
+  use 'leafgarland/typescript-vim'
+  use 'hashivim/vim-terraform'
+  use 'PProvost/vim-ps1'
+
+  -- Colorscheme
+  use 'w0ng/vim-hybrid'
+  use 'cormacrelf/vim-colors-github'
+  use 'TaDaa/vimade'
+
+  -- Extras
+  use 'itchyny/lightline.vim'
+  use 'junegunn/goyo.vim'
+  use 'editorconfig/editorconfig-vim'
+
+  -- Experiments
+  use 'tpope/vim-abolish'
+  use 'tpope/vim-characterize'
+  use 'tpope/vim-eunuch'
+  use 'tpope/vim-fugitive'
+  use 'lervag/wiki.vim'
+  use 'dhruvasagar/vim-table-mode'
+  -- use 'phaazon/hop.nvim'
+  -- use 'simrat39/rust-tools.nvim'
+  -- use 'neovim/nvim-lspconfig'
+
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use 'ekickx/clipboard-image.nvim'
+
+  if packer_bootstrap then
+    require('packer').sync()
+  end
+end)
+
+vim.cmd [[runtime macros/matchit.vim]]
+
 vim.cmd [[xmap ga <Plug>(EasyAlign)]]
 vim.cmd [[nmap ga <Plug>(EasyAlign)]]
 
--- File management
-vim.cmd [[Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }]]
-vim.cmd [[Plug 'junegunn/fzf.vim']]
 vim.cmd [[nnoremap <C-P> :Files<CR>]]
 vim.cmd [[nnoremap <C-B> :Buffers<CR>]]
 vim.cmd "let g:fzf_preview_window = []"
 
-vim.cmd [[Plug 'justinmk/vim-dirvish']]
-  vim.cmd [[let g:dirvish_mode = ':sort | sort ,^.*/,']]
-  -- Disable Dirvish's C-p and C-n mappings
-  vim.cmd [[augroup dirvish_config
-      autocmd!
-      autocmd FileType dirvish silent! unmap <buffer> <C-p>
-      autocmd FileType dirvish silent! unmap <buffer> <C-n>
-    augroup END]]
+vim.cmd [[let g:dirvish_mode = ':sort | sort ,^.*/,']]
+-- Disable Dirvish's C-p and C-n mappings
+vim.cmd [[
+augroup dirvish_config
+  autocmd!
+  autocmd FileType dirvish silent! unmap <buffer> <C-p>
+  autocmd FileType dirvish silent! unmap <buffer> <C-n>
+augroup END
+]]
 
-vim.cmd [[Plug 'tpope/vim-unimpaired']]
-vim.cmd [[Plug 'jgilchrist/vim-mergetool']]
-
--- Languages
-vim.cmd [[Plug 'rust-lang/rust.vim']]
-vim.cmd [[Plug 'leafgarland/typescript-vim']]
-vim.cmd [[Plug 'hashivim/vim-terraform']]
-vim.cmd [[Plug 'PProvost/vim-ps1']]
-
--- Colorscheme
-vim.cmd [[Plug 'w0ng/vim-hybrid']]
-vim.cmd [[Plug 'cormacrelf/vim-colors-github']]
-vim.cmd [[Plug 'TaDaa/vimade']]
-  vim.cmd [[augroup vimade_focus
-      autocmd!
-      autocmd FocusLost * VimadeFadeActive
-      autocmd FocusGained * VimadeUnfadeActive
-    augroup END]]
-
--- Extras
-vim.cmd [[Plug 'itchyny/lightline.vim']]
-vim.cmd [[Plug 'junegunn/goyo.vim']]
-vim.cmd [[Plug 'editorconfig/editorconfig-vim']]
-
--- Experiments
-vim.cmd [[Plug 'tpope/vim-abolish']]
-vim.cmd [[Plug 'tpope/vim-characterize']]
-vim.cmd [[Plug 'tpope/vim-eunuch']]
-vim.cmd [[Plug 'tpope/vim-fugitive']]
-vim.cmd [[Plug 'lervag/wiki.vim']]
-vim.cmd [[Plug 'dhruvasagar/vim-table-mode']]
-
-vim.cmd [[if has("nvim")
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'ekickx/clipboard-image.nvim'
-endif]]
-
-vim.cmd [[runtime plugins.local.vim]]
-
-vim.cmd [[call plug#end()]]
-
-vim.cmd [[runtime macros/matchit.vim]]
+vim.cmd [[
+augroup vimade_focus
+  autocmd!
+  autocmd FocusLost * VimadeFadeActive
+  autocmd FocusGained * VimadeUnfadeActive
+augroup END
+]]
 
 -- }}}
 
