@@ -66,8 +66,6 @@ require('packer').startup(function(use)
   end
 end)
 
-vim.cmd [[runtime macros/matchit.vim]]
-
 vim.cmd [[xmap ga <Plug>(EasyAlign)]]
 vim.cmd [[nmap ga <Plug>(EasyAlign)]]
 
