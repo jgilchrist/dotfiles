@@ -27,6 +27,8 @@ opt.listchars:append('nbsp:‡')
 opt.showbreak = '↪ '
 opt.breakindentopt = 'shift:2'
 
+opt.wildmode='list:longest,full'
+
 -- Indentation
 opt.expandtab = true
 opt.shiftround = true
