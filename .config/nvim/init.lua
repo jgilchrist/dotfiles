@@ -42,20 +42,20 @@ vim.cmd [[set virtualedit=block]]
 vim.cmd [[set splitbelow]]
 vim.cmd [[set splitright]]
 
--- Resize splits when vim itself is resized
-vim.cmd [[augroup ResizeSplits
-  au!
-  au VimResized * :wincmd =
-augroup END]]
+vim.api.nvim_create_augroup('resize_splits', { clear = true })
+  vim.api.nvim_create_autocmd('VimResized', { command = ':wincmd =', group = 'resize_splits' })
 
--- Highlight yanked text briefly after it is yanked
-vim.cmd [[augroup highlight_yank
-    autocmd!
-    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=130 }
-augroup END]]
+vim.api.nvim_create_augroup('highlight_yank', { clear = true })
+  vim.api.nvim_create_autocmd('TextYankPost', { callback = function() vim.highlight.on_yank { higroup='DiffAdd', timeout=130 } end, group = 'highlight_yank' })
 
--- Use a nice vertical separator for splits
-vim.cmd [[set fillchars+=vert:│]]
+vim.api.nvim_create_augroup('cwindow_after_grep', { clear = true })
+  vim.api.nvim_create_autocmd('QuickFixCmdPost', { pattern = '[^l]*', command = 'cwindow', group = 'cwindow_after_grep' })
+
+vim.api.nvim_create_augroup('cursorline_follows_focus', { clear = true })
+  vim.api.nvim_create_autocmd('WinEnter', { command = 'set cursorline', group='cursorline_follows_focus' })
+  vim.api.nvim_create_autocmd('WinLeave', { command = 'set nocursorline', group='cursorline_follows_focus' })
+  vim.api.nvim_create_autocmd('FocusGained', { command = 'set cursorline', group='cursorline_follows_focus' })
+  vim.api.nvim_create_autocmd('FocusLost', { command = 'set nocursorline', group='cursorline_follows_focus' })
 
 -- Flash matching braces for 200ms
 vim.cmd [[set showmatch]]
@@ -66,27 +66,9 @@ vim.cmd [[if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif]]
 
-vim.cmd [[augroup cwindow_after_grep
-  autocmd!
-  au QuickFixCmdPost [^l]* cwindow
-augroup END]]
-
--- Only display the cursorline on windows that are in focus
-vim.cmd [[augroup cursorline_follows_focus
-  autocmd!
-  au WinEnter * set cursorline
-  au WinLeave * set nocursorline
-  au FocusGained * set cursorline
-  au FocusLost * set nocursorline
-augroup END]]
-
-vim.cmd [[function! s:disable_cursorline_follows_focus()
-  if exists('#cursorline_follows_focus#WinEnter')
-    augroup cursorline_follows_focus
-      autocmd!
-    augroup END
-  endif
-endfunction]]
+function disable_cursorline_follows_focus()
+  vim.api.nvim_create_augroup('CursorlineFollowsFocus', { clear = true })
+end
 
 -- Backups/Swapfiles/Undofiles {{{
 

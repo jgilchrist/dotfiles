@@ -7,12 +7,8 @@ end
 
 bootstrap_packer()
 
-vim.cmd([[
-augroup packer_auto_compile
-  autocmd!
-  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-augroup end
-]])
+vim.api.nvim_create_augroup('packer_autocompile', { clear = true })
+  vim.api.nvim_create_autocmd('BufWritePost', { pattern = 'plugins.lua', command = 'source <afile> | PackerCompile', group = 'packer_autocompile' })
 
 require('packer').startup(function(use)
 
