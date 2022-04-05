@@ -1,3 +1,5 @@
+local autocmds = require'jg.autocmds'
+
 function bootstrap_packer()
   local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
   if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
@@ -7,8 +9,9 @@ end
 
 bootstrap_packer()
 
-vim.api.nvim_create_augroup('packer_autocompile', { clear = true })
-  vim.api.nvim_create_autocmd('BufWritePost', { pattern = 'plugins.lua', command = 'source <afile> | PackerCompile', group = 'packer_autocompile' })
+autocmds.augroup('packer_autocompile', function(autocmd)
+  autocmd('BufWritePost', { pattern = 'plugins.lua', command = 'source <afile> | PackerCompile' })
+end)
 
 require('packer').startup(function(use)
 

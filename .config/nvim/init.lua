@@ -4,6 +4,8 @@ vim.cmd [[let maplocalleader=',']]
 require 'jg.plugins'
 require 'jg.disable_builtins'
 
+local autocmds = require'jg.autocmds'
+
 -- Settings {{{
 
 -- Don't show the intro message when starting Vim
@@ -44,20 +46,22 @@ vim.cmd [[set virtualedit=block]]
 vim.cmd [[set splitbelow]]
 vim.cmd [[set splitright]]
 
-vim.api.nvim_create_augroup('resize_splits', { clear = true })
-  vim.api.nvim_create_autocmd('VimResized', { command = ':wincmd =', group = 'resize_splits' })
+autocmds.augroup('resize_splits', function(autocmd)
+  autocmd('VimResized', { command = ':wincmd =' })
+end)
 
-vim.api.nvim_create_augroup('highlight_yank', { clear = true })
-  vim.api.nvim_create_autocmd('TextYankPost', { callback = function() vim.highlight.on_yank { higroup='DiffAdd', timeout=130 } end, group = 'highlight_yank' })
+autocmds.augroup('highlight_yank', function(autocmd)
+  autocmd('TextYankPost', { callback = function() vim.highlight.on_yank { higroup='DiffAdd', timeout=130 } end })
+end)
 
-vim.api.nvim_create_augroup('cwindow_after_grep', { clear = true })
-  vim.api.nvim_create_autocmd('QuickFixCmdPost', { pattern = '[^l]*', command = 'cwindow', group = 'cwindow_after_grep' })
+autocmds.augroup('cwindow_after_grep', function(autocmd)
+  autocmd('QuickFixCmdPost', { pattern = '[^l]*', command = 'cwindow'})
+end)
 
-vim.api.nvim_create_augroup('cursorline_follows_focus', { clear = true })
-  vim.api.nvim_create_autocmd('WinEnter', { command = 'set cursorline', group='cursorline_follows_focus' })
-  vim.api.nvim_create_autocmd('WinLeave', { command = 'set nocursorline', group='cursorline_follows_focus' })
-  vim.api.nvim_create_autocmd('FocusGained', { command = 'set cursorline', group='cursorline_follows_focus' })
-  vim.api.nvim_create_autocmd('FocusLost', { command = 'set nocursorline', group='cursorline_follows_focus' })
+autocmds.augroup('cursorline_follows_focus', function(autocmd)
+  autocmd({'WinEnter', 'FocusGained'}, { command = 'set cursorline' })
+  autocmd({'WinLeave', 'FocusLost'}, { command = 'set nocursorline' })
+end)
 
 -- Flash matching braces for 200ms
 vim.cmd [[set showmatch]]
