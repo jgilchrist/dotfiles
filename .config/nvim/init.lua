@@ -1,7 +1,8 @@
 vim.cmd [[let mapleader=',']]
 vim.cmd [[let maplocalleader=',']]
 
-require('jg.plugins')
+require 'jg.plugins'
+require 'jg.disable_builtins'
 
 -- Settings {{{
 
