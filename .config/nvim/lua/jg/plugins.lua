@@ -27,7 +27,6 @@ packer.startup(function(use)
   use 'wellle/targets.vim'
   use {'phaazon/hop.nvim', config = function() require'jg.plugins.hop' end }
   use 'tommcdo/vim-exchange'
-  use {'junegunn/vim-easy-align', config = function() require'jg.plugins.easyalign' end }
 
   -- File management
   use {'junegunn/fzf', run = ':call fzf#install()', config = function() require'jg.plugins.fzf' end }
