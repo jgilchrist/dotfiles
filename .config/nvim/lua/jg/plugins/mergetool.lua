@@ -2,7 +2,7 @@ vim.cmd [[function! OnMergetoolSetLayout(split)
   setlocal nocursorline
   call s:disable_cursorline_follows_focus()
 
-  nnoremap <leader>mt :MergetoolToggle<cr>
+  lua vim.keymap.set('n', '<leader>mt', ':MergetoolToggle<cr>')
 
   " When base is horizontal split at the bottom
   " Turn off diff mode, and show syntax highlighting

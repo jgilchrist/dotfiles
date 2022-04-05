@@ -93,14 +93,10 @@ endif]]
 -- These mappings improve consistency in Vim's commands
 
 -- Saner line handling
-vim.cmd [[nnoremap j gj]]
-vim.cmd [[nnoremap k gk]]
-vim.cmd [[nnoremap gj j]]
-vim.cmd [[nnoremap gk k]]
-vim.cmd [[xnoremap j gj]]
-vim.cmd [[xnoremap k gk]]
-vim.cmd [[xnoremap gj j]]
-vim.cmd [[xnoremap gk k]]
+vim.keymap.set({'n', 'x'}, 'j', 'gj')
+vim.keymap.set({'n', 'x'}, 'k', 'gk')
+vim.keymap.set({'n', 'x'}, 'gj', 'gj')
+vim.keymap.set({'n', 'x'}, 'gk', 'gk')
 
 -- :W and :Q still work
 vim.cmd [[command! W write]]
@@ -108,55 +104,51 @@ vim.cmd [[command! Q quit]]
 vim.cmd [[cabbrev <silent> X :x]]
 
 -- Delete and paste without overwriting the paste register
-vim.cmd [[nnoremap x "_x]]
-vim.cmd [[xnoremap p "_dp]]
+vim.keymap.set('n', 'x', '"_x')
+vim.keymap.set('x', 'p', '"_dp')
 
 -- When joining lines, keep the cursor in place
-vim.cmd [[nnoremap J mzJ`z]]
+vim.keymap.set('n', 'J', 'mzJ`z')
 
 -- }}}
 
 -- Edit/source configuration
-vim.cmd [[nnoremap <silent> <leader>ec :edit $MYVIMRC<CR>]]
-vim.cmd [[nnoremap <silent> <leader>sc :lua require'jg.config'.reload_config()<CR>]]
+vim.keymap.set('n', '<leader>ec', ':edit $MYVIMRC<CR>', { silent = true })
+vim.keymap.set('n', '<leader>sc', function() require'jg.config'.reload_config() end, { silent = true })
 
 -- Remap H and L to start and end of the line
-vim.cmd [[nnoremap H ^]]
-vim.cmd [[nnoremap L g_]]
-vim.cmd [[xnoremap H ^]]
-vim.cmd [[xnoremap L g_]]
+vim.keymap.set({'n', 'x'}, 'H', '^')
+vim.keymap.set({'n', 'x'}, 'L', 'g_')
 
 -- Easy split navigation
-vim.cmd [[nnoremap <c-j> <c-w>j]]
-vim.cmd [[nnoremap <c-k> <c-w>k]]
-vim.cmd [[nnoremap <c-h> <c-w>h]]
-vim.cmd [[nnoremap <c-l> <c-w>l]]
+vim.keymap.set('n', '<c-j>', '<c-w>j')
+vim.keymap.set('n', '<c-k>', '<c-w>k')
+vim.keymap.set('n', '<c-h>', '<c-w>h')
+vim.keymap.set('n', '<c-l>', '<c-w>l')
 
 -- <leader>a selects the whole buffer
-vim.cmd [[nnoremap <leader>a ggVG]]
+vim.keymap.set('n', '<leader>a', 'ggVG')
 
 -- gp selects the last pasted text
-vim.cmd "nnoremap gp `[v`]"
+vim.keymap.set('n', 'gp', '`[v`')
 
 -- <leader> shortcuts for copying/pasting to/from system clipboard
-vim.cmd [[nnoremap <leader>y "+y]]
-vim.cmd [[xnoremap <leader>y "+y]]
-vim.cmd [[nnoremap <leader>p "+p]]
-vim.cmd [[xnoremap <leader>p "+p]]
+vim.keymap.set({'n', 'x'}, '<leader>y', '"+y')
+vim.keymap.set({'n', 'x'}, '<leader>p', '"+p')
 
 -- Shift-Q repeats the q macro
-vim.cmd [[nnoremap Q @q]]
-vim.cmd [[xnoremap Q :normal! @q<CR>]]
+vim.keymap.set('n', 'Q', '@q')
+vim.keymap.set('x', 'Q', ':normal! @q<CR>')
 
 -- Quickly edit the Q macro
-vim.cmd [[nnoremap <leader>eq :<c-u><c-r><c-r>='let @q = '. string(getreg('q'))<cr><c-f><left>]]
+vim.keymap.set('n', '<leader>eq', [[:<c-u><c-r><c-r>='let @q = '. string(getreg('q'))<cr><c-f><left>]])
 
 -- Go back to the last buffer
-vim.cmd [[nnoremap <silent> <backspace> <C-^>]]
+vim.keymap.set('n', '<backspace>', '<C-^>', { silent = true })
 
 -- Use the arrow keys to resize viewports
-vim.cmd [[nnoremap <Right> :vertical resize +2<CR>]]
-vim.cmd [[nnoremap <Left> :vertical resize -2<CR>]]
+vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>')
+vim.keymap.set('n', '<Left>', ':vertical resize -2<CR>')
 
 -- }}}
 

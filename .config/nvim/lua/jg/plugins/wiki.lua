@@ -16,7 +16,7 @@ if exists('g:use_wiki')
     return substitute(tolower(a:text), '\s\+', '-', 'g')
   endfunction
 
-  nnoremap <leader>ww :WikiFzfPages<CR>
+  lua vim.keymap.set('n', '<leader>ww', ':WikiFzfPages<CR>')
 
   if !exists('g:wiki_root')
     echoerr 'g:wiki_root is not defined'
