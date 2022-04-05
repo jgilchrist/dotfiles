@@ -1,2 +1,1 @@
-vim.cmd [[xmap ga <Plug>(EasyAlign)]]
-vim.cmd [[nmap ga <Plug>(EasyAlign)]]
+vim.keymap.set({'n', 'x'}, 'ga', '<Plug>(EasyAlign)')

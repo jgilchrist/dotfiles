@@ -1,6 +1,6 @@
 local autocmds = require'jg.autocmds'
 
-vim.cmd [[let g:dirvish_mode = ':sort | sort ,^.*/,']]
+vim.g.dirvish_mode = ':sort | sort ,^.*/,'
 
 -- Disable Dirvish's C-p and C-n mappings
 autocmds.augroup('dirvish_unmap', function(autocmd)
