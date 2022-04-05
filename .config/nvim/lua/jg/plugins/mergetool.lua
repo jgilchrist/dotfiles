@@ -1,19 +1,22 @@
-vim.cmd [[function! OnMergetoolSetLayout(split)
-  setlocal nocursorline
-  call s:disable_cursorline_follows_focus()
+vim.g.mergetool_layout = 'ml,b'
+vim.g.mergetool_prefer_revision = 'remote'
 
+-- TODO: Find a way to pass OnMergetoolSetLayout as a lua function
+vim.cmd [[
+function! OnMergetoolSetLayout(split)
+  lua vim.wo.cursorline = false
+  lua require'jg.config'.disable_cursorline_follows_focus()
   lua vim.keymap.set('n', '<leader>mt', ':MergetoolToggle<cr>')
 
   " When base is horizontal split at the bottom
   " Turn off diff mode, and show syntax highlighting
   " Also let it take less height
   if (a:split['layout'] ==# 'mr,b' || a:split['layout'] ==# 'ml,b') && a:split['split'] ==# 'b'
-    setlocal nodiff
-    setlocal syntax=off
+    lua vim.wo.diff = false
+    lua vim.bo.syntax = 'OFF'
     resize 15
   endif
-endfunction]]
+endfunction
 
-vim.cmd [[let g:mergetool_layout = 'ml,b']]
-vim.cmd [[let g:mergetool_prefer_revision = 'remote']]
-vim.cmd [[let g:MergetoolSetLayoutCallback = function('OnMergetoolSetLayout')]]
+let g:MergetoolSetLayoutCallback = function('OnMergetoolSetLayout')
+]]

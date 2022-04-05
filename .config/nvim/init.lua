@@ -2,7 +2,7 @@ require 'jg.plugins'
 require 'jg.disable_builtins'
 
 local opt = vim.opt
-local autocmds = require'jg.autocmds'
+local augroup = require'jg.config'.augroup
 
 -- Settings {{{
 
@@ -50,26 +50,22 @@ opt.virtualedit = 'block'
 opt.splitbelow = true
 opt.splitright = true
 
-autocmds.augroup('resize_splits', function(autocmd)
+augroup('resize_splits', function(autocmd)
   autocmd('VimResized', { command = ':wincmd =' })
 end)
 
-autocmds.augroup('highlight_yank', function(autocmd)
+augroup('highlight_yank', function(autocmd)
   autocmd('TextYankPost', { callback = function() vim.highlight.on_yank { higroup='DiffAdd', timeout=130 } end })
 end)
 
-autocmds.augroup('cwindow_after_grep', function(autocmd)
+augroup('cwindow_after_grep', function(autocmd)
   autocmd('QuickFixCmdPost', { pattern = '[^l]*', command = 'cwindow'})
 end)
 
-autocmds.augroup('cursorline_follows_focus', function(autocmd)
+augroup('cursorline_follows_focus', function(autocmd)
   autocmd({'WinEnter', 'FocusGained'}, { command = 'set cursorline' })
   autocmd({'WinLeave', 'FocusLost'}, { command = 'set nocursorline' })
 end)
-
-function disable_cursorline_follows_focus()
-  autocmds.augroup('cursorline_follows_focus', function() end)
-end
 
 -- Flash matching braces for 200ms
 opt.showmatch = true

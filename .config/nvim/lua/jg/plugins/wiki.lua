@@ -1,26 +1,28 @@
-vim.cmd [[
-if exists('g:use_wiki')
+if not vim.g.wiki_root then
+  vim.notify('g:wiki_root is not defined', vim.log.levels.ERROR)
+  return
+end
 
-  let g:wiki_link_extension = '.md'
-  let g:wiki_link_target_type = 'md'
-  let g:wiki_filetypes = ['md']
-  let g:wiki_tags_format_pattern = '\v%(^|\s)#\zs[^# ]+'
+vim.g.wiki_link_extension = '.md'
+vim.g.wiki_link_target_type = 'md'
+vim.g.wiki_filetypes = {'md'}
+vim.g.wiki_tags_format_pattern = '\\v%(^|\\s)#\\zs[^# ]+'
 
-  let g:wiki_map_create_page = 'WikiMapCreatePage'
-  function! WikiMapCreatePage(text) abort
-    return substitute(tolower(a:text), '\s\+', '-', 'g')
-  endfunction
+-- TODO: Find a way to pass WikiMapCreatePage and WikiMapLinkCreate as lua functions
+vim.cmd[[
+function! WikiMapCreatePage(text) abort
+  return substitute(tolower(a:text), '\s\+', '-', 'g')
+endfunction
 
-  let g:wiki_map_link_create = 'WikiMapLinkCreate'
-  function! WikiMapLinkCreate(text) abort
-    return substitute(tolower(a:text), '\s\+', '-', 'g')
-  endfunction
-
-  lua vim.keymap.set('n', '<leader>ww', ':WikiFzfPages<CR>')
-
-  if !exists('g:wiki_root')
-    echoerr 'g:wiki_root is not defined'
-  endif
-
-endif
+let g:wiki_map_create_page = 'WikiMapCreatePage'
 ]]
+
+vim.cmd[[
+function! WikiMapLinkCreate(text) abort
+  return substitute(tolower(a:text), '\s\+', '-', 'g')
+endfunction
+
+let g:wiki_map_link_create = 'WikiMapLinkCreate'
+]]
+
+vim.keymap.set('n', '<leader>ww', ':WikiFzfPages<CR>')

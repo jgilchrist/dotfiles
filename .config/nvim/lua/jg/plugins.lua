@@ -1,4 +1,4 @@
-local autocmds = require'jg.autocmds'
+local augroup = require'jg.config'.augroup
 
 function bootstrap_packer()
   local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -9,7 +9,7 @@ end
 
 bootstrap_packer()
 
-autocmds.augroup('packer_autocompile', function(autocmd)
+augroup('packer_autocompile', function(autocmd)
   autocmd('BufWritePost', { pattern = 'plugins.lua', command = 'source <afile> | PackerCompile' })
 end)
 

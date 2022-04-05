@@ -13,6 +13,16 @@ function M.reload_config()
   vim.notify('Reloaded!', vim.log.levels.INFO)
 end
 
+function M.augroup(name, autocmd_def_fn)
+  vim.api.nvim_create_augroup(name, { clear = true })
+
+  function define_autocmd_fn(event, opts)
+    vim.api.nvim_create_autocmd(event, vim.tbl_extend('keep', opts, { group = name }))
+  end
+
+  autocmd_def_fn(define_autocmd_fn)
+end
+
 function M.use_indent(n)
   vim.bo.tabstop = n
   vim.bo.softtabstop = n
@@ -22,6 +32,10 @@ end
 function M.use_text_mode()
   vim.bo.wrap = true
   vim.bo.linebreak = true
+end
+
+function M.disable_cursorline_follows_focus()
+  M.augroup('cursorline_follows_focus', function() end)
 end
 
 return M
