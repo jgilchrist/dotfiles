@@ -94,8 +94,8 @@ vim.keymap.set({'n', 'x'}, 'gj', 'gj')
 vim.keymap.set({'n', 'x'}, 'gk', 'gk')
 
 -- :W and :Q still work
-vim.cmd [[command! W write]]
-vim.cmd [[command! Q quit]]
+vim.api.nvim_add_user_command('W', 'write', { bang = true })
+vim.api.nvim_add_user_command('Q', 'quit', { bang = true })
 vim.cmd [[cabbrev <silent> X :x]]
 
 -- Delete and paste without overwriting the paste register
