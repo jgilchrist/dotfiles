@@ -18,12 +18,12 @@ bindkey "^?" backward-delete-char
 # Prevent duplicates in $PATH
 typeset -gU path
 
-# Ensure local binaries are on the path
-[ -d "${HOME}/.local/bin" ] && path=(~/.local/bin $path)
-
 # Ensure some commonly seen directories are on the path
 [ -d "${HOME}/.dotnet/tools" ] && path=(~/.dotnet/tools $path)
 [ -d "${HOME}/.cargo/bin" ] && path=(~/.cargo/bin $path)
+
+# Ensure local binaries are on the path
+[ -d "${HOME}/.local/bin" ] && path=(~/.local/bin $path)
 
 # Always use a 256 color terminal
 [ "$TERM" != "tmux-256color" ] && export TERM="xterm-256color"
