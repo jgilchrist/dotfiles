@@ -1,6 +1,8 @@
 let mapleader=','
 let maplocalleader=','
 
+" Settings {{{
+
 filetype plugin indent on
 set encoding=utf-8
 

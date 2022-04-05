@@ -13,4 +13,15 @@ function M.reload_config()
   vim.notify('Reloaded!', vim.log.levels.INFO)
 end
 
+function M.use_indent(n)
+  vim.bo.tabstop = n
+  vim.bo.softtabstop = n
+  vim.bo.shiftwidth = n
+end
+
+function M.use_text_mode()
+  vim.bo.wrap = true
+  vim.bo.linebreak = true
+end
+
 return M
