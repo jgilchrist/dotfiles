@@ -54,13 +54,11 @@ packer.startup(function(use)
   use {'lervag/wiki.vim', config = function() require'jg.plugins.wiki' end }
 
   -- Experiments
-  use 'tpope/vim-abolish'
-  use 'tpope/vim-characterize'
   use 'dhruvasagar/vim-table-mode'
+  use {'ekickx/clipboard-image.nvim', config = function() require'jg.plugins.clipboardimage' end }
   -- use 'simrat39/rust-tools.nvim'
   -- use 'neovim/nvim-lspconfig'
 
-  use {'ekickx/clipboard-image.nvim', config = function() require'jg.plugins.clipboardimage' end }
 end)
 
 if packer_bootstrap then
