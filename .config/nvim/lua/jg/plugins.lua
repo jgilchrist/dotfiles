@@ -29,8 +29,8 @@ packer.startup(function(use)
   use 'tommcdo/vim-exchange'
 
   -- File management
-  use {'junegunn/fzf', run = ':call fzf#install()', config = function() require'jg.plugins.fzf' end }
-  use 'junegunn/fzf.vim'
+  use {'junegunn/fzf', run = ':call fzf#install()' }
+  use {'junegunn/fzf.vim', config = function() require'jg.plugins.fzf' end }
 
   use {'justinmk/vim-dirvish', config = function() require'jg.plugins.dirvish' end }
   use 'tpope/vim-eunuch'
