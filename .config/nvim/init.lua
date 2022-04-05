@@ -36,6 +36,10 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.infercase = true
 
+-- Flash matching braces for 200ms
+opt.showmatch = true
+opt.matchtime = 2
+
 opt.undofile = true
 
 -- Redrawing
@@ -66,10 +70,6 @@ augroup('cursorline_follows_focus', function(autocmd)
   autocmd({'WinEnter', 'FocusGained'}, { command = 'set cursorline' })
   autocmd({'WinLeave', 'FocusLost'}, { command = 'set nocursorline' })
 end)
-
--- Flash matching braces for 200ms
-opt.showmatch = true
-opt.matchtime = 2
 
 -- Use ripgrep for vim's :grep command
 if vim.fn.executable('rg') then
