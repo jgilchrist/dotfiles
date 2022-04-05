@@ -1,50 +1,57 @@
-vim.cmd [[let mapleader=',']]
-vim.cmd [[let maplocalleader=',']]
-
 require 'jg.plugins'
 require 'jg.disable_builtins'
 
+local opt = vim.opt
 local autocmds = require'jg.autocmds'
 
 -- Settings {{{
 
+vim.g.mapleader = ','
+vim.g.maplocalleader = ','
+
 -- Don't show the intro message when starting Vim
-vim.cmd [[set shortmess+=I]]
+opt.shortmess:append('I')
 
 -- Appearance
-vim.cmd [[set number]]
-vim.cmd [[set cursorline]]
-vim.cmd [[set nowrap]]
-vim.cmd [[set scrolloff=3]]
-vim.cmd [[set listchars=tab:\|\ ,trail:∙,extends:>,precedes:<,nbsp:‡]]
-vim.cmd [[set showbreak=>\ ]]
-vim.cmd [[set breakindentopt=shift:2]]
+opt.number = true
+opt.cursorline = true
+opt.wrap = false
+opt.scrolloff = 3
+
+opt.listchars:append('tab:| ')
+opt.listchars:append('trail:∙')
+opt.listchars:append('extends:>')
+opt.listchars:append('precedes:<')
+opt.listchars:append('nbsp:‡')
+
+opt.showbreak = '↪ '
+opt.breakindentopt = 'shift:2'
 
 -- Indentation
-vim.cmd [[set expandtab]]
-vim.cmd [[set tabstop=4]]
-vim.cmd [[set softtabstop=4]]
-vim.cmd [[set shiftwidth=4]]
-vim.cmd [[set shiftround]]
+opt.expandtab = true
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
+opt.shiftround = true
 
 -- Search
-vim.cmd [[set ignorecase]]
-vim.cmd [[set smartcase]]
-vim.cmd [[set infercase]]
+opt.ignorecase = true
+opt.smartcase = true
+opt.infercase = true
 
-vim.cmd [[set undofile]]
+opt.undofile = true
 
 -- Redrawing
-vim.cmd [[set lazyredraw]]
+opt.lazyredraw = true
 
-vim.cmd [[set diffopt=filler,internal,algorithm:histogram,indent-heuristic]]
+opt.diffopt = 'filler,internal,algorithm:histogram,indent-heuristic'
 
 -- Allow the cursor to move anywhere in visual block mode
-vim.cmd [[set virtualedit=block]]
+opt.virtualedit = 'block'
 
 -- Open splits to the right and to the bottom
-vim.cmd [[set splitbelow]]
-vim.cmd [[set splitright]]
+opt.splitbelow = true
+opt.splitright = true
 
 autocmds.augroup('resize_splits', function(autocmd)
   autocmd('VimResized', { command = ':wincmd =' })
@@ -63,18 +70,18 @@ autocmds.augroup('cursorline_follows_focus', function(autocmd)
   autocmd({'WinLeave', 'FocusLost'}, { command = 'set nocursorline' })
 end)
 
+function disable_cursorline_follows_focus()
+  autocmds.augroup('cursorline_follows_focus', function() end)
+end
+
 -- Flash matching braces for 200ms
-vim.cmd [[set showmatch]]
-vim.cmd [[set matchtime=2]]
+opt.showmatch = true
+opt.matchtime = 2
 
 -- Use ripgrep for vim's :grep command
 vim.cmd [[if executable('rg')
   set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif]]
-
-function disable_cursorline_follows_focus()
-  vim.api.nvim_create_augroup('CursorlineFollowsFocus', { clear = true })
-end
 
 vim.cmd [[if has('gui_running')
   " Remove scrollbars and menus from the GUI
