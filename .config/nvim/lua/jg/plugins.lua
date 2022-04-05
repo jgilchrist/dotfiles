@@ -28,6 +28,11 @@ packer.startup(function(use)
   use {'phaazon/hop.nvim', config = function() require'jg.plugins.hop' end }
   use 'tommcdo/vim-exchange'
 
+  use 'kana/vim-textobj-user'
+  use {'glts/vim-textobj-comment', after = 'vim-textobj-user' }
+  use {'kana/vim-textobj-entire', after = 'vim-textobj-user' }
+  use {'kana/vim-textobj-line', after = 'vim-textobj-user' }
+
   -- File management
   use {'junegunn/fzf', run = ':call fzf#install()' }
   use {'junegunn/fzf.vim', config = function() require'jg.plugins.fzf' end }

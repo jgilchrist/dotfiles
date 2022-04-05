@@ -117,9 +117,6 @@ vim.keymap.set('n', '<c-k>', '<c-w>k')
 vim.keymap.set('n', '<c-h>', '<c-w>h')
 vim.keymap.set('n', '<c-l>', '<c-w>l')
 
--- <leader>a selects the whole buffer
-vim.keymap.set('n', '<leader>a', 'ggVG')
-
 -- gp selects the last pasted text
 vim.keymap.set('n', 'gp', '`[v`')
 
