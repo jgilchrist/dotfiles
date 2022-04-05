@@ -1,4 +1,5 @@
 local augroup = require'jg.config'.augroup
+local packer = require'packer'
 
 function bootstrap_packer()
   local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -13,8 +14,7 @@ augroup('packer_autocompile', function(autocmd)
   autocmd('BufWritePost', { pattern = 'plugins.lua', command = 'source <afile> | PackerCompile' })
 end)
 
-require('packer').startup(function(use)
-
+packer.startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
@@ -66,9 +66,8 @@ require('packer').startup(function(use)
 
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function() require'jg.plugins.treesitter' end }
   use {'ekickx/clipboard-image.nvim', config = function() require'jg.plugins.clipboardimage' end }
-
-  if packer_bootstrap then
-    require('packer').sync()
-  end
 end)
 
+if packer_bootstrap then
+  packer.sync()
+end
