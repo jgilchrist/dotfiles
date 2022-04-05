@@ -271,9 +271,8 @@ vim.cmd [[nnoremap J mzJ`z]]
 -- }}}
 
 -- Edit/source configuration
-vim.cmd [[nnoremap <leader>ec :edit $MYVIMRC<cr>]]
-vim.cmd [[nnoremap <leader>el :edit $MYVIMRC.local<cr>]]
-vim.cmd [[nnoremap <leader>sc :source $MYVIMRC<cr>]]
+vim.cmd [[nnoremap <silent> <leader>ec :edit $MYVIMRC<cr>]]
+vim.cmd [[nnoremap <silent> <leader>sc :source $MYVIMRC<cr>]]
 
 -- Remap H and L to start and end of the line
 vim.cmd [[nnoremap H ^]]
