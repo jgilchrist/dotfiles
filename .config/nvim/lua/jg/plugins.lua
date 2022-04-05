@@ -44,6 +44,7 @@ packer.startup(function(use)
   use 'leafgarland/typescript-vim'
   use 'hashivim/vim-terraform'
   use 'PProvost/vim-ps1'
+  use 'tpope/vim-fugitive'
 
   -- Colorscheme
   use {'projekt0n/github-nvim-theme', config = function() require'jg.plugins.github' end }
@@ -61,7 +62,6 @@ packer.startup(function(use)
   -- Experiments
   use 'tpope/vim-abolish'
   use 'tpope/vim-characterize'
-  use 'tpope/vim-fugitive'
   use 'dhruvasagar/vim-table-mode'
   -- use 'simrat39/rust-tools.nvim'
   -- use 'neovim/nvim-lspconfig'
