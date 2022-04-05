@@ -62,7 +62,7 @@ vim.cmd [[set showmatch]]
 vim.cmd [[set matchtime=2]]
 
 -- Use ripgrep for vim's :grep command
-vim.cmd [[if executable("rg")
+vim.cmd [[if executable('rg')
   set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif]]
 
