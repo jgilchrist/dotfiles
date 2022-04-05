@@ -1,129 +1,21 @@
 let mapleader=','
 let maplocalleader=','
 
-" Plugins {{{
-
-call plug#begin()
-
-" Extensions to vim's language
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-Plug 'wellle/targets.vim'
-Plug 'justinmk/vim-sneak'
-Plug 'tommcdo/vim-exchange'
-Plug 'junegunn/vim-easy-align'
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-
-" File management
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-nnoremap <C-P> :Files<CR>
-nnoremap <C-B> :Buffers<CR>
-let g:fzf_preview_window = []
-
-Plug 'justinmk/vim-dirvish'
-  let g:dirvish_mode = ':sort | sort ,^.*/,'
-  " Disable Dirvish's C-p and C-n mappings
-  augroup dirvish_config
-      autocmd!
-      autocmd FileType dirvish silent! unmap <buffer> <C-p>
-      autocmd FileType dirvish silent! unmap <buffer> <C-n>
-    augroup END
-
-Plug 'tpope/vim-unimpaired'
-Plug 'jgilchrist/vim-mergetool'
-
-" Languages
-Plug 'rust-lang/rust.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'hashivim/vim-terraform'
-Plug 'PProvost/vim-ps1'
-
-" Colorscheme
-Plug 'w0ng/vim-hybrid'
-Plug 'cormacrelf/vim-colors-github'
-Plug 'TaDaa/vimade'
-  augroup vimade_focus
-      autocmd!
-      autocmd FocusLost * VimadeFadeActive
-      autocmd FocusGained * VimadeUnfadeActive
-    augroup END
-
-" Extras
-Plug 'itchyny/lightline.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'editorconfig/editorconfig-vim'
-
-" Experiments
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-characterize'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'lervag/wiki.vim'
-Plug 'dhruvasagar/vim-table-mode'
-
-if has("nvim")
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'ekickx/clipboard-image.nvim'
-endif
-
-runtime plugins.local.vim
-
-call plug#end()
-
-runtime macros/matchit.vim
-
-" }}}
-
-" Settings {{{
-
 filetype plugin indent on
-
 set encoding=utf-8
-set fileencoding=utf-8
-
-" i - [noeol] instead of [Incomplete last line]
-" x - [unix] instead of [unix format]
-" t - Truncate file message at start if it is too long to fit on the command line
-" I - Don't show the intro message when starting Vim
-set shortmess=ixtI
-
-" F - don't print filenames
-if &diff
-  set shortmess+=F
-endif
-
 
 " Appearance
-if !exists('g:syntax_on')
-  syntax enable
-endif
-colorscheme hybrid
-highlight Comment cterm=italic gui=italic
-set background=dark
+syntax enable
+colorscheme slate
 
 set hidden
-
 set number
 set ruler
 set showcmd
 set cursorline
 set nowrap
-
-if has("nvim")
-    set laststatus=3
-else
-    set laststatus=2
-endif
-
-set scrolloff=3
-set sidescrolloff=3
+set laststatus=2
 set synmaxcol=300
-set listchars=tab:\|\ ,trail:∙,extends:>,precedes:<,nbsp:‡
-set showbreak=>\ 
-set breakindentopt=shift:2
 
 set wildmenu
 set wildmode=list:longest,full
@@ -149,10 +41,6 @@ set ttyfast
 set ttimeout
 set ttimeoutlen=50
 
-if has('nvim') || has("patch-8.1.0360")
-    set diffopt=filler,internal,algorithm:histogram,indent-heuristic
-endif
-
 " Disable all bells (audio, flash)
 if exists("&belloff")
   set belloff=all
@@ -170,21 +58,6 @@ set modelines=1
 set splitbelow
 set splitright
 
-" Resize splits when vim itself is resized
-augroup ResizeSplits
-  au!
-  au VimResized * :wincmd =
-augroup END
-
-" Highlight yanked text briefly after it is yanked
-augroup highlight_yank
-    autocmd!
-    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=130 }
-augroup END
-
-" Use a nice vertical separator for splits
-set fillchars+=vert:│
-
 " Flash matching braces for 200ms
 set showmatch
 set matchtime=2
@@ -198,54 +71,8 @@ set nrformats-=octal
 set formatoptions+=j
 set nojoinspaces
 
-" Use ripgrep for vim's :grep command
-if executable("rg")
-  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-endif
-
-augroup cwindow_after_grep
-  autocmd!
-  au QuickFixCmdPost [^l]* cwindow
-augroup END
-
-" Only display the cursorline on windows that are in focus
-augroup cursorline_follows_focus
-  autocmd!
-  au WinEnter * set cursorline
-  au WinLeave * set nocursorline
-  au FocusGained * set cursorline
-  au FocusLost * set nocursorline
-augroup END
-
-function! s:disable_cursorline_follows_focus()
-  if exists('#cursorline_follows_focus#WinEnter')
-    augroup cursorline_follows_focus
-      autocmd!
-    augroup END
-  endif
-endfunction
-
-" Backups/Swapfiles/Undofiles {{{
-
-" Keep backups, swapfiles and undofiles if we're not root
-if exists('$SUDO_USER')
-  set viminfo=
-  set nobackup
-  set nowritebackup
-  set noswapfile
-  set noundofile
-else
-  if !has("nvim")
-    set viminfo+=n~/.vim/tmp/viminfo
-    set backupdir=~/.vim/tmp/backup
-    set directory=~/.vim/tmp/swap
-    set undodir=~/.vim/tmp/undo
-  endif
-
-  set undofile
-endif
-
-" }}}
+set nobackup
+set noundofile
 
 if has('gui_running')
   " Remove scrollbars and menus from the GUI
@@ -327,56 +154,5 @@ nnoremap <Right> :vertical resize +2<CR>
 nnoremap <Left> :vertical resize -2<CR>
 
 " }}}
-
-" Mergetool {{{
-
-function! s:on_mergetool_set_layout(split)
-  setlocal nocursorline
-  call s:disable_cursorline_follows_focus()
-
-  nnoremap <leader>mt :MergetoolToggle<cr>
-
-  " When base is horizontal split at the bottom
-  " Turn off diff mode, and show syntax highlighting
-  " Also let it take less height
-  if (a:split["layout"] ==# 'mr,b' || a:split["layout"] ==# 'ml,b') && a:split["split"] ==# 'b'
-    setlocal nodiff
-    setlocal syntax=off
-    resize 15
-  endif
-endfunction
-
-let g:mergetool_layout = 'ml,b'
-let g:mergetool_prefer_revision = 'remote'
-let g:MergetoolSetLayoutCallback = function('s:on_mergetool_set_layout')
-
-" }}}
-
-runtime vimrc.local
-
-if exists("g:use_wiki")
-" Wiki {{{
-let g:wiki_link_extension = '.md'
-let g:wiki_link_target_type = 'md'
-let g:wiki_filetypes = ['md']
-let g:wiki_tags_format_pattern = '\v%(^|\s)#\zs[^# ]+'
-
-let g:wiki_map_create_page = 'WikiMapCreatePage'
-function! WikiMapCreatePage(text) abort
-    return substitute(tolower(a:text), '\s\+', '-', 'g')
-endfunction
-
-let g:wiki_map_link_create = 'WikiMapLinkCreate'
-function! WikiMapLinkCreate(text) abort
-    return substitute(tolower(a:text), '\s\+', '-', 'g')
-endfunction
-
-nnoremap <leader>ww :WikiFzfPages<CR>
-
-if !exists("g:wiki_root")
-    echoerr "g:wiki_root is not defined"
-endif
-" }}}
-endif
 
 " vim: set fdm=marker:
