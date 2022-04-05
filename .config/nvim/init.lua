@@ -80,11 +80,6 @@ if vim.fn.executable('rg') then
   opt.grepprg = 'rg --vimgrep --no-heading --smart-case'
 end
 
-vim.cmd [[if has('gui_running')
-  " Remove scrollbars and menus from the GUI
-  set guioptions=c
-endif]]
-
 -- }}}
 
 -- Mappings {{{
