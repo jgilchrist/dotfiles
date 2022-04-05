@@ -9,7 +9,6 @@ require 'jg.disable_builtins'
 vim.cmd [[filetype plugin indent on]]
 
 vim.cmd [[set encoding=utf-8]]
-vim.cmd [[set fileencoding=utf-8]]
 
 -- i - [noeol] instead of [Incomplete last line]
 -- x - [unix] instead of [unix format]
