@@ -40,7 +40,6 @@ require('packer').startup(function(use)
   -- Colorscheme
   use 'w0ng/vim-hybrid'
   use 'cormacrelf/vim-colors-github'
-  use {'TaDaa/vimade', config = function() require'jg.plugins.vimade' end }
 
   -- Extras
   use 'itchyny/lightline.vim'
