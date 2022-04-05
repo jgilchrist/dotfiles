@@ -30,8 +30,8 @@ function M.use_indent(n)
 end
 
 function M.use_text_mode()
-  vim.bo.wrap = true
-  vim.bo.linebreak = true
+  vim.wo.wrap = true
+  vim.wo.linebreak = true
 end
 
 function M.disable_cursorline_follows_focus()
