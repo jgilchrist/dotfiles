@@ -37,7 +37,6 @@ packer.startup(function(use)
   use 'tpope/vim-eunuch'
 
   use 'tpope/vim-unimpaired'
-  use {'jgilchrist/vim-mergetool', config = function() require'jg.plugins.mergetool' end }
 
   -- Languages
   use 'rust-lang/rust.vim'
@@ -57,6 +56,7 @@ packer.startup(function(use)
 
   use 'junegunn/goyo.vim'
   use 'editorconfig/editorconfig-vim'
+  use {'jgilchrist/vim-mergetool', config = function() require'jg.plugins.mergetool' end }
   use {'lervag/wiki.vim', config = function() require'jg.plugins.wiki' end }
 
   -- Experiments
