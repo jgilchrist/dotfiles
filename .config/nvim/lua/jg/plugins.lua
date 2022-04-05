@@ -22,7 +22,7 @@ packer.startup(function(use)
 
   -- Extensions to vim's language
   use 'tpope/vim-repeat'
-  use 'tpope/vim-commentary'
+  use {'numToStr/Comment.nvim', config = function() require'jg.plugins.comment' end }
   use 'tpope/vim-surround'
   use 'wellle/targets.vim'
   use {'phaazon/hop.nvim', config = function() require'jg.plugins.hop' end }
