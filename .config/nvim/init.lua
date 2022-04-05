@@ -76,9 +76,9 @@ opt.showmatch = true
 opt.matchtime = 2
 
 -- Use ripgrep for vim's :grep command
-vim.cmd [[if executable('rg')
-  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-endif]]
+if vim.fn.executable('rg') then
+  opt.grepprg = 'rg --vimgrep --no-heading --smart-case'
+end
 
 vim.cmd [[if has('gui_running')
   " Remove scrollbars and menus from the GUI
