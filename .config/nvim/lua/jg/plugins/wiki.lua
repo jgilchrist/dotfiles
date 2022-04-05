@@ -1,5 +1,5 @@
 vim.cmd [[
-if exists("g:use_wiki")
+if exists('g:use_wiki')
 
   let g:wiki_link_extension = '.md'
   let g:wiki_link_target_type = 'md'
@@ -18,8 +18,8 @@ if exists("g:use_wiki")
 
   nnoremap <leader>ww :WikiFzfPages<CR>
 
-  if !exists("g:wiki_root")
-    echoerr "g:wiki_root is not defined"
+  if !exists('g:wiki_root')
+    echoerr 'g:wiki_root is not defined'
   endif
 
 endif
