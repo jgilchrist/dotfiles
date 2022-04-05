@@ -44,13 +44,13 @@ require('packer').startup(function(use)
   use 'itchyny/lightline.vim'
   use 'junegunn/goyo.vim'
   use 'editorconfig/editorconfig-vim'
+  use {'lervag/wiki.vim', config = function() require'jg.plugins.wiki' end }
 
   -- Experiments
   use 'tpope/vim-abolish'
   use 'tpope/vim-characterize'
   use 'tpope/vim-eunuch'
   use 'tpope/vim-fugitive'
-  use {'lervag/wiki.vim', config = function() require'jg.plugins.wiki' end }
   use 'dhruvasagar/vim-table-mode'
   -- use 'simrat39/rust-tools.nvim'
   -- use 'neovim/nvim-lspconfig'
