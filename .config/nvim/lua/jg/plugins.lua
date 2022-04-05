@@ -18,6 +18,8 @@ packer.startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function() require'jg.plugins.treesitter' end }
+
   -- Extensions to vim's language
   use 'tpope/vim-repeat'
   use 'tpope/vim-commentary'
@@ -64,7 +66,6 @@ packer.startup(function(use)
   -- use 'simrat39/rust-tools.nvim'
   -- use 'neovim/nvim-lspconfig'
 
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function() require'jg.plugins.treesitter' end }
   use {'ekickx/clipboard-image.nvim', config = function() require'jg.plugins.clipboardimage' end }
 end)
 
