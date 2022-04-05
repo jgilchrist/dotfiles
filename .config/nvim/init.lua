@@ -30,6 +30,8 @@ vim.cmd [[set ignorecase]]
 vim.cmd [[set smartcase]]
 vim.cmd [[set infercase]]
 
+vim.cmd [[set undofile]]
+
 -- Redrawing
 vim.cmd [[set lazyredraw]]
 
@@ -69,21 +71,6 @@ endif]]
 function disable_cursorline_follows_focus()
   vim.api.nvim_create_augroup('CursorlineFollowsFocus', { clear = true })
 end
-
--- Backups/Swapfiles/Undofiles {{{
-
--- Keep backups, swapfiles and undofiles if we're not root
-vim.cmd [[if exists('$SUDO_USER')
-  set viminfo=
-  set nobackup
-  set nowritebackup
-  set noswapfile
-  set noundofile
-else
-  set undofile
-endif]]
-
--- }}}
 
 vim.cmd [[if has('gui_running')
   " Remove scrollbars and menus from the GUI
