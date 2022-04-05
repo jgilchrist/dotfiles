@@ -38,8 +38,7 @@ require('packer').startup(function(use)
   use 'PProvost/vim-ps1'
 
   -- Colorscheme
-  use 'w0ng/vim-hybrid'
-  use 'cormacrelf/vim-colors-github'
+  use 'projekt0n/github-nvim-theme'
 
   -- Extras
   use 'itchyny/lightline.vim'
@@ -90,9 +89,11 @@ endif]]
 vim.cmd [[if !exists('g:syntax_on')
   syntax enable
 endif]]
-vim.cmd [[colorscheme hybrid]]
-vim.cmd [[highlight Comment cterm=italic gui=italic]]
-vim.cmd [[set background=dark]]
+
+require("github-theme").setup({
+  theme_style = "dark_default",
+  comment_style = "italic",
+})
 
 vim.cmd [[set hidden]]
 
