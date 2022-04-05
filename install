@@ -61,13 +61,6 @@ main() {
 
     log_info "Creating .vim files"
     create_directory ~/.config/nvim
-    create_directory ~/.config/nvim/autoload
-    create_directory ~/.config/nvim/tmp
-    create_directory ~/.config/nvim/tmp/backup
-    create_directory ~/.config/nvim/tmp/swap
-    create_directory ~/.config/nvim/tmp/undo
-    create_file ~/.config/nvim/plugins.local.vim
-    create_file ~/.config/nvim/init.local.vim
     echo ""
 
     log_info "Creating machine-local config files"

@@ -176,6 +176,7 @@ vim.cmd [[nnoremap <Left> :vertical resize -2<CR>]]
 
 -- }}}
 
-vim.cmd [[runtime init.local.vim]]
+-- Load jg/local.lua if it exists
+pcall(require, "jg.local")
 
 -- vim: set fdm=marker:
