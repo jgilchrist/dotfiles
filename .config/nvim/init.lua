@@ -38,7 +38,7 @@ require('packer').startup(function(use)
   use 'PProvost/vim-ps1'
 
   -- Colorscheme
-  use 'projekt0n/github-nvim-theme'
+  use {'projekt0n/github-nvim-theme', config = function() require'jg.plugins.github' end }
 
   -- Extras
   use {'nvim-lualine/lualine.nvim',
@@ -92,11 +92,6 @@ endif]]
 vim.cmd [[if !exists('g:syntax_on')
   syntax enable
 endif]]
-
-require("github-theme").setup({
-  theme_style = "dark_default",
-  comment_style = "italic",
-})
 
 vim.cmd [[set hidden]]
 
