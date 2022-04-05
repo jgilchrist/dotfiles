@@ -20,16 +20,16 @@ require('packer').startup(function(use)
   use 'wellle/targets.vim'
   use 'justinmk/vim-sneak'
   use 'tommcdo/vim-exchange'
-  use {'junegunn/vim-easy-align', config = function() require'plugins.easyalign' end }
+  use {'junegunn/vim-easy-align', config = function() require'jg.plugins.easyalign' end }
 
   -- File management
-  use {'junegunn/fzf', run = ':call fzf#install()', config = function() require'plugins.fzf' end }
+  use {'junegunn/fzf', run = ':call fzf#install()', config = function() require'jg.plugins.fzf' end }
   use 'junegunn/fzf.vim'
 
-  use {'justinmk/vim-dirvish', config = function() require'plugins.dirvish' end }
+  use {'justinmk/vim-dirvish', config = function() require'jg.plugins.dirvish' end }
 
   use 'tpope/vim-unimpaired'
-  use {'jgilchrist/vim-mergetool', config = function() require'plugins.mergetool' end }
+  use {'jgilchrist/vim-mergetool', config = function() require'jg.plugins.mergetool' end }
 
   -- Languages
   use 'rust-lang/rust.vim'
@@ -40,7 +40,7 @@ require('packer').startup(function(use)
   -- Colorscheme
   use 'w0ng/vim-hybrid'
   use 'cormacrelf/vim-colors-github'
-  use {'TaDaa/vimade', config = function() require'plugins.vimade' end }
+  use {'TaDaa/vimade', config = function() require'jg.plugins.vimade' end }
 
   -- Extras
   use 'itchyny/lightline.vim'
@@ -52,14 +52,14 @@ require('packer').startup(function(use)
   use 'tpope/vim-characterize'
   use 'tpope/vim-eunuch'
   use 'tpope/vim-fugitive'
-  use {'lervag/wiki.vim', config = function() require'plugins.wiki' end }
+  use {'lervag/wiki.vim', config = function() require'jg.plugins.wiki' end }
   use 'dhruvasagar/vim-table-mode'
   -- use 'phaazon/hop.nvim'
   -- use 'simrat39/rust-tools.nvim'
   -- use 'neovim/nvim-lspconfig'
 
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function() require'plugins.treesitter' end }
-  use {'ekickx/clipboard-image.nvim', config = function() require'plugins.clipboardimage' end }
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function() require'jg.plugins.treesitter' end }
+  use {'ekickx/clipboard-image.nvim', config = function() require'jg.plugins.clipboardimage' end }
 
   if packer_bootstrap then
     require('packer').sync()
