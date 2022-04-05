@@ -41,7 +41,11 @@ require('packer').startup(function(use)
   use 'projekt0n/github-nvim-theme'
 
   -- Extras
-  use 'itchyny/lightline.vim'
+  use {'nvim-lualine/lualine.nvim',
+    after = 'github-nvim-theme',
+    config = function() require'jg.plugins.lualine' end,
+  }
+
   use 'junegunn/goyo.vim'
   use 'editorconfig/editorconfig-vim'
   use {'lervag/wiki.vim', config = function() require'jg.plugins.wiki' end }
