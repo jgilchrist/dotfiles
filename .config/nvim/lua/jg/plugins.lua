@@ -37,12 +37,6 @@ packer.startup(function(use)
   use 'tpope/vim-eunuch'
 
   use 'tpope/vim-unimpaired'
-
-  -- Languages
-  use 'rust-lang/rust.vim'
-  use 'leafgarland/typescript-vim'
-  use 'hashivim/vim-terraform'
-  use 'PProvost/vim-ps1'
   use 'tpope/vim-fugitive'
 
   -- Colorscheme
