@@ -6,84 +6,37 @@ require 'jg.disable_builtins'
 
 -- Settings {{{
 
-vim.cmd [[filetype plugin indent on]]
-
-vim.cmd [[set encoding=utf-8]]
-
--- i - [noeol] instead of [Incomplete last line]
--- x - [unix] instead of [unix format]
--- t - Truncate file message at start if it is too long to fit on the command line
--- I - Don't show the intro message when starting Vim
-vim.cmd [[set shortmess=ixtI]]
-
--- F - don't print filenames
-vim.cmd [[if &diff
-  set shortmess+=F
-endif]]
-
+-- Don't show the intro message when starting Vim
+vim.cmd [[set shortmess+=I]]
 
 -- Appearance
-vim.cmd [[if !exists('g:syntax_on')
-  syntax enable
-endif]]
-
-vim.cmd [[set hidden]]
-
 vim.cmd [[set number]]
-vim.cmd [[set ruler]]
-vim.cmd [[set showcmd]]
 vim.cmd [[set cursorline]]
 vim.cmd [[set nowrap]]
-vim.cmd [[set laststatus=2]]
 vim.cmd [[set scrolloff=3]]
-vim.cmd [[set sidescrolloff=3]]
-vim.cmd [[set synmaxcol=300]]
 vim.cmd [[set listchars=tab:\|\ ,trail:∙,extends:>,precedes:<,nbsp:‡]]
 vim.cmd [[set showbreak=>\ ]]
 vim.cmd [[set breakindentopt=shift:2]]
 
-vim.cmd [[set wildmenu]]
-vim.cmd [[set wildmode=list:longest,full]]
-
 -- Indentation
-vim.cmd [[set autoindent]]
 vim.cmd [[set expandtab]]
 vim.cmd [[set tabstop=4]]
 vim.cmd [[set softtabstop=4]]
 vim.cmd [[set shiftwidth=4]]
 vim.cmd [[set shiftround]]
-vim.cmd [[set backspace=indent,eol,start]]
 
 -- Search
-vim.cmd [[set incsearch]]
 vim.cmd [[set ignorecase]]
 vim.cmd [[set smartcase]]
 vim.cmd [[set infercase]]
 
 -- Redrawing
 vim.cmd [[set lazyredraw]]
-vim.cmd [[set ttyfast]]
-vim.cmd [[set ttimeout]]
-vim.cmd [[set ttimeoutlen=50]]
 
-vim.cmd [[
-if has('nvim') || has("patch-8.1.0360")
-    set diffopt=filler,internal,algorithm:histogram,indent-heuristic
-endif
-]]
-
--- Disable all bells (audio, flash)
-vim.cmd [[if exists("&belloff")
-  set belloff=all
-endif]]
+vim.cmd [[set diffopt=filler,internal,algorithm:histogram,indent-heuristic]]
 
 -- Allow the cursor to move anywhere in visual block mode
 vim.cmd [[set virtualedit=block]]
-
--- Automatically read the file if it changed outside vim
-vim.cmd [[set autoread]]
-vim.cmd [[set modeline]]
-vim.cmd [[set modelines=1]]
 
 -- Open splits to the right and to the bottom
 vim.cmd [[set splitbelow]]
@@ -107,15 +60,6 @@ vim.cmd [[set fillchars+=vert:│]]
 -- Flash matching braces for 200ms
 vim.cmd [[set showmatch]]
 vim.cmd [[set matchtime=2]]
-
--- Don't search through includes for completion as this can be slow
-vim.cmd [[set complete-=i]]
-
-vim.cmd [[set nrformats-=octal]]
-
--- When joining lines, delete comment characters if appropriate
-vim.cmd [[set formatoptions+=j]]
-vim.cmd [[set nojoinspaces]]
 
 -- Use ripgrep for vim's :grep command
 vim.cmd [[if executable("rg")
@@ -154,13 +98,6 @@ vim.cmd [[if exists('$SUDO_USER')
   set noswapfile
   set noundofile
 else
-  if !has("nvim")
-    set viminfo+=n~/.vim/tmp/viminfo
-    set backupdir=~/.vim/tmp/backup
-    set directory=~/.vim/tmp/swap
-    set undodir=~/.vim/tmp/undo
-  endif
-
   set undofile
 endif]]
 
