@@ -105,7 +105,7 @@ vim.keymap.set('n', 'J', 'mzJ`z')
 
 -- Edit/source configuration
 vim.keymap.set('n', '<leader>ec', ':edit $MYVIMRC<CR>', { silent = true })
-vim.keymap.set('n', '<leader>sc', function() require'jg.config'.reload_config() end, { silent = true })
+vim.keymap.set('n', '<leader>sc', require'jg.config'.reload_config, { silent = true })
 
 -- Remap H and L to start and end of the line
 vim.keymap.set({'n', 'x'}, 'H', '^')
