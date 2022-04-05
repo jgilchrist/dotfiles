@@ -18,7 +18,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
   use 'wellle/targets.vim'
-  use 'justinmk/vim-sneak'
+  use {'phaazon/hop.nvim', config = function() require'jg.plugins.hop' end }
   use 'tommcdo/vim-exchange'
   use {'junegunn/vim-easy-align', config = function() require'jg.plugins.easyalign' end }
 
@@ -52,7 +52,6 @@ require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use {'lervag/wiki.vim', config = function() require'jg.plugins.wiki' end }
   use 'dhruvasagar/vim-table-mode'
-  -- use 'phaazon/hop.nvim'
   -- use 'simrat39/rust-tools.nvim'
   -- use 'neovim/nvim-lspconfig'
 
