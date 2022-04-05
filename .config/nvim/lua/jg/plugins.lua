@@ -34,6 +34,7 @@ packer.startup(function(use)
   use 'junegunn/fzf.vim'
 
   use {'justinmk/vim-dirvish', config = function() require'jg.plugins.dirvish' end }
+  use 'tpope/vim-eunuch'
 
   use 'tpope/vim-unimpaired'
   use {'jgilchrist/vim-mergetool', config = function() require'jg.plugins.mergetool' end }
@@ -60,7 +61,6 @@ packer.startup(function(use)
   -- Experiments
   use 'tpope/vim-abolish'
   use 'tpope/vim-characterize'
-  use 'tpope/vim-eunuch'
   use 'tpope/vim-fugitive'
   use 'dhruvasagar/vim-table-mode'
   -- use 'simrat39/rust-tools.nvim'
