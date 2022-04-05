@@ -120,21 +120,8 @@ vim.cmd [[nnoremap J mzJ`z]]
 -- }}}
 
 -- Edit/source configuration
-function reload_config()
-  for name,_ in pairs(package.loaded) do
-    -- Work round the fact that these modules would otherwise be loaded from the cache
-    if name:match('^jg') then
-      package.loaded[name] = nil
-    end
-  end
-
-  dofile(vim.env.MYVIMRC)
-  require'packer'.compile()
-  vim.notify('Reloaded!', vim.log.levels.INFO)
-end
-
 vim.cmd [[nnoremap <silent> <leader>ec :edit $MYVIMRC<CR>]]
-vim.cmd [[nnoremap <silent> <leader>sc :lua reload_config()<CR>]]
+vim.cmd [[nnoremap <silent> <leader>sc :lua require'jg.config'.reload_config()<CR>]]
 
 -- Remap H and L to start and end of the line
 vim.cmd [[nnoremap H ^]]
