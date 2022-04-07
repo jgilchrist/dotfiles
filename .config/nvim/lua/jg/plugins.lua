@@ -41,7 +41,7 @@ packer.startup(function(use)
   use 'tpope/vim-eunuch'
 
   use 'tpope/vim-unimpaired'
-  use 'tpope/vim-fugitive'
+  use {'tpope/vim-fugitive', cmd = {'Git'}}
 
   -- Colorscheme
   use {'projekt0n/github-nvim-theme', config = function() require'jg.plugins.github' end }
@@ -52,14 +52,16 @@ packer.startup(function(use)
     config = function() require'jg.plugins.lualine' end,
   }
 
-  use 'junegunn/goyo.vim'
+  use {'junegunn/goyo.vim', cmd = {'Goyo'}}
   use 'editorconfig/editorconfig-vim'
-  use {'jgilchrist/vim-mergetool', config = function() require'jg.plugins.mergetool' end }
-  use {'lervag/wiki.vim', config = function() require'jg.plugins.wiki' end }
+  use {'jgilchrist/vim-mergetool', config = function() require'jg.plugins.mergetool' end, cmd = { 'MergetoolStart', 'MergetoolToggle' } }
+  use {'lervag/wiki.vim', config = function() require'jg.plugins.wiki' end, cmd = 'WikiFzfPages' }
+  -- If this was set inside a {config} section, it wouldn't be run due to lazy loading
+  vim.keymap.set('n', '<leader>ww', ':WikiFzfPages<CR>')
 
   -- Experiments
-  use 'dhruvasagar/vim-table-mode'
-  use {'ekickx/clipboard-image.nvim', config = function() require'jg.plugins.clipboardimage' end }
+  use {'dhruvasagar/vim-table-mode', cmd = { 'TableModeToggle' }}
+  use {'ekickx/clipboard-image.nvim', config = function() require'jg.plugins.clipboardimage' end, ft = { 'markdown' }}
   -- use 'simrat39/rust-tools.nvim'
   -- use 'neovim/nvim-lspconfig'
 

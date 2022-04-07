@@ -14,5 +14,3 @@ end
 
 vim.g.wiki_map_create_page = snakecase
 vim.g.wiki_map_link_create = snakecase
-
-vim.keymap.set('n', '<leader>ww', ':WikiFzfPages<CR>')
