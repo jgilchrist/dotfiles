@@ -17,6 +17,7 @@ opt.number = true
 opt.cursorline = true
 opt.wrap = false
 opt.scrolloff = 3
+opt.sidescrolloff = 3
 
 opt.listchars:append('tab:| ')
 opt.listchars:append('trail:∙')
