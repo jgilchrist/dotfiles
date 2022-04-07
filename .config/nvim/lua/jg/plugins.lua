@@ -55,9 +55,14 @@ packer.startup(function(use)
   use {'junegunn/goyo.vim', cmd = {'Goyo'}}
   use 'editorconfig/editorconfig-vim'
   use {'jgilchrist/vim-mergetool', config = function() require'jg.plugins.mergetool' end, cmd = { 'MergetoolStart', 'MergetoolToggle' } }
-  use {'lervag/wiki.vim', config = function() require'jg.plugins.wiki' end, cmd = 'WikiFzfPages' }
-  -- If this was set inside a {config} section, it wouldn't be run due to lazy loading
-  vim.keymap.set('n', '<leader>ww', ':WikiFzfPages<CR>')
+
+  use {'lervag/wiki.vim',
+    config = function() require'jg.plugins.wiki' end,
+    cmd = 'WikiFzfPages',
+    setup = function()
+      vim.keymap.set('n', '<leader>ww', ':WikiFzfPages<CR>')
+    end
+  }
 
   -- Experiments
   use {'dhruvasagar/vim-table-mode', cmd = { 'TableModeToggle' }}
