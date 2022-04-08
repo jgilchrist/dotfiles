@@ -71,6 +71,7 @@ packer.startup(function(use)
   -- Experiments
   use {'dhruvasagar/vim-table-mode', cmd = { 'TableModeToggle' }}
   use {'ekickx/clipboard-image.nvim', config = plugin_config('clipboardimage'), ft = { 'markdown' }}
+  use {'L3MON4D3/LuaSnip', config = plugin_config('luasnip') }
   -- use 'simrat39/rust-tools.nvim'
   -- use 'neovim/nvim-lspconfig'
 
