@@ -38,4 +38,8 @@ function M.disable_cursorline_follows_focus()
   M.augroup('cursorline_follows_focus', function() end)
 end
 
+function M.replace_termcodes(s)
+  return vim.api.nvim_replace_termcodes(s, true, true, true)
+end
+
 return M
