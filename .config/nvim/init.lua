@@ -24,7 +24,6 @@ opt.listchars:append('trail:∙')
 opt.listchars:append('extends:>')
 opt.listchars:append('precedes:<')
 opt.listchars:append('nbsp:‡')
-opt.list = true
 
 opt.showbreak = '↪ '
 opt.breakindentopt = 'shift:2'
