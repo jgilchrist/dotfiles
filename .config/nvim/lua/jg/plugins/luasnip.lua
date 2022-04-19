@@ -1,47 +1,19 @@
 local luasnip = require'luasnip'
-local snipmate_loader = require'luasnip.loaders.from_snipmate'
+local luasnip_snipmate_loader = require'luasnip.loaders.from_snipmate'
+local augroup = require'jg.config'.augroup
 
-snipmate_loader.lazy_load()
+luasnip_snipmate_loader.lazy_load()
 
-local t = function(str)
-  return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
-local check_back_space = function()
-  local col = vim.fn.col('.') - 1
-
-  if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-  return true
-else
-  return false
-end
-end
-
-_G.tab_complete = function()
-if vim.fn.pumvisible() == 1 then
-  return t "<C-n>"
-  elseif luasnip and luasnip.expand_or_jumpable() then
-    return t("<Plug>luasnip-expand-or-jump")
-elseif check_back_space() then
-  return t "<Tab>"
+function leave_snippet()
+  if ((vim.v.event.old_mode == 's' and vim.v.event.new_mode == 'n') or vim.v.event.old_mode == 'i')
+    and luasnip.session.current_nodes[vim.api.nvim_get_current_buf()]
+    and not luasnip.session.jump_active
+  then
+    luasnip.unlink_current()
   end
-  return ""
 end
 
-_G.s_tab_complete = function()
-if vim.fn.pumvisible() == 1 then
-  return t "<C-p>"
-  elseif luasnip and luasnip.jumpable(-1) then
-    return t("<Plug>luasnip-jump-prev")
-else
-  return t "<S-Tab>"
-  end
-  return ""
-end
-
-vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.tab_complete()', {expr = true})
-vim.api.nvim_set_keymap('s', '<Tab>', 'v:lua.tab_complete()', {expr = true})
-vim.api.nvim_set_keymap('i', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
-vim.api.nvim_set_keymap('s', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
-vim.api.nvim_set_keymap('i', '<C-E>', '<Plug>luasnip-next-choice', {})
-vim.api.nvim_set_keymap('s', '<C-E>', '<Plug>luasnip-next-choice', {})
+-- Always stop snippets when leaving normal mode
+augroup('cancel_luasnip_on_normal_mode', function(autocmd)
+  autocmd('ModeChanged', { callback = function() leave_snippet() end })
+end)

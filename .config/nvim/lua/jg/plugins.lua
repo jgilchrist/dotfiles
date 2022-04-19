@@ -72,9 +72,27 @@ packer.startup(function(use)
   use {'dhruvasagar/vim-table-mode', cmd = { 'TableModeToggle' }}
   use {'ekickx/clipboard-image.nvim', config = plugin_config('clipboardimage'), ft = { 'markdown' }}
   use {'L3MON4D3/LuaSnip', config = plugin_config('luasnip') }
-  -- use 'simrat39/rust-tools.nvim'
-  -- use 'neovim/nvim-lspconfig'
 
+  use {
+    'neovim/nvim-lspconfig',
+    requires = {
+      'williamboman/nvim-lsp-installer',
+      'hrsh7th/cmp-nvim-lsp',
+    },
+    config = plugin_config('lsp')
+  }
+
+  use {'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-nvim-lua',
+      'saadparwaiz1/cmp_luasnip',
+    },
+    config = plugin_config('cmp')
+  }
 end)
 
 if packer_bootstrap then
