@@ -60,18 +60,11 @@ packer.startup(function(use)
   use 'editorconfig/editorconfig-vim'
   use {'jgilchrist/vim-mergetool', config = plugin_config('mergetool'), cmd = { 'MergetoolStart', 'MergetoolToggle' } }
 
-  use {'lervag/wiki.vim',
-    config = plugin_config('wiki'),
-    cmd = 'WikiFzfPages',
-    setup = function()
-      vim.keymap.set('n', '<leader>ww', ':WikiFzfPages<CR>')
-    end
-  }
-
   -- Experiments
   use {'dhruvasagar/vim-table-mode', cmd = { 'TableModeToggle' }}
   use {'ekickx/clipboard-image.nvim', config = plugin_config('clipboardimage'), ft = { 'markdown' }}
   use {'L3MON4D3/LuaSnip', config = plugin_config('luasnip') }
+  use {'mickael-menu/zk-nvim', config = plugin_config('zk') }
   use {'stevearc/dressing.nvim', config = plugin_config('dressing') }
 
   use {
