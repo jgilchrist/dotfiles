@@ -49,7 +49,7 @@ cmp.setup({
       require('luasnip').lsp_expand(args.body)
     end,
   },
-  mapping = {
+  mapping = cmp.mapping.preset.insert{
     ['<Tab>'] = tab_mapping,
     ['<S-Tab>'] = shift_tab_mapping,
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
@@ -70,12 +70,14 @@ cmp.setup({
 })
 
 cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = {
     { name = 'buffer', keyword_length = 6 }
   }
 })
 
 cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources(
     {
       { name = 'path', keyword_length = 5 },
