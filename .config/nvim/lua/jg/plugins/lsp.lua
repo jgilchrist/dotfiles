@@ -1,32 +1,13 @@
 local M = {}
 
 local lsp_installer = require'nvim-lsp-installer'
+local nvim_lsp = require'lspconfig'
+local cmp_nvim_lsp = require'cmp_nvim_lsp'
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
 
-local server_opts = {
-  ["sumneko_lua"] = function(opts)
-    opts.settings = {
-      Lua = {
-        diagnostics = {
-          globals = {'vim'},
-          disable = {'lowercase-global'}
-        },
-      },
-    }
-  end,
-  ["rust_analyzer"] = function(opts)
-    opts.settings = {
-      ['rust-analyzer'] = {
-        checkOnSave = {
-          enable = true,
-          command = "check",
-          extraArgs = { "--target-dir", "/tmp/rust-analyzer-check" },
-        },
-      }
-    }
-  end,
-}
+lsp_installer.setup();
+cmp_nvim_lsp.update_capabilities(lsp_capabilities)
 
 function M.on_attach(_, bufnr)
   local keybind_opts = { noremap=true, silent=true }
@@ -49,17 +30,32 @@ function M.on_attach(_, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', keybind_opts)
 end
 
-lsp_installer.on_server_ready(function(server)
-  local opts = {
-    on_attach = M.on_attach,
-    capabilities = capabilities,
-  }
 
-  if server_opts[server.name] then
-    server_opts[server.name](opts)
-  end
+nvim_lsp.sumneko_lua.setup {
+  on_attach = M.on_attach,
+  capabilities = lsp_capabilities,
+  settings = {
+      Lua = {
+        diagnostics = {
+          globals = {'vim'},
+          disable = {'lowercase-global'}
+        },
+      },
+    }
+}
 
-  server:setup(opts)
-end)
+nvim_lsp.rust_analyzer.setup {
+  on_attach = M.on_attach,
+  capabilities = lsp_capabilities,
+  settings = {
+      ['rust-analyzer'] = {
+        checkOnSave = {
+          enable = true,
+          command = "check",
+          extraArgs = { "--target-dir", "/tmp/rust-analyzer-check" },
+        },
+      }
+    }
+}
 
 return M
