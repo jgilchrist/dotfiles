@@ -1,14 +1,7 @@
+require'jg.util'.bootstrap_packer()
+
 local augroup = require'jg.config'.augroup
 local packer = require'packer'
-
-function bootstrap_packer()
-  local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    packer_bootstrap = vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-  end
-end
-
-bootstrap_packer()
 
 function plugin_config(n)
   return string.format([[require 'jg.plugins.%s']], n)
