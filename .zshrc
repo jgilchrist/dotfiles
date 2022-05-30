@@ -181,10 +181,6 @@ else
     export EDITOR="vim"
 fi
 
-if (( $+commands[brew] )); then
-    export HOMEBREW_UPDATE_REPORT_ONLY_INSTALLED=1
-fi
-
 # If ripgrep is installed, configure its config file
 if (( $+commands[rg] )); then
     export RIPGREP_CONFIG_PATH="${HOME}/.config/ripgrep/config"
