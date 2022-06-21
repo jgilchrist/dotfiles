@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -eou pipefail
-
 TERMINFO_FILE=$1
 TERMINFO_PATH="${HOME}/.terminfo"
 
