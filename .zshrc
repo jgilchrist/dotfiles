@@ -83,24 +83,6 @@ function tmpdir() {
   rm -rf "$SCRATCHDIR"
 }
 
-function load_dir_aliases() {
-    local DIRS_SOURCE_FILE="$1"
-    local DIRS_GEN_FILE=$(mktemp)
-
-    touch ${DIRS_GEN_FILE}
-    chmod +x ${DIRS_GEN_FILE}
-    echo -n "" >! ${DIRS_GEN_FILE}
-
-    while read dir; do
-        local name=$(echo $dir | cut -d: -f1)
-        local location=$(echo $dir | cut -d: -f2)
-        echo "hash -d $name=$location" >> ${DIRS_GEN_FILE}
-    done < ${DIRS_SOURCE_FILE}
-
-    source ${DIRS_GEN_FILE}
-    rm ${DIRS_GEN_FILE}
-}
-
 function load_path_dirs() {
     local PATH_SOURCE_FILE="$1"
     local PATH_GEN_FILE=$(mktemp)
@@ -154,9 +136,6 @@ alias keychain="keychain --host jgilchrist"
 
 # Machine-specific modifications to the environment
 [ -f "${HOME}/.local/env" ] && source "${HOME}/.local/env"
-
-# Machine-local directory aliases from ~/.local/dirs
-[ -f "${HOME}/.local/dirs" ] && load_dir_aliases "${HOME}/.local/dirs"
 
 # Machine-local additions to $PATH from ~/.local/path
 [ -f "${HOME}/.local/path" ] && load_path_dirs "${HOME}/.local/path"

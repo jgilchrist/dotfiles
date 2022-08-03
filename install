@@ -65,7 +65,7 @@ main() {
 
     log_info "Creating machine-local config files"
     create_file ~/.local/env
-    create_file ~/.local/dirs
+    create_file ~/.local/path
     echo ""
 
     log_info "Creating ~/.config directories"
