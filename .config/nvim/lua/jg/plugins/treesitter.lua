@@ -34,7 +34,6 @@ require'nvim-treesitter.configs'.setup {
     'rst',
     'rust',
     'scss',
-    'swift',
     'toml',
     'tsx',
     'typescript',
