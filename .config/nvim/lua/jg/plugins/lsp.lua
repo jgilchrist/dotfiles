@@ -1,12 +1,17 @@
 local M = {}
 
-local lsp_installer = require'nvim-lsp-installer'
+local mason = require'mason'
+local mason_lspconfig = require'mason-lspconfig'
 local nvim_lsp = require'lspconfig'
 local cmp_nvim_lsp = require'cmp_nvim_lsp'
 
 local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
 
-lsp_installer.setup();
+mason.setup();
+mason_lspconfig.setup {
+  ensure_installed = { 'sumneko_lua', 'rust_analyzer' }
+}
+
 cmp_nvim_lsp.update_capabilities(lsp_capabilities)
 
 function M.on_attach(_, bufnr)
