@@ -20,7 +20,7 @@ packer.startup(function(use)
   -- Extensions to vim's language
   use 'tpope/vim-repeat'
   use {'numToStr/Comment.nvim', config = plugin_config('comment')}
-  use 'tpope/vim-surround'
+  use {'kylechui/nvim-surround', config = plugin_config('surround')}
   use 'wellle/targets.vim'
   use {'phaazon/hop.nvim', config = plugin_config('hop')}
   use 'tommcdo/vim-exchange'
