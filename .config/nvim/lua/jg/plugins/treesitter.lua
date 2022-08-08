@@ -21,7 +21,6 @@ require'nvim-treesitter.configs'.setup {
     'json5',
     'jsonc',
     'kotlin',
-    'lalrpop',
     'latex',
     'llvm',
     'lua',
