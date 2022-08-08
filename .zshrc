@@ -103,7 +103,7 @@ function load_path_dirs() {
 alias mv="mv --interactive --verbose"
 alias cp="cp --interactive --verbose"
 alias mkdir="mkdir --parents --verbose"
-alias ls="ls --human-readable --color=auto --indicator-style=slash --group-directories-first"
+alias ls="ls --human-readable --color=auto --indicator-style=slash --group-directories-first --no-group"
 alias ll="ls -l"
 alias la="ls --almost-all"
 alias lla="ls -l --almost-all"
