@@ -2,6 +2,7 @@ require'jg.util'.bootstrap_packer()
 
 local augroup = require'jg.config'.augroup
 local packer = require'packer'
+local haslocalconfig,localconfig = pcall(require, 'jg.local')
 
 function plugin_config(n)
   return string.format([[require 'jg.plugins.%s']], n)
@@ -81,6 +82,10 @@ packer.startup(function(use)
     },
     config = plugin_config('cmp')
   }
+
+  if haslocalconfig then
+    localconfig.plugins(use)
+  end
 end)
 
 if packer_bootstrap then

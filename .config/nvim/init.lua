@@ -3,6 +3,7 @@ require 'jg.disable_builtins'
 
 local opt = vim.opt
 local augroup = require'jg.config'.augroup
+local haslocalconfig,localconfig = pcall(require, 'jg.local')
 
 -- Settings {{{
 
@@ -150,6 +151,8 @@ vim.keymap.set('n', '<Left>', ':vertical resize -2<CR>')
 -- }}}
 
 -- Load jg/local.lua if it exists
-pcall(require, "jg.local")
+if haslocalconfig then
+  localconfig.setup()
+end
 
 -- vim: set fdm=marker:
