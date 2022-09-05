@@ -1,6 +1,7 @@
 require 'jg.plugins'
 require 'jg.disable_builtins'
 
+local o = vim.o
 local opt = vim.opt
 local augroup = require'jg.config'.augroup
 local haslocalconfig,localconfig = pcall(require, 'jg.local')
@@ -11,14 +12,14 @@ vim.g.mapleader = ','
 vim.g.maplocalleader = ','
 
 -- Don't show the intro message when starting Vim
-opt.shortmess:append('I')
+vim.opt.shortmess:append('I')
 
 -- Appearance
-opt.number = true
-opt.cursorline = true
-opt.wrap = false
-opt.scrolloff = 3
-opt.sidescrolloff = 3
+o.number = true
+o.cursorline = true
+o.wrap = false
+o.scrolloff = 3
+o.sidescrolloff = 3
 
 opt.listchars:append('tab:| ')
 opt.listchars:append('trail:∙')
@@ -26,14 +27,14 @@ opt.listchars:append('extends:>')
 opt.listchars:append('precedes:<')
 opt.listchars:append('nbsp:‡')
 
-opt.showbreak = '↪ '
-opt.breakindentopt = 'shift:2'
+o.showbreak = '↪ '
+o.breakindentopt = 'shift:2'
 
-opt.wildmode='list:longest,full'
+o.wildmode='list:longest,full'
 
 -- Indentation
-opt.expandtab = true
-opt.shiftround = true
+o.expandtab = true
+o.shiftround = true
 
 -- Set these only globally so they do not override buffer-specific
 -- settings when configuration is reloaded
@@ -42,27 +43,27 @@ vim.go.softtabstop = 4
 vim.go.shiftwidth = 4
 
 -- Search
-opt.ignorecase = true
-opt.smartcase = true
-opt.infercase = true
+o.ignorecase = true
+o.smartcase = true
+o.infercase = true
 
 -- Flash matching braces for 200ms
-opt.showmatch = true
-opt.matchtime = 2
+o.showmatch = true
+o.matchtime = 2
 
-opt.undofile = true
+o.undofile = true
 
 -- Redrawing
-opt.lazyredraw = true
+o.lazyredraw = true
 
-opt.diffopt = 'filler,internal,algorithm:histogram,indent-heuristic'
+o.diffopt = 'filler,internal,algorithm:histogram,indent-heuristic'
 
 -- Allow the cursor to move anywhere in visual block mode
-opt.virtualedit = 'block'
+o.virtualedit = 'block'
 
 -- Open splits to the right and to the bottom
-opt.splitbelow = true
-opt.splitright = true
+o.splitbelow = true
+o.splitright = true
 
 augroup('resize_splits', function(autocmd)
   autocmd('VimResized', { command = ':wincmd =' })
@@ -83,7 +84,7 @@ end)
 
 -- Use ripgrep for vim's :grep command
 if vim.fn.executable('rg') then
-  opt.grepprg = 'rg --vimgrep --no-heading --smart-case'
+  o.grepprg = 'rg --vimgrep --no-heading --smart-case'
 end
 
 -- }}}
