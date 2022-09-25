@@ -143,14 +143,9 @@ alias keychain="keychain --host jgilchrist"
 # Tool-specific configuration/aliases {{{
 # This needs to come after .local/env as .local/env may add these tools to the path
 
-# If FZF is installed, use it
-if [ -f ~/.fzf.zsh ]; then
-    source ~/.fzf.zsh
-
-    # If fd is installed, use it for FZF
-    if (( $+commands[fd] )); then
-        export FZF_DEFAULT_COMMAND="fd --type file --hidden --exclude '.git/**'"
-    fi
+# If fd is installed, use it for FZF
+if (( $+commands[fd] )); then
+    export FZF_DEFAULT_COMMAND="fd --type file --hidden --exclude '.git/**'"
 fi
 
 if (( $+commands[nvim] )); then
