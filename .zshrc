@@ -175,6 +175,12 @@ if (( $+commands[curlie] )); then
     alias https="curlie --https"
 fi
 
+if (( $+commands[reveal-md] )); then
+    function revealmd() {
+        reveal-md $1 --watch --highlight-theme="github-dark"
+    }
+fi
+
 # }}}
 
 # vim: set fdm=marker:
