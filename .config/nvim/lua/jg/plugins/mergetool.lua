@@ -9,6 +9,6 @@ vim.g.MergetoolSetLayoutCallback = function(split)
   -- Don't include the bottom pane in the diff, and make it smaller
   if split['split'] == 'b' then
     vim.wo.diff = false
-    vim.cmd [[resize 15]]
+    vim.cmd.resize('15')
   end
 end

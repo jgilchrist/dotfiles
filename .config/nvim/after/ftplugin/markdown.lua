@@ -2,7 +2,7 @@ require'jg.config'.use_text_mode()
 
 
 if require("zk.util").notebook_root(vim.fn.expand('%:p')) ~= nil then
-  vim.cmd [[setlocal conceallevel=2]]
+  vim.wo.conceallevel=2
 
   -- <CR> opens links in normal mode
   vim.api.nvim_buf_set_keymap(0, "n", "<CR>", "<Cmd>lua vim.lsp.buf.definition()<CR>", { noremap=true, silent=false })
