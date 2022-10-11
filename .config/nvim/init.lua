@@ -6,6 +6,10 @@ local opt = vim.opt
 local augroup = require'jg.config'.augroup
 local haslocalconfig,localconfig = pcall(require, 'jg.local')
 
+if haslocalconfig then
+  localconfig.preconfig()
+end
+
 -- Settings {{{
 
 vim.g.mapleader = ','
@@ -151,9 +155,8 @@ vim.keymap.set('n', '<Left>', ':vertical resize -2<CR>')
 
 -- }}}
 
--- Load jg/local.lua if it exists
 if haslocalconfig then
-  localconfig.setup()
+  localconfig.postconfig()
 end
 
 -- vim: set fdm=marker:
