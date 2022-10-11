@@ -1,16 +1,17 @@
-require 'jg.plugins'
-require 'jg.disable_builtins'
-
-local o = vim.o
-local opt = vim.opt
-local augroup = require'jg.config'.augroup
 local haslocalconfig,localconfig = pcall(require, 'jg.local')
 
 if haslocalconfig then
   localconfig.preconfig()
 end
 
+require 'jg.plugins'
+require 'jg.disable_builtins'
+
 -- Settings {{{
+
+local o = vim.o
+local opt = vim.opt
+local augroup = require'jg.config'.augroup
 
 vim.g.mapleader = ','
 vim.g.maplocalleader = ','
