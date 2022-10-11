@@ -55,33 +55,37 @@ packer.startup(function(use)
   use {'jgilchrist/vim-mergetool', config = plugin_config('mergetool'), cmd = { 'MergetoolStart', 'MergetoolToggle' } }
 
   -- Experiments
-  use {'dhruvasagar/vim-table-mode', cmd = { 'TableModeToggle' }}
-  use {'ekickx/clipboard-image.nvim', config = plugin_config('clipboardimage'), ft = { 'markdown' }}
-  use {'L3MON4D3/LuaSnip', config = plugin_config('luasnip') }
-  use {'mickael-menu/zk-nvim', config = plugin_config('zk') }
-  use {'stevearc/dressing.nvim', config = plugin_config('dressing') }
+  if vim.g.jg_load_experiments then
 
-  use {
-    'neovim/nvim-lspconfig',
-    requires = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-      'hrsh7th/cmp-nvim-lsp',
-    },
-    config = plugin_config('lsp')
-  }
+    use {'dhruvasagar/vim-table-mode', cmd = { 'TableModeToggle' }}
+    use {'ekickx/clipboard-image.nvim', config = plugin_config('clipboardimage'), ft = { 'markdown' }}
+    use {'L3MON4D3/LuaSnip', config = plugin_config('luasnip') }
+    use {'mickael-menu/zk-nvim', config = plugin_config('zk') }
+    use {'stevearc/dressing.nvim', config = plugin_config('dressing') }
 
-  use {'hrsh7th/nvim-cmp',
-    requires = {
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-cmdline',
-      'hrsh7th/cmp-nvim-lua',
-      'saadparwaiz1/cmp_luasnip',
-    },
-    config = plugin_config('cmp')
-  }
+    use {
+      'neovim/nvim-lspconfig',
+      requires = {
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
+        'hrsh7th/cmp-nvim-lsp',
+      },
+      config = plugin_config('lsp')
+    }
+
+    use {'hrsh7th/nvim-cmp',
+      requires = {
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-cmdline',
+        'hrsh7th/cmp-nvim-lua',
+        'saadparwaiz1/cmp_luasnip',
+      },
+      config = plugin_config('cmp')
+    }
+
+  end
 
   if haslocalconfig then
     localconfig.plugins(use)
