@@ -150,10 +150,6 @@ vim.keymap.set('n', '<leader>eq', [[:<c-u><c-r><c-r>='let @q = '. string(getreg(
 -- Go back to the last buffer
 vim.keymap.set('n', '<backspace>', '<C-^>', { silent = true })
 
--- Use the arrow keys to resize viewports
-vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>')
-vim.keymap.set('n', '<Left>', ':vertical resize -2<CR>')
-
 -- }}}
 
 if haslocalconfig then
