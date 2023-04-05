@@ -5,14 +5,12 @@ local mason_lspconfig = require'mason-lspconfig'
 local nvim_lsp = require'lspconfig'
 local cmp_nvim_lsp = require'cmp_nvim_lsp'
 
-local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
+local lsp_capabilities = cmp_nvim_lsp.default_capabilities()
 
 mason.setup();
 mason_lspconfig.setup {
-  ensure_installed = { 'sumneko_lua', 'rust_analyzer' }
+  ensure_installed = { 'lua_ls', 'rust_analyzer' }
 }
-
-cmp_nvim_lsp.update_capabilities(lsp_capabilities)
 
 function M.on_attach(_, bufnr)
   local keybind_opts = { noremap=true, silent=true }
@@ -36,7 +34,7 @@ function M.on_attach(_, bufnr)
 end
 
 
-nvim_lsp.sumneko_lua.setup {
+nvim_lsp.lua_ls.setup {
   on_attach = M.on_attach,
   capabilities = lsp_capabilities,
   settings = {
