@@ -2,6 +2,8 @@ local zk = require'zk'
 local jg_lsp = require'jg.plugins.lsp'
 
 zk.setup({
+  picker = "fzf",
+
   lsp = {
     config = {
       on_attach = jg_lsp.on_attach,
