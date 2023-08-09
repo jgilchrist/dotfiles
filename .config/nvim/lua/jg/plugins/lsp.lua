@@ -28,7 +28,7 @@ function M.on_attach(_, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', keybind_opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', keybind_opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', keybind_opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'v', '<space>ca', ":'<,'>lua vim.lsp.buf.range_code_action()<CR>", keybind_opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'v', '<space>ca', ":'<,'>lua vim.lsp.buf.code_action()<CR>", keybind_opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', keybind_opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', keybind_opts)
 end
