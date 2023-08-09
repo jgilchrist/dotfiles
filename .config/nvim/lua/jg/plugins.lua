@@ -69,6 +69,8 @@ packer.startup(function(use)
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
         'hrsh7th/cmp-nvim-lsp',
+        { 'j-hui/fidget.nvim', tag = 'legacy' },
+        "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
       },
       config = plugin_config('lsp')
     }

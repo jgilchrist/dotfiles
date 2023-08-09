@@ -4,6 +4,8 @@ local mason = require'mason'
 local mason_lspconfig = require'mason-lspconfig'
 local nvim_lsp = require'lspconfig'
 local cmp_nvim_lsp = require'cmp_nvim_lsp'
+local fidget = require'fidget'
+local lsp_lines = require'lsp_lines'
 
 local lsp_capabilities = cmp_nvim_lsp.default_capabilities()
 
@@ -60,5 +62,12 @@ nvim_lsp.rust_analyzer.setup {
       }
     }
 }
+
+fidget.setup()
+lsp_lines.setup()
+
+vim.diagnostic.config({
+  virtual_text = false,
+})
 
 return M
