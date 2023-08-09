@@ -97,6 +97,7 @@
 
     update-branch = !"git fetch upstream $1 && git diff --stat $1...$1@{upstream} && git fetch upstream $1:$1 --update-head-ok"
     update-master = !git update-branch master
+    update-main = !git update-branch main
 
 [advice]
     pushNonFastForward = false
