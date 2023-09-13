@@ -98,14 +98,16 @@ local plugins = {
   },
 
   {
-    'junegunn/fzf.vim',
-    keys = {
-      { '<C-P>', ':Files<CR>' },
-      { '<C-G>', ':Rg<CR>' },
-      { '<C-B>', ':Buffers<CR>' },
-    },
+    'ibhagwan/fzf-lua',
     config = function()
-      vim.g.fzf_preview_window = {}
+      vim.keymap.set("n", "<C-P>",
+        "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
+
+      vim.keymap.set("n", "<C-G>",
+        "<cmd>lua require('fzf-lua').live_grep()<CR>", { silent = true })
+
+      vim.keymap.set("n", "<C-B>",
+        "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
     end,
   },
 
