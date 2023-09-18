@@ -9,7 +9,6 @@ function M.reload_config()
   end
 
   dofile(vim.env.MYVIMRC)
-  require'packer'.compile()
   vim.notify('Reloaded!', vim.log.levels.INFO)
 end
 

@@ -1,20 +1,6 @@
 local M = {}
 
-local mason = require'mason'
-local mason_lspconfig = require'mason-lspconfig'
-local nvim_lsp = require'lspconfig'
-local cmp_nvim_lsp = require'cmp_nvim_lsp'
-local fidget = require'fidget'
-local lsp_lines = require'lsp_lines'
-
-local lsp_capabilities = cmp_nvim_lsp.default_capabilities()
-
-mason.setup();
-mason_lspconfig.setup {
-  ensure_installed = { 'lua_ls', 'rust_analyzer' }
-}
-
-function M.on_attach(_, bufnr)
+M.on_attach = function (_, bufnr)
   local keybind_opts = { noremap=true, silent=true }
   vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', keybind_opts)
   vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', keybind_opts)
@@ -34,40 +20,5 @@ function M.on_attach(_, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', keybind_opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', keybind_opts)
 end
-
-
-nvim_lsp.lua_ls.setup {
-  on_attach = M.on_attach,
-  capabilities = lsp_capabilities,
-  settings = {
-      Lua = {
-        diagnostics = {
-          globals = {'vim'},
-          disable = {'lowercase-global'}
-        },
-      },
-    }
-}
-
-nvim_lsp.rust_analyzer.setup {
-  on_attach = M.on_attach,
-  capabilities = lsp_capabilities,
-  settings = {
-      ['rust-analyzer'] = {
-        checkOnSave = {
-          enable = true,
-          command = "check",
-          extraArgs = { "--target-dir", "/tmp/rust-analyzer-check" },
-        },
-      }
-    }
-}
-
-fidget.setup()
-lsp_lines.setup()
-
-vim.diagnostic.config({
-  virtual_text = false,
-})
 
 return M
