@@ -159,8 +159,6 @@ local plugins = {
 
   -- Extras
 
-  'editorconfig/editorconfig-vim',
-
   {
     'jgilchrist/vim-mergetool',
     config = function()
