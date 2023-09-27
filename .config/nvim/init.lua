@@ -4,6 +4,9 @@ if haslocalconfig then
   localconfig.preconfig()
 end
 
+vim.g.mapleader = ','
+vim.g.maplocalleader = ','
+
 require 'jg.plugins'
 require 'jg.disable_builtins'
 
@@ -12,9 +15,6 @@ require 'jg.disable_builtins'
 local o = vim.o
 local opt = vim.opt
 local augroup = require'jg.config'.augroup
-
-vim.g.mapleader = ','
-vim.g.maplocalleader = ','
 
 -- Don't show the intro message when starting Vim
 vim.opt.shortmess:append('I')
