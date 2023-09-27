@@ -184,6 +184,9 @@ local plugins = {
 local experimental_plugins = {
   {
     'mickael-menu/zk-nvim',
+    dependencies = {
+      'neovim/nvim-lspconfig'
+    },
     config = function()
       local zk = require'zk'
 
@@ -252,73 +255,6 @@ local experimental_plugins = {
       -- Search for the notes matching the current visual selection.
       vim.api.nvim_set_keymap("v", "<leader>zf", ":'<,'>ZkMatch<CR>", opts)
     end
-  },
-
-  {
-    'stevearc/dressing.nvim',
-    config = function()
-      require'dressing'.setup()
-    end
-  },
-
-  {
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-      'hrsh7th/cmp-nvim-lsp',
-      { 'j-hui/fidget.nvim', tag = 'legacy' },
-      "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
-    },
-    config = function()
-      local mason = require'mason'
-      local mason_lspconfig = require'mason-lspconfig'
-      local nvim_lsp = require'lspconfig'
-      local cmp_nvim_lsp = require'cmp_nvim_lsp'
-      local fidget = require'fidget'
-      local lsp_lines = require'lsp_lines'
-
-      local lsp_capabilities = cmp_nvim_lsp.default_capabilities()
-
-      mason.setup();
-      mason_lspconfig.setup {
-        ensure_installed = { 'lua_ls', 'rust_analyzer' }
-      }
-
-      nvim_lsp.lua_ls.setup {
-        on_attach = lsp.on_attach,
-        capabilities = lsp_capabilities,
-        settings = {
-            Lua = {
-              diagnostics = {
-                globals = {'vim'},
-                disable = {'lowercase-global'}
-              },
-            },
-          }
-      }
-
-      nvim_lsp.rust_analyzer.setup {
-        on_attach = lsp.on_attach,
-        capabilities = lsp_capabilities,
-        settings = {
-            ['rust-analyzer'] = {
-              checkOnSave = {
-                enable = true,
-                command = "check",
-                extraArgs = { "--target-dir", "/tmp/rust-analyzer-check" },
-              },
-            }
-          }
-      }
-
-      fidget.setup()
-      lsp_lines.setup()
-
-      vim.diagnostic.config({
-        virtual_text = false,
-      })
-    end,
   },
 
   {
