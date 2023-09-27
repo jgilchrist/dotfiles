@@ -183,6 +183,14 @@ local plugins = {
 
 local experimental_plugins = {
   {
+    'ggandor/leap.nvim',
+    config = function()
+      local leap = require'leap'
+      leap.add_default_mappings()
+    end
+  },
+
+  {
     'mickael-menu/zk-nvim',
     dependencies = {
       'neovim/nvim-lspconfig'

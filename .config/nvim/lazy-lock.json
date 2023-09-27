@@ -9,6 +9,7 @@
   "fzf.vim": { "branch": "master", "commit": "678ee1a549bd873dde35f6146f288a3f2e29d983" },
   "github-nvim-theme": { "branch": "main", "commit": "48f95f763e1a98e508260a20e448c3ff2d91213a" },
   "lazy.nvim": { "branch": "main", "commit": "7ca3bdb566c3ba4492f2d22b37c2c9e26f09470f" },
+  "leap.nvim": { "branch": "main", "commit": "5efe985cf68fac3b6a6dfe7a75fbfaca8db2af9c" },
   "lualine.nvim": { "branch": "master", "commit": "45e27ca739c7be6c49e5496d14fcf45a303c3a63" },
   "nvim-cmp": { "branch": "main", "commit": "5dce1b778b85c717f6614e3f4da45e9f19f54435" },
   "nvim-lspconfig": { "branch": "master", "commit": "bfdf2e91e7297a54bcc09d3e092a12bff69a1cf4" },
