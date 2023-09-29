@@ -1,1 +1,1 @@
-require'jg.config'.use_indent(2)
+require'jg.util'.use_indent(2)

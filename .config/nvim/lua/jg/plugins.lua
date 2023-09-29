@@ -2,7 +2,7 @@ local util = require'jg.util'
 
 util.bootstrap_lazynvim()
 
-local augroup = require'jg.config'.augroup
+local augroup = util.augroup
 local lazy = require'lazy'
 local lsp = require'jg.lsp'
 
@@ -167,7 +167,7 @@ local plugins = {
 
       vim.g.MergetoolSetLayoutCallback = function(split)
         vim.wo.cursorline = false
-        require'jg.config'.disable_cursorline_follows_focus()
+        require'jg.util'.disable_cursorline_follows_focus()
         vim.keymap.set('n', '<leader>mt', ':MergetoolToggle<cr>')
 
         -- Don't include the bottom pane in the diff, and make it smaller
@@ -276,7 +276,7 @@ local experimental_plugins = {
     },
     config = function()
       local cmp = require'cmp'
-      local t = require'jg.config'.replace_termcodes
+      local t = require'jg.util'.replace_termcodes
 
       local function check_backspace()
         local col = vim.fn.col('.') - 1

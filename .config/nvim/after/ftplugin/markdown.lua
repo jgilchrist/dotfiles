@@ -1,5 +1,4 @@
-require'jg.config'.use_text_mode()
-
+require'jg.util'.use_text_mode()
 
 if require("zk.util").notebook_root(vim.fn.expand('%:p')) ~= nil then
   vim.wo.conceallevel=2

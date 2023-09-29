@@ -14,7 +14,7 @@ require 'jg.disable_builtins'
 
 local o = vim.o
 local opt = vim.opt
-local augroup = require'jg.config'.augroup
+local augroup = require'jg.util'.augroup
 
 -- Don't show the intro message when starting Vim
 vim.opt.shortmess:append('I')
@@ -121,7 +121,7 @@ vim.keymap.set('n', 'J', 'mzJ`z')
 
 -- Edit/source configuration
 vim.keymap.set('n', '<leader>ec', ':edit $MYVIMRC<CR>', { silent = true })
-vim.keymap.set('n', '<leader>sc', require'jg.config'.reload_config, { silent = true })
+vim.keymap.set('n', '<leader>sc', require'jg.util'.reload_config, { silent = true })
 
 -- Remap H and L to start and end of the line
 vim.keymap.set({'n', 'x'}, 'H', '^')
