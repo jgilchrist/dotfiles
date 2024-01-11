@@ -170,10 +170,6 @@ if (( $+commands[docker] )); then
     export DOCKER_BUILDKIT=1
 fi
 
-if (( $+commands[curlie] )); then
-    alias http="curlie"
-    alias https="curlie --https"
-fi
 
 if (( $+commands[reveal-md] )); then
     function revealmd() {
