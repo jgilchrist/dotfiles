@@ -170,6 +170,9 @@ if (( $+commands[docker] )); then
     export DOCKER_BUILDKIT=1
 fi
 
+if (( $+commands[zellij] )); then
+    alias z="zellij"
+fi
 
 if (( $+commands[reveal-md] )); then
     function revealmd() {
