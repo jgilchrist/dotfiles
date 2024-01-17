@@ -106,12 +106,13 @@ local plugins = {
 
   {
     'junegunn/fzf.vim',
+    keys = {
+      { '<C-P>', ':Files<CR>' },
+      { '<C-G>', ':Rg<CR>' },
+      { '<C-B>', ':Buffers<CR>' },
+    },
     config = function()
       vim.g.fzf_preview_window = {}
-
-      vim.keymap.set('n', '<C-P>', ':Files<CR>')
-      vim.keymap.set('n', '<C-G>', ':Rg<CR>')
-      vim.keymap.set('n', '<C-B>', ':Buffers<CR>')
     end,
   },
 
