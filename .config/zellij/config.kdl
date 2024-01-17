@@ -35,7 +35,6 @@ keybinds clear-defaults=true {
         bind "Ctrl p" { SwitchToMode "Pane"; }
         bind "Ctrl t" { SwitchToMode "Tab"; }
         bind "Ctrl s" { SwitchToMode "Scroll"; }
-        bind "Ctrl o" { SwitchToMode "Session"; }
         bind "Ctrl q" { Quit; }
 
         bind "s" {
@@ -132,18 +131,6 @@ keybinds clear-defaults=true {
     renamepane {
         bind "Ctrl c" { SwitchToMode "Normal"; }
         bind "Esc" { UndoRenamePane; SwitchToMode "Pane"; }
-    }
-    session {
-        bind "Ctrl o" { SwitchToMode "Normal"; }
-        bind "Ctrl s" { SwitchToMode "Scroll"; }
-        bind "d" { Detach; }
-        bind "w" {
-            LaunchOrFocusPlugin "zellij:session-manager" {
-                floating true
-                move_to_focused_tab true
-            };
-            SwitchToMode "Normal"
-        }
     }
 }
 
