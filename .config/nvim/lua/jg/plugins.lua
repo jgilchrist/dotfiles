@@ -79,6 +79,14 @@ local plugins = {
 
   'wellle/targets.vim',
 
+  {
+    'ggandor/leap.nvim',
+    config = function()
+      local leap = require'leap'
+      leap.add_default_mappings()
+    end
+  },
+
   'tommcdo/vim-exchange',
 
   {
@@ -179,16 +187,6 @@ local plugins = {
     end,
     cmd = { 'MergetoolStart', 'MergetoolToggle' },
   },
-}
-
-local experimental_plugins = {
-  {
-    'ggandor/leap.nvim',
-    config = function()
-      local leap = require'leap'
-      leap.add_default_mappings()
-    end
-  },
 
   {
     'hrsh7th/nvim-cmp',
@@ -277,13 +275,10 @@ local experimental_plugins = {
       })
     end,
   },
+
 }
 
 local lazy_plugins = plugins
-
-if vim.g.jg_load_experiments then
-  vim.list_extend(lazy_plugins, experimental_plugins)
-end
 
 local haslocalconfig,localconfig = pcall(require, 'jg.local')
 if haslocalconfig and localconfig.plugins ~= nil then
