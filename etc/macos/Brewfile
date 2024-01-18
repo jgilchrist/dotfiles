@@ -36,7 +36,6 @@ brew 'tmux'
 brew 'tokei'
 brew 'wget'
 brew 'yarn'
-# brew 'zk'
 brew 'zsh'
 
 # vim: ft=ruby
