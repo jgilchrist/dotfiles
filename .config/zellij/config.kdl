@@ -20,6 +20,7 @@ keybinds clear-defaults=true {
         bind "|" { NewPane "Right"; SwitchToMode "Normal"; }
         bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
 
+        bind "c" { NewTab; SwitchToMode "Normal"; }
         bind "p" { GoToPreviousTab; SwitchToMode "Normal"; }
         bind "n" { GoToNextTab; SwitchToMode "Normal"; }
 
