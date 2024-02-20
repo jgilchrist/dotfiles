@@ -39,6 +39,7 @@
 [merge]
     conflictstyle = zdiff3
     tool = vim_mergetool
+    keepbackup = false
 
 [mergetool]
     keepBackup = false
