@@ -31,6 +31,9 @@
 [pull]
     ff = only
 
+[tag]
+    sort = -version:refname
+
 [diff]
     algorithm = histogram
     noPrefix = true
