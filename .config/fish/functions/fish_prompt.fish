@@ -31,7 +31,7 @@ function fish_prompt
     and set -l venv (string replace -r '.*/' '' -- "$VIRTUAL_ENV")
 
     echo
-    echo -n -s $prompt_host (set_color $fish_color_cwd) (prompt_pwd --dir-length=3) (set_color normal) ' ' (_fish_vcs)
+    echo -n -s $prompt_host (set_color $fish_color_cwd) (prompt_pwd --dir-length=3) (set_color normal) ' ' (_prompt_vcs)
     echo
     echo -n -s $delimcolor$delim(set_color normal) ' '
 end
