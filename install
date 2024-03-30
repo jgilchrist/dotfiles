@@ -4,76 +4,26 @@ set -eo pipefail
 
 red="\033[1;31m"
 green="\033[1;32m"
-blue="\033[1;34m"
-yellow="\033[1;33m"
-grey="\033[1;30m"
 reset="\033[0m"
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-
-log_info() {
-    echo -e "  ${green}*${reset} $1"
-}
-
-create_directory() {
-    echo -en "    ${green}-${reset} ${blue}$1${reset}: "
-    if [ -d "$1" ]; then
-        echo -e "${yellow}Already exists${reset}"
-    else
-        mkdir -p "$1"
-        echo -e "${green}Created${reset}"
-    fi
-}
-
-create_file() {
-    echo -en "    ${green}-${reset} ${blue}$1${reset}: "
-    if [ -f "$1" ]; then
-        echo -e "${yellow}Already exists${reset}"
-    else
-        touch "$1"
-        echo -e "${green}Created${reset}"
-    fi
-}
-
-install_tpm() {
+try_install_tpm() {
     local tpm_dir="${HOME}/.config/tmux/plugins/tpm"
-    echo -en "    ${green}-${reset} ${blue}${tpm_dir}${reset}: "
 
     if [ -d "${tpm_dir}" ]; then
-        echo -e "${yellow}Already exists${reset}"
-    else
-        git clone https://github.com/tmux-plugins/tpm "${tpm_dir}"
-        echo -e "${green}Downloaded${reset}"
+        return;
     fi
+
+    echo
+    echo "Installing tpm"
+    git clone https://github.com/tmux-plugins/tpm "${tpm_dir}"
+    echo -e "${green}Downloaded${reset}"
 }
 
-main() {
-    echo ""
 
-    log_info "Creating zsh directories"
-    create_directory ~/.cache/zsh
-    create_directory ~/.local/share/zsh
-    echo ""
+if stow . --target="${HOME}" --no-folding; then
+    echo -e "${green}Linked dotfiles${reset}"
+else
+    echo -e "${red}Failed to link dotfiles${reset}"
+fi
 
-    log_info "Creating machine-local config files"
-    create_file ~/.local/env
-    create_file ~/.local/path
-    echo ""
-
-    log_info "Installing tpm"
-    install_tpm
-    echo ""
-
-    log_info "Symlinking dotfiles"
-    echo -en "    ${green}-${reset} ${blue}Dotfiles${reset}: "
-    stow . --target="${HOME}" --no-folding
-
-    if [ $? -eq 0 ]; then
-        echo -e "${green}Linked${reset}"
-    else
-        echo -e "${red}Failed${reset}"
-    fi
-    echo ""
-}
-
-main "$@"
+try_install_tpm
