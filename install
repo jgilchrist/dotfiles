@@ -42,7 +42,7 @@ install_tpm() {
     if [ -d "${tpm_dir}" ]; then
         echo -e "${yellow}Already exists${reset}"
     else
-        git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+        git clone https://github.com/tmux-plugins/tpm "${tpm_dir}"
         echo -e "${green}Downloaded${reset}"
     fi
 }
