@@ -11,7 +11,7 @@ function fish_right_prompt
     set -l vcs (fish_vcs_prompt '(%s)' 2>/dev/null)
 
     set -l duration "$cmd_duration$CMD_DURATION"
-    if test $duration -gt 100
+    if test $duration -gt 1000
         set duration (math $duration / 1000)s
     else
         set duration
@@ -23,5 +23,5 @@ function fish_right_prompt
     and set -l venv (string replace -r '.*/' '' -- "$VIRTUAL_ENV")
 
     set_color normal
-    string join " " -- $venv $duration $vcs
+    string join " " -- $venv (set_color black)$duration(set_color normal) $vcs
 end
