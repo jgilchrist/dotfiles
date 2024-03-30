@@ -38,6 +38,8 @@
     algorithm = histogram
     noPrefix = true
     submodule = log
+    colorMoved = default
+    colorMovedWS = allow-indentation-change
 
 [merge]
     conflictstyle = zdiff3
