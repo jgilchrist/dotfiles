@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+function install_terminfo() {
+    TERMINFO_FILE=$1
+    TERMINFO_PATH="${HOME}/.terminfo"
+
+    mkdir -p "${TERMINFO_PATH}"
+    tic -o "${TERMINFO_PATH}" "${TERMINFO_FILE}"
+    echo "Installed ${TERMINFO_FILE}"
+}
+
+install_terminfo "${DIR}/xterm-256color.terminfo"
+install_terminfo "${DIR}/tmux.terminfo"
+install_terminfo "${DIR}/tmux-256color.terminfo"
