@@ -50,30 +50,14 @@ install_tpm() {
 main() {
     echo ""
 
-    log_info "Creating local binary directory"
-    create_directory ~/.local/bin
-    echo ""
-
     log_info "Creating zsh directories"
     create_directory ~/.cache/zsh
     create_directory ~/.local/share/zsh
     echo ""
 
-    log_info "Creating .vim files"
-    create_directory ~/.config/nvim
-    echo ""
-
     log_info "Creating machine-local config files"
     create_file ~/.local/env
     create_file ~/.local/path
-    echo ""
-
-    log_info "Creating ~/.config directories"
-    for config_dir in ${DIR}/.config/*; do
-        if [ -d "$config_dir" ]; then
-            create_directory "${HOME}/.config/$(basename "$config_dir")"
-        fi
-    done
     echo ""
 
     log_info "Installing tpm"
@@ -88,7 +72,7 @@ main() {
 
     log_info "Symlinking dotfiles"
     echo -en "    ${green}-${reset} ${blue}Dotfiles${reset}: "
-    stow . --target="${HOME}"
+    stow . --target="${HOME}" --no-folding
 
     if [ $? -eq 0 ]; then
         echo -e "${green}Linked${reset}"
