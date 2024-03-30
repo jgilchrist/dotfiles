@@ -14,13 +14,13 @@ function fish_prompt
                 command -sq systemd-detect-virt
                 and systemd-detect-virt -q
             end
-            set prompt_host (set_color $fish_color_user)$USER(set_color normal)@(set_color $fish_color_host)$hostname(set_color normal)":"
+            set prompt_host (set_color $green)$USER(set_color normal)@(set_color $yellow)$hostname(set_color normal)":"
         end
     end
 
     set -l duration "$cmd_duration$CMD_DURATION"
     if test $duration -gt 1000
-        set duration (math $duration / 1000)s
+        set duration ' '(set_color yellow)(math $duration / 1000)s(set_color normal)
     else
         set duration
     end
@@ -31,7 +31,7 @@ function fish_prompt
     and set -l venv (string replace -r '.*/' '' -- "$VIRTUAL_ENV")
 
     echo
-    echo -n -s $prompt_host (set_color $fish_color_cwd) (prompt_pwd --dir-length=3) (set_color normal) ' ' (_prompt_vcs)
+    echo -n -s $prompt_host (set_color blue) (prompt_pwd --dir-length=3) (set_color normal) ' ' (_prompt_vcs) $duration $venv
     echo
     echo -n -s $delimcolor$delim(set_color normal) ' '
 end
