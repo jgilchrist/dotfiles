@@ -27,7 +27,7 @@ function fish_prompt
         set showduration
     end
 
-    if test $duration -gt 1000 && set -q showduration
+    if test $duration -gt 10000 && set -q showduration
         set duration ' '(set_color yellow)(math $duration / 1000)s(set_color normal)
     else
         set duration

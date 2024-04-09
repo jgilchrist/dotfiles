@@ -9,8 +9,9 @@ mkdir -p $XDG_CONFIG_HOME $XDG_DATA_HOME $XDG_STATE_HOME $XDG_CACHE_HOME
 
 test -d $HOME/.dotnet/tools && fish_add_path $HOME/.dotnet/tools
 test -d $HOME/.cargo/bin && fish_add_path $HOME/.cargo/bin
-
 test -d $HOME/.local/bin && fish_add_path $HOME/.local/bin
+
+set -gx BROWSER open
 
 set -gx LESS "--quit-if-one-screen --ignore-case --raw-control-chars --chop-long-lines --hilite-unread --no-init"
 
@@ -49,6 +50,10 @@ end
 if type -q docker
     set -gx COMPOSE_DOCKER_CLI_BUILD 1
     set -gx DOCKER_BUILDKIT 1
+end
+
+if type -q zellij
+    alias z="zellij"
 end
 
 # }}}
