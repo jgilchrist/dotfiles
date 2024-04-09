@@ -19,7 +19,7 @@ function fish_prompt
     end
 
     set -l duration "$cmd_duration$CMD_DURATION"
-    if test $duration -gt 1000
+    if test $duration -gt 10000
         set duration ' '(set_color yellow)(math $duration / 1000)s(set_color normal)
     else
         set duration
@@ -31,7 +31,7 @@ function fish_prompt
     and set -l venv (string replace -r '.*/' '' -- "$VIRTUAL_ENV")
 
     echo
-    echo -n -s $prompt_host (set_color blue) (prompt_pwd --dir-length=3) (set_color normal) ' ' (_prompt_vcs) $duration $venv
+    echo -n -s $prompt_host (set_color blue) (prompt_pwd --dir-length=3) (set_color normal) (_prompt_vcs) $duration $venv
     echo
     echo -n -s $delimcolor$delim(set_color normal) ' '
 end
