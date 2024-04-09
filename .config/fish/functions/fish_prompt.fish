@@ -19,7 +19,15 @@ function fish_prompt
     end
 
     set -l duration "$cmd_duration$CMD_DURATION"
-    if test $duration -gt 10000
+    set -l lastprompt "$history[1]"
+
+    # Only show the command duration for long commands, but also ignore commands which
+    # tend to take a long time but aren't interesting (e.g. editors)
+    if string match --regex --invert --quiet "^(vim|nvim|fg).*" $lastprompt
+        set showduration
+    end
+
+    if test $duration -gt 1000 && set -q showduration
         set duration ' '(set_color yellow)(math $duration / 1000)s(set_color normal)
     else
         set duration
