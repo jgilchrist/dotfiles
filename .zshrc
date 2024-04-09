@@ -11,7 +11,8 @@ autoload -U compinit && compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 autoload -U edit-command-line
 autoload -U promptinit; promptinit; prompt pure
 
-set -o vi
+# Set vim keybindings
+bindkey -v
 
 # Don't wait to enter normal mode after pressing ESC
 KEYTIMEOUT=1
