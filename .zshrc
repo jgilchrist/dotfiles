@@ -20,6 +20,28 @@ KEYTIMEOUT=1
 # Setup backspace to work correctly in vim mode
 bindkey "^?" backward-delete-char
 
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]]; then
+    echo -ne '\e[4 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]]; then
+    echo -ne '\e[2 q'
+  fi
+}
+
+zle -N zle-keymap-select
+
+zle-line-init() {
+    echo -ne "\e[2 q"
+}
+
+zle -N zle-line-init
+
+echo -ne '\e[2 q' # Use block cursor on startup.
+preexec() { echo -ne '\e[2 q' ;} # Use block cursor for each new prompt.
+
 # Prevent duplicates in $PATH
 typeset -gU path
 
