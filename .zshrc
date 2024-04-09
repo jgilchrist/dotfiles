@@ -12,6 +12,10 @@ autoload -U edit-command-line
 autoload -U promptinit; promptinit; prompt pure
 
 set -o vi
+
+# Don't wait to enter normal mode after pressing ESC
+KEYTIMEOUT=1
+
 # Setup backspace to work correctly in vim mode
 bindkey "^?" backward-delete-char
 
