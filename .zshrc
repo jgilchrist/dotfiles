@@ -110,22 +110,6 @@ function tmpdir() {
   rm -rf "$SCRATCHDIR"
 }
 
-function load_path_dirs() {
-    local PATH_SOURCE_FILE="$1"
-    local PATH_GEN_FILE=$(mktemp)
-
-    touch ${PATH_GEN_FILE}
-    chmod +x ${PATH_GEN_FILE}
-    echo -n "" >! ${PATH_GEN_FILE}
-
-    while read dir; do
-        echo "path=($dir \$path)" >> ${PATH_GEN_FILE}
-    done < ${PATH_SOURCE_FILE}
-
-    source ${PATH_GEN_FILE}
-    rm ${PATH_GEN_FILE}
-}
-
 # /usr/bin aliases
 alias mv="mv --interactive --verbose"
 alias cp="cp --interactive --verbose"
@@ -165,7 +149,7 @@ alias keychain="keychain --host jgilchrist"
 [ -f "${HOME}/.local/env" ] && source "${HOME}/.local/env"
 
 # Machine-local additions to $PATH from ~/.local/path
-[ -f "${HOME}/.local/path" ] && load_path_dirs "${HOME}/.local/path"
+[ -f "${HOME}/.local/path" ] && echo "Found ~/.local/path file to be migrated"
 
 # Tool-specific configuration/aliases {{{
 # This needs to come after .local/env as .local/env may add these tools to the path
