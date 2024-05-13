@@ -164,6 +164,10 @@ if (( $+commands[fd] )); then
     export FZF_DEFAULT_COMMAND="fd --type file --hidden --exclude '.git/**'"
 fi
 
+if (( $+commands[brew] )); then
+    export HOMEBREW_NO_UPDATE_REPORT_NEW=1
+fi
+
 if (( $+commands[nvim] )); then
     export EDITOR="nvim"
     alias vim="nvim"
