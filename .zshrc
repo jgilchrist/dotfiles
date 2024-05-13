@@ -99,6 +99,10 @@ export LESSHISTFILE=-
 # Allow storing readline configuration under .config
 export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 
+# Miscellaneous XDG configuration
+alias wget="wget --hsts-file=\"$XDG_DATA_HOME/wget-hsts\""
+alias units="units --history $XDG_DATA_HOME/units_history"
+
 # }}}
 
 # Functions and aliases {{{
@@ -177,6 +181,7 @@ if (( $+commands[tokei] )); then
 fi
 
 if (( $+commands[dotnet] )); then
+    export DOTNET_CLI_HOME="$XDG_DATA_HOME/dotnet"
     export MSBUILDTERMINALLOGGER=auto
 fi
 
@@ -187,6 +192,14 @@ fi
 
 if (( $+commands[zellij] )); then
     alias z="zellij"
+fi
+
+if (( $+commands[volta] )); then
+    export VOLTA_HOME="$XDG_DATA_HOME"/volta
+fi
+
+if (( $+commands[redis-cli] )); then
+    export REDISCLI_HISTFILE="$XDG_DATA_HOME/redis/rediscli_history"
 fi
 
 if (( $+commands[reveal-md] )); then
