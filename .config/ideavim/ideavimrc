@@ -1,0 +1,12 @@
+source ~/.vimrc
+
+nnoremap H ^
+nnoremap L g_
+
+set surround
+set commentary
+set exchange
+set highlightedyank
+set ideajoin
+set noerrorbells
+set visualbell
