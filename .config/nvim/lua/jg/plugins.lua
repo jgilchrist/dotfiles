@@ -159,6 +159,9 @@ local plugins = {
     end,
   },
 
+  -- Support for extra filetypes
+  { 'lifepillar/pgsql.vim' },
+
   -- Extras
 
   {
