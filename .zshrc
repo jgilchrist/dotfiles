@@ -187,7 +187,6 @@ fi
 
 if (( $+commands[dotnet] )); then
     export DOTNET_CLI_HOME="$XDG_DATA_HOME/dotnet"
-    export MSBUILDTERMINALLOGGER=auto
 fi
 
 if (( $+commands[docker] )); then
