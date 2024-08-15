@@ -212,6 +212,10 @@ if (( $+commands[reveal-md] )); then
     }
 fi
 
+if (( $+commands[jj] )); then
+    export JJ_CONFIG="${XDG_CONFIG_HOME}/jj"
+fi
+
 # }}}
 
 # vim: set fdm=marker:
