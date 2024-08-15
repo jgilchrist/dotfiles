@@ -17,3 +17,33 @@ rebase-drafts = ["rebase", "-s", "all:roots(drafts())", "-d", "trunk()"]
 
 [revset-aliases]
 "draft()" = "mutable() & mine()"
+
+[templates]
+log = '''
+if(root,
+  format_root_commit(self),
+  label(if(current_working_copy, "working_copy"),
+    concat(
+      separate(" ",
+        if(!empty, format_short_change_id_with_hidden_and_divergent_info(self)),
+        if(!mine, format_short_signature(author)),
+        tags,
+        working_copies,
+        if(empty, label("empty", "(empty)")),
+        if(description,
+          description.first_line(),
+          label(if(empty, "empty"), description_placeholder),
+        ),
+        if(conflict, label("conflict", "conflict")),
+        branches,
+        if(!empty || !current_working_copy, format_timestamp(committer.timestamp())),
+      ) ++ "\n",
+    ),
+  )
+)
+'''
+
+[template-aliases]
+'format_timestamp(timestamp)' = 'timestamp.ago()'
+'format_short_signature(signature)' = '''
+  coalesce(signature.username(), email_placeholder)'''
