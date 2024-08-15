@@ -2,3 +2,6 @@ user.name = "Jonathan Gilchrist"
 user.email = "jonnygilchrist@gmail.com"
 
 ui.default-command = "log"
+
+[revset-aliases]
+"draft()" = "mutable() & mine()"
