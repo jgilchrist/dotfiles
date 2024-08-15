@@ -9,5 +9,8 @@ l = ["log"]
 fetch = ["git", "fetch"]
 push = ["git", "push"]
 
+showlast = ["show", "@-"]
+showl = ["showlast"]
+
 [revset-aliases]
 "draft()" = "mutable() & mine()"
