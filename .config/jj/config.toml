@@ -13,6 +13,7 @@ showlast = ["show", "@-"]
 showl = ["showlast"]
 
 drafts = ["log", "-r", "draft()"]
+rebase-drafts = ["rebase", "-s", "all:roots(drafts())", "-d", "trunk()"]
 
 [revset-aliases]
 "draft()" = "mutable() & mine()"
