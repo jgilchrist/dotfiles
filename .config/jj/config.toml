@@ -12,5 +12,7 @@ push = ["git", "push"]
 showlast = ["show", "@-"]
 showl = ["showlast"]
 
+drafts = ["log", "-r", "draft()"]
+
 [revset-aliases]
 "draft()" = "mutable() & mine()"
