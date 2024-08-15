@@ -3,5 +3,11 @@ user.email = "jonnygilchrist@gmail.com"
 
 ui.default-command = "log"
 
+[aliases]
+s = ["status"]
+l = ["log"]
+fetch = ["git", "fetch"]
+push = ["git", "push"]
+
 [revset-aliases]
 "draft()" = "mutable() & mine()"
