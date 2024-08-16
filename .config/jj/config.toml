@@ -15,6 +15,10 @@ showl = ["showlast"]
 drafts = ["log", "-r", "draft()"]
 rebase-drafts = ["rebase", "-s", "all:roots(drafts())", "-d", "trunk()"]
 
+[colors]
+"diff removed token" = { underline = false }
+"diff added token" = { underline = false }
+
 [revset-aliases]
 "draft()" = "mutable() & mine()"
 
