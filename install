@@ -6,24 +6,8 @@ red="\033[1;31m"
 green="\033[1;32m"
 reset="\033[0m"
 
-try_install_tpm() {
-    local tpm_dir="${HOME}/.config/tmux/plugins/tpm"
-
-    if [ -d "${tpm_dir}" ]; then
-        return;
-    fi
-
-    echo
-    echo "Installing tpm"
-    git clone https://github.com/tmux-plugins/tpm "${tpm_dir}"
-    echo -e "${green}Downloaded${reset}"
-}
-
-
 if stow . --target="${HOME}" --no-folding; then
     echo -e "${green}Linked dotfiles${reset}"
 else
     echo -e "${red}Failed to link dotfiles${reset}"
 fi
-
-try_install_tpm
