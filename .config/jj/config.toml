@@ -37,6 +37,7 @@ if(root,
         if(conflict, label("conflict", "conflict")),
         branches,
         if(!empty || !current_working_copy, format_timestamp(committer.timestamp())),
+        if(current_working_copy && !empty, "\n" ++ diff.stat(80)),
       ) ++ "\n",
     ),
   )
