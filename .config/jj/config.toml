@@ -45,5 +45,14 @@ if(root,
 
 [template-aliases]
 'format_timestamp(timestamp)' = 'timestamp.ago()'
+
 'format_short_signature(signature)' = '''
   coalesce(signature.username(), email_placeholder)'''
+
+'format_root_commit(root)' = '''
+separate(" ",
+  format_short_change_id(root.change_id()),
+  label("root", "root()"),
+  root.branches()
+) ++ "\n"
+'''
