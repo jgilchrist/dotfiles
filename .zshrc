@@ -10,7 +10,11 @@ export XDG_STATE_HOME=${XDG_STATE_HOME:=${HOME}/.local/state}
 autoload -U colors && colors
 autoload -U compinit && compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 autoload -U edit-command-line
-autoload -U promptinit; promptinit; prompt pure
+
+PROMPT='
+%(1j.%F{black}*%j%f .)%(0?.%F{yellow}.%F{red})$%f '
+
+RPROMPT='%F{blue}%2~%f'
 
 # Set vim keybindings
 bindkey -v
