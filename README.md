@@ -13,5 +13,4 @@ Any configuration which shouldn't be shared between machines should be placed in
 
 * `~/.local/env`
 * `~/.local/gitconfig`
-* `~/.local/tmux.conf`
 * `~/.config/nvim/jg/local.lua`
