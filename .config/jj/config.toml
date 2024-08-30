@@ -57,7 +57,7 @@ if(root,
 'format_timestamp(timestamp)' = 'timestamp.ago()'
 
 'format_short_signature(signature)' = '''
-  coalesce(signature.username(), email_placeholder)'''
+  coalesce(signature.name(), email_placeholder)'''
 
 'format_root_commit(root)' = '''
 separate(" ",
