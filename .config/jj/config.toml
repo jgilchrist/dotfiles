@@ -13,7 +13,7 @@ showlast = ["show", "@-"]
 showl = ["showlast"]
 
 drafts = ["log", "-r", "draft()"]
-rebase-drafts = ["rebase", "-s", "all:roots(drafts())", "-d", "trunk()"]
+rebase-drafts = ["rebase", "-s", "all:roots(draft())", "-d", "trunk()"]
 
 [colors]
 "diff removed token" = { underline = false }
