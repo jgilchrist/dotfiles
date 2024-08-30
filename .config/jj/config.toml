@@ -19,6 +19,11 @@ rebase-drafts = ["rebase", "-s", "all:roots(draft())", "-d", "trunk()"]
 "diff removed token" = { underline = false }
 "diff added token" = { underline = false }
 
+# Will become default soon
+"author" = { fg = "yellow" }
+"committer" = { fg = "yellow" }
+"timestamp" = { fg = "cyan" }
+
 [revset-aliases]
 "draft()" = "mutable() & mine()"
 
