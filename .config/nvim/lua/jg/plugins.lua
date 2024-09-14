@@ -100,6 +100,12 @@ local plugins = {
   {
     'ibhagwan/fzf-lua',
     config = function()
+      require'fzf-lua'.setup({
+        files = {
+          git_icons = false
+        }
+      })
+
       vim.keymap.set("n", "<C-P>",
         "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
 
