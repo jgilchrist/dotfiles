@@ -2,6 +2,7 @@ user.name = "Jonathan Gilchrist"
 user.email = "jonnygilchrist@gmail.com"
 
 ui.default-command = "log"
+ui.diff-editor = ":builtin"
 
 [aliases]
 s = ["status"]
