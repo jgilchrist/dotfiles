@@ -4,7 +4,7 @@ function fish_right_prompt
 
     # Only show the command duration for long commands, but also ignore commands which
     # tend to take a long time but aren't interesting (e.g. editors)
-    if string match --regex --invert --quiet "^(vim|nvim|fg).*" $lastprompt
+    if string match --regex --invert --quiet "^(vim|nvim|fg|ssh).*" $lastprompt
         set showduration
     end
 
