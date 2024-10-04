@@ -45,7 +45,7 @@ if(root,
           label(if(empty, "empty"), description_placeholder),
         ),
         if(conflict, label("conflict", "conflict")),
-        branches,
+        bookmarks,
         if(!empty || !current_working_copy, format_timestamp(committer.timestamp())),
         if(current_working_copy && !empty, "\n" ++ diff.stat(80)),
       ) ++ "\n",
@@ -64,6 +64,6 @@ if(root,
 separate(" ",
   format_short_change_id(root.change_id()),
   label("root", "root()"),
-  root.branches()
+  root.bookmarks()
 ) ++ "\n"
 '''
