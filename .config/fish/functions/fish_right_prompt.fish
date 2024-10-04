@@ -3,7 +3,7 @@ function fish_right_prompt
     # tend to take a long time but aren't interesting (e.g. editors)
     set -l duration_ms "$cmd_duration$CMD_DURATION"
     if test $duration_ms -gt 10000
-        if string match --regex --invert --quiet "^(vim|nvim|fg|ssh)" "$history[1]"
+        if string match --regex --invert --quiet "^(vim|nvim|fg|ssh|tmux)" "$history[1]"
             set duration (set_color yellow)(math $duration_ms / 1000)s(set_color normal)' '
         else
             set duration
