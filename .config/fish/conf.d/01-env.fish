@@ -55,6 +55,7 @@ end
 
 if type -q brew
     set -gx HOMEBREW_NO_UPDATE_REPORT_NEW 1
+    set -gx HOMEBREW_NO_ENV_HINTS 1
 end
 
 if type -q wget
