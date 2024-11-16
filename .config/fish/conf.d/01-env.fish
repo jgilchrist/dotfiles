@@ -37,6 +37,8 @@ end
 
 if type -q jj
     set -gx JJ_CONFIG "$XDG_CONFIG_HOME"/jj
+    alias j="jj"
+    alias jjwatch="watch -c jj --ignore-working-copy log --color=always"
 end
 
 if type -q dotnet
