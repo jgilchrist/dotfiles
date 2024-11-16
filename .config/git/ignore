@@ -13,3 +13,4 @@
 
 # IDE files
 .idea/
+*.DotSettings.user
