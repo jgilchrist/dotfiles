@@ -19,8 +19,9 @@ function fish_prompt
             or begin
                 command -sq systemd-detect-virt
                 and systemd-detect-virt -q
-                set -l prompt_host (set_color green)$USER(set_color normal)"@"(set_color yellow)$hostname(set_color normal)' '
             end
+
+            set -g prompt_host (set_color green)$USER(set_color normal)"@"(set_color yellow)$hostname(set_color normal)' '
         end
     end
 
