@@ -1,3 +1,8 @@
+function multicd
+    echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
+end
+abbr --add dotdot --regex '^\.\.+$' --function multicd
+
 # /usr/bin aliases
 alias mv="mv --interactive --verbose"
 alias cp="cp --interactive --verbose"
@@ -26,6 +31,11 @@ alias k9s="k9s --readonly"
 alias dust="dust --reverse"
 
 # Misc
+
+# If tokei is installed, alias 'cloc' to it
+if type -q tokei
+    alias cloc="tokei --sort=code"
+end
 
 # MacOS sets hostnames dynamically. Since keychain uses the hostname
 # to keep track of environment variables, changing hostnames will

@@ -14,11 +14,6 @@ set -gx BROWSER open
 set -gx LESS "--quit-if-one-screen --ignore-case --raw-control-chars --chop-long-lines --hilite-unread --no-init"
 set -gx LESSHISTFILE -
 
-function multicd
-    echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
-end
-abbr --add dotdot --regex '^\.\.+$' --function multicd
-
 # Tool-specific configuration/aliases {{{
 # This needs to come after .local/env as .local/env may add these tools to the path
 
