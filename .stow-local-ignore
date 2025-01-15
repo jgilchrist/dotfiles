@@ -1,4 +1,6 @@
 \.git
+\.gitignore
 \.mailmap
+local
 install
 README.md

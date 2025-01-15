@@ -11,3 +11,9 @@ if stow . --target="${HOME}" --no-folding; then
 else
     echo -e "${red}Failed to link dotfiles${reset}"
 fi
+
+if stow local --target="${HOME}" --no-folding; then
+    echo -e "${green}Linked local dotfiles${reset}"
+else
+    echo -e "${red}Failed to link local dotfiles${reset}"
+fi
