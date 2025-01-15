@@ -7,6 +7,7 @@ ui.diff-editor = ":builtin"
 [aliases]
 s = ["status"]
 l = ["log"]
+history = ["log", "-r", "::trunk()"]
 fetch = ["git", "fetch"]
 push = ["git", "push"]
 
