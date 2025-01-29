@@ -11,6 +11,9 @@
 # Ignore files
 .ignore
 
+# env files
+.env
+
 # IDE files
 .idea/
 *.DotSettings.user
