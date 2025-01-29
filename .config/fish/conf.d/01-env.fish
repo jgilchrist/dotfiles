@@ -7,7 +7,7 @@ set -q XDG_STATE_HOME; or set -Ux XDG_STATE_HOME $HOME/.local/state
 set -q XDG_CACHE_HOME; or set -Ux XDG_CACHE_HOME $HOME/.cache
 mkdir -p $XDG_CONFIG_HOME $XDG_DATA_HOME $XDG_STATE_HOME $XDG_CACHE_HOME
 
-test -d $HOME/.local/bin && fish_add_path $HOME/.local/bin
+test -d $HOME/.local/bin && fish_add_path --move $HOME/.local/bin
 
 set -gx BROWSER open
 
