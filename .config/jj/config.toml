@@ -3,6 +3,7 @@ user.email = "jonnygilchrist@gmail.com"
 
 ui.default-command = "log"
 ui.diff-editor = ":builtin"
+ui.merge-editor = "vim"
 
 [aliases]
 s = ["status"]
@@ -25,6 +26,11 @@ rebase-drafts = ["rebase", "-s", "all:roots(draft())", "-d", "trunk()"]
 
 [revset-aliases]
 "draft()" = "mutable() & mine()"
+
+[merge-tools.vim]
+program = "nvim"
+merge-tool-edits-conflict-markers = true
+merge-args = ["$output"]
 
 [templates]
 log = '''
