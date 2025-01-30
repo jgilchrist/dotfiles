@@ -37,6 +37,8 @@ end
 
 if type -q jj
     set -gx JJ_CONFIG "$XDG_CONFIG_HOME"/jj
+    COMPLETE=fish jj | source
+
     alias j="jj"
     alias jjwatch="watch -c jj --ignore-working-copy log --color=always"
 end
@@ -74,6 +76,15 @@ end
 
 if type -q units
     alias units="units --history $XDG_DATA_HOME/units_history"
+end
+
+if type -q uv
+    uv generate-shell-completion fish | source
+end
+
+if type -q zoxide
+    set -x _ZO_ECHO 1
+    zoxide init fish --cmd cd | source
 end
 
 # }}}
