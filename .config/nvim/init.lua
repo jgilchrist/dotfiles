@@ -120,10 +120,6 @@ vim.keymap.set('n', 'J', 'mzJ`z')
 vim.keymap.set('n', '<leader>ec', ':edit $MYVIMRC<CR>', { silent = true })
 vim.keymap.set('n', '<leader>sc', require'jg.util'.reload_config, { silent = true })
 
--- Remap H and L to start and end of the line
-vim.keymap.set({'n', 'x'}, 'H', '^')
-vim.keymap.set({'n', 'x'}, 'L', 'g_')
-
 -- Easy split navigation
 vim.keymap.set('n', '<c-j>', '<c-w>j')
 vim.keymap.set('n', '<c-k>', '<c-w>k')
