@@ -5,6 +5,8 @@ ui.default-command = "log"
 ui.diff-editor = ":builtin"
 ui.merge-editor = "vim"
 
+git.subprocess = true
+
 [aliases]
 s = ["status"]
 l = ["log"]
