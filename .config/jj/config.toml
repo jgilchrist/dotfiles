@@ -1,7 +1,7 @@
 user.name = "Jonathan Gilchrist"
 user.email = "jonnygilchrist@gmail.com"
 
-ui.default-command = "log"
+ui.default-command = ["log", "-r", "default()"]
 ui.diff-editor = ":builtin"
 ui.merge-editor = "vim"
 
@@ -27,7 +27,10 @@ rebase-drafts = ["rebase", "-s", "all:roots(draft())", "-d", "trunk()"]
 "timestamp" = { fg = "cyan" }
 
 [revset-aliases]
+"default()" = "builtin_log_default() & ~experiment()"
+"builtin_log_default()" = "(present(@) | ancestors(immutable_heads().., 2) | present(trunk()))"
 "draft()" = "mutable() & mine()"
+"experiment()" = "mutable() & description(regex:\"^x:\")"
 
 [merge-tools.vim]
 program = "nvim"

@@ -40,7 +40,7 @@ if type -q jj
     COMPLETE=fish jj | source
 
     alias j="jj"
-    alias jjwatch="watch -c jj --ignore-working-copy log --color=always"
+    alias jjwatch="watch -c jj --ignore-working-copy log -r \"default\(\)\" --color=always"
 end
 
 if type -q dotnet
