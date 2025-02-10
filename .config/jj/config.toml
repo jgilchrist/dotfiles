@@ -20,6 +20,15 @@ showl = ["showlast"]
 drafts = ["log", "-r", "draft()"]
 rebase-drafts = ["rebase", "-s", "all:roots(draft())", "-d", "trunk()"]
 
+advance = [
+    "bookmark",
+    "move",
+    "--from",
+    "heads(::@- & bookmarks())",
+    "--to",
+    "@-"
+]
+
 [colors]
 "diff removed token" = { underline = false }
 "diff added token" = { underline = false }
