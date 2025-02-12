@@ -95,9 +95,9 @@ concat(
   description,
   surround(
     "\nJJ: This change has the following diffstat:\n", "",
-    indent("JJ:   ", diff.stat(72)),
+    indent("JJ:   ", diff.summary()),
   ),
-  "\nJJ: ignore-rest\n",
+  "JJ: \nJJ: ignore-rest\n",
   diff.git(),
 )
 '''
