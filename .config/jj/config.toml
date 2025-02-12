@@ -23,6 +23,11 @@ merge-args = ["$output"]
 
 "private()" = "wip()"
 
+# `additional_immutable_heads()` exists to add immutable heads in a repo's
+# config without redefining the entire revset
+'immutable_heads()' = 'trunk() | tags() | untracked_remote_bookmarks() | additional_immutable_heads()'
+'additional_immutable_heads()' = 'none()'
+
 "draft()" = "mutable() & mine()"
 "experiment()" = "draft() & description(glob-i:\"x:*\")"
 "wip()" = "draft() & description(glob-i:\"wip:*\")"
