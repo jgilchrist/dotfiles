@@ -85,6 +85,18 @@ if(root,
 )
 '''
 
+draft_commit_description = '''
+concat(
+  description,
+  surround(
+    "\nJJ: This change has the following diffstat:\n", "",
+    indent("JJ:   ", diff.stat(72)),
+  ),
+  "\nJJ: ignore-rest\n",
+  diff.git(),
+)
+'''
+
 [template-aliases]
 'format_timestamp(timestamp)' = 'timestamp.ago()'
 
