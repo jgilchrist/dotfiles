@@ -1,21 +1,48 @@
-user.name = "Jonathan Gilchrist"
-user.email = "jonnygilchrist@gmail.com"
+[user]
+name = "Jonathan Gilchrist"
+email = "jonnygilchrist@gmail.com"
 
-ui.default-command = ["log", "-r", "default()"]
-ui.diff-editor = ":builtin"
-ui.merge-editor = "vim"
+[ui]
+default-command = ["log", "-r", "default()"]
+diff-editor = ":builtin"
+merge-editor = "vim"
 
-git.subprocess = true
+[git]
+push-bookmark-prefix = "jgilchrist/change/"
+private-commits = "private()"
+subprocess = true
+
+[merge-tools.vim]
+program = "nvim"
+merge-tool-edits-conflict-markers = true
+merge-args = ["$output"]
+
+[revset-aliases]
+"default()" = "default(2)"
+"default(n)" = "present(@) | ancestors(immutable_heads().., n) | present(trunk())"
+
+"private()" = "wip()"
+
+"draft()" = "mutable() & mine()"
+"experiment()" = "draft() & description(glob-i:\"x:*\")"
+"wip()" = "draft() & description(glob-i:\"wip:*\")"
+
+"last()" = "last(20)"
+"last(n)" = "ancestors(@, n)"
+
+"stack()" = "stack(@)"
+"stack(from)" = "ancestors(reachable(from, mutable()), 2)"
 
 [aliases]
+b = ["bookmark"]
 s = ["status"]
 l = ["log"]
-history = ["log", "-r", "::trunk()"]
 fetch = ["git", "fetch"]
 push = ["git", "push"]
 
-showlast = ["show", "@-"]
-showl = ["showlast"]
+history = ["log", "-r", "last()"]
+
+showl = ["show", "@-"]
 
 drafts = ["log", "-r", "draft()"]
 rebase-drafts = ["rebase", "-s", "all:roots(draft())", "-d", "trunk()"]
@@ -32,19 +59,6 @@ advance = [
 [colors]
 "diff removed token" = { underline = false }
 "diff added token" = { underline = false }
-
-"timestamp" = { fg = "cyan" }
-
-[revset-aliases]
-"default()" = "builtin_log_default() & ~experiment()"
-"builtin_log_default()" = "(present(@) | ancestors(immutable_heads().., 2) | present(trunk()))"
-"draft()" = "mutable() & mine()"
-"experiment()" = "mutable() & description(regex:\"^x:\")"
-
-[merge-tools.vim]
-program = "nvim"
-merge-tool-edits-conflict-markers = true
-merge-args = ["$output"]
 
 [templates]
 log = '''
@@ -76,11 +90,3 @@ if(root,
 
 'format_short_signature(signature)' = '''
   coalesce(signature.name(), email_placeholder)'''
-
-'format_root_commit(root)' = '''
-separate(" ",
-  format_short_change_id(root.change_id()),
-  label("root", "root()"),
-  root.bookmarks()
-) ++ "\n"
-'''
