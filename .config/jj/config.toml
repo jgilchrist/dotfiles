@@ -18,8 +18,10 @@ merge-tool-edits-conflict-markers = true
 merge-args = ["$output"]
 
 [revset-aliases]
-"default()" = "default(2)"
-"default(n)" = "present(@) | ancestors(immutable_heads().., n) | present(trunk())"
+"default()" = "builtin_default() ~ experiment()"
+
+"builtin_default()" = "builtin_default(2)"
+"builtin_default(n)" = "present(@) | ancestors(immutable_heads().., n) | present(trunk())"
 
 "private()" = "wip()"
 
