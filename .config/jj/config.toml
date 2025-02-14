@@ -31,6 +31,13 @@ merge-args = ["$output"]
 'additional_immutable_heads()' = 'none()'
 
 "draft()" = "mutable() & mine()"
+
+# Drafts that should be autorebased when we run `jj autorebase`
+# draft_autorebase_ignore allows individual repositories to configure
+# changes that should be ignored.
+"draft_autorebase()" = "draft() ~ draft_autorebase_ignore()"
+"draft_autorebase_ignore()" = "none()"
+
 "experiment()" = "draft() & description(glob-i:\"x:*\")"
 "wip()" = "draft() & description(glob-i:\"wip:*\")"
 
@@ -52,7 +59,7 @@ history = ["log", "-r", "last()"]
 showl = ["show", "@-"]
 
 drafts = ["log", "-r", "draft()"]
-rebase-drafts = ["rebase", "-s", "all:roots(draft())", "-d", "trunk()"]
+autorebase = ["rebase", "-s", "all:roots(draft_autorebase())", "-d", "trunk()"]
 
 advance = [
     "bookmark",
