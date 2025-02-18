@@ -11,6 +11,7 @@ merge-editor = "vim"
 push-bookmark-prefix = "jgilchrist/change/"
 private-commits = "private()"
 subprocess = true
+push-new-bookmarks = true
 
 [merge-tools.vim]
 program = "nvim"
