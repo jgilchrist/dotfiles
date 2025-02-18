@@ -51,7 +51,7 @@ merge-args = ["$output"]
 [aliases]
 b = ["bookmark"]
 s = ["status"]
-l = ["log"]
+l = ["log", "-r", "default()"]
 fetch = ["git", "fetch"]
 push = ["git", "push"]
 
