@@ -7,10 +7,9 @@ local lazy = require'lazy'
 local lsp = require'jg.lsp'
 
 local plugins = {
-  'tpope/vim-repeat',
+  { 'tpope/vim-repeat' },
 
-  {
-    'nvim-treesitter/nvim-treesitter',
+  { 'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     config = function()
       require'nvim-treesitter.configs'.setup {
@@ -61,29 +60,26 @@ local plugins = {
   },
 
   -- Extensions to vim's language
-  'tpope/vim-repeat',
+  { 'tpope/vim-repeat' },
 
-  {
-    'kylechui/nvim-surround',
+  { 'kylechui/nvim-surround',
     config = function()
       require'nvim-surround'.setup()
     end,
   },
 
-  'wellle/targets.vim',
+  { 'wellle/targets.vim' },
 
-  {
-    'ggandor/leap.nvim',
+  { 'ggandor/leap.nvim',
     config = function()
       local leap = require'leap'
       leap.add_default_mappings()
     end
   },
 
-  'tommcdo/vim-exchange',
+  { 'tommcdo/vim-exchange' },
 
-  {
-    'kana/vim-textobj-user',
+  { 'kana/vim-textobj-user',
     dependencies = {
       'glts/vim-textobj-comment',
       'kana/vim-textobj-entire',
@@ -92,13 +88,11 @@ local plugins = {
   },
 
   -- File management
-  {
-    'junegunn/fzf',
+  { 'junegunn/fzf',
     build = ':call fzf#install()',
   },
 
-  {
-    'ibhagwan/fzf-lua',
+  { 'ibhagwan/fzf-lua',
     config = function()
       require'fzf-lua'.setup({
         files = {
@@ -117,8 +111,7 @@ local plugins = {
     end,
   },
 
-  {
-    'justinmk/vim-dirvish',
+  { 'justinmk/vim-dirvish',
     config = function()
       vim.g.dirvish_mode = ':sort | sort ,^.*/,'
 
@@ -130,14 +123,16 @@ local plugins = {
     end,
   },
 
-  'tpope/vim-eunuch',
+  { 'tpope/vim-eunuch' },
 
-  'tpope/vim-unimpaired',
-  { 'tpope/vim-fugitive', cmd = {'Git'} },
+  { 'tpope/vim-unimpaired' },
+
+  { 'tpope/vim-fugitive',
+    cmd = {'Git'}
+  },
 
   -- Colorscheme
-  {
-    'projekt0n/github-nvim-theme',
+  { 'projekt0n/github-nvim-theme',
     lazy = false,
     priority = 1000,
     config = function()
@@ -153,8 +148,7 @@ local plugins = {
     end,
   },
 
-  {
-    'nvim-lualine/lualine.nvim',
+  { 'nvim-lualine/lualine.nvim',
     config = function()
       require'lualine'.setup({
         options = {
@@ -179,8 +173,7 @@ local plugins = {
 
   -- Extras
 
-  {
-    'jgilchrist/vim-mergetool',
+  { 'jgilchrist/vim-mergetool',
     config = function()
       vim.g.mergetool_layout = 'ml,b'
       vim.g.mergetool_prefer_revision = 'remote'
@@ -200,8 +193,7 @@ local plugins = {
     cmd = { 'MergetoolStart', 'MergetoolToggle' },
   },
 
-  {
-    'hrsh7th/nvim-cmp',
+  { 'hrsh7th/nvim-cmp',
     dependencies = {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
