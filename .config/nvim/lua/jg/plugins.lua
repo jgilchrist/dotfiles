@@ -7,8 +7,6 @@ local lazy = require'lazy'
 local lsp = require'jg.lsp'
 
 local plugins = {
-  { 'tpope/vim-repeat' },
-
   { 'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     config = function()
@@ -62,13 +60,33 @@ local plugins = {
   -- Extensions to vim's language
   { 'tpope/vim-repeat' },
 
+  { 'echasnovski/mini.ai',
+    dependencies = { { 'echasnovski/mini.extra', version = "*" } },
+    version = "*",
+    config = function()
+      require('mini.extra').setup()
+
+      local ai = require('mini.ai')
+
+      ai.setup({
+        mappings = {
+          around_last = '',
+          inside_last = '',
+        },
+
+        custom_textobjects = {
+          l = MiniExtra.gen_ai_spec.line(),
+          e = MiniExtra.gen_ai_spec.buffer(),
+        },
+      })
+    end
+  },
+
   { 'kylechui/nvim-surround',
     config = function()
       require'nvim-surround'.setup()
     end,
   },
-
-  { 'wellle/targets.vim' },
 
   { 'ggandor/leap.nvim',
     config = function()
@@ -78,14 +96,6 @@ local plugins = {
   },
 
   { 'tommcdo/vim-exchange' },
-
-  { 'kana/vim-textobj-user',
-    dependencies = {
-      'glts/vim-textobj-comment',
-      'kana/vim-textobj-entire',
-      'kana/vim-textobj-line',
-    },
-  },
 
   -- File management
   { 'junegunn/fzf',
