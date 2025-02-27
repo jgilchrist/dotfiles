@@ -21,8 +21,11 @@ merge-args = ["$output"]
 [revset-aliases]
 "default()" = "builtin_default() ~ experiment()"
 
+# `additional_heads()` exists to add refs which should always be show in the log
+# for a particular repo without redefining the entire revset
 "builtin_default()" = "builtin_default(2)"
-"builtin_default(n)" = "present(@) | ancestors(immutable_heads().., n) | present(trunk())"
+"builtin_default(n)" = "present(@) | ancestors(immutable_heads().., n) | present(trunk()) | additional_heads()"
+'additional_heads()' = 'none()'
 
 "private()" = "wip()"
 
