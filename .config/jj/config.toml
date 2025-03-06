@@ -123,3 +123,6 @@ concat(
 
 'format_short_signature(signature)' = '''
   coalesce(signature.name(), email_placeholder)'''
+
+[hints]
+resolving-conflicts = false
