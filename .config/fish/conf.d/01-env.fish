@@ -39,8 +39,8 @@ if type -q jj
     set -gx JJ_CONFIG "$XDG_CONFIG_HOME"/jj
     COMPLETE=fish jj | source
 
-    alias j="jj"
-    alias jjwatch="watch --color --no-wrap jj --ignore-working-copy log -r \"default\(\)\" --color=always"
+    abbr --add j --position command -- jj 
+    abbr --add jjwatch --position command -- "watch --color --no-wrap jj --ignore-working-copy log -r \"default\(\)\" --color=always"
 end
 
 if type -q dotnet
