@@ -86,7 +86,7 @@ if(root,
     concat(
       separate(" ",
         if(!(empty && current_working_copy), format_short_change_id_with_hidden_and_divergent_info(self)),
-        if(!mine, if(author.email(), author.email().local(), email_placeholder)),
+        if(!mine, format_short_signature_oneline(author)),
         if(immutable, format_timestamp(commit_timestamp(self))),
         tags,
         working_copies,
