@@ -14,6 +14,9 @@
 # env files
 .env
 
+# jj repos
+.jj
+
 # IDE files
 .idea/
 *.DotSettings.user
