@@ -135,8 +135,6 @@ local plugins = {
 
   { 'tpope/vim-eunuch' },
 
-  { 'tpope/vim-unimpaired' },
-
   { 'tpope/vim-fugitive',
     cmd = {'Git'}
   },
