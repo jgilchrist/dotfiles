@@ -239,7 +239,7 @@ local plugins = {
             { name = 'nvim_lua' },
           },
           {
-            { name = 'buffer', keyword_length = 6 },
+            { name = 'buffer', keyword_length = 4 },
           }
         ),
         experimental = {
