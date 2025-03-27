@@ -42,7 +42,7 @@ o.shiftround = true
 -- settings when configuration is reloaded
 vim.go.tabstop = 4
 vim.go.softtabstop = 4
-vim.go.shiftwidth = 4
+vim.go.shiftwidth = 0
 
 -- Search
 o.ignorecase = true
