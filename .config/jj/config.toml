@@ -63,7 +63,12 @@ history = ["log", "-r", "last()"]
 showl = ["show", "@-"]
 
 drafts = ["log", "-r", "draft()"]
-autorebase = ["rebase", "-s", "all:roots(draft_autorebase())", "-d", "trunk()"]
+autorebase = ["util", "exec", "--", "bash", "-c", """
+#!/usr/bin/env bash
+set -euo pipefail
+jj rebase -s "all:roots(draft_autorebase())" -d "trunk()"
+jj simplify-parents -r "draft_autorebase()"
+""", ""]
 
 advance = [
     "bookmark",
