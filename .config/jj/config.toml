@@ -42,6 +42,8 @@ merge-args = ["$output"]
 "draft_autorebase()" = "draft() ~ draft_autorebase_ignore()"
 "draft_autorebase_ignore()" = "none()"
 
+'closest_bookmark(to)' = 'heads(::to & bookmarks())'
+
 "experiment()" = "draft() & description(glob-i:\"x:*\")"
 "wip()" = "draft() & description(glob-i:\"wip:*\")"
 
@@ -74,7 +76,7 @@ advance = [
     "bookmark",
     "move",
     "--from",
-    "heads(::@- & bookmarks())",
+    "closest_bookmark(@-)",
     "--to",
     "@-"
 ]
