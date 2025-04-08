@@ -10,7 +10,6 @@ merge-editor = "vim"
 [git]
 push-bookmark-prefix = "jgilchrist/change/"
 private-commits = "private()"
-subprocess = true
 push-new-bookmarks = true
 write-change-id-header = true
 
