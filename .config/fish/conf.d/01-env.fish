@@ -36,7 +36,6 @@ else
 end
 
 if type -q jj
-    set -gx JJ_CONFIG "$XDG_CONFIG_HOME"/jj
     COMPLETE=fish jj | source
 
     abbr --add j --position command -- jj 
