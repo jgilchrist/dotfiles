@@ -83,8 +83,7 @@ advance = [
 ]
 
 [colors]
-"diff removed token" = { underline = false }
-"diff added token" = { underline = false }
+"diff token" = { underline = false }
 
 [templates]
 log = '''
