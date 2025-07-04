@@ -4,7 +4,6 @@ util.bootstrap_lazynvim()
 
 local augroup = util.augroup
 local lazy = require'lazy'
-local lsp = require'jg.lsp'
 
 local plugins = {
   { 'nvim-treesitter/nvim-treesitter',
