@@ -8,7 +8,6 @@ diff-editor = ":builtin"
 merge-editor = "vim"
 
 [git]
-push-bookmark-prefix = "jgilchrist/change/"
 private-commits = "private()"
 push-new-bookmarks = true
 write-change-id-header = true
@@ -86,6 +85,8 @@ advance = [
 "diff token" = { underline = false }
 
 [templates]
+git_push_bookmark = '"jgilchrist/change/" ++ change_id.short()'
+
 log = '''
 if(root,
   format_root_commit(self),
