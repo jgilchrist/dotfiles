@@ -72,7 +72,7 @@ jj rebase -s "all:roots(draft_autorebase())" -d "trunk()"
 jj simplify-parents -r "draft_autorebase()"
 """, ""]
 
-advance = [
+tug = [
     "bookmark",
     "move",
     "--from",
