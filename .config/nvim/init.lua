@@ -67,6 +67,9 @@ o.virtualedit = 'block'
 o.splitbelow = true
 o.splitright = true
 
+-- Use a border around floating windows
+o.winborder = 'rounded'
+
 augroup('resize_splits', function(autocmd)
   autocmd('VimResized', { command = ':wincmd =' })
 end)
