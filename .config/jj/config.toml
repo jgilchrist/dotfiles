@@ -68,7 +68,7 @@ drafts = ["log", "-r", "draft()"]
 autorebase = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
 set -euo pipefail
-jj rebase -s "all:roots(draft_autorebase())" -d "trunk()"
+jj rebase -s "roots(draft_autorebase())" -d "trunk()"
 jj simplify-parents -r "draft_autorebase()"
 """, ""]
 
