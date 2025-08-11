@@ -107,7 +107,7 @@ if(root,
           label(if(empty, "empty"), description_placeholder),
         ),
         bookmarks,
-        if(current_working_copy && !empty, "\n" ++ diff.stat(80)),
+        if((current_working_copy && !empty) || (!current_working_copy && !description), "\n" ++ diff.stat(80)),
       ) ++ "\n",
     ),
   )
