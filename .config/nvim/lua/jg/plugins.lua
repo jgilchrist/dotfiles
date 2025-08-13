@@ -247,7 +247,7 @@ local plugins = {
 }
 
 for _, plugin in ipairs(plugins) do
-  local plugin_def = { src = plugin.src }
+  local plugin_def = { name = plugin.name, src = plugin.src }
 
   if plugin.version then
     plugin_def.version = plugin.version
