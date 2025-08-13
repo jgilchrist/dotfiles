@@ -1,9 +1,7 @@
 local localconfig = require'jg.local'
 localconfig.preconfig()
 
-if vim.fn.has('nvim-0.12') then
-  require('vim._extui').enable({})
-end
+require'vim._extui'.enable({})
 
 vim.g.mapleader = ','
 vim.g.maplocalleader = ','
