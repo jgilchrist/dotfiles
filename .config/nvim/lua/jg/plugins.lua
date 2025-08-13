@@ -244,6 +244,7 @@ local plugins = {
   { name = 'cmp-path', src = gh('hrsh7th/cmp-path') },
   { name = 'cmp-cmdline', src = gh('hrsh7th/cmp-cmdline') },
   { name = 'cmp-nvim-lua', src = gh('hrsh7th/cmp-nvim-lua') },
+  { name = 'cmp-nvim-lsp', src = gh('hrsh7th/cmp-nvim-lsp') },
 }
 
 for _, plugin in ipairs(plugins) do
