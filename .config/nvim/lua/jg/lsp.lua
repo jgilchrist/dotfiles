@@ -19,11 +19,23 @@ function M.setup()
 end
 
 function M.install_lsp_plugins()
-  vim.pack.add({ 'https://github.com/neovim/nvim-lspconfig' })
+  vim.pack.add({
+    { name = 'nvim-lspconfig', src = 'https://github.com/neovim/nvim-lspconfig' },
+    { name = 'mason', src = 'https://github.com/mason-org/mason.nvim' },
+    { name = 'mason-lspconfig', src = 'https://github.com/mason-org/mason-lspconfig.nvim' }
+  })
 end
 
 function M.configure()
-  vim.lsp.enable({ "lua_ls" })
+  require'mason'.setup()
+  require'mason-lspconfig'.setup({
+    ensure_installed = { 'lua_ls', 'rust_analyzer' },
+    handlers = {
+      function(server_name)
+        require('lspconfig')[server_name].setup({})
+      end,
+    }
+  })
 end
 
 return M
