@@ -1,6 +1,8 @@
 local M = {}
 
 function M.reload_config()
+  vim.g.jg_config_reloading = true
+
   for name,_ in pairs(package.loaded) do
     -- Work round the fact that these modules would otherwise be loaded from the cache
     if name:match('^jg') then
@@ -10,6 +12,12 @@ function M.reload_config()
 
   dofile(vim.env.MYVIMRC)
   vim.notify('Reloaded!', vim.log.levels.INFO)
+
+  vim.g.jg_config_reloading = nil
+end
+
+function M.is_first_load()
+  return not vim.g.jg_config_reloading
 end
 
 function M.augroup(name, autocmd_def_fn)
