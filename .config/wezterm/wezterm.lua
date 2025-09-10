@@ -43,7 +43,12 @@ config.keys = {
     key = 'Tab',
     mods = 'CTRL',
     action = wezterm.action.QuickSelect
-  }
+  },
+  {
+    key = '+',
+    mods = 'CMD',
+    action = wezterm.action.IncreaseFontSize
+  },
 }
 
 localconfig.apply_to_config(config)
