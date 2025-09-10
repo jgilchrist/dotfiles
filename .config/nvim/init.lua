@@ -8,12 +8,13 @@ vim.g.maplocalleader = ','
 
 require 'jg.plugins'
 require 'jg.disable_builtins'
+local util = require 'jg.util'
 
 -- Settings {{{
 
 local o = vim.o
 local opt = vim.opt
-local augroup = require'jg.util'.augroup
+local augroup = util.augroup
 
 -- Don't show the intro message when starting Vim
 vim.opt.shortmess:append('I')
@@ -40,12 +41,17 @@ o.wildmode='list:longest,full'
 o.expandtab = true
 o.shiftround = true
 
--- Set this only globally so it does not override buffer-specific
--- settings when configuration is reloaded
-vim.go.tabstop = 4
+-- Don't set tabstop if we're reloading config, as we might ovewrite
+-- buffer-local values that have been set by after/
+if util.is_first_load() then
+  vim.opt.tabstop = 4
+end
 
-vim.opt.softtabstop = -1
+-- Use the tabstop value
 vim.opt.shiftwidth = 0
+
+-- Use the shiftwidth value
+vim.opt.softtabstop = -1
 
 -- Search
 o.ignorecase = true
@@ -124,7 +130,7 @@ vim.keymap.set('n', 'J', 'mzJ`z')
 
 -- Edit/source configuration
 vim.keymap.set('n', '<leader>ec', ':edit $MYVIMRC<CR>', { silent = true })
-vim.keymap.set('n', '<leader>sc', require'jg.util'.reload_config, { silent = true })
+vim.keymap.set('n', '<leader>sc', util.reload_config, { silent = true })
 
 -- Easy split navigation
 vim.keymap.set('n', '<c-j>', '<c-w>j')
