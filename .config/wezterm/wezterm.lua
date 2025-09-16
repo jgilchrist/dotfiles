@@ -39,16 +39,8 @@ config.window_decorations = 'INTEGRATED_BUTTONS|RESIZE'
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 
 config.keys = {
-  {
-    key = 'Tab',
-    mods = 'CTRL',
-    action = wezterm.action.QuickSelect
-  },
-  {
-    key = '+',
-    mods = 'CMD',
-    action = wezterm.action.IncreaseFontSize
-  },
+  { key = 'Tab', mods = 'CTRL', action = wezterm.action.QuickSelect },
+  { key = '+', mods = 'CMD', action = wezterm.action.IncreaseFontSize },
 }
 
 localconfig.apply_to_config(config)
