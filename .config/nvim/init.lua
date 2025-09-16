@@ -40,11 +40,12 @@ o.wildmode='list:longest,full'
 o.expandtab = true
 o.shiftround = true
 
--- Set these only globally so they do not override buffer-specific
+-- Set this only globally so it does not override buffer-specific
 -- settings when configuration is reloaded
 vim.go.tabstop = 4
-vim.go.softtabstop = 4
-vim.go.shiftwidth = 0
+
+vim.opt.softtabstop = -1
+vim.opt.shiftwidth = 0
 
 -- Search
 o.ignorecase = true

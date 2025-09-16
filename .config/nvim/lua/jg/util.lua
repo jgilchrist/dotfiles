@@ -32,7 +32,6 @@ end
 
 function M.use_indent(n)
   vim.bo.tabstop = n
-  vim.bo.softtabstop = n
 end
 
 function M.use_text_mode()
