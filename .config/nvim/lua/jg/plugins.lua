@@ -106,11 +106,15 @@ local plugins = {
   },
   { name = 'fzf-lua', src = gh('ibhagwan/fzf-lua'),
     config = function()
-      require'fzf-lua'.setup({
+      local fzflua = require'fzf-lua'
+
+      fzflua.setup({
         files = {
           git_icons = false
         }
       })
+
+      fzflua.register_ui_select()
 
       vim.keymap.set("n", "<C-P>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
       vim.keymap.set("n", "<C-G>", "<cmd>lua require('fzf-lua').live_grep()<CR>", { silent = true })
