@@ -43,5 +43,7 @@ config.keys = {
   { key = '+', mods = 'CMD', action = wezterm.action.IncreaseFontSize },
 }
 
+config.quick_select_remove_styling = true
+
 localconfig.apply_to_config(config)
 return config
