@@ -10,7 +10,6 @@ merge-editor = "vim"
 [git]
 private-commits = "private()"
 push-new-bookmarks = true
-write-change-id-header = true
 
 [merge-tools.vim]
 program = "nvim"
