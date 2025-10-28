@@ -41,6 +41,7 @@ merge-args = ["$output"]
 "draft_autorebase_ignore()" = "none()"
 
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
+'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
 
 "experiment()" = "draft() & description(glob-i:\"x:*\")"
 "wip()" = "draft() & description(glob-i:\"wip:*\")"
@@ -71,14 +72,7 @@ jj rebase -s "roots(draft_autorebase())" -d "trunk()"
 jj simplify-parents -r "draft_autorebase()"
 """, ""]
 
-tug = [
-    "bookmark",
-    "move",
-    "--from",
-    "closest_bookmark(@-)",
-    "--to",
-    "@-"
-]
+tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pushable(@)"]
 
 [colors]
 "diff token" = { underline = false }
