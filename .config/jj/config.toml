@@ -75,7 +75,10 @@ jj simplify-parents -r "draft_autorebase()"
 tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pushable(@)"]
 
 [colors]
+"diff context" = { dim = true }
 "diff token" = { underline = false }
+"diff added token" = { fg = "bright green", bg = "#002200" }
+"diff removed token" = { fg = "bright red", bg = "#330000" }
 
 [templates]
 git_push_bookmark = '"jgilchrist/change/" ++ change_id.short()'
