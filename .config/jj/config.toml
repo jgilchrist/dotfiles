@@ -7,9 +7,11 @@ default-command = ["log", "-r", "default()"]
 diff-editor = ":builtin"
 merge-editor = "vim"
 
+[remotes.origin]
+auto-track-bookmarks = "glob:*"
+
 [git]
 private-commits = "private()"
-push-new-bookmarks = true
 
 [merge-tools.vim]
 program = "nvim"
