@@ -1,5 +1,5 @@
 local wezterm = require 'wezterm'
-local localconfig = require 'local'
+local haslocalconfig, localconfig = pcall(require, 'local')
 local config = wezterm.config_builder()
 
 config.initial_cols = 128;
@@ -45,5 +45,8 @@ config.keys = {
 
 config.quick_select_remove_styling = true
 
-localconfig.apply_to_config(config)
+if haslocalconfig then
+  localconfig.apply_to_config(config)
+end
+
 return config
