@@ -78,9 +78,15 @@ local plugins = {
       require'nvim-surround'.setup()
     end
   },
-  { name = 'leap.nvim', src = gh('ggandor/leap.nvim'),
+  { name = 'leap.nvim', src = 'https://codeberg.org/andyg/leap.nvim',
     config = function()
-      require'leap'.add_default_mappings()
+      local leap = require'leap'
+
+      vim.keymap.set({'n', 'x'}, 's', '<Plug>(leap)')
+      vim.keymap.set({'o'}, 'gs', '<Plug>(leap)')
+      vim.keymap.set('n', 'S', '<Plug>(leap-from-window)')
+
+      leap.opts.safe_labels = ''
     end
   },
 
