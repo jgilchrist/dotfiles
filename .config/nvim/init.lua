@@ -1,5 +1,7 @@
-local localconfig = require'jg.local'
-localconfig.preconfig()
+local haslocalconfig, localconfig = pcall(require, 'jg.local')
+if haslocalconfig then
+  localconfig.preconfig()
+end
 
 require'vim._extui'.enable({})
 
@@ -157,6 +159,8 @@ vim.keymap.set('n', '<backspace>', '<C-^>', { silent = true })
 
 -- }}}
 
-localconfig.postconfig()
+if haslocalconfig then
+  localconfig.postconfig()
+end
 
 -- vim: set fdm=marker:
