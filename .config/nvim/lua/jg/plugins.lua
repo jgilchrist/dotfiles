@@ -12,7 +12,7 @@ local plugins = {
       vim.cmd(':TSUpdate')
     end,
     config = function()
-      require'nvim-treesitter.config'.setup {
+      require'nvim-treesitter.configs'.setup {
         ensure_installed = {
           'bash',
           'c',
