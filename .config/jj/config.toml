@@ -91,7 +91,7 @@ if(root,
   label(if(current_working_copy, "working_copy"),
     concat(
       separate(" ",
-        if(!(empty && current_working_copy) && !immutable, format_short_change_id_with_hidden_and_divergent_info(self)),
+        if(!(empty && current_working_copy) && !immutable, format_short_change_id_with_change_offset(self)),
         if(immutable || divergent, format_short_commit_id(commit_id)),
         if(!mine, format_short_signature_oneline(author)),
         if(immutable, format_timestamp(commit_timestamp(self))),
