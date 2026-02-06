@@ -8,7 +8,8 @@ diff-editor = ":builtin"
 merge-editor = "vim"
 
 [remotes.origin]
-auto-track-bookmarks = "glob:*"
+auto-track-bookmarks = "glob:jgilchrist/*"
+auto-track-created-bookmarks = "glob:*"
 
 [git]
 private-commits = "private()"
