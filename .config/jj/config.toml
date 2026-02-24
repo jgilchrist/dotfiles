@@ -19,6 +19,9 @@ program = "nvim"
 merge-tool-edits-conflict-markers = true
 merge-args = ["$output"]
 
+[revsets]
+bookmark-advance-to = 'closest_pushable(@)'
+
 [revset-aliases]
 "default()" = "builtin_default() ~ experiment()"
 
@@ -43,7 +46,6 @@ merge-args = ["$output"]
 "draft_autorebase()" = "draft() ~ draft_autorebase_ignore()"
 "draft_autorebase_ignore()" = "none()"
 
-'closest_bookmark(to)' = 'heads(::to & bookmarks())'
 'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
 
 "experiment()" = "draft() & description(glob-i:\"x:*\")"
@@ -74,8 +76,6 @@ set -euo pipefail
 jj rebase -s "roots(draft_autorebase())" -d "trunk()"
 jj simplify-parents -r "draft_autorebase()"
 """, ""]
-
-tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pushable(@)"]
 
 [colors]
 "diff context" = { dim = true }
