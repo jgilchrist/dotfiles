@@ -43,6 +43,10 @@ config.keys = {
   { key = '+', mods = 'CMD', action = wezterm.action.IncreaseFontSize },
 }
 
+config.quick_select_patterns = {
+  '(?=[a-zA-Z-]+-)([a-zA-Z-]+)'
+}
+
 config.quick_select_remove_styling = true
 
 if haslocalconfig then
