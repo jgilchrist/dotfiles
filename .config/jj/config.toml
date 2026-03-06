@@ -63,10 +63,7 @@ bookmark-advance-to = 'closest_pushable(@)'
 'not:x' = '~x'
 
 [aliases]
-b = ["bookmark"]
-s = ["status"]
 ds = ["describe"]
-l = ["log", "-r", "default()"]
 fetch = ["git", "fetch"]
 push = ["git", "push"]
 tug = ["bookmark", "advance"]
