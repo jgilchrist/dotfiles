@@ -57,6 +57,11 @@ bookmark-advance-to = 'closest_pushable(@)'
 "stack()" = "stack(@)"
 "stack(from)" = "ancestors(reachable(from, mutable()), 2)"
 
+[fileset-aliases]
+'locks' = '**/Cargo.lock | **/package-lock.json | **/uv.lock | **/packages.lock.json'
+'noise' = 'locks'
+'not:x' = '~x'
+
 [aliases]
 b = ["bookmark"]
 s = ["status"]
