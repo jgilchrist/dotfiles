@@ -3,8 +3,6 @@ if haslocalconfig then
   localconfig.preconfig()
 end
 
-require'vim._extui'.enable({})
-
 vim.g.mapleader = ','
 vim.g.maplocalleader = ','
 
@@ -14,6 +12,8 @@ vim.keymap.set('n', '<leader>ec', ':edit $MYVIMRC<CR>', { silent = true })
 require 'jg.plugins'
 require 'jg.disable_builtins'
 local util = require 'jg.util'
+
+require'vim._core.ui2'.enable({})
 
 -- Settings {{{
 
