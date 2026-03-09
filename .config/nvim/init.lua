@@ -8,6 +8,9 @@ require'vim._extui'.enable({})
 vim.g.mapleader = ','
 vim.g.maplocalleader = ','
 
+-- Edit config - map this first so it still works if config loading fails
+vim.keymap.set('n', '<leader>ec', ':edit $MYVIMRC<CR>', { silent = true })
+
 require 'jg.plugins'
 require 'jg.disable_builtins'
 local util = require 'jg.util'
@@ -130,8 +133,7 @@ vim.keymap.set('n', 'J', 'mzJ`z')
 
 -- }}}
 
--- Edit/source configuration
-vim.keymap.set('n', '<leader>ec', ':edit $MYVIMRC<CR>', { silent = true })
+-- Source configuration
 vim.keymap.set('n', '<leader>sc', util.reload_config, { silent = true })
 
 -- Easy split navigation
