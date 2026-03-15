@@ -274,6 +274,8 @@ local plugins = {
   { name = 'cmp-nvim-lsp', src = gh('hrsh7th/cmp-nvim-lsp') },
 }
 
+local plugin_defs = {}
+
 for _, plugin in ipairs(plugins) do
   local plugin_def = { name = plugin.name, src = plugin.src }
 
@@ -281,8 +283,11 @@ for _, plugin in ipairs(plugins) do
     plugin_def.version = plugin.version
   end
 
-  vim.pack.add({ plugin_def })
+
+  table.insert(plugin_defs, plugin_def)
 end
+
+vim.pack.add(plugin_defs)
 
 for _, plugin in ipairs(plugins) do
   if plugin.config then
