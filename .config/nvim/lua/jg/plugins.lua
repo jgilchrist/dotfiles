@@ -90,7 +90,7 @@ local plugins = {
     end
   },
 
-  { name = 'nvim-surround', src = gh('kylechui/nvim-surround'), version = vim.version.range("3.x.x"),
+  { name = 'nvim-surround', src = gh('kylechui/nvim-surround'), version = vim.version.range("4.x.x"),
     config = function()
       require'nvim-surround'.setup()
     end
