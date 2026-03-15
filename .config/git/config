@@ -12,9 +12,6 @@
 [fetch]
     prune = true
 
-[clone]
-    defaultRemoteName = upstream
-
 [log]
     date = human
     decorate = auto
