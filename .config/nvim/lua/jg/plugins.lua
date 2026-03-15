@@ -7,12 +7,12 @@ local function gh(repo)
 end
 
 local plugins = {
-  { name = 'nvim-treesitter', src = gh('nvim-treesitter/nvim-treesitter'),
+  { name = 'nvim-treesitter', src = gh('nvim-treesitter/nvim-treesitter'), version = 'main',
     install = function()
       vim.cmd(':TSUpdate')
     end,
     config = function()
-      require'nvim-treesitter.configs'.setup {
+      require'nvim-treesitter.config'.setup {
         ensure_installed = {
           'bash',
           'c',
@@ -50,6 +50,23 @@ local plugins = {
         highlight = { enable = true, additional_vim_regex_highlighting = { 'markdown' } },
         indent = { enable = true, },
       }
+
+      augroup('treesitter_highlighting_enable', function(autocmd)
+        autocmd('FileType', {
+          pattern = {
+            'c_sharp',
+            "lua",
+            "markdown",
+            "python",
+            "rust",
+            "typescript",
+            "vue"
+          },
+          callback = function()
+            vim.treesitter.start()
+          end,
+        })
+      end)
     end
   },
 
