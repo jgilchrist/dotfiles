@@ -187,91 +187,37 @@ local plugins = {
   { name = 'pgsql.vim', src = gh('lifepillar/pgsql.vim') },
 
   -- Experiments
-  { name = 'nvim-cmp', src = gh('hrsh7th/nvim-cmp'),
+  { name = 'saghen/blink.cmp', src = gh('saghen/blink.cmp'),
+    version = vim.version.range("v1.x.x"),
+    install = function()
+      vim.cmd(':BlinkCmp build')
+    end,
     config = function()
-      local cmp = require'cmp'
-      local t = require'jg.util'.replace_termcodes
+      require'blink.cmp'.setup({
+        keymap = { preset = 'super-tab' },
 
-      local function check_backspace()
-        local col = vim.fn.col('.') - 1
-
-        if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-          return true
-        else
-          return false
-        end
-      end
-
-      -- Either:
-      --  * Tab through a popup menu
-      --  * Comfirm a cmp item
-      --  * Default
-      local function tab_mapping(fallback)
-        if vim.fn.pumvisible() == 1 then
-          vim.fn.feedkeys(t('<C-n>'), 'n')
-        elseif not check_backspace() then
-          cmp.mapping.confirm({select = true})(fallback)
-        else
-          fallback()
-        end
-      end
-
-      -- Either:
-      --  * Untab through a popup menu
-      --  * Default
-      local function shift_tab_mapping(fallback)
-        if vim.fn.pumvisible() == 1 then
-          vim.fn.feedkeys(t('<C-p>'), 'n')
-        else
-          fallback()
-        end
-      end
-
-      cmp.setup({
-        mapping = cmp.mapping.preset.insert{
-          ['<Tab>'] = tab_mapping,
-          ['<S-Tab>'] = shift_tab_mapping,
-          ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+        completion = {
+          documentation = { auto_show = true },
+          ghost_text = { enabled = true },
         },
-        sources = cmp.config.sources(
-          {
-            { name = 'nvim_lsp' },
-            { name = 'nvim_lua' },
+
+        cmdline = {
+          keymap = { preset = 'inherit' },
+          completion = {
+            menu = { auto_show = true },
           },
-          {
-            { name = 'buffer', keyword_length = 4 },
-          }
-        ),
-        experimental = {
-          ghost_text = true,
         },
-      })
 
-      cmp.setup.cmdline('/', {
-        mapping = cmp.mapping.preset.cmdline(),
         sources = {
-          { name = 'buffer', keyword_length = 6 }
+          providers = {
+            buffer = {
+              min_keyword_length = 4
+            }
+          }
         }
       })
-
-      cmp.setup.cmdline(':', {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources(
-          {
-            { name = 'path', keyword_length = 5 },
-          },
-          {
-            { name = 'cmdline', keyword_length = 3 },
-          }
-        ),
-      })
     end
-  },
-  { name = 'cmp-buffer', src = gh('hrsh7th/cmp-buffer') },
-  { name = 'cmp-path', src = gh('hrsh7th/cmp-path') },
-  { name = 'cmp-cmdline', src = gh('hrsh7th/cmp-cmdline') },
-  { name = 'cmp-nvim-lua', src = gh('hrsh7th/cmp-nvim-lua') },
-  { name = 'cmp-nvim-lsp', src = gh('hrsh7th/cmp-nvim-lsp') },
+  }
 }
 
 local plugin_defs = {}
