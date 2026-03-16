@@ -183,8 +183,6 @@ local plugins = {
     end
   },
 
-  -- Support for extra filetypes
-  { name = 'pgsql.vim', src = gh('lifepillar/pgsql.vim') },
 
   -- Experiments
   { name = 'saghen/blink.cmp', src = gh('saghen/blink.cmp'),

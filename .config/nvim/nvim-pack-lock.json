@@ -55,10 +55,6 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
-    "pgsql.vim": {
-      "rev": "16584d7a1f2c528560a646a63625c6731a72c8c7",
-      "src": "https://github.com/lifepillar/pgsql.vim"
-    },
     "vim-dirvish": {
       "rev": "6be56227a4207c93cd8b607f52f567a1e13dddb1",
       "src": "https://github.com/justinmk/vim-dirvish"
