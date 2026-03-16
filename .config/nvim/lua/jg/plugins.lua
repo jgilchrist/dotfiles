@@ -76,7 +76,8 @@ local plugins = {
   { name = 'mini.extra', src = gh('echasnovski/mini.extra') }, -- Dependency of mini.a
   { name = 'mini.ai', src = gh('echasnovski/mini.ai'),
     config = function()
-      require('mini.extra').setup()
+      local MiniExtra = require('mini.extra')
+      MiniExtra.setup()
       local ai = require('mini.ai')
 
       ai.setup({
