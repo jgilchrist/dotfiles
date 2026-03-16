@@ -71,8 +71,6 @@ local plugins = {
   },
 
   -- Extensions to vim's language
-  { name = 'vim-repeat', src = gh('tpope/vim-repeat') },
-
   { name = 'mini.extra', src = gh('echasnovski/mini.extra') }, -- Dependency of mini.a
   { name = 'mini.ai', src = gh('echasnovski/mini.ai'),
     config = function()
