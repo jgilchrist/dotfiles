@@ -183,8 +183,6 @@ local plugins = {
     end
   },
 
-
-  -- Experiments
   { name = 'saghen/blink.cmp', src = gh('saghen/blink.cmp'),
     version = vim.version.range("v1.x.x"),
     install = function()
