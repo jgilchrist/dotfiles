@@ -2,7 +2,7 @@ local M = {}
 
 local util = require'jg.util'
 local lang = require'jg.lang'
-
+local pack = require'jg.pack'
 local augroup = util.augroup
 
 local function gh(repo)
@@ -10,7 +10,7 @@ local function gh(repo)
 end
 
 local plugins = {
-  { name = 'nvim-treesitter', src = gh 'nvim-treesitter/nvim-treesitter', version = 'main',
+  { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main',
     install = function()
       local treesitter = require'nvim-treesitter'
       treesitter.setup()
@@ -33,8 +33,8 @@ local plugins = {
   },
 
   -- Extensions to vim's language
-  { name = 'mini.extra', src = gh 'echasnovski/mini.extra' }, -- Dependency of mini.a
-  { name = 'mini.ai', src = gh 'echasnovski/mini.ai',
+  { src = gh 'echasnovski/mini.extra' }, -- Dependency of mini.a
+  { src = gh 'echasnovski/mini.ai',
     config = function()
       local MiniExtra = require('mini.extra')
       MiniExtra.setup()
@@ -51,12 +51,13 @@ local plugins = {
     end
   },
 
-  { name = 'nvim-surround', src = gh 'kylechui/nvim-surround', version = vim.version.range("4.x.x"),
+  { src = gh 'kylechui/nvim-surround', version = vim.version.range("4.x.x"),
     config = function()
       require'nvim-surround'.setup()
     end
   },
-  { name = 'leap.nvim', src = 'https://codeberg.org/andyg/leap.nvim',
+
+  { src = 'https://codeberg.org/andyg/leap.nvim',
     config = function()
       local leap = require'leap'
 
@@ -68,10 +69,10 @@ local plugins = {
     end
   },
 
-  { name = 'vim-exchange', src = gh 'tommcdo/vim-exchange' },
+  { src = gh 'tommcdo/vim-exchange' },
 
   -- File management
-  { name = 'vim-dirvish', src = gh 'justinmk/vim-dirvish',
+  { src = gh 'justinmk/vim-dirvish',
     config = function()
       vim.g.dirvish_mode = ':sort | sort ,^.*/,'
 
@@ -83,12 +84,12 @@ local plugins = {
     end
   },
 
-  { name = 'fzf', src = gh 'junegunn/fzf',
+  { src = gh 'junegunn/fzf',
     install = function()
       vim.cmd(':call fzf#install()')
     end
   },
-  { name = 'fzf-lua', src = gh 'ibhagwan/fzf-lua',
+  { src = gh 'ibhagwan/fzf-lua',
     config = function()
       local fzflua = require'fzf-lua'
 
@@ -106,12 +107,12 @@ local plugins = {
     end
   },
 
-  { name = 'vim-eunuch', src = gh 'tpope/vim-eunuch' },
+  { src = gh 'tpope/vim-eunuch' },
 
-  { name = 'vim-fugitive', src = gh 'tpope/vim-fugitive' },
+  { src = gh 'tpope/vim-fugitive' },
 
   -- Appearance
-  { name = 'github-nvim-theme', src = gh 'projekt0n/github-nvim-theme',
+  { src = gh 'projekt0n/github-nvim-theme',
     config = function()
       require('github-theme').setup({
         options = {
@@ -124,7 +125,8 @@ local plugins = {
       vim.cmd('colorscheme github_dark_high_contrast')
     end
   },
-  { name = 'lualine.nvim', src = gh 'nvim-lualine/lualine.nvim',
+
+  { src = gh 'nvim-lualine/lualine.nvim',
     config = function()
       require'lualine'.setup({
         options = {
@@ -144,7 +146,7 @@ local plugins = {
     end
   },
 
-  { name = 'saghen/blink.cmp', src = gh 'saghen/blink.cmp',
+  { src = gh 'saghen/blink.cmp',
     version = vim.version.range("v1.x.x"),
     install = function()
       vim.cmd(':BlinkCmp build')
@@ -187,50 +189,7 @@ local plugins = {
 }
 
 function M.setup()
-  local plugin_defs = {}
-
-  for _, plugin in ipairs(plugins) do
-    local plugin_def = { name = plugin.name, src = plugin.src }
-
-    if plugin.version then
-      plugin_def.version = plugin.version
-    end
-
-
-    table.insert(plugin_defs, plugin_def)
-  end
-
-  vim.pack.add(plugin_defs)
-
-  for _, plugin in ipairs(plugins) do
-    if plugin.config then
-      plugin.config()
-    end
-  end
-
-  augroup('pack_changed', function(autocmd)
-    autocmd('PackChanged', { callback = function(args)
-      local spec = args.data.spec
-      if not spec then return end
-
-      local kind = args.data.kind
-      if kind ~= 'update' then return end
-
-      local plugin_name = spec.name
-
-      for _, plugin in ipairs(plugins) do
-        if plugin.name == plugin_name then
-          if plugin.install then
-            vim.schedule(plugin.install)
-          end
-
-          return
-        end
-      end
-
-      vim.notify('Plugin ' .. plugin_name .. ' was updated but not found in plugin list', vim.log.levels.ERROR)
-    end })
-  end)
+  pack.setup(plugins)
 end
 
 return M
