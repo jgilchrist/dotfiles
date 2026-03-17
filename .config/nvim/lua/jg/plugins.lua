@@ -169,7 +169,16 @@ local plugins = {
           providers = {
             buffer = {
               min_keyword_length = 4
-            }
+            },
+
+            lsp = {
+              -- Don't include keywords in autocomplete
+              transform_items = function(_, items)
+                return vim.tbl_filter(function(item)
+                  return item.kind ~= require('blink.cmp.types').CompletionItemKind.Keyword
+                end, items)
+              end,
+            },
           }
         }
       })
