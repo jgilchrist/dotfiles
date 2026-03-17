@@ -10,7 +10,7 @@ local function gh(repo)
 end
 
 local plugins = {
-  { name = 'nvim-treesitter', src = gh('nvim-treesitter/nvim-treesitter'), version = 'main',
+  { name = 'nvim-treesitter', src = gh 'nvim-treesitter/nvim-treesitter', version = 'main',
     install = function()
       local treesitter = require'nvim-treesitter'
       treesitter.setup()
@@ -33,8 +33,8 @@ local plugins = {
   },
 
   -- Extensions to vim's language
-  { name = 'mini.extra', src = gh('echasnovski/mini.extra') }, -- Dependency of mini.a
-  { name = 'mini.ai', src = gh('echasnovski/mini.ai'),
+  { name = 'mini.extra', src = gh 'echasnovski/mini.extra' }, -- Dependency of mini.a
+  { name = 'mini.ai', src = gh 'echasnovski/mini.ai',
     config = function()
       local MiniExtra = require('mini.extra')
       MiniExtra.setup()
@@ -51,7 +51,7 @@ local plugins = {
     end
   },
 
-  { name = 'nvim-surround', src = gh('kylechui/nvim-surround'), version = vim.version.range("4.x.x"),
+  { name = 'nvim-surround', src = gh 'kylechui/nvim-surround', version = vim.version.range("4.x.x"),
     config = function()
       require'nvim-surround'.setup()
     end
@@ -68,10 +68,10 @@ local plugins = {
     end
   },
 
-  { name = 'vim-exchange', src = gh('tommcdo/vim-exchange') },
+  { name = 'vim-exchange', src = gh 'tommcdo/vim-exchange' },
 
   -- File management
-  { name = 'vim-dirvish', src = gh('justinmk/vim-dirvish'),
+  { name = 'vim-dirvish', src = gh 'justinmk/vim-dirvish',
     config = function()
       vim.g.dirvish_mode = ':sort | sort ,^.*/,'
 
@@ -83,12 +83,12 @@ local plugins = {
     end
   },
 
-  { name = 'fzf', src = gh('junegunn/fzf'),
+  { name = 'fzf', src = gh 'junegunn/fzf',
     install = function()
       vim.cmd(':call fzf#install()')
     end
   },
-  { name = 'fzf-lua', src = gh('ibhagwan/fzf-lua'),
+  { name = 'fzf-lua', src = gh 'ibhagwan/fzf-lua',
     config = function()
       local fzflua = require'fzf-lua'
 
@@ -106,12 +106,12 @@ local plugins = {
     end
   },
 
-  { name = 'vim-eunuch', src = gh('tpope/vim-eunuch') },
+  { name = 'vim-eunuch', src = gh 'tpope/vim-eunuch' },
 
-  { name = 'vim-fugitive', src = gh('tpope/vim-fugitive') },
+  { name = 'vim-fugitive', src = gh 'tpope/vim-fugitive' },
 
   -- Appearance
-  { name = 'github-nvim-theme', src = gh('projekt0n/github-nvim-theme'),
+  { name = 'github-nvim-theme', src = gh 'projekt0n/github-nvim-theme',
     config = function()
       require('github-theme').setup({
         options = {
@@ -124,7 +124,7 @@ local plugins = {
       vim.cmd('colorscheme github_dark_high_contrast')
     end
   },
-  { name = 'lualine.nvim', src = gh('nvim-lualine/lualine.nvim'),
+  { name = 'lualine.nvim', src = gh 'nvim-lualine/lualine.nvim',
     config = function()
       require'lualine'.setup({
         options = {
@@ -144,7 +144,7 @@ local plugins = {
     end
   },
 
-  { name = 'saghen/blink.cmp', src = gh('saghen/blink.cmp'),
+  { name = 'saghen/blink.cmp', src = gh 'saghen/blink.cmp',
     version = vim.version.range("v1.x.x"),
     install = function()
       vim.cmd(':BlinkCmp build')
