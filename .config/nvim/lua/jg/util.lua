@@ -20,7 +20,8 @@ function M.is_first_load()
   return not vim.g.jg_config_reloading
 end
 
-function M.augroup(name, autocmd_def_fn)
+function M.augroup(name_suffix, autocmd_def_fn)
+  local name = 'jg_'..name_suffix
   vim.api.nvim_create_augroup(name, { clear = true })
 
   local function define_autocmd_fn(event, opts)

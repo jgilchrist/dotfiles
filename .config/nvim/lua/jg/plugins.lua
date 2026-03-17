@@ -196,7 +196,7 @@ for _, plugin in ipairs(plugins) do
   end
 end
 
-augroup('jg_PackChanged', function(autocmd)
+augroup('pack_changed', function(autocmd)
   autocmd('PackChanged', { callback = function(args)
     local spec = args.data.spec
     if not spec then return end
