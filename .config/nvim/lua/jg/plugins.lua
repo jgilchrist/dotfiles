@@ -1,3 +1,5 @@
+local M = {}
+
 local util = require'jg.util'
 local lang = require'jg.lang'
 
@@ -175,47 +177,51 @@ local plugins = {
   }
 }
 
-local plugin_defs = {}
+function M.setup()
+  local plugin_defs = {}
 
-for _, plugin in ipairs(plugins) do
-  local plugin_def = { name = plugin.name, src = plugin.src }
+  for _, plugin in ipairs(plugins) do
+    local plugin_def = { name = plugin.name, src = plugin.src }
 
-  if plugin.version then
-    plugin_def.version = plugin.version
-  end
-
-
-  table.insert(plugin_defs, plugin_def)
-end
-
-vim.pack.add(plugin_defs)
-
-for _, plugin in ipairs(plugins) do
-  if plugin.config then
-    plugin.config()
-  end
-end
-
-augroup('pack_changed', function(autocmd)
-  autocmd('PackChanged', { callback = function(args)
-    local spec = args.data.spec
-    if not spec then return end
-
-    local kind = args.data.kind
-    if kind ~= 'update' then return end
-
-    local plugin_name = spec.name
-
-    for _, plugin in ipairs(plugins) do
-      if plugin.name == plugin_name then
-        if plugin.install then
-          vim.schedule(plugin.install)
-        end
-
-        return
-      end
+    if plugin.version then
+      plugin_def.version = plugin.version
     end
 
-    vim.notify('Plugin ' .. plugin_name .. ' was updated but not found in plugin list', vim.log.levels.ERROR)
-  end })
-end)
+
+    table.insert(plugin_defs, plugin_def)
+  end
+
+  vim.pack.add(plugin_defs)
+
+  for _, plugin in ipairs(plugins) do
+    if plugin.config then
+      plugin.config()
+    end
+  end
+
+  augroup('pack_changed', function(autocmd)
+    autocmd('PackChanged', { callback = function(args)
+      local spec = args.data.spec
+      if not spec then return end
+
+      local kind = args.data.kind
+      if kind ~= 'update' then return end
+
+      local plugin_name = spec.name
+
+      for _, plugin in ipairs(plugins) do
+        if plugin.name == plugin_name then
+          if plugin.install then
+            vim.schedule(plugin.install)
+          end
+
+          return
+        end
+      end
+
+      vim.notify('Plugin ' .. plugin_name .. ' was updated but not found in plugin list', vim.log.levels.ERROR)
+    end })
+  end)
+end
+
+return M

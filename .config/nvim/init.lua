@@ -9,9 +9,8 @@ vim.g.maplocalleader = ','
 -- Edit config - map this first so it still works if config loading fails
 vim.keymap.set('n', '<leader>ec', ':edit $MYVIMRC<CR>', { silent = true })
 
-require 'jg.plugins'
-require 'jg.disable_builtins'
-local util = require 'jg.util'
+require'jg.plugins'.setup()
+require'jg.disable_builtins'.disable_builtins()
 
 require'vim._core.ui2'.enable({})
 
@@ -19,6 +18,7 @@ require'vim._core.ui2'.enable({})
 
 local o = vim.o
 local opt = vim.opt
+local util = require 'jg.util'
 local augroup = util.augroup
 
 -- Don't show the intro message when starting Vim
