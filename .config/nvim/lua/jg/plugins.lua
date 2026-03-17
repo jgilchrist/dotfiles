@@ -1,4 +1,5 @@
 local util = require'jg.util'
+local lang = require'jg.lang'
 
 local augroup = util.augroup
 
@@ -9,61 +10,20 @@ end
 local plugins = {
   { name = 'nvim-treesitter', src = gh('nvim-treesitter/nvim-treesitter'), version = 'main',
     install = function()
-      vim.cmd(':TSUpdate')
+      local treesitter = require'nvim-treesitter'
+      treesitter.setup()
+      treesitter.install(lang.treesitter_parsers)
     end,
     config = function()
-      require'nvim-treesitter.config'.setup {
-        ensure_installed = {
-          'bash',
-          'c',
-          'c_sharp',
-          'cmake',
-          'comment',
-          'cpp',
-          'css',
-          'dockerfile',
-          'html',
-          'http',
-          'java',
-          'javascript',
-          'jsdoc',
-          'json',
-          'json5',
-          'jsonc',
-          'lua',
-          'make',
-          'markdown',
-          'markdown_inline',
-          'python',
-          'query',
-          'regex',
-          'rst',
-          'rust',
-          'scss',
-          'toml',
-          'tsx',
-          'typescript',
-          'vim',
-          'vue',
-          'yaml',
-        },
-        highlight = { enable = true, additional_vim_regex_highlighting = { 'markdown' } },
-        indent = { enable = true, },
-      }
+      local treesitter = require'nvim-treesitter'
+      treesitter.setup()
 
       augroup('treesitter_highlighting_enable', function(autocmd)
         autocmd('FileType', {
-          pattern = {
-            'c_sharp',
-            "lua",
-            "markdown",
-            "python",
-            "rust",
-            "typescript",
-            "vue"
-          },
+          pattern = lang.treesitter_filetypes,
           callback = function()
             vim.treesitter.start()
+            vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
           end,
         })
       end)
