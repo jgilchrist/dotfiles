@@ -41,7 +41,7 @@ function M.setup(plugins)
 
       local plugin_name = spec.name
 
-      for _, plugin in ipairs(plugins) do
+      for _, plugin in ipairs(pack_defs) do
         if plugin.name == plugin_name then
           if plugin.install then
             vim.schedule(plugin.install)
