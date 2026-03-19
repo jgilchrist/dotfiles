@@ -16,8 +16,6 @@ require'vim._core.ui2'.enable({})
 
 -- Settings {{{
 
-local o = vim.o
-local opt = vim.opt
 local util = require 'jg.util'
 local augroup = util.augroup
 
@@ -25,26 +23,26 @@ local augroup = util.augroup
 vim.opt.shortmess:append('I')
 
 -- Appearance
-o.number = true
-o.cursorline = true
-o.wrap = false
-o.scrolloff = 3
-o.sidescrolloff = 3
+vim.o.number = true
+vim.o.cursorline = true
+vim.o.wrap = false
+vim.o.scrolloff = 3
+vim.o.sidescrolloff = 3
 
-opt.listchars:append('tab:| ')
-opt.listchars:append('trail:∙')
-opt.listchars:append('extends:>')
-opt.listchars:append('precedes:<')
-opt.listchars:append('nbsp:‡')
+vim.opt.listchars:append('tab:| ')
+vim.opt.listchars:append('trail:∙')
+vim.opt.listchars:append('extends:>')
+vim.opt.listchars:append('precedes:<')
+vim.opt.listchars:append('nbsp:‡')
 
-o.showbreak = '↪ '
-o.breakindentopt = 'shift:2'
+vim.o.showbreak = '↪ '
+vim.o.breakindentopt = 'shift:2'
 
-o.wildmode='list:longest,full'
+vim.o.wildmode='list:longest,full'
 
 -- Indentation
-o.expandtab = true
-o.shiftround = true
+vim.o.expandtab = true
+vim.o.shiftround = true
 
 -- Don't set tabstop if we're reloading config, as we might ovewrite
 -- buffer-local values that have been set by after/
@@ -59,30 +57,30 @@ vim.opt.shiftwidth = 0
 vim.opt.softtabstop = -1
 
 -- Search
-o.ignorecase = true
-o.smartcase = true
-o.infercase = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.infercase = true
 
 -- Flash matching braces for 200ms
-o.showmatch = true
-o.matchtime = 2
+vim.o.showmatch = true
+vim.o.matchtime = 2
 
-o.undofile = true
+vim.o.undofile = true
 
 -- Redrawing
-o.lazyredraw = true
+vim.o.lazyredraw = true
 
-o.diffopt = 'filler,internal,algorithm:histogram,indent-heuristic'
+vim.o.diffopt = 'filler,internal,algorithm:histogram,indent-heuristic'
 
 -- Allow the cursor to move anywhere in visual block mode
-o.virtualedit = 'block'
+vim.o.virtualedit = 'block'
 
 -- Open splits to the right and to the bottom
-o.splitbelow = true
-o.splitright = true
+vim.o.splitbelow = true
+vim.o.splitright = true
 
 -- Use a border around floating windows
-o.winborder = 'rounded'
+vim.o.winborder = 'rounded'
 
 augroup('resize_splits', function(autocmd)
   autocmd('VimResized', { command = ':wincmd =' })
@@ -103,7 +101,7 @@ end)
 
 -- Use ripgrep for vim's :grep command
 if vim.fn.executable('rg') then
-  o.grepprg = 'rg --vimgrep --no-heading --smart-case'
+  vim.o.grepprg = 'rg --vimgrep --no-heading --smart-case'
 end
 
 -- }}}
