@@ -70,7 +70,10 @@ vim.o.undofile = true
 -- Redrawing
 vim.o.lazyredraw = true
 
-vim.o.diffopt = 'filler,internal,algorithm:histogram,indent-heuristic'
+-- Switch to recommended linematch:60 diffopt and enable the histogram algorithm
+vim.opt.diffopt:remove('linematch:40')
+vim.opt.diffopt:append('linematch:60')
+vim.opt.diffopt:append('algorithm:histogram')
 
 -- Allow the cursor to move anywhere in visual block mode
 vim.o.virtualedit = 'block'
