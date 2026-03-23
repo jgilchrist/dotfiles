@@ -185,6 +185,30 @@ local plugins = {
         }
       })
     end
+  },
+
+  -- LSP
+  { src = gh 'neovim/nvim-lspconfig' },
+  { src = gh 'mason-org/mason.nvim',
+    config = function ()
+      require'mason'.setup()
+    end
+  },
+  { src = gh 'mason-org/mason-lspconfig.nvim',
+    config = function ()
+      local capabilities = require('blink.cmp').get_lsp_capabilities({})
+
+      require'mason-lspconfig'.setup({
+        ensure_installed = { 'lua_ls', 'rust_analyzer' },
+        handlers = {
+          function(server_name)
+            require('lspconfig')[server_name].setup({
+              capabilities = capabilities,
+            })
+          end,
+        }
+      })
+    end
   }
 }
 

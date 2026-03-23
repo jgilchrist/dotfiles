@@ -107,6 +107,19 @@ if vim.fn.executable('rg') then
   vim.o.grepprg = 'rg --vimgrep --no-heading --smart-case'
 end
 
+vim.diagnostic.config({
+  underline = false,
+  virtual_text = {
+    prefix = "",
+    severity = nil,
+    source = "if_many",
+    format = nil,
+  },
+  signs = true,
+  severity_sort = true,
+  update_in_insert = false,
+})
+
 -- }}}
 
 -- Mappings {{{
