@@ -85,6 +85,20 @@ vim.o.splitright = true
 -- Use a border around floating windows
 vim.o.winborder = 'rounded'
 
+-- Configure diagnostics
+vim.diagnostic.config({
+  underline = false,
+  virtual_text = {
+    prefix = "",
+    severity = nil,
+    source = "if_many",
+    format = nil,
+  },
+  signs = true,
+  severity_sort = true,
+  update_in_insert = false,
+})
+
 augroup('resize_splits', function(autocmd)
   autocmd('VimResized', { command = ':wincmd =' })
 end)
@@ -106,19 +120,6 @@ end)
 if vim.fn.executable('rg') then
   vim.o.grepprg = 'rg --vimgrep --no-heading --smart-case'
 end
-
-vim.diagnostic.config({
-  underline = false,
-  virtual_text = {
-    prefix = "",
-    severity = nil,
-    source = "if_many",
-    format = nil,
-  },
-  signs = true,
-  severity_sort = true,
-  update_in_insert = false,
-})
 
 -- }}}
 
