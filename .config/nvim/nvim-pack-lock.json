@@ -6,11 +6,11 @@
       "version": "1.0.0 - 2.0.0"
     },
     "fzf": {
-      "rev": "f0a2f5ef145e9ea30596d52c7b7a814f6babf8fb",
+      "rev": "1acf980e95f59a755750a3e25b8973d9e732a9b0",
       "src": "https://github.com/junegunn/fzf"
     },
     "fzf-lua": {
-      "rev": "54669c347fe94d5be41322bd5526095f3e528713",
+      "rev": "bde73a6886b607246095aa59f396de5e0d036890",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "github-nvim-theme": {
@@ -18,7 +18,7 @@
       "src": "https://github.com/projekt0n/github-nvim-theme"
     },
     "leap.nvim": {
-      "rev": "774c452da3521d4434f912b6ca6dd97318aca4b0",
+      "rev": "e20f33507bd2d6c671b7273f797f2d3cf521ac61",
       "src": "https://codeberg.org/andyg/leap.nvim"
     },
     "mason-lspconfig.nvim": {
@@ -42,7 +42,7 @@
       "src": "https://github.com/nvim-mini/mini.statusline"
     },
     "nvim-lspconfig": {
-      "rev": "702f69fb167e9119f14adc4dfd4fcadf4d1b07a0",
+      "rev": "1a6d69206749a646ef28bfb39460610b14baff40",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
