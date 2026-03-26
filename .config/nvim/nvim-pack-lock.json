@@ -21,10 +21,6 @@
       "rev": "774c452da3521d4434f912b6ca6dd97318aca4b0",
       "src": "https://codeberg.org/andyg/leap.nvim"
     },
-    "lualine.nvim": {
-      "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
-      "src": "https://github.com/nvim-lualine/lualine.nvim"
-    },
     "mason-lspconfig.nvim": {
       "rev": "a979821a975897b88493843301950c456a725982",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
@@ -40,6 +36,10 @@
     "mini.extra": {
       "rev": "0ccc67319240cf8712f5f614db50c262eccd9db3",
       "src": "https://github.com/nvim-mini/mini.extra"
+    },
+    "mini.statusline": {
+      "rev": "8c3829d4ef02b693f68e43fc131b433f11049b2b",
+      "src": "https://github.com/nvim-mini/mini.statusline"
     },
     "nvim-lspconfig": {
       "rev": "702f69fb167e9119f14adc4dfd4fcadf4d1b07a0",

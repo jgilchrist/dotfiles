@@ -126,22 +126,29 @@ local plugins = {
     end
   },
 
-  { src = gh 'nvim-lualine/lualine.nvim',
-    config = function()
-      require'lualine'.setup({
-        options = {
-          theme = 'auto',
-          component_separators = '',
-          section_separators = '',
+  { src = gh 'nvim-mini/mini.statusline',
+    config = function ()
+      local MiniStatusline = require'mini.statusline'
+
+      MiniStatusline.setup({
+        content = {
+          active = function ()
+            local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+            local diagnostics   = MiniStatusline.section_diagnostics({ trunc_width = 75 })
+            local filename      = MiniStatusline.section_filename({ trunc_width = 140 })
+
+            return MiniStatusline.combine_groups({
+              { hl = mode_hl,                     strings = { mode } },
+              { hl = 'MiniStatuslineDevinfo',     strings = { diagnostics } },
+              '%<', -- Mark general truncate point
+              { hl = 'MiniStatuslineFilename',    strings = { filename } },
+              '%=', -- End left alignment
+              { hl = mode_hl,                     strings = { '%l:%v' } },
+            })
+          end
         },
-        sections = {
-          -- Remove diff/diagnostics info section
-          lualine_b = {},
-          -- Remove encoding and file format/type section
-          lualine_x = {},
-          -- Remove progress % section
-          lualine_y = {''},
-        },
+
+        use_icons = true
       })
     end
   },
