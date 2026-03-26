@@ -33,8 +33,8 @@ local plugins = {
   },
 
   -- Extensions to vim's language
-  { src = gh 'echasnovski/mini.extra' }, -- Dependency of mini.a
-  { src = gh 'echasnovski/mini.ai',
+  { src = gh 'nvim-mini/mini.extra' }, -- Dependency of mini.a
+  { src = gh 'nvim-mini/mini.ai',
     config = function()
       local MiniExtra = require('mini.extra')
       MiniExtra.setup()

@@ -35,11 +35,11 @@
     },
     "mini.ai": {
       "rev": "4b0a6207341d895b6cfe9bcb1e4d3e8607bfe4f4",
-      "src": "https://github.com/echasnovski/mini.ai"
+      "src": "https://github.com/nvim-mini/mini.ai"
     },
     "mini.extra": {
       "rev": "0ccc67319240cf8712f5f614db50c262eccd9db3",
-      "src": "https://github.com/echasnovski/mini.extra"
+      "src": "https://github.com/nvim-mini/mini.extra"
     },
     "nvim-lspconfig": {
       "rev": "702f69fb167e9119f14adc4dfd4fcadf4d1b07a0",
