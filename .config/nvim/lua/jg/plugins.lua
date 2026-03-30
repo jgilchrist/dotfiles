@@ -94,8 +94,6 @@ local plugins = {
     end
   },
 
-  { src = gh 'tpope/vim-eunuch' },
-
   { src = gh 'tpope/vim-fugitive' },
 
   -- Appearance

@@ -54,10 +54,6 @@
       "rev": "6be56227a4207c93cd8b607f52f567a1e13dddb1",
       "src": "https://github.com/justinmk/vim-dirvish"
     },
-    "vim-eunuch": {
-      "rev": "e86bb794a1c10a2edac130feb0ea590a00d03f1e",
-      "src": "https://github.com/tpope/vim-eunuch"
-    },
     "vim-exchange": {
       "rev": "d6c1e9790bcb8df27c483a37167459bbebe0112e",
       "src": "https://github.com/tommcdo/vim-exchange"
