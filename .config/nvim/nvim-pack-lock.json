@@ -37,14 +37,13 @@
       "rev": "8c3829d4ef02b693f68e43fc131b433f11049b2b",
       "src": "https://github.com/nvim-mini/mini.statusline"
     },
+    "mini.surround": {
+      "rev": "d205d1741d1fcc1f3117b4e839bf00f74ad72fa2",
+      "src": "https://github.com/nvim-mini/mini.surround"
+    },
     "nvim-lspconfig": {
       "rev": "1a6d69206749a646ef28bfb39460610b14baff40",
       "src": "https://github.com/neovim/nvim-lspconfig"
-    },
-    "nvim-surround": {
-      "rev": "61319d4bd1c5e336e197defa15bd104c51f0fb29",
-      "src": "https://github.com/kylechui/nvim-surround",
-      "version": "4.0.0 - 5.0.0"
     },
     "nvim-treesitter": {
       "rev": "2b50ab5ccbcd9e5708deb351308edd738adbf84c",

@@ -51,9 +51,9 @@ local plugins = {
     end
   },
 
-  { src = gh 'kylechui/nvim-surround', version = vim.version.range("4.x.x"),
+  { src = gh 'nvim-mini/mini.surround',
     config = function()
-      require'nvim-surround'.setup()
+      require('mini.surround').setup()
     end
   },
 
