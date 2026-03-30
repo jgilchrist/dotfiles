@@ -84,26 +84,13 @@ local plugins = {
     end
   },
 
-  { src = gh 'junegunn/fzf',
-    install = function()
-      vim.cmd(':call fzf#install()')
-    end
-  },
-  { src = gh 'ibhagwan/fzf-lua',
+  { src = gh 'nvim-mini/mini.pick',
     config = function()
-      local fzflua = require'fzf-lua'
+      require('mini.pick').setup()
 
-      fzflua.setup({
-        files = {
-          git_icons = false
-        }
-      })
-
-      fzflua.register_ui_select()
-
-      vim.keymap.set("n", "<C-P>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
-      vim.keymap.set("n", "<C-G>", "<cmd>lua require('fzf-lua').live_grep()<CR>", { silent = true })
-      vim.keymap.set("n", "<C-B>", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
+      vim.keymap.set("n", "<C-P>", "<cmd>lua require('mini.pick').builtin.files({ tool = 'git' })<CR>", { silent = true })
+      vim.keymap.set("n", "<C-G>", "<cmd>lua require('mini.pick').builtin.grep_live()<CR>", { silent = true })
+      vim.keymap.set("n", "<C-B>", "<cmd>lua require('mini.pick').builtin.buffers()<CR>", { silent = true })
     end
   },
 

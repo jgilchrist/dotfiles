@@ -5,14 +5,6 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
-    "fzf": {
-      "rev": "1acf980e95f59a755750a3e25b8973d9e732a9b0",
-      "src": "https://github.com/junegunn/fzf"
-    },
-    "fzf-lua": {
-      "rev": "bde73a6886b607246095aa59f396de5e0d036890",
-      "src": "https://github.com/ibhagwan/fzf-lua"
-    },
     "github-nvim-theme": {
       "rev": "c106c9472154d6b2c74b74565616b877ae8ed31d",
       "src": "https://github.com/projekt0n/github-nvim-theme"
@@ -36,6 +28,10 @@
     "mini.extra": {
       "rev": "0ccc67319240cf8712f5f614db50c262eccd9db3",
       "src": "https://github.com/nvim-mini/mini.extra"
+    },
+    "mini.pick": {
+      "rev": "fe079c2bd894a5ee70b62f23d819620ef40c4949",
+      "src": "https://github.com/nvim-mini/mini.pick"
     },
     "mini.statusline": {
       "rev": "8c3829d4ef02b693f68e43fc131b433f11049b2b",
