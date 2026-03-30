@@ -57,10 +57,6 @@
     "vim-exchange": {
       "rev": "d6c1e9790bcb8df27c483a37167459bbebe0112e",
       "src": "https://github.com/tommcdo/vim-exchange"
-    },
-    "vim-fugitive": {
-      "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
-      "src": "https://github.com/tpope/vim-fugitive"
     }
   }
 }

@@ -94,8 +94,6 @@ local plugins = {
     end
   },
 
-  { src = gh 'tpope/vim-fugitive' },
-
   -- Appearance
   { src = gh 'projekt0n/github-nvim-theme',
     config = function()
