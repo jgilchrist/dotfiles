@@ -7,8 +7,8 @@ vim.g.maplocalleader = ','
 -- Edit config - map this first so it still works if config loading fails
 vim.keymap.set('n', '<leader>ec', ':edit $MYVIMRC<CR>', { silent = true })
 
-require'jg.plugins'.setup()
 require'jg.disable_builtins'.disable_builtins()
+require'jg.plugins'.setup()
 
 require'vim._core.ui2'.enable({})
 
