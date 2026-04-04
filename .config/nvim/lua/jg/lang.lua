@@ -13,6 +13,7 @@ M.treesitter_parsers = {
   'http',
   'java',
   'javascript',
+  'jjdescription',
   'jsdoc',
   'json',
   'json5',
