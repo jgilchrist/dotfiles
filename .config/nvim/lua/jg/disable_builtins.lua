@@ -11,7 +11,6 @@ function M.disable_builtins()
 
   vim.g.loaded_getscript = 1
   vim.g.loaded_getscriptPlugin = 1
-  vim.g.loaded_2html_plugin = 1
 
   vim.g.loaded_netrw = 1
   vim.g.loaded_netrwPlugin = 1
