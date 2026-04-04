@@ -9,6 +9,7 @@ vim.keymap.set('n', '<leader>ec', ':edit $MYVIMRC<CR>', { silent = true })
 
 require'jg.disable_builtins'.disable_builtins()
 require'jg.plugins'.setup()
+require'jg.lang'.setup()
 
 require'vim._core.ui2'.enable({})
 

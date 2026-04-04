@@ -31,15 +31,6 @@ function M.augroup(name_suffix, autocmd_def_fn)
   autocmd_def_fn(define_autocmd_fn)
 end
 
-function M.use_indent(n)
-  vim.bo.tabstop = n
-end
-
-function M.use_text_mode()
-  vim.wo.wrap = true
-  vim.wo.linebreak = true
-end
-
 function M.disable_cursorline_follows_focus()
   M.augroup('cursorline_follows_focus', function() end)
 end
