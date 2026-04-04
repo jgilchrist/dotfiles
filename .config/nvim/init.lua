@@ -1,7 +1,5 @@
-local haslocalconfig, localconfig = pcall(require, 'jg.local')
-if haslocalconfig then
-  localconfig.preconfig()
-end
+local _, localconfig = pcall(require, 'jg.local')
+if localconfig.preconfig then localconfig.preconfig() end
 
 vim.g.mapleader = ','
 vim.g.maplocalleader = ','
@@ -176,8 +174,6 @@ vim.keymap.set('n', '<backspace>', '<C-^>', { silent = true })
 
 -- }}}
 
-if haslocalconfig then
-  localconfig.postconfig()
-end
+if localconfig.postconfig then localconfig.postconfig() end
 
 -- vim: set fdm=marker:
