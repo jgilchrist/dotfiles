@@ -120,11 +120,18 @@ local plugins = {
             local diagnostics   = MiniStatusline.section_diagnostics({ trunc_width = 75 })
             local filename      = MiniStatusline.section_filename({ trunc_width = 140 })
 
+            local function section_macro()
+              local reg = vim.fn.reg_recording()
+              if reg == "" then return "" end
+              return "● REC @" .. reg
+            end
+
             return MiniStatusline.combine_groups({
               { hl = mode_hl,                     strings = { mode } },
               { hl = 'MiniStatuslineDevinfo',     strings = { diagnostics } },
-              '%<', -- Mark general truncate point
               { hl = 'MiniStatuslineFilename',    strings = { filename } },
+              { hl = 'DiffDelete',                strings = { section_macro() } },
+              { hl = 'MiniStatuslineFilename',    strings = { '%<' } }, -- Mark general truncate point
               '%=', -- End left alignment
               { hl = mode_hl,                     strings = { '%l:%v' } },
             })
