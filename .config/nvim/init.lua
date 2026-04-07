@@ -147,9 +147,6 @@ vim.keymap.set('n', 'J', 'mzJ`z')
 
 -- }}}
 
--- Source configuration
-vim.keymap.set('n', '<leader>sc', util.reload_config, { silent = true })
-
 -- Easy split navigation
 vim.keymap.set('n', '<c-j>', '<c-w>j')
 vim.keymap.set('n', '<c-k>', '<c-w>k')
