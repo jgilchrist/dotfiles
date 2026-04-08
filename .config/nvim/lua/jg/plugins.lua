@@ -6,9 +6,8 @@ local pack = require'jg.pack'
 local augroup = util.augroup
 local is_nightly = util.is_nightly
 
-local function gh(repo)
-  return 'https://github.com/' .. repo
-end
+local function gh(repo) return 'https://github.com/' .. repo end
+local function cb(repo) return 'https://codeberg.org/' .. repo end
 
 local plugins = {
   { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main',
@@ -75,7 +74,7 @@ local plugins = {
     end
   },
 
-  { src = 'https://codeberg.org/andyg/leap.nvim',
+  { src = cb 'andyg/leap.nvim',
     config = function()
       local leap = require'leap'
 
