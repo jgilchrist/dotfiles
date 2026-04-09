@@ -8,7 +8,6 @@ vim.g.maplocalleader = ','
 vim.keymap.set('n', '<leader>ec', ':edit $MYVIMRC<CR>', { silent = true })
 
 require'jg.disable_builtins'
-require'jg.plugins'.setup()
 require'jg.lang'.setup()
 
 -- Settings {{{
@@ -221,6 +220,8 @@ vim.keymap.set('n', '<leader>eq', [[:<c-u><c-r><c-r>='let @q = '. string(getreg(
 vim.keymap.set('n', '<backspace>', '<C-^>', { silent = true })
 
 -- }}}
+
+require'jg.plugins'.setup()
 
 if localconfig.postconfig then localconfig.postconfig() end
 
