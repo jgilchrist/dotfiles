@@ -17,7 +17,6 @@ local util = require 'jg.util'
 local augroup = util.augroup
 
 -- UI2
-vim.o.cmdheight = 0
 require("vim._core.ui2").enable({
   enable = true,
   msg = {
