@@ -20,7 +20,6 @@ require("vim._core.ui2").enable({
   enable = true,
   msg = {
     targets = {
-      [""] = "msg",
       empty = "cmd",
       bufwrite = "msg",
       confirm = "cmd",
@@ -32,7 +31,7 @@ require("vim._core.ui2").enable({
       list_cmd = "pager",
       lua_error = "pager",
       lua_print = "msg",
-      progress = "pager",
+      progress = "msg",
       rpc_error = "pager",
       quickfix = "msg",
       search_cmd = "cmd",
@@ -41,11 +40,12 @@ require("vim._core.ui2").enable({
       shell_err = "pager",
       shell_out = "pager",
       shell_ret = "msg",
-      undo = "msg",
+      undo = "cmd",
       verbose = "pager",
       wildlist = "cmd",
       wmsg = "msg",
       typed_cmd = "cmd",
+      [""] = "cmd",
     },
     cmd = {
       height = 0.5,
