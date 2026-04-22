@@ -71,7 +71,7 @@ history = ["log", "-r", "last()"]
 showl = ["show", "@-"]
 
 drafts = ["log", "-r", "draft()"]
-restack = ["rebase", "--onto", "trunk()", "--source", "roots(draft_autorebase())", "--simplify-parents"]
+restack = ["rebase", "--onto", "trunk()", "--source", "roots(trunk()..) & draft_autorebase()", "--simplify-parents"]
 stack = ["rebase", "--after", "trunk()", "--before", "closest_merge(@)", "--revision"]
 
 [colors]
