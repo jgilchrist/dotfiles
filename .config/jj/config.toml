@@ -71,8 +71,22 @@ history = ["log", "-r", "last()"]
 showl = ["show", "@-"]
 
 drafts = ["log", "-r", "draft()"]
-restack = ["rebase", "--onto", "trunk()", "--source", "roots(trunk()..) & draft_autorebase()", "--simplify-parents"]
 stack = ["rebase", "--after", "trunk()", "--before", "closest_merge(@)", "--revision"]
+
+restack = ["restack-onto", "trunk()"]
+
+restack-onto = ["util", "exec", "--", "bash", "-c", """
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [ "$#" -ne 1 ]; then
+    echo "usage: restack-onto <rev>"
+    exit
+fi
+
+jj rebase --onto "exactly($1, 1)" --source "roots($1..) & draft_autorebase()" --simplify-parents
+""", ""]
+
 
 [colors]
 "diff context" = { dim = true }
