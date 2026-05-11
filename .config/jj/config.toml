@@ -40,12 +40,6 @@ bookmark-advance-to = 'closest_pushable(@)'
 
 "draft()" = "mutable() & mine()"
 
-# Drafts that should be autorebased when we run `jj autorebase`
-# draft_autorebase_ignore allows individual repositories to configure
-# changes that should be ignored.
-"draft_autorebase()" = "draft() ~ draft_autorebase_ignore()"
-"draft_autorebase_ignore()" = "none()"
-
 'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
 "closest_merge(to)" = "heads(::to & merges())"
 
@@ -84,7 +78,7 @@ if [ "$#" -ne 1 ]; then
     exit
 fi
 
-jj rebase --onto "exactly($1, 1)" --source "roots($1..) & draft_autorebase()" --simplify-parents
+jj rebase --onto "exactly($1, 1)" --source "roots($1..) & draft()" --simplify-parents
 """, ""]
 
 
