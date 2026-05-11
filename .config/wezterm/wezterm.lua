@@ -5,6 +5,8 @@ local config = wezterm.config_builder()
 config.initial_cols = 128;
 config.initial_rows = 40;
 
+config.adjust_window_size_when_changing_font_size = false
+
 config.colors = {
   foreground = '#E6EDF3',
   background = '#010409',
