@@ -89,7 +89,7 @@ jj rebase --onto "exactly($1, 1)" --source "roots($1..) & draft()" --simplify-pa
 "diff removed token" = { fg = "bright red", bg = "#330000" }
 
 [templates]
-git_push_bookmark = 'git_branch_prefix() ++ "change/" ++ change_id.short()'
+git_push_bookmark = 'git_branch_prefix() ++ change_id.short() ++ "/" ++ slugify(description)'
 
 log = '''
 if(root,
@@ -129,6 +129,18 @@ draft_commit_description = 'builtin_draft_commit_description_with_diff'
   coalesce(signature.name(), email_placeholder)'''
 
 'git_branch_prefix()' = ''
+
+'slugify(str)' = '''
+  truncate_end(
+    65,
+    str.first_line()
+      .replace(regex:'[^[[:alnum:]].]', '-')
+      .replace(regex:'-{2,}', '-')
+      .replace(regex:'\.{2,}', '.')
+      .replace(regex:'(^-+|-+$)', '')
+      .lower()
+  )
+'''
 
 [hints]
 resolving-conflicts = false
