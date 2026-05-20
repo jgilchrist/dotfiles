@@ -1,5 +1,6 @@
 local _, localconfig = pcall(require, 'jg.local')
 if localconfig.preconfig then localconfig.preconfig() end
+local is_nightly = vim.fn.has("nvim-0.13")
 
 vim.g.mapleader = ','
 vim.g.maplocalleader = ','
@@ -149,7 +150,12 @@ augroup('resize_splits', function(autocmd)
 end)
 
 augroup('highlight_yank', function(autocmd)
-  autocmd('TextYankPost', { callback = function() vim.highlight.on_yank { higroup='DiffAdd', timeout=130 } end })
+  if is_nightly then
+    autocmd('TextYankPost', { callback = function() vim.hl.hl_op { higroup='DiffAdd', timeout=130 } end })
+    autocmd('TextPutPost', { callback = function() vim.hl.hl_op { higroup='DiffAdd', timeout=130 } end })
+  else
+    autocmd('TextYankPost', { callback = function() vim.highlight.on_yank { higroup='DiffAdd', timeout=130 } end })
+  end
 end)
 
 augroup('cwindow_after_grep', function(autocmd)
