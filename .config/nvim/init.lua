@@ -1,6 +1,6 @@
 local _, localconfig = pcall(require, 'jg.local')
 if localconfig.preconfig then localconfig.preconfig() end
-local is_nightly = vim.fn.has("nvim-0.13")
+local is_nightly = vim.fn.has("nvim-0.13") == 1
 
 vim.g.mapleader = ','
 vim.g.maplocalleader = ','
