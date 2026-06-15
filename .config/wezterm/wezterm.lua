@@ -46,7 +46,7 @@ config.keys = {
 }
 
 config.quick_select_patterns = {
-  '(?=[a-zA-Z-]+-)([a-zA-Z-]+)'
+  '(?=[a-zA-Z0-9-]+-)([a-zA-Z0-9-]+)'
 }
 
 config.quick_select_remove_styling = true
