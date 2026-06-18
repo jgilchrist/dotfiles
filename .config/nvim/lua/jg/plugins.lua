@@ -4,6 +4,7 @@ local util = require'jg.util'
 local lang = require'jg.lang'
 local pack = require'jg.pack'
 local augroup = util.augroup
+local is_nightly = util.is_nightly
 
 local function gh(repo)
   return 'https://github.com/' .. repo
@@ -33,8 +34,9 @@ local plugins = {
   },
 
   -- Extensions to vim's language
-  { src = gh 'nvim-mini/mini.extra' }, -- Dependency of mini.ai
+  { src = gh 'nvim-mini/mini.extra', disable = is_nightly }, -- Dependency of mini.ai
   { src = gh 'nvim-mini/mini.ai',
+    disable = is_nightly,
     config = function()
       local MiniExtra = require('mini.extra')
       MiniExtra.setup()
@@ -73,6 +75,7 @@ local plugins = {
 
   -- File management
   { src = gh 'justinmk/vim-dirvish',
+    disable = is_nightly,
     config = function()
       vim.g.dirvish_mode = ':sort | sort ,^.*/,'
 
