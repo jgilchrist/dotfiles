@@ -1,5 +1,7 @@
 local M = {}
 
+M.is_nightly = vim.fn.has("nvim-0.13") == 1
+
 function M.reload_config()
   vim.g.jg_config_reloading = true
 

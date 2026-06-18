@@ -1,6 +1,5 @@
 local _, localconfig = pcall(require, 'jg.local')
 if localconfig.preconfig then localconfig.preconfig() end
-local is_nightly = vim.fn.has("nvim-0.13") == 1
 
 vim.g.mapleader = ','
 vim.g.maplocalleader = ','
@@ -15,6 +14,7 @@ require'jg.lang'.setup()
 
 local util = require 'jg.util'
 local augroup = util.augroup
+local is_nightly = util.is_nightly
 
 -- UI2
 require("vim._core.ui2").enable({
