@@ -7,26 +7,28 @@ function M.setup(plugins)
   local pack_defs = {}
 
   for _, plugin in ipairs(plugins) do
-    local pack_def = { src = plugin.src }
+    if not plugin.disable then
+      local pack_def = { src = plugin.src }
 
-    if not plugin.name then
-      local parts = vim.split(plugin.src, '/')
-      pack_def.name = parts[#parts]
-    else
-      pack_def.name = plugin.name
+      if not plugin.name then
+        local parts = vim.split(plugin.src, '/')
+        pack_def.name = parts[#parts]
+      else
+        pack_def.name = plugin.name
+      end
+
+      if plugin.version then
+        pack_def.version = plugin.version
+      end
+
+      table.insert(pack_defs, pack_def)
     end
-
-    if plugin.version then
-      pack_def.version = plugin.version
-    end
-
-    table.insert(pack_defs, pack_def)
   end
 
   vim.pack.add(pack_defs)
 
   for _, plugin in ipairs(plugins) do
-    if plugin.config then
+    if not plugin.disable and plugin.config then
       plugin.config()
     end
   end
@@ -42,7 +44,7 @@ function M.setup(plugins)
       local plugin_name = spec.name
 
       for _, plugin in ipairs(pack_defs) do
-        if plugin.name == plugin_name then
+        if not plugin.disable and plugin.name == plugin_name then
           if plugin.install then
             vim.schedule(plugin.install)
           end
