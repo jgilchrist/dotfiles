@@ -41,10 +41,12 @@ function M.setup(plugins)
       local kind = args.data.kind
       if kind ~= 'update' then return end
 
+      if spec.disable then return end
+
       local plugin_name = spec.name
 
       for _, plugin in ipairs(pack_defs) do
-        if not plugin.disable and plugin.name == plugin_name then
+        if plugin.name == plugin_name then
           if plugin.install then
             vim.schedule(plugin.install)
           end
