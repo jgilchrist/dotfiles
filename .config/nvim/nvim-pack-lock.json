@@ -10,19 +10,19 @@
       "src": "https://github.com/projekt0n/github-nvim-theme"
     },
     "leap.nvim": {
-      "rev": "940bc5e716a8cde63bd47e1b13f30fd9075ec0c8",
+      "rev": "d7f8ee64155b7790188f17a993390f32577cfb81",
       "src": "https://codeberg.org/andyg/leap.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "7b01e2974a47d489bb92f47a41e4c0088ea8f86e",
+      "rev": "47059d71b42d74b0a1e9f61c1d99d301039c3b5b",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason.nvim": {
-      "rev": "cbf8d285e1462dd24acf3507817be2bbcb035919",
+      "rev": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d",
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.ai": {
-      "rev": "a783ce6e1a5b3bc90519f20b51f4a5f6702734af",
+      "rev": "cb20f298ebf5ae91924cd0c6c310712de2ef4086",
       "src": "https://github.com/nvim-mini/mini.ai"
     },
     "mini.extra": {
@@ -30,19 +30,19 @@
       "src": "https://github.com/nvim-mini/mini.extra"
     },
     "mini.pick": {
-      "rev": "0e25916ec4b0f3ad81329e529db55ef350ac9901",
+      "rev": "8c1f75f8ddd8c9f75d07ed2ab5718d2c3cb65a66",
       "src": "https://github.com/nvim-mini/mini.pick"
     },
     "mini.statusline": {
-      "rev": "7091f554d7d26b5d55f4c937634da53ba277a44a",
+      "rev": "6a136236ec93090c820c1d2a6139aa053b2199c9",
       "src": "https://github.com/nvim-mini/mini.statusline"
     },
     "mini.surround": {
-      "rev": "c375ea503646fe8393593b5fb8a40406eaa437b2",
+      "rev": "a2f644f3759edd3d3f8b6a6d55378408bfe6d290",
       "src": "https://github.com/nvim-mini/mini.surround"
     },
     "nvim-lspconfig": {
-      "rev": "246572944c2a1e2a646c2e7609ff619b0fe74c18",
+      "rev": "292f44408498103c47996ff5c18fd366293840d8",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -51,7 +51,7 @@
       "version": "'main'"
     },
     "vim-dirvish": {
-      "rev": "9525f46ccbf2dd585523fe3e3b72151554df3a42",
+      "rev": "09c60f20ddc248fa2955c58b3183d44e1885f151",
       "src": "https://github.com/justinmk/vim-dirvish"
     },
     "vim-exchange": {
