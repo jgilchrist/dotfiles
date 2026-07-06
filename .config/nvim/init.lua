@@ -7,7 +7,6 @@ vim.g.maplocalleader = ','
 -- Edit config - map this first so it still works if config loading fails
 vim.keymap.set('n', '<leader>ec', ':edit $MYVIMRC<CR>', { silent = true })
 
-require'jg.disable_builtins'
 require'jg.lang'.setup()
 
 -- Settings {{{
@@ -15,6 +14,8 @@ require'jg.lang'.setup()
 local util = require 'jg.util'
 local augroup = util.augroup
 local is_nightly = util.is_nightly
+
+vim.g.loaded_netrw = 1
 
 -- UI2
 require("vim._core.ui2").enable({
