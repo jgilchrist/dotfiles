@@ -29,6 +29,10 @@
       "rev": "cf027da13fd217cfe3af6ef978d0e947c7ee0f7a",
       "src": "https://github.com/nvim-mini/mini.extra"
     },
+    "mini.operators": {
+      "rev": "59c7f7362461a5db830a5752b22ce9f5cd25a966",
+      "src": "https://github.com/nvim-mini/mini.operators"
+    },
     "mini.pick": {
       "rev": "8c1f75f8ddd8c9f75d07ed2ab5718d2c3cb65a66",
       "src": "https://github.com/nvim-mini/mini.pick"
@@ -53,10 +57,6 @@
     "vim-dirvish": {
       "rev": "09c60f20ddc248fa2955c58b3183d44e1885f151",
       "src": "https://github.com/justinmk/vim-dirvish"
-    },
-    "vim-exchange": {
-      "rev": "d6c1e9790bcb8df27c483a37167459bbebe0112e",
-      "src": "https://github.com/tommcdo/vim-exchange"
     }
   }
 }

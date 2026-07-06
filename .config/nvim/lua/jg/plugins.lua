@@ -87,7 +87,20 @@ local plugins = {
     end
   },
 
-  { src = gh 'tommcdo/vim-exchange' },
+  { src = gh 'nvim-mini/mini.operators',
+    config = function ()
+      local operators = require('mini.operators')
+      operators.setup({
+        evaluate = { prefix = '' },
+        multiply = { prefix = '' },
+      })
+
+      operators.make_mappings(
+        'exchange',
+        { textobject = 'cx', line = 'cxx', selection = 'cx' }
+      )
+    end
+  },
 
   -- File management
   { src = gh 'justinmk/vim-dirvish',
