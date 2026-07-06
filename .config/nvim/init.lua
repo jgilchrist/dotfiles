@@ -226,6 +226,15 @@ vim.keymap.set('n', '<leader>eq', [[:<c-u><c-r><c-r>='let @q = '. string(getreg(
 -- Go back to the last buffer
 vim.keymap.set('n', '<backspace>', '<C-^>', { silent = true })
 
+vim.api.nvim_create_user_command('Remove', function ()
+  local confirm = vim.fn.confirm("Are you sure you want to delete this file?", "&Yes\n&No", 2)
+
+  if confirm == 1 then
+    os.remove(vim.fn.expand "%")
+    vim.api.nvim_buf_delete(0, { force = true })
+  end
+end, {})
+
 -- }}}
 
 require'jg.plugins'.setup()
