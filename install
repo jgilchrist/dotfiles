@@ -6,14 +6,14 @@ red="\033[1;31m"
 green="\033[1;32m"
 reset="\033[0m"
 
-if stow . --target="${HOME}" --no-folding; then
-    echo -e "${green}Linked dotfiles${reset}"
-else
-    echo -e "${red}Failed to link dotfiles${reset}"
-fi
-
 if stow local --target="${HOME}" --no-folding; then
     echo -e "${green}Linked local dotfiles${reset}"
 else
     echo -e "${red}Failed to link local dotfiles${reset}"
+fi
+
+if stow . --target="${HOME}" --no-folding --defer=".config/git/ignore"; then
+    echo -e "${green}Linked dotfiles${reset}"
+else
+    echo -e "${red}Failed to link dotfiles${reset}"
 fi
