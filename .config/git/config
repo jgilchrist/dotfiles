@@ -62,6 +62,9 @@
 [color]
     ui = auto
 
+[safe]
+    bareRepository = explicit
+
 [alias]
     aa = add --all
     ap = add --patch
