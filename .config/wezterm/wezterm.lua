@@ -9,6 +9,10 @@ config.window_close_confirmation = 'NeverPrompt'
 
 config.adjust_window_size_when_changing_font_size = false
 
+config.use_fancy_tab_bar = false
+config.show_new_tab_button_in_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = true
+
 config.colors = {
   foreground = '#E6EDF3',
   background = '#010409',
