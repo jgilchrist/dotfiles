@@ -120,7 +120,13 @@ if(root,
 )
 '''
 
-draft_commit_description = 'builtin_draft_commit_description_with_diff'
+draft_commit_description = '''
+concat(
+    builtin_draft_commit_description,
+    "JJ:\nJJ: ignore-rest\n",
+    diff.git(),
+)
+'''
 
 [template-aliases]
 'format_timestamp(timestamp)' = 'timestamp.ago()'
