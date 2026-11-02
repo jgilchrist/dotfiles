@@ -205,6 +205,9 @@ vim.keymap.set('n', '<c-k>', '<c-w>k')
 vim.keymap.set('n', '<c-h>', '<c-w>h')
 vim.keymap.set('n', '<c-l>', '<c-w>l')
 
+-- - switches to the directory viewer
+vim.keymap.set('n', '-', '<Plug>(nvim-dir-up)')
+
 -- gp selects the last pasted text
 vim.keymap.set('n', 'gp', '`[v`')
 
